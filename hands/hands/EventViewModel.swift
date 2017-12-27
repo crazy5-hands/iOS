@@ -11,15 +11,6 @@ import RealmSwift
 import UIKit
 
 
-enum EventsStatus {
-    case normal
-    case none
-    case update
-}
-
-protocol EventPresenter {
-    func loadEvents()
-}
 
 class Event: Object{
     dynamic var id = 0
