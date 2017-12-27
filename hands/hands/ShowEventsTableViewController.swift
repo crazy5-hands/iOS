@@ -8,12 +8,16 @@
 
 import UIKit
 
-class ShowEventsViewController: UIViewController {
+class ShowEventsTableViewController: UITableViewController {
+    
+    var objects = [EventViewModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.objects = EventViewModel.load()
+        let newObjects = self.objects.sorted(by: { $1.created.timeIntervalSince1970 < $0.created.timeIntervalSince1970 } )
+        self.objects = newObjects
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +35,13 @@ class ShowEventsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! EventTableViewCell
+        cell.update(objects[indexPath.row])
+        return cell
+    }
 }

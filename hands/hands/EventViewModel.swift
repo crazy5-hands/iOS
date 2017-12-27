@@ -11,6 +11,16 @@ import RealmSwift
 import UIKit
 
 
+enum EventsStatus {
+    case normal
+    case none
+    case update
+}
+
+protocol EventPresenter {
+    func loadEvents()
+}
+
 class Event: Object{
     dynamic var id = 0
     dynamic var title = ""
@@ -45,5 +55,57 @@ final class EventViewModel {
         return names
     }
     
+    static let dao = Model<Event>()
     
+    init(_ object: Event){
+        id = object.id
+        title = object.title
+        start = object.start
+        owner = object.owner
+        for i in object.member{
+            member.append(i)
+        }
+        budget = object.budget
+        memo = object.memo
+        created = object.created
+    }
+    
+    static func load() -> [EventViewModel]{
+        let object = dao.findAll()
+        return object.map{ EventViewModel($0) }
+    }
+    
+    static func create() -> EventViewModel {
+        let object = Event()
+        object.id = dao.newId()!
+        dao.add(d: object)
+        return EventViewModel(object)
+    }
+    
+    func update() {
+        let dao = type(of: self).dao
+        guard let object = dao.findFirst(key: id as AnyObject) else {
+            return
+        }
+        let new = Event()
+        new.id = object.id
+        new.title = title
+        new.start = start
+        new.owner = owner
+        for i in member {
+            new.member.append(i)
+        }
+        new.budget = budget
+        new.memo = memo
+        new.created = created
+        let _ = dao.update(d: new)
+    }
+    
+    func delete() {
+        let dao = type(of: self).dao
+        guard let object = dao.findFirst(key: id as AnyObject) else {
+            return
+        }
+        dao.delete(d: object)
+    }
 }

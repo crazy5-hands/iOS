@@ -18,11 +18,14 @@
 		E649CFB91FF3BE99005DC4BA /* handsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFB81FF3BE99005DC4BA /* handsUITests.swift */; };
 		E649CFC71FF3C0A2005DC4BA /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFC61FF3C0A2005DC4BA /* AddEventViewController.swift */; };
 		E649CFC91FF3C0D1005DC4BA /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */; };
-		E649CFCB1FF3C0FA005DC4BA /* ShowEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCA1FF3C0FA005DC4BA /* ShowEventsViewController.swift */; };
+		E649CFCB1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */; };
 		E649CFCD1FF3C116005DC4BA /* MyEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */; };
 		E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCE1FF3C19B005DC4BA /* Model.swift */; };
 		E649CFD11FF3C23D005DC4BA /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */; };
 		E649CFD31FF3CAD2005DC4BA /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */; };
+		E649CFD61FF3DD35005DC4BA /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD41FF3DD35005DC4BA /* EventTableViewCell.swift */; };
+		E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E649CFD51FF3DD35005DC4BA /* EventTableViewCell.xib */; };
+		E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD81FF3E030005DC4BA /* Customs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +68,14 @@
 		E649CFBA1FF3BE99005DC4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E649CFC61FF3C0A2005DC4BA /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
-		E649CFCA1FF3C0FA005DC4BA /* ShowEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventsViewController.swift; sourceTree = "<group>"; };
+		E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventsTableViewController.swift; sourceTree = "<group>"; };
 		E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventViewController.swift; sourceTree = "<group>"; };
 		E649CFCE1FF3C19B005DC4BA /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
+		E649CFD41FF3DD35005DC4BA /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		E649CFD51FF3DD35005DC4BA /* EventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		E649CFD81FF3E030005DC4BA /* Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +159,10 @@
 				E649CF9C1FF3BE99005DC4BA /* Main.storyboard */,
 				E649CFC61FF3C0A2005DC4BA /* AddEventViewController.swift */,
 				E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */,
-				E649CFCA1FF3C0FA005DC4BA /* ShowEventsViewController.swift */,
+				E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */,
+				E649CFD41FF3DD35005DC4BA /* EventTableViewCell.swift */,
+				E649CFD81FF3E030005DC4BA /* Customs.swift */,
+				E649CFD51FF3DD35005DC4BA /* EventTableViewCell.xib */,
 				E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */,
 				E649CFCE1FF3C19B005DC4BA /* Model.swift */,
 				E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */,
@@ -299,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 				E649CF9E1FF3BE99005DC4BA /* Main.storyboard in Resources */,
@@ -464,14 +474,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E649CFD61FF3DD35005DC4BA /* EventTableViewCell.swift in Sources */,
 				E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */,
 				E649CFC71FF3C0A2005DC4BA /* AddEventViewController.swift in Sources */,
 				E649CFD31FF3CAD2005DC4BA /* PersonViewModel.swift in Sources */,
 				E649CFC91FF3C0D1005DC4BA /* DetailEventViewController.swift in Sources */,
+				E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */,
 				E649CFCD1FF3C116005DC4BA /* MyEventViewController.swift in Sources */,
 				E649CFD11FF3C23D005DC4BA /* EventViewModel.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
-				E649CFCB1FF3C0FA005DC4BA /* ShowEventsViewController.swift in Sources */,
+				E649CFCB1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
