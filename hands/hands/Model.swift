@@ -116,4 +116,4 @@ class Model <T : RealmSwift.Object> {
             print(error.description)
         }
     }
-}
+} 

@@ -11,7 +11,6 @@
 		5EC04194C693D7CD5691DE06 /* Pods_handsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2FF5363E251954DB9D6691 /* Pods_handsTests.framework */; };
 		6613C7B47FC07050AED8E06C /* Pods_handsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F63A447E3891D0562C0F05A /* Pods_handsUITests.framework */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
-		E649CF9B1FF3BE99005DC4BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF9A1FF3BE99005DC4BA /* ViewController.swift */; };
 		E649CF9E1FF3BE99005DC4BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9C1FF3BE99005DC4BA /* Main.storyboard */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -22,6 +21,8 @@
 		E649CFCB1FF3C0FA005DC4BA /* ShowEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCA1FF3C0FA005DC4BA /* ShowEventsViewController.swift */; };
 		E649CFCD1FF3C116005DC4BA /* MyEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */; };
 		E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCE1FF3C19B005DC4BA /* Model.swift */; };
+		E649CFD11FF3C23D005DC4BA /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */; };
+		E649CFD31FF3CAD2005DC4BA /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,6 @@
 		D822B995C5A66D62FE81398C /* Pods-hands.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hands.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hands/Pods-hands.debug.xcconfig"; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E649CF9A1FF3BE99005DC4BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E649CF9D1FF3BE99005DC4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E649CFA21FF3BE99005DC4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,6 +68,8 @@
 		E649CFCA1FF3C0FA005DC4BA /* ShowEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventsViewController.swift; sourceTree = "<group>"; };
 		E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventViewController.swift; sourceTree = "<group>"; };
 		E649CFCE1FF3C19B005DC4BA /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,13 +150,14 @@
 			isa = PBXGroup;
 			children = (
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
-				E649CF9A1FF3BE99005DC4BA /* ViewController.swift */,
 				E649CF9C1FF3BE99005DC4BA /* Main.storyboard */,
 				E649CFC61FF3C0A2005DC4BA /* AddEventViewController.swift */,
 				E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */,
 				E649CFCA1FF3C0FA005DC4BA /* ShowEventsViewController.swift */,
 				E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */,
 				E649CFCE1FF3C19B005DC4BA /* Model.swift */,
+				E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */,
+				E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
 				E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */,
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
@@ -462,10 +465,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */,
-				E649CF9B1FF3BE99005DC4BA /* ViewController.swift in Sources */,
 				E649CFC71FF3C0A2005DC4BA /* AddEventViewController.swift in Sources */,
+				E649CFD31FF3CAD2005DC4BA /* PersonViewModel.swift in Sources */,
 				E649CFC91FF3C0D1005DC4BA /* DetailEventViewController.swift in Sources */,
 				E649CFCD1FF3C116005DC4BA /* MyEventViewController.swift in Sources */,
+				E649CFD11FF3C23D005DC4BA /* EventViewModel.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E649CFCB1FF3C0FA005DC4BA /* ShowEventsViewController.swift in Sources */,
 			);
