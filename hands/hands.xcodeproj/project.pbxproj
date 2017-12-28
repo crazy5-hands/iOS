@@ -16,7 +16,7 @@
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
 		E649CFAE1FF3BE99005DC4BA /* handsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFAD1FF3BE99005DC4BA /* handsTests.swift */; };
 		E649CFB91FF3BE99005DC4BA /* handsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFB81FF3BE99005DC4BA /* handsUITests.swift */; };
-		E649CFC71FF3C0A2005DC4BA /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFC61FF3C0A2005DC4BA /* AddEventViewController.swift */; };
+		E649CFC71FF3C0A2005DC4BA /* AddEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */; };
 		E649CFC91FF3C0D1005DC4BA /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */; };
 		E649CFCB1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */; };
 		E649CFCD1FF3C116005DC4BA /* MyEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */; };
@@ -66,7 +66,7 @@
 		E649CFB41FF3BE99005DC4BA /* handsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = handsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CFB81FF3BE99005DC4BA /* handsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handsUITests.swift; sourceTree = "<group>"; };
 		E649CFBA1FF3BE99005DC4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E649CFC61FF3C0A2005DC4BA /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventTableViewController.swift; sourceTree = "<group>"; };
 		E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowEventsTableViewController.swift; sourceTree = "<group>"; };
 		E649CFCC1FF3C116005DC4BA /* MyEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			children = (
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
 				E649CF9C1FF3BE99005DC4BA /* Main.storyboard */,
-				E649CFC61FF3C0A2005DC4BA /* AddEventViewController.swift */,
+				E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */,
 				E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */,
 				E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */,
 				E649CFD41FF3DD35005DC4BA /* EventTableViewCell.swift */,
@@ -269,6 +269,7 @@
 				TargetAttributes = {
 					E649CF941FF3BE99005DC4BA = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VTFR494599;
 						ProvisioningStyle = Automatic;
 					};
 					E649CFA81FF3BE99005DC4BA = {
@@ -476,7 +477,7 @@
 			files = (
 				E649CFD61FF3DD35005DC4BA /* EventTableViewCell.swift in Sources */,
 				E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */,
-				E649CFC71FF3C0A2005DC4BA /* AddEventViewController.swift in Sources */,
+				E649CFC71FF3C0A2005DC4BA /* AddEventTableViewController.swift in Sources */,
 				E649CFD31FF3CAD2005DC4BA /* PersonViewModel.swift in Sources */,
 				E649CFC91FF3C0D1005DC4BA /* DetailEventViewController.swift in Sources */,
 				E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */,
@@ -638,7 +639,9 @@
 			baseConfigurationReference = D822B995C5A66D62FE81398C /* Pods-hands.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VTFR494599;
 				INFOPLIST_FILE = hands/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KoYamaura.hands;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -651,7 +654,9 @@
 			baseConfigurationReference = 4F64F49378AE1C8DEC8F7163 /* Pods-hands.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VTFR494599;
 				INFOPLIST_FILE = hands/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = KoYamaura.hands;
 				PRODUCT_NAME = "$(TARGET_NAME)";

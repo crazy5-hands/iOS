@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="msD-BL-0T3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -74,6 +74,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krV-2D-k7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2116" y="241.52923538230885"/>
+        </scene>
+        <!--Add Event Table View Controller-->
+        <scene sceneID="kK9-Pf-vmi">
+            <objects>
+                <tableViewController id="msD-BL-0T3" customClass="AddEventTableViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wov-EG-FGr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" id="Jix-aj-xQ7">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jix-aj-xQ7" id="Lra-og-zFe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePicker" rowHeight="244" id="QI8-IU-TkC">
+                                <rect key="frame" x="0.0" y="72" width="375" height="244"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QI8-IU-TkC" id="1y0-zi-oLv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="243.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="C7h-gp-mwd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="243.5"/>
+                                            <date key="date" timeIntervalSinceReferenceDate="536161863.23096699">
+                                                <!--2017-12-28 13:51:03 +0000-->
+                                            </date>
+                                        </datePicker>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="C7h-gp-mwd" secondAttribute="bottom" id="66R-a1-LgD"/>
+                                        <constraint firstAttribute="trailing" secondItem="C7h-gp-mwd" secondAttribute="trailing" id="MfK-KE-qs6"/>
+                                        <constraint firstItem="C7h-gp-mwd" firstAttribute="top" secondItem="1y0-zi-oLv" secondAttribute="top" id="NgK-Wb-88f"/>
+                                        <constraint firstItem="C7h-gp-mwd" firstAttribute="leading" secondItem="1y0-zi-oLv" secondAttribute="leading" id="hr6-eC-tyC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="otherCell" id="mQg-yZ-cQ0">
+                                <rect key="frame" x="0.0" y="316" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mQg-yZ-cQ0" id="Q5x-8B-cnW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="msD-BL-0T3" id="RU1-GC-sM6"/>
+                            <outlet property="delegate" destination="msD-BL-0T3" id="fkQ-68-cvk"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZDw-84-QLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3309.5999999999999" y="-485.30734632683664"/>
         </scene>
         <!--Detail Event View Controller-->
         <scene sceneID="xyP-EL-bqM">
@@ -184,6 +242,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytc-Bp-1RH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2057" y="1774"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kf8-Xb-mjs">
+            <objects>
+                <viewController id="UQD-Nz-EfC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pox-4g-YfZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="CIG-ex-E54"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hba-f0-t6E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gg-Ss-8Yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3310" y="1761"/>
         </scene>
         <!--Item-->
         <scene sceneID="aAg-dK-4m5">
