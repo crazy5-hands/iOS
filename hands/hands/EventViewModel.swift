@@ -18,7 +18,6 @@ class Event: Object{
     dynamic var start = NSDate()
     dynamic var owner = Person()
     var member = List<Person>()
-//    dynamic var budget = 0
     dynamic var memo = ""
     dynamic var created = NSDate()
 }
@@ -30,7 +29,6 @@ final class EventViewModel {
     var start = NSDate()
     var owner = Person()
     var member = [Person]()
-    var budget = 0
     var memo = ""
     var created = NSDate()
     
@@ -56,7 +54,6 @@ final class EventViewModel {
         for i in object.member{
             member.append(i)
         }
-        budget = object.budget
         memo = object.memo
         created = object.created
     }
@@ -86,7 +83,6 @@ final class EventViewModel {
         for i in member {
             new.member.append(i)
         }
-        new.budget = budget
         new.memo = memo
         new.created = created
         let _ = dao.update(d: new)

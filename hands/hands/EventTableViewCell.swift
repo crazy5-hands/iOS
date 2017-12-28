@@ -12,7 +12,6 @@ class EventTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var start: UILabel!
-    @IBOutlet weak var budget: UILabel!
     @IBOutlet weak var member: UILabel!
     
     override func awakeFromNib() {
@@ -29,7 +28,6 @@ class EventTableViewCell: UITableViewCell {
     func update(_ object: EventViewModel){
         title.text = object.title
         start.text = DateUtils.stringFromDate(date: object.start)
-        budget.text = "\(object.budget)" + "円"
         var names = String()
         for i in object.memberName{
             names = names + i
