@@ -7,16 +7,28 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
 
 class ShowEventsTableViewController: UITableViewController {
     
+    let disposeBag = DisposeBag()
     var objects = [EventViewModel]()
+    let items = Observable<[EventViewModel]>.just(EventViewModel.load())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.objects = EventViewModel.load()
-        let newObjects = self.objects.sorted(by: { $1.created.timeIntervalSince1970 < $0.created.timeIntervalSince1970 } )
-        self.objects = newObjects
+        items.bind(to: self.tableView.rx.items(cellIdentifier: "cell", cellType: EventTableViewCell.self)){ (row, element, cell) in
+            cell.update(element)
+            
+            }.disposed(by: disposeBag)
+        
+        tableView.rx
+            .itemAccessoryButtonTapped
+            .subscribe { (indexPath) in
+                print("\(String(describing: indexPath.element?.row))")
+            }.disposed(by: disposeBag)
         
     }
 
@@ -31,13 +43,13 @@ class ShowEventsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! EventTableViewCell
-        cell.update(objects[indexPath.row])
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! EventTableViewCell
+//        cell.update(objects[indexPath.row])
+//        return cell
+//    }
 }

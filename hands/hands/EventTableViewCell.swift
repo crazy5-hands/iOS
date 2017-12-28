@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class EventTableViewCell: UITableViewCell {
 
+    var disposeBag = DisposeBag()
+    
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var start: UILabel!
     @IBOutlet weak var member: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +28,11 @@ class EventTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        self.prepareForReuse()
+        self.disposeBag = DisposeBag()
     }
     
     func update(_ object: EventViewModel){

@@ -6,7 +6,9 @@ target 'hands' do
   use_frameworks!
   
   pod 'RealmSwift', '2.4.3'
-  
+  pod 'RxSwift', '3.6.1'
+  pod 'RxCocoa', '3.6.1'
+
   target 'handsTests' do
     inherit! :search_paths
     # Pods for testing

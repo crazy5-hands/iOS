@@ -10,6 +10,8 @@ import UIKit
 
 class AddEventViewController: UIViewController {
 
+    let new = EventViewModel.create()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +23,9 @@ class AddEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func save() {
+        new.update()
+    }
     /*
     // MARK: - Navigation
 
