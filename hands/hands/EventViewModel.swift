@@ -18,7 +18,7 @@ class Event: Object{
     dynamic var start = NSDate()
     dynamic var owner = Person()
     var member = List<Person>()
-    dynamic var budget = 0
+//    dynamic var budget = 0
     dynamic var memo = ""
     dynamic var created = NSDate()
 }
