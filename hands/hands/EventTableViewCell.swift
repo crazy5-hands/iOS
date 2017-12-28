@@ -30,10 +30,10 @@ class EventTableViewCell: UITableViewCell {
         title.text = object.title
         start.text = DateUtils.stringFromDate(date: object.start)
         budget.text = "\(object.budget)" + "円"
-        let names: String
+        var names = String()
         for i in object.memberName{
-            names.append(i + "、")
+            names = names + i
         }
+        member.text = names
     }
-    
 }
