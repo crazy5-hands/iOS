@@ -8,67 +8,155 @@
 
 import UIKit
 
+let pickerAnimationDuration = 0.40 // duration for the animation to slide the date picker into view
+let datePickerTag           = 99   // view tag identifiying the date picker view
+let titleKey = "title" // key for obtaining the data source item's title
+let dateKey  = "date"  // key for obtaining the data source item's date value
+// keep track of which rows have date cells
+let dateStartRow = 1
+let dateEndRow   = 2
+
+let dateCellID   = "dateCell"   // the cells with the start or end date
+let datePickerID = "datePicker" // the cell containing the date picker
+let otherCell    = "otherCell"  // the remaining cells at the end
 class AddEventTableViewController: UITableViewController {
     
-    let datePickerTag = 99
-    let dateStartRow = 1
-    let dateEndRow   = 2
-    
+    var dataArray = [[String: AnyObject]]()
     var dateFormatter: DateFormatter = {
         var dateFormatter = DateFormatter()
         
-        dateFormatter.dateStyle = .short // show short-style date format
+        dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         
         return dateFormatter
     }()
     
+    // keep track which indexPath points to the cell with UIDatePicker
+    var datePickerIndexPath: NSIndexPath?
+    
     lazy var pickerCellRowHeight: CGFloat = {
         [unowned self] in
         
         // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
-        let pickerViewCellToCheck = self.tableView.dequeueReusableCell(withIdentifier: "datePicker")
+        let pickerViewCellToCheck = self.tableView.dequeueReusableCell(withIdentifier: datePickerID)
         
         return pickerViewCellToCheck!.frame.height
         }()
     
-    var datePickerIndexPath: IndexPath?
-    var dataArray = [[String: AnyObject]]()
-    
+    /// Primary view has been loaded for this view controller
+    ///
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let itemOne: [String: AnyObject] = ["title": "Tap a cell to change its date:" as AnyObject]
-        let itemTwo: [String: AnyObject] = ["title": "Start Date" as AnyObject, "date": NSDate()]
-        let itemThree: [String: AnyObject] = ["title": "End Date" as AnyObject, "date": NSDate()]
-        let itemFour: [String: AnyObject] = ["title": "(other item1)" as AnyObject]
-        let itemFive: [String: AnyObject] = ["title": "(other item2)" as AnyObject]
+        // setup our data source
+        let itemOne: [String: AnyObject] = [titleKey: "Tap a cell to change its date:" as AnyObject]
+        let itemTwo: [String: AnyObject] = [titleKey: "Start Date" as AnyObject, dateKey: NSDate()]
+        let itemThree: [String: AnyObject] = [titleKey: "End Date" as AnyObject, dateKey: NSDate()]
+        let itemFour: [String: AnyObject] = [titleKey: "(other item1)" as AnyObject]
+        let itemFive: [String: AnyObject] = [titleKey: "(other item2)" as AnyObject]
         self.dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
-
-
+        
+        // if the local changes while in the background, we need to be notified so we can update the date
+        // format in the table view cells
+        //
         NotificationCenter.default.addObserver(self, selector: Selector(("localeChanged:")), name: NSLocale.currentLocaleDidChangeNotification, object: nil)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSLocale.currentLocaleDidChangeNotification, object: nil)
+    }
+    
+    // MARK: - Locale
+    /// Responds to region format or locale changes.
+    ///
     func localeChanged(notif: NSNotification) {
+        // the user changed the locale (region format) in Settings, so we are notified here to
+        // update the date format in the table view cells
+        //
         self.tableView.reloadData()
     }
     
+    // MARK: - Utilities
+    /// Determines if the given indexPath has a cell below it with a UIDatePicker.
+    ///
+    /// - parameters:
+    ///   - indexPath: The indexPath to check if its cell has a UIDatePicker below it.
+    ///
+    func hasPickerForIndexPath(indexPath: NSIndexPath) -> Bool {
+        var hasDatePicker = false
+        
+        var targetedRow = indexPath.row
+        targetedRow += 1
+        
+        let checkDatePickerCell = self.tableView.cellForRow(at: IndexPath.init(row: targetedRow, section: 0))
+        let checkDatePicker = checkDatePickerCell?.viewWithTag(datePickerTag)
+        
+        hasDatePicker = checkDatePicker != nil
+        return hasDatePicker
+    }
     
-    //set up tableView
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.indexPathHasPicker(indexPath: indexPath) ? self.pickerCellRowHeight : self.tableView.rowHeight
+    /// Updates the UIDatePicker's value to match with the date of the cell above it.
+    ///
+    func updateDatePicker() {
+        if (self.datePickerIndexPath != nil) {
+            let associatedDatePickerCell = self.tableView.cellForRow(at: self.datePickerIndexPath! as IndexPath)
+            let targetedDatePicker = associatedDatePickerCell?.viewWithTag(datePickerTag) as? UIDatePicker
+            
+            if (targetedDatePicker != nil) {
+                // we found a UIDatePicker in this cell, so update it's date value
+                //
+                let itemData = self.dataArray[self.datePickerIndexPath!.row - 1]
+                targetedDatePicker!.setDate((itemData[dateKey] as! NSDate) as Date, animated: false)
+            }
+        }
+    }
+    
+    /// Determines if the UITableViewController has a UIDatePicker in any of its cells.
+    ///
+    func hasInlineDatePicker() -> Bool {
+        return self.datePickerIndexPath != nil
+    }
+    
+    /// Determines if the given indexPath points to a cell that contains the UIDatePicker.
+    ///
+    /// - parameters:
+    ///   - indexPath: The indexPath to check if it represents a cell with the UIDatePicker.
+    ///
+    func indexPathHasPicker(indexPath: NSIndexPath) -> Bool {
+        return self.hasInlineDatePicker() && self.datePickerIndexPath!.row == indexPath.row
+    }
+    
+    /// Determines if the given indexPath points to a cell that contains the start/end dates.
+    ///
+    /// - parameters:
+    ///   - indexPath: The indexPath to check if it represents start/end date cell.
+    ///
+    func indexPathHasDate(indexPath: NSIndexPath)-> Bool {
+        var hasDate = false
+        
+        if ((indexPath.row == dateStartRow) ||
+            (indexPath.row == dateEndRow || (self.hasInlineDatePicker() && (indexPath.row == dateEndRow + 1))))
+        {
+            hasDate = true
+        }
+        
+        return hasDate
+    }
+    
+    // MARK: - UITableViewDataSource
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.indexPathHasPicker(indexPath: indexPath as NSIndexPath) ? self.pickerCellRowHeight : self.tableView.rowHeight
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.hasInlineDatePicker()) {
             // we have a date picker, so allow for it in the number of rows in this section
             let numRows = self.dataArray.count
@@ -78,23 +166,24 @@ class AddEventTableViewController: UITableViewController {
         return self.dataArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell?
-        var cellID = "otherCell"
+        var cellID = otherCell
         
-        if (self.indexPathHasPicker(indexPath: indexPath)) {
+        if (self.indexPathHasPicker(indexPath: indexPath as NSIndexPath)) {
             // the indexPath is the one containing the inline date picker
-            cellID = "datePicker"     // the current/opened date picker cell
-        } else if (self.indexPathHasDate(indexPath: indexPath)) {
+            cellID = datePickerID;     // the current/opened date picker cell
+        } else if (self.indexPathHasDate(indexPath: indexPath as NSIndexPath)) {
             // the indexPath is one that contains the date information
-            cellID = "dateCell"     // the start/end date cells
+            cellID = dateCellID;       // the start/end date cells
         }
         
         cell = tableView.dequeueReusableCell(withIdentifier: cellID)
         
         if (indexPath.row == 0) {
             // we decide here that first cell in the table is not selectable (it's just an indicator)
-            cell!.selectionStyle = .none;
+            cell!.selectionStyle = UITableViewCellSelectionStyle.none;
         }
         
         // if we have a date picker open whose cell is above the cell we want to update,
@@ -108,85 +197,49 @@ class AddEventTableViewController: UITableViewController {
         let itemData = self.dataArray[modelRow]
         
         // proceed to configure our cell
-        if (cellID == "dateCell") {
+        if (cellID == dateCellID) {
             // we have either start or end date cells, populate their date field
             //
-            cell!.textLabel!.text = itemData["title"] as? String
-            cell!.detailTextLabel!.text = self.dateFormatter.string(from: (itemData["date"] as! NSDate) as Date)
-        } else if (cellID == "otherCell") {
+            cell!.textLabel!.text = itemData[titleKey] as? String
+            cell!.detailTextLabel!.text = self.dateFormatter.string(from: (itemData[dateKey] as! NSDate) as Date)
+        } else if (cellID == otherCell) {
             // this cell is a non-date cell, just assign it's text label
             //
-            cell!.textLabel!.text = itemData["title"] as? String
+            cell!.textLabel!.text = itemData[titleKey] as? String
         }
         
         return cell!
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRow(at: indexPath as IndexPath)
-        if (cell!.reuseIdentifier == "dateCell") {
-            self.displayInlineDatePickerForRowAtIndexPath(indexPath: indexPath as IndexPath)
+    /// Adds or removes a UIDatePicker cell below the given indexPath.
+    ///
+    /// - parameters:
+    ///   - indexPath: The indexPath to reveal the UIDatePicker.
+    ///
+    func toggleDatePickerForSelectedIndexPath(indexPath: NSIndexPath) {
+        self.tableView.beginUpdates()
+        
+        let indexPaths = [IndexPath.init(row: indexPath.row + 1, section: 0)]
+        
+        // check if 'indexPath' has an attached date picker below it
+        if (self.hasPickerForIndexPath(indexPath: indexPath)) {
+            // found a picker below it, so remove it
+            self.tableView.deleteRows(at: indexPaths, with: UITableViewRowAnimation.fade)
         } else {
-            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            // didn't find a picker below it, so we should insert it
+            self.tableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
         }
-    }
-}
-
-
-
-
-extension AddEventTableViewController{
-    
-    //選択されたセルの次のセルにUIDatePickerがあるかどうか確認する
-    func hasPickerForIndexPath(_ indexPath: IndexPath) -> Bool {
-        var hasDatePicker = false
         
-        var targetedRow = indexPath.row
-        targetedRow += 1
-        
-        let checkDatePickerCell = self.tableView.cellForRow(at: IndexPath(row: targetedRow, section: 0))
-        let checkDatePicker = checkDatePickerCell?.viewWithTag(datePickerTag)
-        
-        hasDatePicker = checkDatePicker != nil
-        return hasDatePicker
+        self.tableView.endUpdates()
     }
     
-    //UIDatePickerで選んだ日付と時間を一つ上のcellのラベルに代入する
-    func updateDatePicker() {
-        if (self.datePickerIndexPath != nil) {
-            let associatedDatePickerCell = self.tableView.cellForRow(at: self.datePickerIndexPath!)
-            let targetedDatePicker = associatedDatePickerCell?.viewWithTag(datePickerTag) as? UIDatePicker
-            
-            if (targetedDatePicker != nil) {
-                let itemData = self.dataArray[self.datePickerIndexPath!.row - 1]
-                targetedDatePicker!.setDate((itemData["date"] as! NSDate) as Date, animated: false)
-            }
-        }
-    }
-    
-    //選択されたセルがUIDatePickerを含むセルかどうかを判定
-    func indexPathHasPicker(indexPath: NSIndexPath) -> Bool {
-        return self.hasInlineDatePicker() && self.datePickerIndexPath!.row == indexPath.row
-    }
-    
-    func hasInlineDatePicker() -> Bool {
-        return self.datePickerIndexPath != nil
-    }
-    
-    //選択されたセルが日付を含むのかを判定
-    func indexPathHasDate(indexPath: NSIndexPath)-> Bool {
-        var hasDate = false
-        
-        if ((indexPath.row == dateStartRow) ||
-            (indexPath.row == dateEndRow || (self.hasInlineDatePicker() && (indexPath.row == dateEndRow + 1))))
-        {
-            hasDate = true
-        }
-        return hasDate
-    }
-    
-    //UIDatePickerを表示する
-    func displayInlineDatePickerForRowAtIndexPath(indexPath: IndexPath) {
+    /// Reveals the date picker inline for the given indexPath, called by "didSelectRowAtIndexPath".
+    ///
+    /// - parameters:
+    ///   - indexPath: The indexPath to reveal the UIDatePicker.
+    ///
+    func displayInlineDatePickerForRowAtIndexPath(indexPath: NSIndexPath) {
+        // display the date picker inline with the table content
         self.tableView.beginUpdates()
         
         var before = false   // indicates if the date picker is below "indexPath", help us determine which row to reveal
@@ -207,32 +260,47 @@ extension AddEventTableViewController{
             let rowToReveal = before ? indexPath.row - 1 : indexPath.row
             let indexPathToReveal = IndexPath.init(row: rowToReveal, section: 0)
             
-            self.toggleDatePickerForSelectedIndexPath(indexPath: indexPathToReveal)
-            self.datePickerIndexPath = IndexPath.init(row: indexPathToReveal.row + 1, section: 0)
+            self.toggleDatePickerForSelectedIndexPath(indexPath: indexPathToReveal as NSIndexPath)
+            self.datePickerIndexPath = IndexPath.init(row: indexPathToReveal.row + 1, section: 0) as NSIndexPath
         }
         
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        // always deselect the row containing the start or end date
+        self.tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        
         self.tableView.endUpdates()
         
         // inform our date picker of the current date to match the current cell
         self.updateDatePicker()
     }
     
-    //選択されたセルの下のUIDatePickerを表示・消す
-    func toggleDatePickerForSelectedIndexPath(indexPath: IndexPath) {
-        self.tableView.beginUpdates()
-        
-        let indexPaths = [IndexPath.init(row: indexPath.row + 1, section: 0)]
-        
-        // check if 'indexPath' has an attached date picker below it
-        if (self.hasPickerForIndexPath(indexPath)) {
-            // found a picker below it, so remove it
-            self.tableView.deleteRows(at: indexPaths, with: .fade)
+    // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath as IndexPath)
+        if (cell!.reuseIdentifier == dateCellID) {
+            self.displayInlineDatePickerForRowAtIndexPath(indexPath: indexPath as NSIndexPath)
         } else {
-            // didn't find a picker below it, so we should insert it
-            self.tableView.insertRows(at: indexPaths, with: .fade)
+            tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         }
-        
-        self.tableView.endUpdates()
+    }
+    
+    // MARK: - Actions
+    /// User chose to change the date by changing the values inside the UIDatePicker.
+    ///
+    /// - parameters:
+    ///   - sender: The sender for this action: UIDatePicker.
+    ///
+    @IBAction func dateAction(sender: UIDatePicker) {
+        if (self.datePickerIndexPath != nil) {
+            let targetedCellIndexPath = IndexPath.init(row: (self.datePickerIndexPath?.row)! - 1, section: 0)
+            let cell = self.tableView.cellForRow(at: targetedCellIndexPath)
+            let targetedDatePicker = sender
+            
+            // update our data model
+            var itemData = self.dataArray[targetedCellIndexPath.row]
+            itemData[dateKey] = targetedDatePicker.date as AnyObject
+            
+            // update the cell's date string
+            cell!.detailTextLabel!.text = self.dateFormatter.string(from: targetedDatePicker.date)
+        }
     }
 }
