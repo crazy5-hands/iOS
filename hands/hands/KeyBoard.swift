@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 
-/// MARK - キーボードに「閉じるボタン」の追加
-class KeyBoard: UIToolbar {
+//閉じるボタンの付いたキーボード
+class KeyBoard: UITextField{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,14 +23,17 @@ class KeyBoard: UIToolbar {
         commonInit()
     }
     
-    func commonInit(){
-        self.frame = CGRect(x: 0, y: 0, width: frame.width, height: 40)
+    private func commonInit(){
+        let tools = UIToolbar()
+        tools.frame = CGRect(x: 0, y: 0, width: frame.width, height: 40)
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(KeyBoard.closeButtonTapped))
-        self.items = [spacer, closeButton]
+        tools.items = [spacer, closeButton]
+        self.inputAccessoryView = tools
     }
     
     func closeButtonTapped(){
         self.endEditing(true)
+        self.resignFirstResponder()
     }
 }

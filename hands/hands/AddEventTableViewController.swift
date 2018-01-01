@@ -16,6 +16,8 @@ let dateKey  = "date"  // key for obtaining the data source item's date value
 let dateStartRow = 1
 let dateEndRow   = 2
 
+
+let titleCellID = "titleCell"
 let dateCellID   = "dateCell"   // the cells with the start or end date
 let datePickerID = "datePicker" // the cell containing the date picker
 let otherCell    = "otherCell"  // the remaining cells at the end
@@ -43,6 +45,7 @@ class AddEventTableViewController: UITableViewController {
         return pickerViewCellToCheck!.frame.height
         }()
     
+    @IBOutlet weak var titleTextField: UITextField!
     /// Primary view has been loaded for this view controller
     ///
     override func viewDidLoad() {
@@ -50,16 +53,18 @@ class AddEventTableViewController: UITableViewController {
         
         // setup our data source
         let itemOne: [String: AnyObject] = [titleKey: "Tap a cell to change its date:" as AnyObject]
-        let itemTwo: [String: AnyObject] = [titleKey: "Start Date" as AnyObject, dateKey: NSDate()]
-        let itemThree: [String: AnyObject] = [titleKey: "End Date" as AnyObject, dateKey: NSDate()]
+        let itemTwo: [String: AnyObject] = [titleKey: "開始時間" as AnyObject, dateKey: NSDate()]
+        let itemThree: [String: AnyObject] = [titleKey: "終了時間" as AnyObject, dateKey: NSDate()]
         let itemFour: [String: AnyObject] = [titleKey: "(other item1)" as AnyObject]
         let itemFive: [String: AnyObject] = [titleKey: "(other item2)" as AnyObject]
         self.dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+        
         
         // if the local changes while in the background, we need to be notified so we can update the date
         // format in the table view cells
         //
         NotificationCenter.default.addObserver(self, selector: Selector(("localeChanged:")), name: NSLocale.currentLocaleDidChangeNotification, object: nil)
+//        self.navigationItem.rightBarButton
     }
     
     override func didReceiveMemoryWarning() {
@@ -152,7 +157,7 @@ class AddEventTableViewController: UITableViewController {
         return self.indexPathHasPicker(indexPath: indexPath as NSIndexPath) ? self.pickerCellRowHeight : self.tableView.rowHeight
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
@@ -172,23 +177,20 @@ class AddEventTableViewController: UITableViewController {
         var cellID = otherCell
         
         if (self.indexPathHasPicker(indexPath: indexPath as NSIndexPath)) {
-            // the indexPath is the one containing the inline date picker
-            cellID = datePickerID;     // the current/opened date picker cell
+            cellID = datePickerID
         } else if (self.indexPathHasDate(indexPath: indexPath as NSIndexPath)) {
-            // the indexPath is one that contains the date information
-            cellID = dateCellID;       // the start/end date cells
+            cellID = dateCellID
+        } else if (indexPath.row == 0){
+            cellID = titleCellID
         }
         
         cell = tableView.dequeueReusableCell(withIdentifier: cellID)
         
-        if (indexPath.row == 0) {
-            // we decide here that first cell in the table is not selectable (it's just an indicator)
-            cell!.selectionStyle = UITableViewCellSelectionStyle.none;
-        }
+//        if (indexPath.row == 0) {
+//            // we decide here that first cell in the table is not selectable (it's just an indicator)
+//            cell!.selectionStyle = UITableViewCellSelectionStyle.none;
+//        }
         
-        // if we have a date picker open whose cell is above the cell we want to update,
-        // then we have one more cell than the model allows
-        //
         var modelRow = indexPath.row
         if (self.datePickerIndexPath != nil && self.datePickerIndexPath!.row <= indexPath.row) {
             modelRow -= 1
@@ -196,18 +198,12 @@ class AddEventTableViewController: UITableViewController {
         
         let itemData = self.dataArray[modelRow]
         
-        // proceed to configure our cell
         if (cellID == dateCellID) {
             // we have either start or end date cells, populate their date field
             //
             cell!.textLabel!.text = itemData[titleKey] as? String
             cell!.detailTextLabel!.text = self.dateFormatter.string(from: (itemData[dateKey] as! NSDate) as Date)
-        } else if (cellID == otherCell) {
-            // this cell is a non-date cell, just assign it's text label
-            //
-            cell!.textLabel!.text = itemData[titleKey] as? String
         }
-        
         return cell!
     }
     
@@ -304,3 +300,5 @@ class AddEventTableViewController: UITableViewController {
         }
     }
 }
+
+
