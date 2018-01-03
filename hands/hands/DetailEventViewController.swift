@@ -11,6 +11,8 @@ import UIKit
 
 class DetailEventViewController: UIViewController {
 
+    var object: EventViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

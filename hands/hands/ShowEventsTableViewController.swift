@@ -17,9 +17,14 @@ class ShowEventsTableViewController: UITableViewController {
     var objects = [EventViewModel]()
 
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ShowEventsTableViewController.segueAdd))
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -27,8 +32,10 @@ class ShowEventsTableViewController: UITableViewController {
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "detail" {
+            let target = segue.destination as! DetailEventViewController
+            target.object = sender as? EventViewModel
+        }
     }
     
 //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,4 +47,17 @@ class ShowEventsTableViewController: UITableViewController {
 //        cell.update(objects[indexPath.row])
 //        return cell
 //    }
+}
+
+extension ShowEventsTableViewController{
+    
+    func segueAdd(){
+        print("追加画面に遷移")
+        self.performSegue(withIdentifier: "add", sender: nil)
+    }
+    
+    func segueDetail(){
+        print("詳細画面")
+        self.performSegue(withIdentifier: "", sender: nil)
+    }
 }

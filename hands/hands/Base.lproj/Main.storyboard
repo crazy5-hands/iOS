@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="935" y="245"/>
         </scene>
-        <!--Show Events Table View Controller-->
+        <!--イベント-->
         <scene sceneID="rtI-d7-yvQ">
             <objects>
                 <tableViewController id="poW-Iv-89s" customClass="ShowEventsTableViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,9 +69,10 @@
                             <outlet property="delegate" destination="poW-Iv-89s" id="Cg9-af-YhO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZF6-M4-rGh"/>
+                    <navigationItem key="navigationItem" title="イベント" id="ZF6-M4-rGh"/>
                     <connections>
-                        <segue destination="msD-BL-0T3" kind="show" id="Epq-Ce-rrJ"/>
+                        <segue destination="msD-BL-0T3" kind="show" identifier="add" id="Epq-Ce-rrJ"/>
+                        <segue destination="Jeg-E2-d4n" kind="show" identifier="detail" id="qm0-E2-kDv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krV-2D-k7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
