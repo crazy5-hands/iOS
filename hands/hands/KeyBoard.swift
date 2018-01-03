@@ -11,7 +11,7 @@ import UIKit
 
 
 //閉じるボタンの付いたキーボード
-class KeyBoard: UITextField{
+class CustomTextField: UITextField{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,35 @@ class KeyBoard: UITextField{
         let tools = UIToolbar()
         tools.frame = CGRect(x: 0, y: 0, width: frame.width, height: 40)
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(KeyBoard.closeButtonTapped))
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(CustomTextField.closeButtonTapped))
+        tools.items = [spacer, closeButton]
+        self.inputAccessoryView = tools
+    }
+    
+    func closeButtonTapped(){
+        self.endEditing(true)
+        self.resignFirstResponder()
+    }
+}
+
+
+class CustomTextView: UITextView{
+    
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit(){
+        let tools = UIToolbar()
+        tools.frame = CGRect(x: 0, y: 0, width: frame.width, height: 40)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(CustomTextView.closeButtonTapped))
         tools.items = [spacer, closeButton]
         self.inputAccessoryView = tools
     }

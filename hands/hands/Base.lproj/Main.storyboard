@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="msD-BL-0T3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L4w-54-NfR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -143,8 +143,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="名前" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5OE-AK-WzP" customClass="KeyBoard" customModule="hands" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="0.0" width="360" height="78"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="名前" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5OE-AK-WzP" customClass="CustomTextField" customModule="hands" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="78"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -153,8 +153,31 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="5OE-AK-WzP" secondAttribute="bottom" id="20I-Bb-xNA"/>
                                         <constraint firstItem="5OE-AK-WzP" firstAttribute="top" secondItem="jFq-8Y-u5b" secondAttribute="top" id="7jd-Bb-eWB"/>
-                                        <constraint firstAttribute="trailing" secondItem="5OE-AK-WzP" secondAttribute="trailing" id="X04-AF-xLf"/>
+                                        <constraint firstAttribute="trailing" secondItem="5OE-AK-WzP" secondAttribute="trailing" constant="15" id="X04-AF-xLf"/>
                                         <constraint firstItem="5OE-AK-WzP" firstAttribute="leading" secondItem="jFq-8Y-u5b" secondAttribute="leading" constant="15" id="rqu-e2-pWA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="memoCell" rowHeight="198" id="iOj-cD-m5t">
+                                <rect key="frame" x="0.0" y="394" width="375" height="198"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iOj-cD-m5t" id="TOg-6r-4jK" customClass="CustomTextView" customModule="hands" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="197.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9NE-6M-v4t" customClass="CustomTextView" customModule="hands" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="197.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="9NE-6M-v4t" secondAttribute="trailing" constant="15" id="3pl-G7-7YO"/>
+                                        <constraint firstItem="9NE-6M-v4t" firstAttribute="leading" secondItem="TOg-6r-4jK" secondAttribute="leading" constant="15" id="9Zc-rr-gVT"/>
+                                        <constraint firstAttribute="bottom" secondItem="9NE-6M-v4t" secondAttribute="bottom" id="9gM-Pi-e0K"/>
+                                        <constraint firstItem="9NE-6M-v4t" firstAttribute="top" secondItem="TOg-6r-4jK" secondAttribute="top" id="fYp-kM-aXZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>

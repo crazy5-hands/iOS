@@ -15,21 +15,9 @@ class ShowEventsTableViewController: UITableViewController {
     
     let disposeBag = DisposeBag()
     var objects = [EventViewModel]()
-    let items = Observable<[EventViewModel]>.just(EventViewModel.load())
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        items.bind(to: self.tableView.rx.items(cellIdentifier: "cell", cellType: EventTableViewCell.self)){ (row, element, cell) in
-            cell.update(element)
-            
-            }.disposed(by: disposeBag)
-        
-        tableView.rx
-            .itemAccessoryButtonTapped
-            .subscribe { (indexPath) in
-                print("\(String(describing: indexPath.element?.row))")
-            }.disposed(by: disposeBag)
-        
+        super.viewDidLoad()        
     }
 
     override func didReceiveMemoryWarning() {

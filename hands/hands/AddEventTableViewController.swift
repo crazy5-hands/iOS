@@ -20,7 +20,9 @@ let dateEndRow   = 2
 let titleCellID = "titleCell"
 let dateCellID   = "dateCell"   // the cells with the start or end date
 let datePickerID = "datePicker" // the cell containing the date picker
-let otherCell    = "otherCell"  // the remaining cells at the end
+let otherCell    = "otherCell"// the remaining cells at the end
+let memoCellID = "memoCell"
+
 class AddEventTableViewController: UITableViewController {
     
     var dataArray = [[String: AnyObject]]()
@@ -55,9 +57,8 @@ class AddEventTableViewController: UITableViewController {
         let itemOne: [String: AnyObject] = [titleKey: "Tap a cell to change its date:" as AnyObject]
         let itemTwo: [String: AnyObject] = [titleKey: "開始時間" as AnyObject, dateKey: NSDate()]
         let itemThree: [String: AnyObject] = [titleKey: "終了時間" as AnyObject, dateKey: NSDate()]
-        let itemFour: [String: AnyObject] = [titleKey: "(other item1)" as AnyObject]
-        let itemFive: [String: AnyObject] = [titleKey: "(other item2)" as AnyObject]
-        self.dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+        let itemFour: [String: AnyObject] = [titleKey: "メモ" as AnyObject]
+        self.dataArray = [itemOne, itemTwo, itemThree, itemFour]
         
         
         // if the local changes while in the background, we need to be notified so we can update the date
@@ -154,7 +155,11 @@ class AddEventTableViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.indexPathHasPicker(indexPath: indexPath as NSIndexPath) ? self.pickerCellRowHeight : self.tableView.rowHeight
+        if indexPath.row == 3 {
+            return 200
+        }else {
+            return self.indexPathHasPicker(indexPath: indexPath as NSIndexPath) ? self.pickerCellRowHeight : self.tableView.rowHeight
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -174,7 +179,7 @@ class AddEventTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell?
-        var cellID = otherCell
+        var cellID = String()
         
         if (self.indexPathHasPicker(indexPath: indexPath as NSIndexPath)) {
             cellID = datePickerID
@@ -182,6 +187,8 @@ class AddEventTableViewController: UITableViewController {
             cellID = dateCellID
         } else if (indexPath.row == 0){
             cellID = titleCellID
+        } else if (indexPath.row == 3){
+            cellID = memoCellID
         }
         
         cell = tableView.dequeueReusableCell(withIdentifier: cellID)
