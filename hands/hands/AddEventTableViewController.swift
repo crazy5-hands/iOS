@@ -58,14 +58,15 @@ class AddEventTableViewController: UITableViewController {
         let itemTwo: [String: AnyObject] = [titleKey: "開始時間" as AnyObject, dateKey: NSDate()]
         let itemThree: [String: AnyObject] = [titleKey: "終了時間" as AnyObject, dateKey: NSDate()]
         let itemFour: [String: AnyObject] = [titleKey: "メモ" as AnyObject]
-        self.dataArray = [itemOne, itemTwo, itemThree, itemFour]
+        self.dataArray = [itemOne, itemTwo, itemThree]
         
         
         // if the local changes while in the background, we need to be notified so we can update the date
         // format in the table view cells
         //
         NotificationCenter.default.addObserver(self, selector: Selector(("localeChanged:")), name: NSLocale.currentLocaleDidChangeNotification, object: nil)
-//        self.navigationItem.rightBarButton
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -155,11 +156,7 @@ class AddEventTableViewController: UITableViewController {
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 3 {
-            return 200
-        }else {
-            return self.indexPathHasPicker(indexPath: indexPath as NSIndexPath) ? self.pickerCellRowHeight : self.tableView.rowHeight
-        }
+        return self.indexPathHasPicker(indexPath: indexPath as NSIndexPath) ? self.pickerCellRowHeight : self.tableView.rowHeight
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -179,16 +176,12 @@ class AddEventTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell?
-        var cellID = String()
+        var cellID = titleCellID
         
         if (self.indexPathHasPicker(indexPath: indexPath as NSIndexPath)) {
             cellID = datePickerID
         } else if (self.indexPathHasDate(indexPath: indexPath as NSIndexPath)) {
             cellID = dateCellID
-        } else if (indexPath.row == 0){
-            cellID = titleCellID
-        } else if (indexPath.row == 3){
-            cellID = memoCellID
         }
         
         cell = tableView.dequeueReusableCell(withIdentifier: cellID)

@@ -18,6 +18,7 @@ class ShowEventsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        objects = EventViewModel.load()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ShowEventsTableViewController.segueAdd))
     }
     
@@ -38,15 +39,27 @@ class ShowEventsTableViewController: UITableViewController {
         }
     }
     
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return objects.count
+        return 5
+    }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! EventTableViewCell
-//        cell.update(objects[indexPath.row])
-//        return cell
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+//        cell?.textLabel?.text = objects[indexPath.row].title
+//        cell?.detailTextLabel?.text = DateUtils.stringFromDate(date: objects[indexPath.row].created)
+        cell?.textLabel?.text = "hello"
+        cell?.detailTextLabel?.text = "2015 11月2日"
+        return cell!
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(50)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        segueDetail(indexPath)
+    }
 }
 
 extension ShowEventsTableViewController{
@@ -56,8 +69,8 @@ extension ShowEventsTableViewController{
         self.performSegue(withIdentifier: "add", sender: nil)
     }
     
-    func segueDetail(){
+    func segueDetail(_ indexPath: IndexPath){
         print("詳細画面")
-        self.performSegue(withIdentifier: "", sender: nil)
+        self.performSegue(withIdentifier: "", sender: objects[indexPath.row])
     }
 }

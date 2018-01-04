@@ -16,7 +16,7 @@ class Event: Object{
     dynamic var id = 0
     dynamic var title = ""
     dynamic var start = NSDate()
-    dynamic var owner = Person()
+    dynamic var owner: Person?
     var member = List<Person>()
     dynamic var memo = ""
     dynamic var created = NSDate()
@@ -27,13 +27,13 @@ final class EventViewModel {
     var id = 0
     var title = ""
     var start = NSDate()
-    var owner = Person()
+    var owner: Person?
     var member = [Person]()
     var memo = ""
     var created = NSDate()
     
     var ownerName: String {
-        return self.owner.displayName
+        return self.owner!.displayName
     }
     
     var memberName: [String]{
