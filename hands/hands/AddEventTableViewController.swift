@@ -295,16 +295,32 @@ extension AddEventTableViewController{
     
     func update(){
         let object = EventViewModel.create()
-        object.title = self.titleText!
-        var itemData = dataArray[1]
-        object.start = itemData[dateKey] as! NSDate
-        itemData = dataArray[2]
-        object.end = itemData[dateKey] as! NSDate
-        //ownerの取得をここでする。
-//        object.owner = 
-        object.created = NSDate()
-        object.update()
-        print("データを登録")
+        if titleText == nil {
+            print("テキストでーた　なし")
+            showAlart()
+        }else {
+            object.title = self.titleText!
+            var itemData = dataArray[1]
+            object.start = itemData[dateKey] as! NSDate
+            itemData = dataArray[2]
+            object.end = itemData[dateKey] as! NSDate
+            object.created = NSDate()
+            object.update()
+            print("データを登録")
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
+    func showAlart(){
+        let title = "入力エラー"
+        let message = "イベント名が入力されていません。"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:{
+            // ボタンが押された時の処理を書く（クロージャ実装）
+            (action: UIAlertAction!) -> Void in
+            print("OK")
+        })
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
 }

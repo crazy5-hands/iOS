@@ -20,6 +20,16 @@ class ShowEventsTableViewController: UITableViewController {
         super.viewDidLoad()
         objects = EventViewModel.load()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ShowEventsTableViewController.segueAdd))
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ShowEventsTableViewController.refreshControlValueChanged(sender:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+    }
+    
+    func refreshControlValueChanged(sender: UIRefreshControl) {
+        objects.removeAll()
+        objects = EventViewModel.load()
+        self.tableView.reloadData()
+        sender.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +58,6 @@ class ShowEventsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         cell?.textLabel?.text = objects[indexPath.row].title
         cell?.detailTextLabel?.text = DateUtils.stringFromDate(date: objects[indexPath.row].created)
-        print("タイトル" + objects[indexPath.row].title)
         return cell!
     }
     
@@ -64,7 +73,6 @@ class ShowEventsTableViewController: UITableViewController {
 extension ShowEventsTableViewController{
     
     func segueAdd(){
-        print("追加画面に遷移")
         self.performSegue(withIdentifier: "add", sender: nil)
     }
     
