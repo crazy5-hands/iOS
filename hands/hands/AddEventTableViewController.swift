@@ -26,14 +26,8 @@ let memoCellID = "memoCell"
 class AddEventTableViewController: UITableViewController {
     
     var dataArray = [[String: AnyObject]]()
-    var dateFormatter: DateFormatter = {
-        var dateFormatter = DateFormatter()
-        
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .none
-        
-        return dateFormatter
-    }()
+    var start = NSDate()
+    var end = NSDate()
     
     // keep track which indexPath points to the cell with UIDatePicker
     var datePickerIndexPath: NSIndexPath?
@@ -66,7 +60,7 @@ class AddEventTableViewController: UITableViewController {
         //
         NotificationCenter.default.addObserver(self, selector: Selector(("localeChanged:")), name: NSLocale.currentLocaleDidChangeNotification, object: nil)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(AddEventTableViewController.update))
     }
     
     override func didReceiveMemoryWarning() {
@@ -199,10 +193,9 @@ class AddEventTableViewController: UITableViewController {
         let itemData = self.dataArray[modelRow]
         
         if (cellID == dateCellID) {
-            // we have either start or end date cells, populate their date field
-            //
             cell!.textLabel!.text = itemData[titleKey] as? String
-            cell!.detailTextLabel!.text = self.dateFormatter.string(from: (itemData[dateKey] as! NSDate) as Date)
+            cell!.detailTextLabel!.text = DateUtils.stringFromDate(date: (itemData[dateKey] as! NSDate))
+//                self.dateFormatter.string(from: (itemData[dateKey] as! NSDate) as Date)
         }
         return cell!
     }
@@ -217,15 +210,11 @@ class AddEventTableViewController: UITableViewController {
         
         let indexPaths = [IndexPath.init(row: indexPath.row + 1, section: 0)]
         
-        // check if 'indexPath' has an attached date picker below it
         if (self.hasPickerForIndexPath(indexPath: indexPath)) {
-            // found a picker below it, so remove it
             self.tableView.deleteRows(at: indexPaths, with: UITableViewRowAnimation.fade)
         } else {
-            // didn't find a picker below it, so we should insert it
             self.tableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
         }
-        
         self.tableView.endUpdates()
     }
     
@@ -235,24 +224,21 @@ class AddEventTableViewController: UITableViewController {
     ///   - indexPath: The indexPath to reveal the UIDatePicker.
     ///
     func displayInlineDatePickerForRowAtIndexPath(indexPath: NSIndexPath) {
-        // display the date picker inline with the table content
         self.tableView.beginUpdates()
         
-        var before = false   // indicates if the date picker is below "indexPath", help us determine which row to reveal
+        var before = false
         if (self.hasInlineDatePicker()) {
             before = self.datePickerIndexPath!.row < indexPath.row
         }
         
         let sameCellClicked = self.datePickerIndexPath?.row == indexPath.row + 1
         
-        // remove any date picker cell if it exists
         if (self.hasInlineDatePicker()) {
             self.tableView.deleteRows(at: [IndexPath.init(row: (self.datePickerIndexPath?.row)!, section: 0)], with: .fade)
             self.datePickerIndexPath = nil
         }
         
         if (!sameCellClicked) {
-            // hide the old date picker and display the new one
             let rowToReveal = before ? indexPath.row - 1 : indexPath.row
             let indexPathToReveal = IndexPath.init(row: rowToReveal, section: 0)
             
@@ -260,12 +246,8 @@ class AddEventTableViewController: UITableViewController {
             self.datePickerIndexPath = IndexPath.init(row: indexPathToReveal.row + 1, section: 0) as NSIndexPath
         }
         
-        // always deselect the row containing the start or end date
         self.tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        
         self.tableView.endUpdates()
-        
-        // inform our date picker of the current date to match the current cell
         self.updateDatePicker()
     }
     
@@ -291,14 +273,32 @@ class AddEventTableViewController: UITableViewController {
             let cell = self.tableView.cellForRow(at: targetedCellIndexPath)
             let targetedDatePicker = sender
             
-            // update our data model
             var itemData = self.dataArray[targetedCellIndexPath.row]
             itemData[dateKey] = targetedDatePicker.date as AnyObject
-            
-            // update the cell's date string
-            cell!.detailTextLabel!.text = self.dateFormatter.string(from: targetedDatePicker.date)
+            cell!.detailTextLabel?.text = DateUtils.stringFromDate(date: targetedDatePicker.date as NSDate)
         }
     }
 }
 
 
+extension AddEventTableViewController{
+    
+    func update(){
+        let object = EventViewModel.create()
+        let titleCell = self.tableView.cellForRow(at: IndexPath()) as! TextTableViewCell
+        if titleCell.reuseIdentifier == titleCellID {
+            object.title = titleCell.getTitle()
+            print("タイトル取得")
+        }
+        
+        var itemData = dataArray[1]
+        object.start = itemData[dateKey] as! NSDate
+        itemData = dataArray[2]
+        object.end = itemData[dateKey] as! NSDate
+        //ownerの取得をここでする。
+//        object.owner = 
+        object.created = NSDate()
+        object.update()
+        print("データを登録")
+    }
+}

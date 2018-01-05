@@ -16,10 +16,15 @@ class Event: Object{
     dynamic var id = 0
     dynamic var title = ""
     dynamic var start = NSDate()
+    dynamic var end = NSDate()
     dynamic var owner: Person?
     var member = List<Person>()
     dynamic var memo = ""
     dynamic var created = NSDate()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 
@@ -27,6 +32,7 @@ final class EventViewModel {
     var id = 0
     var title = ""
     var start = NSDate()
+    var end = NSDate()
     var owner: Person?
     var member = [Person]()
     var memo = ""
@@ -50,6 +56,7 @@ final class EventViewModel {
         id = object.id
         title = object.title
         start = object.start
+        end = object.end
         owner = object.owner
         for i in object.member{
             member.append(i)
@@ -79,6 +86,7 @@ final class EventViewModel {
         new.id = object.id
         new.title = title
         new.start = start
+        new.end = end
         new.owner = owner
         for i in member {
             new.member.append(i)
