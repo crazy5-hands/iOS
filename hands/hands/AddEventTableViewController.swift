@@ -23,11 +23,12 @@ let datePickerID = "datePicker" // the cell containing the date picker
 let otherCell    = "otherCell"// the remaining cells at the end
 let memoCellID = "memoCell"
 
-class AddEventTableViewController: UITableViewController {
+class AddEventTableViewController: UITableViewController, TextTableViewCellDelegate{
     
     var dataArray = [[String: AnyObject]]()
     var start = NSDate()
     var end = NSDate()
+    var titleText: String?
     
     // keep track which indexPath points to the cell with UIDatePicker
     var datePickerIndexPath: NSIndexPath?
@@ -169,7 +170,7 @@ class AddEventTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell?
+        var cell: UITableViewCell?
         var cellID = titleCellID
         
         if (self.indexPathHasPicker(indexPath: indexPath as NSIndexPath)) {
@@ -178,8 +179,13 @@ class AddEventTableViewController: UITableViewController {
             cellID = dateCellID
         }
         
-        cell = tableView.dequeueReusableCell(withIdentifier: cellID)
-        
+        if cellID == titleCellID {
+            let titleCell = tableView.dequeueReusableCell(withIdentifier: cellID) as! TextTableViewCell
+            titleCell.delegate = self
+            return titleCell
+        }else {
+            cell = tableView.dequeueReusableCell(withIdentifier: cellID)
+        }
 //        if (indexPath.row == 0) {
 //            // we decide here that first cell in the table is not selectable (it's just an indicator)
 //            cell!.selectionStyle = UITableViewCellSelectionStyle.none;
@@ -278,6 +284,10 @@ class AddEventTableViewController: UITableViewController {
             cell!.detailTextLabel?.text = DateUtils.stringFromDate(date: targetedDatePicker.date as NSDate)
         }
     }
+    
+    func textData(_ text: String) {
+        self.titleText = text
+    }
 }
 
 
@@ -285,12 +295,7 @@ extension AddEventTableViewController{
     
     func update(){
         let object = EventViewModel.create()
-        let titleCell = self.tableView.cellForRow(at: IndexPath()) as! TextTableViewCell
-        if titleCell.reuseIdentifier == titleCellID {
-            object.title = titleCell.getTitle()
-            print("タイトル取得")
-        }
-        
+        object.title = self.titleText!
         var itemData = dataArray[1]
         object.start = itemData[dateKey] as! NSDate
         itemData = dataArray[2]
@@ -301,4 +306,5 @@ extension AddEventTableViewController{
         object.update()
         print("データを登録")
     }
+    
 }

@@ -8,22 +8,33 @@
 
 import UIKit
 
-class TextTableViewCell: UITableViewCell {
+protocol TextTableViewCellDelegate{
+    func textData(_ text: String)
+}
+
+class TextTableViewCell: UITableViewCell, UITextFieldDelegate{
     
     @IBOutlet weak var textField: CustomTextField!
     
+    var title: String?
+    var delegate: TextTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.title = textField.text
+        self.delegate?.textData(textField.text!)
+        return true
     }
     
     func getTitle() -> String{
-        return textField.text!
+        return self.textField.text!
     }
 }

@@ -18,6 +18,10 @@ class Person: Object{
     dynamic var displayName = ""
     var group = List<Event>()
     dynamic var pictureURL = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 

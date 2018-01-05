@@ -40,16 +40,15 @@ class ShowEventsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return objects.count
-        return 5
+        return objects.count
+//        return 5
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-//        cell?.textLabel?.text = objects[indexPath.row].title
-//        cell?.detailTextLabel?.text = DateUtils.stringFromDate(date: objects[indexPath.row].created)
-        cell?.textLabel?.text = "hello"
-        cell?.detailTextLabel?.text = "2015 11月2日"
+        cell?.textLabel?.text = objects[indexPath.row].title
+        cell?.detailTextLabel?.text = DateUtils.stringFromDate(date: objects[indexPath.row].created)
+        print("タイトル" + objects[indexPath.row].title)
         return cell!
     }
     
