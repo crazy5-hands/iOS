@@ -28,6 +28,7 @@
 		E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD81FF3E030005DC4BA /* Customs.swift */; };
 		E649CFDE1FFA64FF005DC4BA /* KeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */; };
 		E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */; };
+		E649CFE52000D12D005DC4BA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE42000D12D005DC4BA /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		E649CFD81FF3E030005DC4BA /* Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
 		E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoard.swift; sourceTree = "<group>"; };
 		E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		E649CFE42000D12D005DC4BA /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = ../CustomButton.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 				E649CFDB1FFA64A3005DC4BA /* ViewController */,
 				E649CFDA1FFA6480005DC4BA /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
+				E649CFE42000D12D005DC4BA /* CustomButton.swift */,
 				E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */,
 				E649CFD81FF3E030005DC4BA /* Customs.swift */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
@@ -514,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E649CFE52000D12D005DC4BA /* CustomButton.swift in Sources */,
 				E649CFD61FF3DD35005DC4BA /* EventTableViewCell.swift in Sources */,
 				E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */,
 				E649CFC71FF3C0A2005DC4BA /* AddEventTableViewController.swift in Sources */,

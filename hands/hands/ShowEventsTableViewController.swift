@@ -66,7 +66,7 @@ class ShowEventsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        segueDetail(indexPath)
+        segueDetail(indexPath)
     }
 }
 
@@ -78,6 +78,6 @@ extension ShowEventsTableViewController{
     
     func segueDetail(_ indexPath: IndexPath){
         print("詳細画面")
-        self.performSegue(withIdentifier: "", sender: objects[indexPath.row])
+        self.performSegue(withIdentifier: "detail", sender: objects[indexPath.row])
     }
 }

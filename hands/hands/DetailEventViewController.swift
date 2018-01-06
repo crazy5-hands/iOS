@@ -13,10 +13,14 @@ class DetailEventViewController: UIViewController {
 
     var object: EventViewModel?
     
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var endLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUp()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,5 +38,22 @@ class DetailEventViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func setUp(){
+        self.titleLabel.text = self.object?.title
+        self.startLabel.text = DateUtils.stringFromDate(date: (self.object?.start)!)
+        self.endLabel.text = DateUtils.stringFromDate(date: (self.object?.end)!)
+    }
+}
 
+extension DetailEventViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (self.object?.member.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "member", for: indexPath)
+        return cell
+    }
+    
 }
