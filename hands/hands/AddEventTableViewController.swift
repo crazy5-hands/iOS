@@ -294,11 +294,10 @@ class AddEventTableViewController: UITableViewController, TextTableViewCellDeleg
 extension AddEventTableViewController{
     
     func update(){
-        let object = EventViewModel.create()
         if titleText == nil {
-            print("テキストでーた　なし")
             showAlart()
         }else {
+            let object = EventViewModel.create()
             object.title = self.titleText!
             var itemData = dataArray[1]
             object.start = itemData[dateKey] as! NSDate
