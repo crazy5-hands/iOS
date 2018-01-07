@@ -12,6 +12,7 @@
 		6613C7B47FC07050AED8E06C /* Pods_handsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F63A447E3891D0562C0F05A /* Pods_handsUITests.framework */; };
 		E60DA8982002784000D2BCFA /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA8972002784000D2BCFA /* MyEventsTableViewController.swift */; };
 		E60DA89B2002798400D2BCFA /* MyEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA89A2002798400D2BCFA /* MyEventTableViewCell.swift */; };
+		E60DA89D20027EC800D2BCFA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60DA89C20027EC800D2BCFA /* CustomButton.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CF9E1FF3BE99005DC4BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9C1FF3BE99005DC4BA /* Main.storyboard */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
@@ -29,7 +30,6 @@
 		E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD81FF3E030005DC4BA /* Customs.swift */; };
 		E649CFDE1FFA64FF005DC4BA /* KeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */; };
 		E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */; };
-		E649CFE52000D12D005DC4BA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE42000D12D005DC4BA /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +60,7 @@
 		D822B995C5A66D62FE81398C /* Pods-hands.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hands.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hands/Pods-hands.debug.xcconfig"; sourceTree = "<group>"; };
 		E60DA8972002784000D2BCFA /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsTableViewController.swift; sourceTree = "<group>"; };
 		E60DA89A2002798400D2BCFA /* MyEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventTableViewCell.swift; sourceTree = "<group>"; };
+		E60DA89C20027EC800D2BCFA /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9D1FF3BE99005DC4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		E649CFD81FF3E030005DC4BA /* Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
 		E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoard.swift; sourceTree = "<group>"; };
 		E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
-		E649CFE42000D12D005DC4BA /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = ../CustomButton.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,7 +177,7 @@
 				E649CFDB1FFA64A3005DC4BA /* ViewController */,
 				E649CFDA1FFA6480005DC4BA /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
-				E649CFE42000D12D005DC4BA /* CustomButton.swift */,
+				E60DA89C20027EC800D2BCFA /* CustomButton.swift */,
 				E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */,
 				E649CFD81FF3E030005DC4BA /* Customs.swift */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
@@ -528,7 +528,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E649CFE52000D12D005DC4BA /* CustomButton.swift in Sources */,
 				E649CFD61FF3DD35005DC4BA /* EventTableViewCell.swift in Sources */,
 				E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */,
 				E649CFC71FF3C0A2005DC4BA /* AddEventTableViewController.swift in Sources */,
@@ -542,6 +541,7 @@
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E60DA89B2002798400D2BCFA /* MyEventTableViewCell.swift in Sources */,
 				E649CFCB1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift in Sources */,
+				E60DA89D20027EC800D2BCFA /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
