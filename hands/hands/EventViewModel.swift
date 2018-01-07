@@ -39,7 +39,11 @@ final class EventViewModel {
     var created = NSDate()
     
     var ownerName: String {
-        return self.owner!.displayName
+        if let data = self.owner {
+            return data.displayName
+        }else {
+            return "オーナーなし"
+        }
     }
     
     var memberName: [String]{
