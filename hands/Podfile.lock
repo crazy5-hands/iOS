@@ -1,4 +1,5 @@
 PODS:
+  - LineSDK (4.0.3)
   - Realm (3.0.0):
     - Realm/Headers (= 3.0.0)
   - Realm/Headers (3.0.0)
@@ -9,16 +10,18 @@ PODS:
   - RxSwift (3.6.1)
 
 DEPENDENCIES:
+  - LineSDK (~> 4.0.2)
   - RealmSwift (~> 3)
   - RxCocoa (= 3.6.1)
   - RxSwift (= 3.6.1)
 
 SPEC CHECKSUMS:
+  LineSDK: 01a0e7206b2c459f20a2bee888553ae5dc74a709
   Realm: dec0de73be8c57506e39db72694d513c189493b3
   RealmSwift: 44a7090b16d1b22a406c6bf129bdd602db1bbecc
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
 
-PODFILE CHECKSUM: cab32d765db3f1be84f53534ed24f9a18a63d3f2
+PODFILE CHECKSUM: ce9d9b26ec8fd0b263cffab7f376266302f3e5a6
 
 COCOAPODS: 1.2.1

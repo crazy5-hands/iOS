@@ -62,6 +62,7 @@ class AddEventTableViewController: UITableViewController, TextTableViewCellDeleg
         NotificationCenter.default.addObserver(self, selector: Selector(("localeChanged:")), name: NSLocale.currentLocaleDidChangeNotification, object: nil)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(AddEventTableViewController.update))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(AddEventTableViewController.cancelView))
     }
     
     override func didReceiveMemoryWarning() {
@@ -70,6 +71,10 @@ class AddEventTableViewController: UITableViewController, TextTableViewCellDeleg
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSLocale.currentLocaleDidChangeNotification, object: nil)
+    }
+    
+    func cancelView(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Locale
@@ -170,7 +175,6 @@ class AddEventTableViewController: UITableViewController, TextTableViewCellDeleg
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
         var cellID = titleCellID
         
         if (self.indexPathHasPicker(indexPath: indexPath as NSIndexPath)) {
@@ -184,26 +188,20 @@ class AddEventTableViewController: UITableViewController, TextTableViewCellDeleg
             titleCell.delegate = self
             return titleCell
         }else {
-            cell = tableView.dequeueReusableCell(withIdentifier: cellID)
-        }
-//        if (indexPath.row == 0) {
-//            // we decide here that first cell in the table is not selectable (it's just an indicator)
-//            cell!.selectionStyle = UITableViewCellSelectionStyle.none;
-//        }
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
+            var modelRow = indexPath.row
+            if (self.datePickerIndexPath != nil && self.datePickerIndexPath!.row <= indexPath.row) {
+                modelRow -= 1
+            }
         
-        var modelRow = indexPath.row
-        if (self.datePickerIndexPath != nil && self.datePickerIndexPath!.row <= indexPath.row) {
-            modelRow -= 1
+            let itemData = self.dataArray[modelRow]
+            if (cellID == dateCellID) {
+                cell!.textLabel!.text = itemData[titleKey] as? String
+                cell!.detailTextLabel!.text = DateUtils.stringFromDate(date: (itemData[dateKey] as! NSDate))
+                //                self.dateFormatter.string(from: (itemData[dateKey] as! NSDate) as Date)
+            }
+            return cell!
         }
-        
-        let itemData = self.dataArray[modelRow]
-        
-        if (cellID == dateCellID) {
-            cell!.textLabel!.text = itemData[titleKey] as? String
-            cell!.detailTextLabel!.text = DateUtils.stringFromDate(date: (itemData[dateKey] as! NSDate))
-//                self.dateFormatter.string(from: (itemData[dateKey] as! NSDate) as Date)
-        }
-        return cell!
     }
     
     /// Adds or removes a UIDatePicker cell below the given indexPath.

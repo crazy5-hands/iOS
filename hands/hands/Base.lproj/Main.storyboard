@@ -88,7 +88,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="イベント" id="ZF6-M4-rGh"/>
                     <connections>
-                        <segue destination="msD-BL-0T3" kind="show" identifier="add" id="Epq-Ce-rrJ"/>
                         <segue destination="Jeg-E2-d4n" kind="show" identifier="detail" id="qm0-E2-kDv"/>
                     </connections>
                 </tableViewController>

@@ -8,6 +8,7 @@ target 'hands' do
   pod 'RealmSwift', '~> 3'
   pod 'RxSwift', '3.6.1'
   pod 'RxCocoa', '3.6.1'
+  pod 'LineSDK', '~> 4.0.2'
 
   target 'handsTests' do
     inherit! :search_paths

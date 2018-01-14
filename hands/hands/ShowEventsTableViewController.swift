@@ -73,7 +73,8 @@ class ShowEventsTableViewController: UITableViewController {
 extension ShowEventsTableViewController{
     
     func segueAdd(){
-        self.performSegue(withIdentifier: "add", sender: nil)
+//        self.performSegue(withIdentifier: "add", sender: nil)
+        self.present(AddEventTableViewController(), animated: true, completion: nil)
     }
     
     func segueDetail(_ indexPath: IndexPath){

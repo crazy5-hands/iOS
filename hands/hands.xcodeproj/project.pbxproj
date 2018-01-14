@@ -177,6 +177,7 @@
 				E649CFDB1FFA64A3005DC4BA /* ViewController */,
 				E649CFDA1FFA6480005DC4BA /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
+				E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */,
 				E60DA89C20027EC800D2BCFA /* CustomButton.swift */,
 				E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */,
 				E649CFD81FF3E030005DC4BA /* Customs.swift */,
@@ -207,7 +208,6 @@
 		E649CFDA1FFA6480005DC4BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */,
 				E649CFCE1FF3C19B005DC4BA /* Model.swift */,
 				E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */,
 				E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */,
