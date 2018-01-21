@@ -65,6 +65,7 @@
 		E60DA89C20027EC800D2BCFA /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E619E6252014DAA800A30592 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		E619E6272014DAAF00A30592 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E619E6292014DE0500A30592 /* hands.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hands.entitlements; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9D1FF3BE99005DC4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
 				E649CFE11FFE55D1005DC4BA /* EventTableViewCell */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
@@ -332,6 +334,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = VTFR494599;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					E649CFA81FF3BE99005DC4BA = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -708,6 +715,7 @@
 			baseConfigurationReference = D822B995C5A66D62FE81398C /* Pods-hands.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = hands/hands.entitlements;
 				DEVELOPMENT_TEAM = VTFR494599;
 				INFOPLIST_FILE = hands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -724,6 +732,7 @@
 			baseConfigurationReference = 4F64F49378AE1C8DEC8F7163 /* Pods-hands.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = hands/hands.entitlements;
 				DEVELOPMENT_TEAM = VTFR494599;
 				INFOPLIST_FILE = hands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
