@@ -16,9 +16,9 @@ class ColorManager {
         return UIColor(red: 0, green: 195/255, blue: 0, alpha: 1)
     }
     
-    func lineLoginButtonHoverColor() -> UIColor {
-        return UIColor(red: 0, green: 227/255, blue: 0, alpha: 1)
-    }
+//    func lineLoginButtonHoverColor() -> UIColor {
+//        return UIColor(red: 0, green: 227/255, blue: 0, alpha: 1)
+//    }
     
     func lineLoginButtonPressColor() -> UIColor {
         return UIColor(red: 0, green: 179/255, blue: 0, alpha: 1)

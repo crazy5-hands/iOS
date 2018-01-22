@@ -40,11 +40,11 @@
                                     <constraint firstAttribute="width" secondItem="scR-8K-PPF" secondAttribute="height" multiplier="1:1" id="Oum-7N-32v"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnP-67-ojP">
-                                <rect key="frame" x="69" y="493" width="250" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnP-67-ojP" customClass="LineLoginButton" customModule="hands" customModuleProvider="target">
+                                <rect key="frame" x="79" y="493" width="230" height="46"/>
                                 <color key="backgroundColor" red="0.0" green="0.76470588235294112" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="Ap1-NG-ZeQ"/>
+                                    <constraint firstAttribute="width" constant="230" id="Ap1-NG-ZeQ"/>
                                     <constraint firstAttribute="height" constant="46" id="bqs-pc-tLR"/>
                                 </constraints>
                                 <state key="normal" title="       LINEでログイン" image="btnLoginBase"/>

@@ -11,11 +11,24 @@ import UIKit
 
 
 //Login button
-class LoginButton: UIButton{
+class LineLoginButton: UIButton{
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        self.backgroundColor = .white
+        self.backgroundColor = ColorManager().lineLoginButtonPressColor()
+        self.setImage(#imageLiteral(resourceName: "btnLoginPress"), for: .highlighted)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.backgroundColor = ColorManager().lineLoginButtonBaseColor()
+        self.setImage(#imageLiteral(resourceName: "btnLoginBase"), for: .normal)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        self.backgroundColor = ColorManager().lineLoginButtonBaseColor()
+        self.setImage(#imageLiteral(resourceName: "btnLoginBase"), for: .normal)
     }
 }
 
