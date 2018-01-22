@@ -17,6 +17,8 @@
 		E619E6282014DAAF00A30592 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E6272014DAAF00A30592 /* Security.framework */; };
 		E619E62B2015943B00A30592 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619E62A2015943B00A30592 /* LoginViewController.swift */; };
 		E619E62D2015A60C00A30592 /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E619E62C2015A60C00A30592 /* LoginViewController.storyboard */; };
+		E619E6302015CE5C00A30592 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619E62F2015CE5C00A30592 /* LoginButton.swift */; };
+		E619E6322015CF4000A30592 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619E6312015CF4000A30592 /* ColorManager.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CF9E1FF3BE99005DC4BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9C1FF3BE99005DC4BA /* Main.storyboard */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		E619E6292014DE0500A30592 /* hands.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hands.entitlements; sourceTree = "<group>"; };
 		E619E62A2015943B00A30592 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E619E62C2015A60C00A30592 /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		E619E62F2015CE5C00A30592 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		E619E6312015CF4000A30592 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9D1FF3BE99005DC4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			children = (
 				E619E62A2015943B00A30592 /* LoginViewController.swift */,
 				E619E62C2015A60C00A30592 /* LoginViewController.storyboard */,
+				E619E62F2015CE5C00A30592 /* LoginButton.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				E619E62E2015A6C400A30592 /* Login */,
 				E649CFDA1FFA6480005DC4BA /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
+				E619E6312015CF4000A30592 /* ColorManager.swift */,
 				E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */,
 				E60DA89C20027EC800D2BCFA /* CustomButton.swift */,
 				E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */,
@@ -559,12 +565,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E649CFD61FF3DD35005DC4BA /* EventTableViewCell.swift in Sources */,
+				E619E6302015CE5C00A30592 /* LoginButton.swift in Sources */,
 				E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */,
 				E649CFC71FF3C0A2005DC4BA /* AddEventTableViewController.swift in Sources */,
 				E619E62B2015943B00A30592 /* LoginViewController.swift in Sources */,
 				E60DA8982002784000D2BCFA /* MyEventsTableViewController.swift in Sources */,
 				E649CFD31FF3CAD2005DC4BA /* PersonViewModel.swift in Sources */,
 				E649CFDE1FFA64FF005DC4BA /* KeyBoard.swift in Sources */,
+				E619E6322015CF4000A30592 /* ColorManager.swift in Sources */,
 				E649CFC91FF3C0D1005DC4BA /* DetailEventViewController.swift in Sources */,
 				E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */,
 				E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */,
