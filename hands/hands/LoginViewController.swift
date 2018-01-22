@@ -19,6 +19,10 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func didTapLogin(_ sender: Any) {
+        LineSDKLogin.sharedInstance().start()
+    }
 }
 
 extension LoginViewController: LineSDKLoginDelegate{

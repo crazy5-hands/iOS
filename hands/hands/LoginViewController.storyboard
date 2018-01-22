@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="f4E-sX-y9O">
             <objects>
-                <viewController id="3Qx-35-sGJ" sceneMemberID="viewController">
+                <viewController id="3Qx-35-sGJ" customClass="LoginViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="63M-vN-Ru2"/>
                         <viewControllerLayoutGuide type="bottom" id="dbm-om-hHi"/>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このアプリはLINEでのログインのみを利用しています。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loP-vk-xbO">
-                                <rect key="frame" x="62" y="374" width="250" height="74"/>
+                                <rect key="frame" x="62.5" y="374" width="250" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="74" id="HpM-Fd-PRX"/>
                                     <constraint firstAttribute="width" constant="250" id="x3L-Qs-2Lo"/>
@@ -34,7 +34,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="scR-8K-PPF">
-                                <rect key="frame" x="67" y="113.5" width="240" height="240"/>
+                                <rect key="frame" x="67.5" y="113.5" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="5M7-84-sWQ"/>
                                     <constraint firstAttribute="width" secondItem="scR-8K-PPF" secondAttribute="height" multiplier="1:1" id="Oum-7N-32v"/>
@@ -54,6 +54,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="3Qx-35-sGJ" eventType="touchUpInside" id="Mb9-Z5-lrr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
