@@ -36,6 +36,8 @@
 		E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD81FF3E030005DC4BA /* Customs.swift */; };
 		E649CFDE1FFA64FF005DC4BA /* KeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */; };
 		E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */; };
+		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
+		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		E649CFD81FF3E030005DC4BA /* Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
 		E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoard.swift; sourceTree = "<group>"; };
 		E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
+		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +204,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6A1AD6F20195A5F0044998D /* UserInfoViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
 				E649CFE11FFE55D1005DC4BA /* EventTableViewCell */,
@@ -275,6 +280,15 @@
 				E649CFD51FF3DD35005DC4BA /* EventTableViewCell.xib */,
 			);
 			name = EventTableViewCell;
+			sourceTree = "<group>";
+		};
+		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */,
+				E6A1AD7220195AA80044998D /* UserInfoViewController.swift */,
+			);
+			name = UserInfoViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E619E62D2015A60C00A30592 /* LoginViewController.storyboard in Resources */,
@@ -579,6 +594,7 @@
 				E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */,
 				E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */,
 				E649CFD11FF3C23D005DC4BA /* EventViewModel.swift in Sources */,
+				E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E60DA89B2002798400D2BCFA /* MyEventTableViewCell.swift in Sources */,
 				E649CFCB1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift in Sources */,
@@ -683,7 +699,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -728,7 +744,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";

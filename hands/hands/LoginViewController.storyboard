@@ -14,7 +14,7 @@
         <!--Login View Controller-->
         <scene sceneID="f4E-sX-y9O">
             <objects>
-                <viewController id="3Qx-35-sGJ" customClass="LoginViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Qx-35-sGJ" customClass="LoginViewController" customModule="hands" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="63M-vN-Ru2"/>
                         <viewControllerLayoutGuide type="bottom" id="dbm-om-hHi"/>
