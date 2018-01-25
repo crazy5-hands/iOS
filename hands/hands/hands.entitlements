@@ -4,7 +4,7 @@
 <dict>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)KoYamaura.hands</string>
+		<string>$(AppIdentifierPrefix)koyamaura.hands.app</string>
 	</array>
 </dict>
 </plist>
