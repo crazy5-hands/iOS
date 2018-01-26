@@ -30,7 +30,6 @@
 				<string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			</array>
 		</dict>
-		<dict/>
 	</array>
 	<key>CFBundleURLTypes </key>
 	<array>
