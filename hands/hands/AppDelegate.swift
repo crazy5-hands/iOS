@@ -13,6 +13,7 @@ import LineSDK
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var apiClient: LineSDKAPI?
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return LineSDKLogin.sharedInstance().handleOpen(url)
@@ -20,6 +21,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let accessTokenObject = apiClient?.currentAccessToken()
+        
+        if accessTokenObject == nil {
+            //トークンがない
+            print("this app don't have access token")
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+            let initalVC = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+            self.window?.rootViewController = initalVC
+            self.window?.makeKeyAndVisible()
+        }else {
+            //トークンがある
+            apiClient?.verifyToken(queue: DispatchQueue.main, completion: {_, error in
+                if error == nil {
+                    //token is valid
+                    print("token is valid")
+                }else {
+                    //token is invalid
+                    print("token is invalid")
+                    self.apiClient?.refreshToken(with: accessTokenObject, completion: { accessToken, error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }else {
+                            print("success to refresh")
+                        }
+                        })
+                    print(error.debugDescription)
+                }})
+        }
         return true
     }
     
