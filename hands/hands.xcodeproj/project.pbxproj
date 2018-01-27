@@ -44,7 +44,7 @@
 		E6A1AD7E201B01030044998D /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */; };
 		E6A1AD81201B015F0044998D /* EventDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */; };
 		E6A1AD82201B015F0044998D /* EventDetailHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD80201B015F0044998D /* EventDetailHeaderTableViewCell.xib */; };
-		E6A1AD83201B137B0044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
+		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6A1AD83201B137B0044998D /* LineSDK.framework in Frameworks */,
+				E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */,
 				E619E6282014DAAF00A30592 /* Security.framework in Frameworks */,
 				E619E6262014DAA800A30592 /* CoreTelephony.framework in Frameworks */,
 				4B64087E7C38A40D1A491C89 /* Pods_hands.framework in Frameworks */,
@@ -814,12 +814,12 @@
 					"$(PROJECT_DIR)/Pods/LineSDK/LineSDK",
 				);
 				INFOPLIST_FILE = hands/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = koyamaura.hands.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "-886BK756P";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -835,12 +835,12 @@
 					"$(PROJECT_DIR)/Pods/LineSDK/LineSDK",
 				);
 				INFOPLIST_FILE = hands/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = koyamaura.hands.app;
+				PRODUCT_BUNDLE_IDENTIFIER = "-886BK756P";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

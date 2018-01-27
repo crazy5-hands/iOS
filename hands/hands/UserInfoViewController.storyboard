@@ -14,7 +14,7 @@
         <!--User Info View Controller-->
         <scene sceneID="gcv-pN-Gn1">
             <objects>
-                <viewController id="mu1-Z2-Xq3" customClass="UserInfoViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userInfoViewController" id="mu1-Z2-Xq3" customClass="UserInfoViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ht-WZ-vKA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

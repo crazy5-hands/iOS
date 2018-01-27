@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.koyamaura.hands.app</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -27,7 +27,7 @@
 			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+				<string>line3rdp.com.koyamaura.hands.app</string>
 			</array>
 		</dict>
 	</array>
@@ -38,7 +38,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+				<string>line3rdp.com.koyamaura.hands.app</string>
 			</array>
 		</dict>
 	</array>
@@ -47,7 +47,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>lineauth</string>
-		<string>line3rdp.$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+		<string>line3rdp.com.koyamaura.hands.app</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

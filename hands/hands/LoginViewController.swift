@@ -11,6 +11,7 @@ import LineSDK
 
 class LoginViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LineSDKLogin.sharedInstance().delegate = self
@@ -28,6 +29,11 @@ class LoginViewController: UIViewController {
 extension LoginViewController: LineSDKLoginDelegate{
     
     func didLogin(_ login: LineSDKLogin, credential: LineSDKCredential?, profile: LineSDKProfile?, error: Error?) {
+        if login.isAuthorized() == true {
+            print("access ok")
+        }else {
+            print("access no")
+        }
         if error != nil {
             print(error.debugDescription)
         }
@@ -47,8 +53,24 @@ extension LoginViewController: LineSDKLoginDelegate{
         if let pictureURL = profile?.pictureURL{
             print("picture  url: \(pictureURL)")
         }
+        
+        let storyboard = UIStoryboard(name: "UserInfoViewController", bundle: nil)
+        if let userInfoVC = storyboard.instantiateViewController(withIdentifier: "userInfoViewController") as? UserInfoViewController {
+            var data = ["userid" : profile?.userID,
+                        "displayname" : profile?.displayName,
+                        "accesstoken" : credential?.accessToken?.accessToken]
+            
+            if let pictureURL = profile?.pictureURL {
+                data["pictureurl"] = pictureURL.absoluteString
+            }
+            
+            if let statusMessage = profile?.statusMessage {
+                data["statusmessage"] = statusMessage
+            }
+            
+            userInfoVC.userData = data as! Dictionary<String, String>
+            self.present(userInfoVC, animated: true, completion: nil)
+        }
     }
-    
-    
     
 }
