@@ -10,6 +10,9 @@ import UIKit
 
 class EventDetailTableViewController: UITableViewController {
 
+    var eventViewModel: EventViewModel?
+    var cellIdentifier = ["EventDetailHeaderViewCell", "memberTableViewCell", "memoTableViewCell"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,23 +32,33 @@ class EventDetailTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return cellIdentifier.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier[indexPath.row]) as! EventDetailHeaderTableViewCell
+            return cell
+        }
+        
+        return UITableViewCell()
     }
-    */
+    
+//    func setTableViewCellType(_ cellId: String)-> UITableViewCell{
+//        if cellId == "EventDetailHeaderTableViewCell" {
+//            return tableView.dequeueReusableCell(withIdentifier: cellId) as! EventDetailHeaderTableViewCell
+//        }else if cellId == "MemberTableViewCell" {
+//            return  tableView.dequeueReusableCell(withIdentifier: cellId) as! MemberTableViewCell
+//        }else if cellId == "MemoTableViewCell" {
+//            return tableView.dequeueReusableCell(withIdentifier: cellId) as! MemoTableViewCell
+//        }
+//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,4 +105,17 @@ class EventDetailTableViewController: UITableViewController {
     }
     */
 
+}
+
+
+extension EventDetailTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return (eventViewModel?.member.count)!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCollectionViewCell", for: indexPath)
+        return cell
+    }
 }
