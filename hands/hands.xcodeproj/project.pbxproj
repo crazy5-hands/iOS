@@ -45,6 +45,8 @@
 		E6A1AD81201B015F0044998D /* EventDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */; };
 		E6A1AD82201B015F0044998D /* EventDetailHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD80201B015F0044998D /* EventDetailHeaderTableViewCell.xib */; };
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
+		E6A1AD8F201D5D0E0044998D /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD8D201D5D0E0044998D /* MemberTableViewCell.swift */; };
+		E6A1AD90201D5D0E0044998D /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E6A1AD80201B015F0044998D /* EventDetailHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		E6A1AD8D201D5D0E0044998D /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
+		E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTableViewCell.xib; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,6 +335,8 @@
 				E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */,
 				E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */,
 				E6A1AD80201B015F0044998D /* EventDetailHeaderTableViewCell.xib */,
+				E6A1AD8D201D5D0E0044998D /* MemberTableViewCell.swift */,
+				E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */,
 			);
 			name = EventDetailTableViewController;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 				E649CF9E1FF3BE99005DC4BA /* Main.storyboard in Resources */,
 				E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */,
+				E6A1AD90201D5D0E0044998D /* MemberTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +654,7 @@
 				E6A1AD7E201B01030044998D /* EventDetailTableViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E60DA89B2002798400D2BCFA /* MyEventTableViewCell.swift in Sources */,
+				E6A1AD8F201D5D0E0044998D /* MemberTableViewCell.swift in Sources */,
 				E649CFCB1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift in Sources */,
 				E60DA89D20027EC800D2BCFA /* CustomButton.swift in Sources */,
 			);
