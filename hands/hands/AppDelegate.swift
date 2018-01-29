@@ -23,33 +23,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let accessTokenObject = apiClient?.currentAccessToken()
         
-        if accessTokenObject == nil {
-            //トークンがない
-            print("this app don't have access token")
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
-            let initalVC = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-            self.window?.rootViewController = initalVC
-            self.window?.makeKeyAndVisible()
-        }else {
-            //トークンがある
-            apiClient?.verifyToken(queue: DispatchQueue.main, completion: {_, error in
-                if error == nil {
-                    //token is valid
-                    print("token is valid")
-                }else {
-                    //token is invalid
-                    print("token is invalid")
-                    self.apiClient?.refreshToken(with: accessTokenObject, completion: { accessToken, error in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        }else {
-                            print("success to refresh")
-                        }
-                        })
-                    print(error.debugDescription)
-                }})
-        }
+//        if accessTokenObject == nil {
+//            //トークンがない
+//            print("this app don't have access token")
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
+//            let initalVC = storyboard.instantiateViewController(withIdentifier: "loginViewController")
+//            self.window?.rootViewController = initalVC
+//            self.window?.makeKeyAndVisible()
+//        }else {
+//            //トークンがある
+//            apiClient?.verifyToken(queue: DispatchQueue.main, completion: {_, error in
+//                if error == nil {
+//                    //token is valid
+//                    print("token is valid")
+//                }else {
+//                    //token is invalid
+//                    print("token is invalid")
+//                    self.apiClient?.refreshToken(with: accessTokenObject, completion: { accessToken, error in
+//                        if let error = error {
+//                            print(error.localizedDescription)
+//                        }else {
+//                            print("success to refresh")
+//                        }
+//                        })
+//                    print(error.debugDescription)
+//                }})
+//        }
         return true
     }
     

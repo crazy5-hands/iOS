@@ -18,17 +18,23 @@ class EventDetailHeaderTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        testdata()
         // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        testdata()
         // Configure the view for the selected state
     }
     
     func update(_ data: EventViewModel){
         self.eventNameLabel.text = data.title
         self.eventDateLabel.text = DateUtils.stringFromDate(date: data.start)
+    }
+    
+    func testdata(){
+        eventNameLabel.text = "hello "
+        eventDateLabel.text = "2017/1/12"
     }
 }
