@@ -42,11 +42,22 @@ class EventDetailTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier[indexPath.row]) as! EventDetailHeaderTableViewCell
-            return cell
+        switch indexPath.row {
+        case 0:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier[indexPath.row]) as? EventDetailHeaderTableViewCell {
+                cell.update(eventViewModel!)
+                return cell
+            }
+        case 1:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier[indexPath.row]) as? MemberTableViewCell {
+                return cell
+            }
+        case 2:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier[indexPath.row]) as? MemoTableViewCell {
+                return cell
+            }
+        default: return UITableViewCell()
         }
-        
         return UITableViewCell()
     }
     
