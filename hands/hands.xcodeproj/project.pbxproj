@@ -38,8 +38,7 @@
 		E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */; };
 		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
 		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
-		E6A1AD762019E6410044998D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD752019E6410044998D /* ProfileViewController.swift */; };
-		E6A1AD782019E6600044998D /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD772019E6600044998D /* ProfileViewController.storyboard */; };
+		E6A1AD782019E6600044998D /* ProfileTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD772019E6600044998D /* ProfileTableViewController.storyboard */; };
 		E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */; };
 		E6A1AD7E201B01030044998D /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */; };
 		E6A1AD81201B015F0044998D /* EventDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */; };
@@ -113,8 +112,7 @@
 		E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		E6A1AD752019E6410044998D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E6A1AD772019E6600044998D /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		E6A1AD772019E6600044998D /* ProfileTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileTableViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailTableViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -228,7 +226,7 @@
 			children = (
 				E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */,
 				E6A1AD792019E7C70044998D /* EditProfileViewController */,
-				E6A1AD742019E6020044998D /* ProfileViewController */,
+				E6A1AD742019E6020044998D /* ProfileTableViewController */,
 				E6A1AD6F20195A5F0044998D /* UserInfoViewController */,
 				E619E62E2015A6C400A30592 /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
@@ -315,13 +313,12 @@
 			name = UserInfoViewController;
 			sourceTree = "<group>";
 		};
-		E6A1AD742019E6020044998D /* ProfileViewController */ = {
+		E6A1AD742019E6020044998D /* ProfileTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E6A1AD752019E6410044998D /* ProfileViewController.swift */,
-				E6A1AD772019E6600044998D /* ProfileViewController.storyboard */,
+				E6A1AD772019E6600044998D /* ProfileTableViewController.storyboard */,
 			);
-			name = ProfileViewController;
+			name = ProfileTableViewController;
 			sourceTree = "<group>";
 		};
 		E6A1AD792019E7C70044998D /* EditProfileViewController */ = {
@@ -334,17 +331,25 @@
 		E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E6A1AD95201F69D00044998D /* MemberTableViewCell */,
 				E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */,
 				E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */,
 				E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */,
 				E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */,
 				E6A1AD80201B015F0044998D /* EventDetailHeaderTableViewCell.xib */,
-				E6A1AD8D201D5D0E0044998D /* MemberTableViewCell.swift */,
-				E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */,
 				E6A1AD91201DB2200044998D /* MemoTableViewCell.swift */,
 				E6A1AD92201DB2200044998D /* MemoTableViewCell.xib */,
 			);
 			name = EventDetailTableViewController;
+			sourceTree = "<group>";
+		};
+		E6A1AD95201F69D00044998D /* MemberTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6A1AD8D201D5D0E0044998D /* MemberTableViewCell.swift */,
+				E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */,
+			);
+			name = MemberTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,7 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */,
-				E6A1AD782019E6600044998D /* ProfileViewController.storyboard in Resources */,
+				E6A1AD782019E6600044998D /* ProfileTableViewController.storyboard in Resources */,
 				E6A1AD94201DB2200044998D /* MemoTableViewCell.xib in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
@@ -653,7 +658,6 @@
 				E649CFD31FF3CAD2005DC4BA /* PersonViewModel.swift in Sources */,
 				E649CFDE1FFA64FF005DC4BA /* KeyBoard.swift in Sources */,
 				E619E6322015CF4000A30592 /* ColorManager.swift in Sources */,
-				E6A1AD762019E6410044998D /* ProfileViewController.swift in Sources */,
 				E649CFC91FF3C0D1005DC4BA /* DetailEventViewController.swift in Sources */,
 				E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */,
 				E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */,

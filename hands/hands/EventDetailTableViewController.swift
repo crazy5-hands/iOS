@@ -107,7 +107,7 @@ extension EventDetailTableViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCollectionViewCell", for: indexPath)
-        return cell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCollectionViewCell", for: indexPath)
+        return UICollectionViewCell()
     }
 }
