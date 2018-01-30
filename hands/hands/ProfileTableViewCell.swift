@@ -28,3 +28,19 @@ class ProfileTableViewCell: UITableViewCell {
     }
 
 }
+
+
+extension ProfileTableViewCell{
+    
+    // set Data to UIImageView and Labels
+    func updateCell(profileImage: UIImage?, userName: String, sumOfWillJoin: Int, sumOfJoined: Int){
+        if profileImage == nil {
+            //set non profile image
+        }else {
+            profileImageView.image = profileImage!
+        }
+        userNameLabel.text = userName
+        sumOfWillJoinLabel.text = String(sumOfWillJoin)
+        sumOfJoinedLabel.text = String(sumOfJoined)
+    }
+}
