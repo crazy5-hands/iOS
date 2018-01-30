@@ -31,26 +31,42 @@ class ProfileTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 2
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Profile") as! ProfileTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "profile") as! ProfileTableViewCell
             cell.updateCell(profileImage: nil, userName: "これはテストだよ", sumOfWillJoin: 3, sumOfJoined: 5)
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             return cell
         default:
             return UITableViewCell()
         }
     }
 
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height: CGFloat!
+        
+        if indexPath.row == 0{
+            height = 225
+        }else {
+            height = 100
+        }
+        return height
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
