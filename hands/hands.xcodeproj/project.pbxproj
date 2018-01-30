@@ -38,7 +38,6 @@
 		E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */; };
 		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
 		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
-		E6A1AD782019E6600044998D /* ProfileTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD772019E6600044998D /* ProfileTableViewController.storyboard */; };
 		E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */; };
 		E6A1AD7E201B01030044998D /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */; };
 		E6A1AD81201B015F0044998D /* EventDetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */; };
@@ -48,6 +47,8 @@
 		E6A1AD90201D5D0E0044998D /* MemberTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */; };
 		E6A1AD93201DB2200044998D /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD91201DB2200044998D /* MemoTableViewCell.swift */; };
 		E6A1AD94201DB2200044998D /* MemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD92201DB2200044998D /* MemoTableViewCell.xib */; };
+		E6A1AD98202087210044998D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD97202087210044998D /* ProfileViewController.swift */; };
+		E6A1AD9A202087290044998D /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD99202087290044998D /* ProfileViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +113,6 @@
 		E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
-		E6A1AD772019E6600044998D /* ProfileTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileTableViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailTableViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,6 +121,8 @@
 		E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberTableViewCell.xib; sourceTree = "<group>"; };
 		E6A1AD91201DB2200044998D /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 		E6A1AD92201DB2200044998D /* MemoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoTableViewCell.xib; sourceTree = "<group>"; };
+		E6A1AD97202087210044998D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E6A1AD99202087290044998D /* ProfileViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,7 +318,8 @@
 		E6A1AD742019E6020044998D /* ProfileTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E6A1AD772019E6600044998D /* ProfileTableViewController.storyboard */,
+				E6A1AD99202087290044998D /* ProfileViewController.storyboard */,
+				E6A1AD97202087210044998D /* ProfileViewController.swift */,
 			);
 			name = ProfileTableViewController;
 			sourceTree = "<group>";
@@ -475,7 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */,
-				E6A1AD782019E6600044998D /* ProfileTableViewController.storyboard in Resources */,
+				E6A1AD9A202087290044998D /* ProfileViewController.storyboard in Resources */,
 				E6A1AD94201DB2200044998D /* MemoTableViewCell.xib in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
@@ -662,6 +665,7 @@
 				E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */,
 				E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */,
 				E649CFD11FF3C23D005DC4BA /* EventViewModel.swift in Sources */,
+				E6A1AD98202087210044998D /* ProfileViewController.swift in Sources */,
 				E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */,
 				E6A1AD7E201B01030044998D /* EventDetailTableViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
