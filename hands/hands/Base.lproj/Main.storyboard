@@ -538,10 +538,10 @@
             </objects>
             <point key="canvasLocation" x="934" y="1773"/>
         </scene>
-        <!--ProfileViewController-->
+        <!--ProfileTableViewController-->
         <scene sceneID="suD-Dm-G9W">
             <objects>
-                <viewControllerPlaceholder storyboardName="ProfileViewController" id="Hli-ts-4fK" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="ProfileTableViewController" id="Hli-ts-4fK" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="vJZ-Ys-9aO"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeu-Gv-6kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
