@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>ja_JP</string>
 	<key>CFBundleDisplayName</key>
 	<string>hands</string>
 	<key>CFBundleExecutable</key>
@@ -21,13 +21,9 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>line3rdp.com.koyamaura.hands.app</string>
+				<string>fb1782550488463282</string>
 			</array>
 		</dict>
 	</array>
@@ -44,10 +40,16 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>1782550488463282</string>
+	<key>FacebookDisplayName</key>
+	<string>hands</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>lineauth</string>
-		<string>line3rdp.com.koyamaura.hands.app</string>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

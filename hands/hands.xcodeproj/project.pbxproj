@@ -39,6 +39,9 @@
 		E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */; };
 		E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */; };
 		E67536E32029B78F00CA2E6A /* MyEventsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */; };
+		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
+		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
+		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
 		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
 		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
 		E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */; };
@@ -118,6 +121,9 @@
 		E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowEventsViewController.storyboard; sourceTree = "<group>"; };
 		E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEventTableViewController.storyboard; sourceTree = "<group>"; };
 		E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyEventsTableViewController.storyboard; sourceTree = "<group>"; };
+		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailTableViewController.storyboard; sourceTree = "<group>"; };
@@ -139,8 +145,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */,
+				E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */,
 				E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */,
 				E619E6282014DAAF00A30592 /* Security.framework in Frameworks */,
+				E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */,
 				E619E6262014DAA800A30592 /* CoreTelephony.framework in Frameworks */,
 				4B64087E7C38A40D1A491C89 /* Pods_hands.framework in Frameworks */,
 			);
@@ -168,6 +177,9 @@
 		7FF9932BE1AC38EB5CD589EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */,
+				E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */,
+				E67536962023FBA800CA2E6A /* Bolts.framework */,
 				E619E63320172FDD00A30592 /* LineSDK.framework */,
 				E619E6272014DAAF00A30592 /* Security.framework */,
 				E619E6252014DAA800A30592 /* CoreTelephony.framework */,
@@ -868,6 +880,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/LineSDK/LineSDK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = hands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -889,6 +902,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/LineSDK/LineSDK",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = hands/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;

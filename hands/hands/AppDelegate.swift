@@ -8,6 +8,7 @@
 
 import UIKit
 import LineSDK
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,12 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var apiClient: LineSDKAPI?
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return LineSDKLogin.sharedInstance().handleOpen(url)
+        var handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        return handled
+//        return LineSDKLogin.sharedInstance().handleOpen(url)
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let accessTokenObject = apiClient?.currentAccessToken()
+//        let accessTokenObject = apiClient?.currentAccessToken()
         
 //        if accessTokenObject == nil {
 //            //トークンがない
@@ -50,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    print(error.debugDescription)
 //                }})
 //        }
+        
+//        setting facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions:
+        launchOptions)
         return true
     }
     

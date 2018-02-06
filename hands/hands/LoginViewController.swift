@@ -8,6 +8,8 @@
 
 import UIKit
 import LineSDK
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
@@ -15,6 +17,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LineSDKLogin.sharedInstance().delegate = self
+        let facebookLoginButton = FBSDKLoginButton()
+        facebookLoginButton.center = self.view.center
+        self.view.addSubview(facebookLoginButton)
+        if let accessToken = FBSDKAccessToken.current(){
+            print(accessToken.userID)
+//            facebookLoginButton.readPermissions = 
+        }
     }
 
     override func didReceiveMemoryWarning() {
