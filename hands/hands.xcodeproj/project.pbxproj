@@ -37,6 +37,8 @@
 		E649CFDE1FFA64FF005DC4BA /* KeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */; };
 		E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */; };
 		E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */; };
+		E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */; };
+		E67536E32029B78F00CA2E6A /* MyEventsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */; };
 		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
 		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
 		E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */; };
@@ -114,6 +116,8 @@
 		E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoard.swift; sourceTree = "<group>"; };
 		E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowEventsViewController.storyboard; sourceTree = "<group>"; };
+		E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEventTableViewController.storyboard; sourceTree = "<group>"; };
+		E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyEventsTableViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailTableViewController.storyboard; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E67536E02029B75300CA2E6A /* MyEventsTableViewController */,
+				E67536DD2029B71F00CA2E6A /* EventAddTableViewController */,
 				E67536DA20285A5100CA2E6A /* ShowEventsViewController */,
 				E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */,
 				E6A1AD792019E7C70044998D /* EditProfileViewController */,
@@ -237,10 +243,8 @@
 				E6A1AD6F20195A5F0044998D /* UserInfoViewController */,
 				E619E62E2015A6C400A30592 /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
-				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
 				E649CFE11FFE55D1005DC4BA /* EventTableViewCell */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
-				E649CFDB1FFA64A3005DC4BA /* ViewController */,
 				E649CFDA1FFA6480005DC4BA /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
 				E619E6312015CF4000A30592 /* ColorManager.swift */,
@@ -282,15 +286,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		E649CFDB1FFA64A3005DC4BA /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */,
-				E60DA8972002784000D2BCFA /* MyEventsTableViewController.swift */,
-			);
-			name = ViewController;
-			sourceTree = "<group>";
-		};
 		E649CFDC1FFA64CB005DC4BA /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +312,25 @@
 				E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */,
 			);
 			name = ShowEventsViewController;
+			sourceTree = "<group>";
+		};
+		E67536DD2029B71F00CA2E6A /* EventAddTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */,
+				E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */,
+			);
+			name = EventAddTableViewController;
+			sourceTree = "<group>";
+		};
+		E67536E02029B75300CA2E6A /* MyEventsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E60DA8972002784000D2BCFA /* MyEventsTableViewController.swift */,
+				E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */,
+				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
+			);
+			name = MyEventsTableViewController;
 			sourceTree = "<group>";
 		};
 		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
@@ -494,8 +508,10 @@
 				E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */,
 				E6A1AD9A202087290044998D /* ProfileTableViewController.storyboard in Resources */,
 				E6A1AD94201DB2200044998D /* MemoTableViewCell.xib in Resources */,
+				E67536E32029B78F00CA2E6A /* MyEventsTableViewController.storyboard in Resources */,
 				E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
+				E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6A1AD82201B015F0044998D /* EventDetailHeaderTableViewCell.xib in Resources */,
 				E619E62D2015A60C00A30592 /* LoginViewController.storyboard in Resources */,
