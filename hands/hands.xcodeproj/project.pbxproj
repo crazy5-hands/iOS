@@ -36,6 +36,7 @@
 		E649CFD91FF3E030005DC4BA /* Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFD81FF3E030005DC4BA /* Customs.swift */; };
 		E649CFDE1FFA64FF005DC4BA /* KeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */; };
 		E649CFE31FFE5684005DC4BA /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */; };
+		E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */; };
 		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
 		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
 		E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */; };
@@ -112,6 +113,7 @@
 		E649CFD81FF3E030005DC4BA /* Customs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customs.swift; sourceTree = "<group>"; };
 		E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoard.swift; sourceTree = "<group>"; };
 		E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowEventsViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailTableViewController.storyboard; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E67536DA20285A5100CA2E6A /* ShowEventsViewController */,
 				E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */,
 				E6A1AD792019E7C70044998D /* EditProfileViewController */,
 				E6A1AD742019E6020044998D /* ProfileTableViewController */,
@@ -283,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */,
-				E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */,
 				E60DA8972002784000D2BCFA /* MyEventsTableViewController.swift */,
 			);
 			name = ViewController;
@@ -306,6 +308,15 @@
 				E649CFD51FF3DD35005DC4BA /* EventTableViewCell.xib */,
 			);
 			name = EventTableViewCell;
+			sourceTree = "<group>";
+		};
+		E67536DA20285A5100CA2E6A /* ShowEventsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */,
+				E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */,
+			);
+			name = ShowEventsViewController;
 			sourceTree = "<group>";
 		};
 		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
@@ -483,6 +494,7 @@
 				E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */,
 				E6A1AD9A202087290044998D /* ProfileTableViewController.storyboard in Resources */,
 				E6A1AD94201DB2200044998D /* MemoTableViewCell.xib in Resources */,
+				E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6A1AD82201B015F0044998D /* EventDetailHeaderTableViewCell.xib in Resources */,
