@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
         self.view.addSubview(facebookLoginButton)
         if let accessToken = FBSDKAccessToken.current(){
             print(accessToken.userID)
-//            facebookLoginButton.readPermissions = 
         }
     }
 
@@ -46,7 +45,6 @@ extension LoginViewController: LineSDKLoginDelegate{
         if error != nil {
             print(error.debugDescription)
         }
-        
         if let accessToken = credential?.accessToken{
             print("accessToken : \(accessToken)")
         }
