@@ -7,19 +7,30 @@
 //
 
 import UIKit
+import LineSDK
 
 class ProfileTableViewController: UITableViewController {
 
-    
+    var apiClient: LineSDKAPI?
+    var userName: String?
+    var statusMessage: String?
+    var pictureURLString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        apiClient?.getProfile(queue: .main, completion: { (profile, error) in
+            if error == nil{
+                print("this is profile vc")
+                print(profile?.displayName)
+                print(profile?.statusMessage)
+                self.userName = profile?.displayName
+                self.statusMessage = profile?.statusMessage
+                if profile?.pictureURL != nil {
+                    self.pictureURLString = profile?.pictureURL?.absoluteString
+                }
+                self.tableView.reloadData()
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +55,7 @@ class ProfileTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "profile") as! ProfileTableViewCell
-            cell.updateCell(profileImage: nil, userName: "これはテストだよ", sumOfWillJoin: 3, sumOfJoined: 5)
+            cell.updateCell(pictureURLString: pictureURLString, userName: self.userName, statusMessage: self.statusMessage, sumOfWillJoin: 3, sumOfJoined: 5)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!

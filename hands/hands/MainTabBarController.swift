@@ -16,7 +16,16 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("hello this is main")
+        apiClient?.getProfile(queue: .main, completion: { (profile, error) in
+            if error == nil{
+                print("this is profile vc")
+                print(profile?.displayName)
+                print(profile?.statusMessage!)
+            }else {
+                print("thishaserror")
+            }
+        })
         let showEventsTableVC = UIStoryboard(name: "ShowEventsTableViewController", bundle: nil).instantiateViewController(withIdentifier: "showEventsViewController") as! ShowEventsTableViewController
         let showEventsNavigationController = UINavigationController(rootViewController: showEventsTableVC)
         
@@ -24,10 +33,13 @@ final class MainTabBarController: UITabBarController {
         let myEventsNavigationController = UINavigationController(rootViewController: myEventsTableVC)
         
         let profileTableVC = UIStoryboard(name: "ProfileTableViewController", bundle: nil).instantiateViewController(withIdentifier: "profileTableViewController") as! ProfileTableViewController
+        profileTableVC.apiClient = apiClient
         let profileNavigationController = UINavigationController(rootViewController: profileTableVC)
         
         self.setViewControllers([showEventsNavigationController, myEventsNavigationController, profileNavigationController], animated: true)
+        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

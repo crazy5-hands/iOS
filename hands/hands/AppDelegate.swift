@@ -38,7 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             apiClient.verifyToken(queue: DispatchQueue.main, completion: {_, error in
                 if error == nil {
                     //token is valid
-                    self.setMainTabBC()
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    let main = UIStoryboard(name: "MainTabBarController", bundle: nil)
+                    let mainTabBC = main.instantiateInitialViewController() as! MainTabBarController
+                    mainTabBC.apiClient = self.apiClient
+                    self.window?.rootViewController = mainTabBC
+                    self.window?.makeKeyAndVisible()
                 }else {
                     //token is invalid
                     print("token is invalid")
@@ -47,7 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print(error.localizedDescription)
                         }else {
                             print("success to refresh")
-                            self.setMainTabBC()
+                            self.window = UIWindow(frame: UIScreen.main.bounds)
+                            let main = MainTabBarController()
+                            main.apiClient = apiClient
+                            self.window?.rootViewController = main
+                            self.window?.makeKeyAndVisible()
                         }
                         })
                     print(error.debugDescription)
@@ -56,16 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    //tabbarがあるメインの画面を表示
-    func setMainTabBC(){
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let main = MainTabBarController()
-        main.apiClient = apiClient
-        self.window?.rootViewController = main
-        self.window?.makeKeyAndVisible()
-    }
     
-
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
