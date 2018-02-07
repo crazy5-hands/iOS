@@ -38,12 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             apiClient.verifyToken(queue: DispatchQueue.main, completion: {_, error in
                 if error == nil {
                     //token is valid
-                    //ここで表示するViewControllerにapiClientを渡す
-                    self.window = UIWindow(frame: UIScreen.main.bounds)
-                    let main = MainTabBarController()
-                    main.apiClient = apiClient
-                    self.window?.rootViewController = main
-                    self.window?.makeKeyAndVisible()
+                    self.setMainTabBC()
                 }else {
                     //token is invalid
                     print("token is invalid")
@@ -52,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print(error.localizedDescription)
                         }else {
                             print("success to refresh")
+                            self.setMainTabBC()
                         }
                         })
                     print(error.debugDescription)
@@ -60,6 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    //tabbarがあるメインの画面を表示
+    func setMainTabBC(){
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let main = MainTabBarController()
+        main.apiClient = apiClient
+        self.window?.rootViewController = main
+        self.window?.makeKeyAndVisible()
+    }
     
 
     func applicationWillResignActive(_ application: UIApplication) {
