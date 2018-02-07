@@ -42,6 +42,7 @@
 		E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */; };
 		E67536E32029B78F00CA2E6A /* MyEventsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */; };
 		E67536E5202B5DA300CA2E6A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */; };
+		E67536E7202B607400CA2E6A /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */; };
 		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
 		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
 		E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */; };
@@ -124,6 +125,7 @@
 		E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEventTableViewController.storyboard; sourceTree = "<group>"; };
 		E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyEventsTableViewController.storyboard; sourceTree = "<group>"; };
 		E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailTableViewController.storyboard; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E67536E8202B60F800CA2E6A /* MainTabBarController */,
 				E67536E02029B75300CA2E6A /* MyEventsTableViewController */,
 				E67536DD2029B71F00CA2E6A /* EventAddTableViewController */,
 				E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */,
@@ -259,7 +262,6 @@
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E649CFDA1FFA6480005DC4BA /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
-				E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */,
 				E619E6312015CF4000A30592 /* ColorManager.swift */,
 				E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */,
 				E60DA89C20027EC800D2BCFA /* CustomButton.swift */,
@@ -343,6 +345,15 @@
 				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
 			);
 			name = MyEventsTableViewController;
+			sourceTree = "<group>";
+		};
+		E67536E8202B60F800CA2E6A /* MainTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */,
+				E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */,
+			);
+			name = MainTabBarController;
 			sourceTree = "<group>";
 		};
 		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
@@ -522,6 +533,7 @@
 				E6A1AD94201DB2200044998D /* MemoTableViewCell.xib in Resources */,
 				E67536E32029B78F00CA2E6A /* MyEventsTableViewController.storyboard in Resources */,
 				E67536DC20285A8400CA2E6A /* ShowEventsTableViewController.storyboard in Resources */,
+				E67536E7202B607400CA2E6A /* MainTabBarController.storyboard in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
