@@ -8,6 +8,7 @@
 
 import UIKit
 import LineSDK
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let accessTokenObject = apiClient.currentAccessToken()
         if accessTokenObject == nil {
             //トークンがない
+            //ログイン画面
             print("this app don't have access token")
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
@@ -32,10 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
         }else {
             //トークンがある
+            
             apiClient.verifyToken(queue: DispatchQueue.main, completion: {_, error in
                 if error == nil {
                     //token is valid
-                    print("token is valid")
+                    //ここで表示するViewControllerにapiClientを渡す
+                    self.window = UIWindow(frame: UIScreen.main.bounds)
+                    let main = MainTabBarController()
+                    main.apiClient = apiClient
+                    self.window?.rootViewController = main
+                    self.window?.makeKeyAndVisible()
                 }else {
                     //token is invalid
                     print("token is invalid")
