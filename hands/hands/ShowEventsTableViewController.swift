@@ -18,10 +18,16 @@ class ShowEventsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        objects = EventViewModel.load()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ShowEventsTableViewController.segueAdd))
+        //edit navigationBar
+        self.navigationItem.title = "Event List"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ShowEventsTableViewController.segueAdd))
+        
+        //add refreshControl
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(ShowEventsTableViewController.refreshControlValueChanged(sender:)), for: .valueChanged)
+        
+        objects = EventViewModel.load()
         self.tableView.addSubview(refreshControl)
     }
     

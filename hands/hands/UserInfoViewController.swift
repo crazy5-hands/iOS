@@ -24,32 +24,38 @@ class UserInfoViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        self.apiClinet = LineSDKAPI(configuration: LineSDKConfiguration.defaultConfig())
         self.displayNameLabel.text = self.userData["displayname"]
         self.userIdLabel.text = self.userData["userid"]
         self.statusMessageLabel.text = self.userData["statusmessage"]
         
-        guard let pictureURLString = self.userData["pictureurl"] else {
-            print("picture URL is blank")
-            return
-        }
-        
-        guard let pictureURL = URL(string: pictureURLString) else {
-            print("String to URL conversion failed")
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: pictureURL){
-            (data, response, error) in
-            
-            if let data = data {
-                DispatchQueue.main.async {
-                    self.profileImageView.image = UIImage(data: data)
+        apiClinet?.getProfile(queue: .main, completion: {  (profile, error) in
+            if error == nil{
+                self.displayNameLabel.text = profile?.displayName
+                self.statusMessageLabel.text = profile?.statusMessage
+                guard let pictureURLString = profile?.pictureURL?.absoluteString else {
+                    print("picture URL is blank")
+                    return
                 }
+                
+                guard let pictureURL = URL(string: pictureURLString) else {
+                    print("String to URL conversion failed")
+                    return
+                }
+                
+                let task = URLSession.shared.dataTask(with: pictureURL){
+                    (data, response, error) in
+                    
+                    if let data = data {
+                        DispatchQueue.main.async {
+                            self.profileImageView.image = UIImage(data: data)
+                        }
+                    }
+                }
+                task.resume()
+
+                
             }
-        }
-        task.resume()
+        })
     }
 
     override func didReceiveMemoryWarning() {
