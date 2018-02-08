@@ -13,7 +13,11 @@
         <!--Introduction Page View Controller-->
         <scene sceneID="Olm-U5-0cX">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Nnb-qu-hY0" customClass="IntroductionPageViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Nnb-qu-hY0" customClass="IntroductionPageViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <outlet property="skipButtonView" destination="if2-Nz-1mw" id="cXz-x6-dj7"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCb-e0-vze" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="if2-Nz-1mw">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
@@ -35,7 +39,6 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="wkE-gb-SjP" firstAttribute="trailing" secondItem="HnU-zQ-eRz" secondAttribute="trailing" constant="16" id="Lri-xm-zKj"/>
                         <constraint firstItem="HnU-zQ-eRz" firstAttribute="centerY" secondItem="if2-Nz-1mw" secondAttribute="centerY" id="fmL-un-fnz"/>

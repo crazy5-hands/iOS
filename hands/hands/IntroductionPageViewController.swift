@@ -10,10 +10,33 @@ import UIKit
 
 class IntroductionPageViewController: UIPageViewController {
 
+    @IBOutlet var skipButtonView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setViewControllers([getFirst()], direction: .forward, animated: true, completion: nil)
         self.dataSource = self
+        self.view.addSubview(self.skipButtonView)
+        self.skipButtonView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addConstraint(NSLayoutConstraint(item: self.skipButtonView, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width,
+            multiplier: 1.0, constant: 0))
+        self.skipButtonView.addConstraint(NSLayoutConstraint(item: self.skipButtonView, attribute: .height,
+            relatedBy: .equal,
+            toItem: nil, attribute: .notAnAttribute,
+            multiplier: 1.0, constant:  100.0))
+        self.skipButtonView.topAnchor.constraint(equalTo: self.view.topAnchor)
+////        constraint(equalTo: , constant: <#T##CGFloat#>)
+//        self.view.addConstraint(NSLayoutConstraint(
+//            item: self.skipButtonView, attribute: .top,
+//            relatedBy: .equal,
+//            toItem: self.view.safeAreaLayoutGuide.topAnchor, attribute: .top,
+//            multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(
+            item: self.skipButtonView, attribute: .centerX,
+            relatedBy: .equal,
+            toItem: self.view, attribute: .centerX,
+            multiplier: 1.0, constant: 0))
+        self.view.updateConstraintsIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +75,14 @@ extension IntroductionPageViewController: UIPageViewControllerDataSource{
         }else {
             return nil
         }
+    }
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return 3
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
     }
 }
 
