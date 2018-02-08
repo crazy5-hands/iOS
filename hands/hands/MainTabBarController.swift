@@ -16,6 +16,8 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.apiClient = appDelegate.apiClient
         print("hello this is main")
         apiClient?.getProfile(queue: .main, completion: { (profile, error) in
             if error == nil{
@@ -40,6 +42,12 @@ final class MainTabBarController: UITabBarController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        self.apiClient = appDelegate.apiClient
+        print("hello this is main appear")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -15,12 +15,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var apiClient: LineSDKAPI?
+    
+    var userName: String?
+    var statusMessage: String?
+    var pictureURLString: String?
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         return LineSDKLogin.sharedInstance().handleOpen(url)
     }
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let userDefault = UserDefaults.standard
+        let dict = ["firstLaunch" : true]
+        userDefault.register(defaults: dict)
+        if userDefault.bool(forKey: "firstLaunch"){
+            userDefault.set(false, forKey: "firstLaunch")
+            
+            //do first Launch action here
+        }
+        
+        //do action when it's not first launch
+        
         let apiClient = LineSDKAPI(configuration: LineSDKConfiguration.defaultConfig())
         let accessTokenObject = apiClient.currentAccessToken()
         if accessTokenObject == nil {
@@ -38,12 +55,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             apiClient.verifyToken(queue: DispatchQueue.main, completion: {_, error in
                 if error == nil {
                     //token is valid
-                    self.window = UIWindow(frame: UIScreen.main.bounds)
-                    let main = UIStoryboard(name: "MainTabBarController", bundle: nil)
-                    let mainTabBC = main.instantiateInitialViewController() as! MainTabBarController
-                    mainTabBC.apiClient = self.apiClient
-                    self.window?.rootViewController = mainTabBC
-                    self.window?.makeKeyAndVisible()
+                    apiClient.getProfile(queue: .main, completion: { (profile, error) in
+                        if error == nil{
+                            if profile?.pictureURL != nil {
+                                self.pictureURLString = profile?.pictureURL?.absoluteString
+                            }
+//                            print(profile?.displayName)
+                            self.userName = profile?.displayName
+                            self.statusMessage = profile?.statusMessage
+                            print(profile?.displayName)
+                        }
+                    })
+                    if self.userName != nil {
+                        self.window = UIWindow(frame: UIScreen.main.bounds)
+                        let main = UIStoryboard(name: "MainTabBarController", bundle: nil)
+                        let mainTabBC = main.instantiateInitialViewController() as! MainTabBarController
+                        mainTabBC.apiClient = self.apiClient
+                        self.window?.rootViewController = mainTabBC
+                        self.window?.makeKeyAndVisible()
+                    }
                 }else {
                     //token is invalid
                     print("token is invalid")
