@@ -17,7 +17,6 @@
                     <view key="view" contentMode="scaleToFill" id="QP0-sa-xGb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="zRz-vs-uFo"/>
                     </view>
                 </viewController>

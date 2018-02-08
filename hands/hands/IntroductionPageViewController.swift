@@ -12,8 +12,27 @@ class IntroductionPageViewController: UIPageViewController {
 
     @IBOutlet var skipButtonView: UIView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let imageView: UIImageView!
+        //set background view
+        let screenWidth = self.view.bounds.width
+        let screenHeight = self.view.bounds.height
+        let image = UIImage(named: "IntroductionBackground.jpg")
+        let imageWidth = image?.size.width
+        let imageHeight = image?.size.height
+        
+        imageView = UIImageView(image: image)
+        
+        let scale:CGFloat = screenHeight / imageHeight!
+        let rect: CGRect = CGRect(x: 0, y: 0, width: imageWidth! * scale, height: imageHeight! * scale)
+        
+        imageView.frame = rect
+        imageView.center = CGPoint(x: screenWidth/2, y: screenHeight/2)
+        self.view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+        
         self.setViewControllers([getFirst()], direction: .forward, animated: true, completion: nil)
         self.dataSource = self
         self.view.addSubview(self.skipButtonView)

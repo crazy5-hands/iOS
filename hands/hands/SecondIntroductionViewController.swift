@@ -12,6 +12,7 @@ class SecondIntroductionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("second")
 
         // Do any additional setup after loading the view.
     }

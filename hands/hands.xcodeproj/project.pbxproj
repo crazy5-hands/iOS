@@ -64,6 +64,7 @@
 		E6A1AD9A202087290044998D /* ProfileTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD99202087290044998D /* ProfileTableViewController.storyboard */; };
 		E6A1AD9C2020880C0044998D /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD9B2020880C0044998D /* ProfileTableViewController.swift */; };
 		E6A1AD9E20208A690044998D /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD9D20208A690044998D /* ProfileTableViewCell.swift */; };
+		E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +154,7 @@
 		E6A1AD99202087290044998D /* ProfileTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileTableViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD9B2020880C0044998D /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		E6A1AD9D20208A690044998D /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IntroductionBackground.jpg; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,6 +282,7 @@
 				E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */,
 				E60DA89C20027EC800D2BCFA /* CustomButton.swift */,
 				E649CFDD1FFA64FF005DC4BA /* KeyBoard.swift */,
+				E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */,
 				E649CFD81FF3E030005DC4BA /* Customs.swift */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
@@ -588,6 +591,7 @@
 				E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */,
+				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
 				E67536FC202C0FA600CA2E6A /* ThirdIntroductionViewController.storyboard in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6A1AD82201B015F0044998D /* EventDetailHeaderTableViewCell.xib in Resources */,

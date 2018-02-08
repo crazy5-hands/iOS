@@ -10,9 +10,10 @@ import UIKit
 
 class FirstIntroductionViewController: UIViewController {
 
+    @IBOutlet weak var backgroundImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("first")
         // Do any additional setup after loading the view.
     }
 
