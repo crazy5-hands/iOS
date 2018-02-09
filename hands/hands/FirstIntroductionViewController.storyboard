@@ -20,16 +20,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ようこそ、handsへ！これはあなたの生活をちょっとだけ楽しくするサービスです。" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fhn-Rq-wlr">
-                                <rect key="frame" x="57" y="273.5" width="262.5" height="119.5"/>
+                                <rect key="frame" x="56" y="416.5" width="263" height="100.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.0" green="0.76470588240000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Fhn-Rq-wlr" firstAttribute="centerX" secondItem="yvo-jg-pt7" secondAttribute="centerX" id="MmH-ig-FJQ"/>
-                            <constraint firstItem="Fhn-Rq-wlr" firstAttribute="centerY" secondItem="yvo-jg-pt7" secondAttribute="centerY" id="k2j-uW-YJg"/>
+                            <constraint firstAttribute="bottom" secondItem="Fhn-Rq-wlr" secondAttribute="bottom" constant="150" id="OtX-ZQ-KKW"/>
                             <constraint firstItem="Fhn-Rq-wlr" firstAttribute="width" secondItem="yvo-jg-pt7" secondAttribute="width" multiplier="0.7" id="w0h-og-pFx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GPo-zg-vqw"/>

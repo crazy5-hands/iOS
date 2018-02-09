@@ -32,6 +32,7 @@ class IntroductionPageViewController: UIPageViewController {
         imageView.center = CGPoint(x: screenWidth/2, y: screenHeight/2)
         self.view.addSubview(imageView)
         self.view.sendSubview(toBack: imageView)
+//        self.view.backgroundColor = ColorManager().lineLoginButtonBaseColor()
         
         self.setViewControllers([getFirst()], direction: .forward, animated: true, completion: nil)
         self.dataSource = self
