@@ -36,7 +36,7 @@ class ProfileTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 5
     }
 
     
@@ -49,6 +49,18 @@ class ProfileTableViewController: UITableViewController {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "通知の許可", status: true)
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "カレンダーへのアクセス", status: false)
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "ユーザーIDで探す", status: false)
+            return cell
         default:
             return UITableViewCell()
         }
@@ -59,10 +71,13 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height: CGFloat!
         
-        if indexPath.row == 0{
-            height = 225
-        }else {
+        switch indexPath.row {
+        case 0:
+            height = 255
+        case 1:
             height = 100
+        default:
+            height = 60
         }
         return height
     }

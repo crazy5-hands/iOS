@@ -117,6 +117,40 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="switch" rowHeight="60" id="a0s-zX-EJe" customClass="SwitchTableViewCell" customModule="hands" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="338" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a0s-zX-EJe" id="0Aj-8d-pzh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="at4-tS-Dzl">
+                                            <rect key="frame" x="295" y="15" width="51" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="49" id="JO7-nV-UIf"/>
+                                                <constraint firstAttribute="height" constant="31" id="g2a-xe-dwS"/>
+                                            </constraints>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sC-2I-jg1">
+                                            <rect key="frame" x="16" y="20" width="187.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8sC-2I-jg1" firstAttribute="centerY" secondItem="0Aj-8d-pzh" secondAttribute="centerY" id="RcL-Xn-hOC"/>
+                                        <constraint firstItem="8sC-2I-jg1" firstAttribute="leading" secondItem="0Aj-8d-pzh" secondAttribute="leadingMargin" id="d40-49-qTM"/>
+                                        <constraint firstItem="8sC-2I-jg1" firstAttribute="width" secondItem="0Aj-8d-pzh" secondAttribute="width" multiplier="0.5" id="gjb-f8-gen"/>
+                                        <constraint firstItem="at4-tS-Dzl" firstAttribute="centerY" secondItem="0Aj-8d-pzh" secondAttribute="centerY" id="iOx-5d-nhv"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="at4-tS-Dzl" secondAttribute="trailing" constant="15" id="xN3-ah-fIv"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="statusSwitch" destination="at4-tS-Dzl" id="bYf-mA-Ejm"/>
+                                    <outlet property="titleLabel" destination="8sC-2I-jg1" id="jQG-jf-59y"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="UiK-lT-gXY" id="4Xb-LZ-4RX"/>
