@@ -14,12 +14,6 @@ class ProfileTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,20 +40,21 @@ class ProfileTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "profile") as! ProfileTableViewCell
             cell.updateCell(profileImage: nil, userName: "これはテストだよ", sumOfWillJoin: 3, sumOfJoined: 5)
             return cell
+        
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-            return cell
-        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
             cell.update(title: "通知の許可", status: true)
             return cell
-        case 3:
+        case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
             cell.update(title: "カレンダーへのアクセス", status: false)
             return cell
-        case 4:
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
             cell.update(title: "ユーザーIDで探す", status: false)
+            return cell
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             return cell
         default:
             return UITableViewCell()
@@ -73,9 +68,8 @@ class ProfileTableViewController: UITableViewController {
         
         switch indexPath.row {
         case 0:
-            height = 255
-        case 1:
-            height = 100
+            height = 250
+       
         default:
             height = 60
         }
