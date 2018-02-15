@@ -8,18 +8,11 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
-
+class ProfileTableViewController: UITableViewController, ProfileTableViewCellDelegate{
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +29,7 @@ class ProfileTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 5
     }
 
     
@@ -45,8 +38,22 @@ class ProfileTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "profile") as! ProfileTableViewCell
             cell.updateCell(profileImage: nil, userName: "これはテストだよ", sumOfWillJoin: 3, sumOfJoined: 5)
+            cell.delegate = self
             return cell
+        
         case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "通知の許可", status: true)
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "カレンダーへのアクセス", status: false)
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "ユーザーIDで探す", status: false)
+            return cell
+        case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             return cell
         default:
@@ -59,14 +66,19 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height: CGFloat!
         
-        if indexPath.row == 0{
-            height = 225
-        }else {
-            height = 100
+        switch indexPath.row {
+        case 0:
+            height = 250
+       
+        default:
+            height = 60
         }
         return height
     }
     
+    func tappedAddFriendButton() {
+        self.present(UIViewController(), animated: true, completion: nil)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
