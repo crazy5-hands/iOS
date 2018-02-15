@@ -83,6 +83,9 @@
                                                     <integer key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="addFriend:" destination="uo3-8T-xgX" eventType="touchUpInside" id="ijJ-XL-HBd"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

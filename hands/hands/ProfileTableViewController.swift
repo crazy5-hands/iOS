@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
-
+class ProfileTableViewController: UITableViewController, ProfileTableViewCellDelegate{
     
     
     override func viewDidLoad() {
@@ -39,6 +38,7 @@ class ProfileTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "profile") as! ProfileTableViewCell
             cell.updateCell(profileImage: nil, userName: "これはテストだよ", sumOfWillJoin: 3, sumOfJoined: 5)
+            cell.delegate = self
             return cell
         
         case 1:
@@ -76,6 +76,9 @@ class ProfileTableViewController: UITableViewController {
         return height
     }
     
+    func tappedAddFriendButton() {
+        self.present(UIViewController(), animated: true, completion: nil)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
