@@ -20,7 +20,6 @@
 		E619E6302015CE5C00A30592 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619E62F2015CE5C00A30592 /* LoginButton.swift */; };
 		E619E6322015CF4000A30592 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E619E6312015CF4000A30592 /* ColorManager.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
-		E649CF9E1FF3BE99005DC4BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9C1FF3BE99005DC4BA /* Main.storyboard */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
 		E649CFAE1FF3BE99005DC4BA /* handsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFAD1FF3BE99005DC4BA /* handsTests.swift */; };
@@ -39,9 +38,11 @@
 		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
-		E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */; };
+		E67536DC20285A8400CA2E6A /* ShowEventsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DB20285A8400CA2E6A /* ShowEventsTableViewController.storyboard */; };
 		E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */; };
 		E67536E32029B78F00CA2E6A /* MyEventsTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */; };
+		E67536E5202B5DA300CA2E6A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */; };
+		E67536E7202B607400CA2E6A /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */; };
 		E6A1AD7120195A7F0044998D /* UserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */; };
 		E6A1AD7320195AA80044998D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A1AD7220195AA80044998D /* UserInfoViewController.swift */; };
 		E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */; };
@@ -98,7 +99,6 @@
 		E619E63320172FDD00A30592 /* LineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LineSDK.framework; path = Pods/LineSDK/LineSDK/LineSDK.framework; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E649CF9D1FF3BE99005DC4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E649CFA21FF3BE99005DC4BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E649CFA41FF3BE99005DC4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,9 +122,11 @@
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowEventsViewController.storyboard; sourceTree = "<group>"; };
+		E67536DB20285A8400CA2E6A /* ShowEventsTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShowEventsTableViewController.storyboard; sourceTree = "<group>"; };
 		E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEventTableViewController.storyboard; sourceTree = "<group>"; };
 		E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyEventsTableViewController.storyboard; sourceTree = "<group>"; };
+		E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6A1AD7220195AA80044998D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailTableViewController.storyboard; sourceTree = "<group>"; };
@@ -248,9 +250,10 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E67536E8202B60F800CA2E6A /* MainTabBarController */,
 				E67536E02029B75300CA2E6A /* MyEventsTableViewController */,
 				E67536DD2029B71F00CA2E6A /* EventAddTableViewController */,
-				E67536DA20285A5100CA2E6A /* ShowEventsViewController */,
+				E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */,
 				E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */,
 				E6A1AD792019E7C70044998D /* EditProfileViewController */,
 				E6A1AD742019E6020044998D /* ProfileTableViewController */,
@@ -303,7 +306,6 @@
 		E649CFDC1FFA64CB005DC4BA /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
-				E649CF9C1FF3BE99005DC4BA /* Main.storyboard */,
 				E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */,
 			);
 			name = StoryBoard;
@@ -319,13 +321,13 @@
 			name = EventTableViewCell;
 			sourceTree = "<group>";
 		};
-		E67536DA20285A5100CA2E6A /* ShowEventsViewController */ = {
+		E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */,
-				E67536DB20285A8400CA2E6A /* ShowEventsViewController.storyboard */,
+				E67536DB20285A8400CA2E6A /* ShowEventsTableViewController.storyboard */,
 			);
-			name = ShowEventsViewController;
+			name = ShowEventsTableViewController;
 			sourceTree = "<group>";
 		};
 		E67536DD2029B71F00CA2E6A /* EventAddTableViewController */ = {
@@ -345,6 +347,15 @@
 				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
 			);
 			name = MyEventsTableViewController;
+			sourceTree = "<group>";
+		};
+		E67536E8202B60F800CA2E6A /* MainTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */,
+				E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */,
+			);
+			name = MainTabBarController;
 			sourceTree = "<group>";
 		};
 		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
@@ -524,14 +535,14 @@
 				E6A1AD9A202087290044998D /* ProfileTableViewController.storyboard in Resources */,
 				E6A1AD94201DB2200044998D /* MemoTableViewCell.xib in Resources */,
 				E67536E32029B78F00CA2E6A /* MyEventsTableViewController.storyboard in Resources */,
-				E67536DC20285A8400CA2E6A /* ShowEventsViewController.storyboard in Resources */,
+				E67536DC20285A8400CA2E6A /* ShowEventsTableViewController.storyboard in Resources */,
+				E67536E7202B607400CA2E6A /* MainTabBarController.storyboard in Resources */,
 				E649CFD71FF3DD35005DC4BA /* EventTableViewCell.xib in Resources */,
 				E67536DF2029B74600CA2E6A /* AddEventTableViewController.storyboard in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6A1AD82201B015F0044998D /* EventDetailHeaderTableViewCell.xib in Resources */,
 				E619E62D2015A60C00A30592 /* LoginViewController.storyboard in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
-				E649CF9E1FF3BE99005DC4BA /* Main.storyboard in Resources */,
 				E6A1AD7C201B00950044998D /* EventDetailTableViewController.storyboard in Resources */,
 				E6A1AD90201D5D0E0044998D /* MemberTableViewCell.xib in Resources */,
 			);
@@ -698,6 +709,7 @@
 			files = (
 				E649CFD61FF3DD35005DC4BA /* EventTableViewCell.swift in Sources */,
 				E619E6302015CE5C00A30592 /* LoginButton.swift in Sources */,
+				E67536E5202B5DA300CA2E6A /* MainTabBarController.swift in Sources */,
 				E649CFCF1FF3C19B005DC4BA /* Model.swift in Sources */,
 				E6A1AD9C2020880C0044998D /* ProfileTableViewController.swift in Sources */,
 				E6A1AD93201DB2200044998D /* MemoTableViewCell.swift in Sources */,
@@ -756,15 +768,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E649CF9C1FF3BE99005DC4BA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E649CF9D1FF3BE99005DC4BA /* Base */,
-			);
-			name = Main.storyboard;
-			path = hands;
-			sourceTree = "<group>";
-		};
 		E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
