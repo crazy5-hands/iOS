@@ -112,31 +112,8 @@
                                     <outlet property="userNameLabel" destination="miB-9l-Rws" id="mzM-XX-C0o"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="102" id="Elw-Dk-1JV">
-                                <rect key="frame" x="0.0" y="283" width="375" height="102"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Elw-Dk-1JV" id="jov-ay-Go4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="その他の設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4m-Dl-1Ao">
-                                            <rect key="frame" x="37" y="20" width="300" height="61"/>
-                                            <color key="backgroundColor" red="0.0" green="0.76470588240000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="O4m-Dl-1Ao" firstAttribute="height" secondItem="jov-ay-Go4" secondAttribute="height" multiplier="0.6" id="29C-yn-w9z"/>
-                                        <constraint firstItem="O4m-Dl-1Ao" firstAttribute="centerX" secondItem="jov-ay-Go4" secondAttribute="centerX" id="LZK-Jy-CF0"/>
-                                        <constraint firstItem="O4m-Dl-1Ao" firstAttribute="width" secondItem="jov-ay-Go4" secondAttribute="width" multiplier="0.8" id="WS0-7x-gd6"/>
-                                        <constraint firstItem="O4m-Dl-1Ao" firstAttribute="centerY" secondItem="jov-ay-Go4" secondAttribute="centerY" id="fZB-q1-2iF"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="switch" rowHeight="60" id="a0s-zX-EJe" customClass="SwitchTableViewCell" customModule="hands" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="385" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="283" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a0s-zX-EJe" id="0Aj-8d-pzh">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
@@ -169,8 +146,28 @@
                                     <outlet property="titleLabel" destination="8sC-2I-jg1" id="jQG-jf-59y"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="Elw-Dk-1JV">
+                                <rect key="frame" x="0.0" y="343" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Elw-Dk-1JV" id="jov-ay-Go4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="その他の設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJK-6z-0GZ">
+                                            <rect key="frame" x="135" y="19.5" width="104" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.76470588240000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RJK-6z-0GZ" firstAttribute="centerX" secondItem="jov-ay-Go4" secondAttribute="centerX" id="ZgP-ph-nbJ"/>
+                                        <constraint firstItem="RJK-6z-0GZ" firstAttribute="centerY" secondItem="jov-ay-Go4" secondAttribute="centerY" id="ubl-7j-B4W"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="46" id="QCl-6A-lcR">
-                                <rect key="frame" x="0.0" y="445" width="375" height="46"/>
+                                <rect key="frame" x="0.0" y="403" width="375" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QCl-6A-lcR" id="FsB-bo-soR">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
