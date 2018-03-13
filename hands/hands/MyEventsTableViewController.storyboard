@@ -12,7 +12,7 @@
         <!--参加イベント-->
         <scene sceneID="fqG-lI-rME">
             <objects>
-                <tableViewController id="713-8a-tDc" customClass="MyEventsTableViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="myEventsTableViewController" id="713-8a-tDc" customClass="MyEventsTableViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="126" sectionHeaderHeight="28" sectionFooterHeight="28" id="GbR-Sw-Ysr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
