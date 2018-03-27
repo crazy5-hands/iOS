@@ -213,6 +213,7 @@
 				E60DA89A2002798400D2BCFA /* MyEventTableViewCell.swift */,
 			);
 			name = MyEventTableViewCell;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E619E62E2015A6C400A30592 /* LoginViewController */ = {
@@ -250,8 +251,8 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E67536E8202B60F800CA2E6A /* MainTabBarController */,
-				E67536E02029B75300CA2E6A /* MyEventsTableViewController */,
+				E6E00818206A59C8007D16C3 /* MyEventsTableViewController */,
+				E6E00817206A57D6007D16C3 /* MainTabBarController */,
 				E67536DD2029B71F00CA2E6A /* EventAddTableViewController */,
 				E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */,
 				E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */,
@@ -339,25 +340,6 @@
 			name = EventAddTableViewController;
 			sourceTree = "<group>";
 		};
-		E67536E02029B75300CA2E6A /* MyEventsTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E60DA8972002784000D2BCFA /* MyEventsTableViewController.swift */,
-				E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */,
-				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
-			);
-			name = MyEventsTableViewController;
-			sourceTree = "<group>";
-		};
-		E67536E8202B60F800CA2E6A /* MainTabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */,
-				E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */,
-			);
-			name = MainTabBarController;
-			sourceTree = "<group>";
-		};
 		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +389,25 @@
 				E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */,
 			);
 			name = MemberTableViewCell;
+			sourceTree = "<group>";
+		};
+		E6E00817206A57D6007D16C3 /* MainTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E67536E4202B5DA300CA2E6A /* MainTabBarController.swift */,
+				E67536E6202B607400CA2E6A /* MainTabBarController.storyboard */,
+			);
+			path = MainTabBarController;
+			sourceTree = "<group>";
+		};
+		E6E00818206A59C8007D16C3 /* MyEventsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E60DA8992002794E00D2BCFA /* MyEventTableViewCell */,
+				E60DA8972002784000D2BCFA /* MyEventsTableViewController.swift */,
+				E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */,
+			);
+			path = MyEventsTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
