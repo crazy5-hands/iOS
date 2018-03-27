@@ -299,7 +299,7 @@
 				E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */,
 			);
 			name = MemberTableViewCell;
-			path = ..;
+			path = Member;
 			sourceTree = "<group>";
 		};
 		E6E00817206A57D6007D16C3 /* MainTabBarController */ = {
