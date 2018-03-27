@@ -18,6 +18,7 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var sumOfWillJoinLabel: UILabel!
     @IBOutlet weak var sumOfJoinedLabel: UILabel!
+    @IBOutlet weak var statusMessageLabel: UILabel!
     
     var delegate: ProfileTableViewCellDelegate?
     
@@ -41,14 +42,31 @@ class ProfileTableViewCell: UITableViewCell {
 extension ProfileTableViewCell{
     
     // set Data to UIImageView and Labels
-    func updateCell(profileImage: UIImage?, userName: String, sumOfWillJoin: Int, sumOfJoined: Int){
-        if profileImage == nil {
-            //set non profile image
-        }else {
-            profileImageView.image = profileImage!
-        }
-        userNameLabel.text = userName
+    func updateCell(pictureURLString: String?, userName: String?, statusMessage: String?, sumOfWillJoin: Int, sumOfJoined: Int){
+        
+        
         sumOfWillJoinLabel.text = String(sumOfWillJoin)
         sumOfJoinedLabel.text = String(sumOfJoined)
+        if userName != nil {
+            userNameLabel.text = userName
+        }
+        if statusMessage != nil {
+            statusMessageLabel.text = statusMessage
+        }
+        if pictureURLString != nil {
+            guard let pictureURL = URL(string: pictureURLString!) else {
+                print("String to URL conversion failed")
+                return
+            }
+            let task = URLSession.shared.dataTask(with: pictureURL){
+                (data, response, error) in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        self.profileImageView.image = UIImage(data: data)
+                    }
+                }
+            }
+            task.resume()
+        }
     }
 }
