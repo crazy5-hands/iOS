@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import LineSDK
 
-class ProfileTableViewController: UITableViewController, ProfileTableViewCellDelegate{
-    
-    
+class ProfileTableViewController: UITableViewController {
+
+    var apiClient: LineSDKAPI?
+    var userName: String?
+    var statusMessage: String?
+    var pictureURLString: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiClient?.getProfile(queue: .main, completion: { (profile, error) in
+            if error == nil{
+                print("this is profile vc")
+                print(profile?.displayName)
+                print(profile?.statusMessage)
+                self.userName = profile?.displayName
+                self.statusMessage = profile?.statusMessage
+                if profile?.pictureURL != nil {
+                    self.pictureURLString = profile?.pictureURL?.absoluteString
+                }
+                self.tableView.reloadData()
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,15 +50,14 @@ class ProfileTableViewController: UITableViewController, ProfileTableViewCellDel
         return 5
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "profile") as! ProfileTableViewCell
-            cell.updateCell(profileImage: nil, userName: "これはテストだよ", sumOfWillJoin: 3, sumOfJoined: 5)
-            cell.delegate = self
+            cell.updateCell(pictureURLString: pictureURLString, userName: self.userName, statusMessage: self.statusMessage, sumOfWillJoin: 3, sumOfJoined: 5)
             return cell
-        
+
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
             cell.update(title: "通知の許可", status: true)
@@ -61,24 +78,30 @@ class ProfileTableViewController: UITableViewController, ProfileTableViewCellDel
         }
     }
 
-    
-    
+
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height: CGFloat!
-        
+
         switch indexPath.row {
         case 0:
             height = 250
-       
+
         default:
             height = 60
         }
         return height
     }
-    
-    func tappedAddFriendButton() {
-        self.present(UIViewController(), animated: true, completion: nil)
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 1:
+            print("その他の設定")
+        default:
+            print("default was called")
+        }
     }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -95,7 +118,7 @@ class ProfileTableViewController: UITableViewController, ProfileTableViewCellDel
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
