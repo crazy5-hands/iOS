@@ -216,16 +216,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E619E62E2015A6C400A30592 /* LoginViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E619E62A2015943B00A30592 /* LoginViewController.swift */,
-				E619E62C2015A60C00A30592 /* LoginViewController.storyboard */,
-				E619E62F2015CE5C00A30592 /* LoginButton.swift */,
-			);
-			name = LoginViewController;
-			sourceTree = "<group>";
-		};
 		E649CF8C1FF3BE99005DC4BA = {
 			isa = PBXGroup;
 			children = (
@@ -251,19 +241,19 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6E0081D206A5EBA007D16C3 /* AddEvent */,
+				E6E0081B206A5A9E007D16C3 /* LoginViewController */,
+				E6E0081A206A5A84007D16C3 /* EventsTableViewCell */,
+				E6E00819206A5A67007D16C3 /* Model */,
 				E6E00818206A59C8007D16C3 /* MyEventsTableViewController */,
 				E6E00817206A57D6007D16C3 /* MainTabBarController */,
-				E67536DD2029B71F00CA2E6A /* EventAddTableViewController */,
 				E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */,
 				E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */,
 				E6A1AD792019E7C70044998D /* EditProfileViewController */,
 				E6A1AD742019E6020044998D /* ProfileTableViewController */,
 				E6A1AD6F20195A5F0044998D /* UserInfoViewController */,
-				E619E62E2015A6C400A30592 /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
-				E649CFE11FFE55D1005DC4BA /* EventTableViewCell */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
-				E649CFDA1FFA6480005DC4BA /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
 				E619E6312015CF4000A30592 /* ColorManager.swift */,
 				E649CFE21FFE5684005DC4BA /* TextTableViewCell.swift */,
@@ -294,16 +284,6 @@
 			path = handsUITests;
 			sourceTree = "<group>";
 		};
-		E649CFDA1FFA6480005DC4BA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E649CFCE1FF3C19B005DC4BA /* Model.swift */,
-				E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */,
-				E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		E649CFDC1FFA64CB005DC4BA /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,15 +293,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E649CFE11FFE55D1005DC4BA /* EventTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				E649CFD41FF3DD35005DC4BA /* EventTableViewCell.swift */,
-				E649CFD51FF3DD35005DC4BA /* EventTableViewCell.xib */,
-			);
-			name = EventTableViewCell;
-			sourceTree = "<group>";
-		};
 		E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,15 +300,6 @@
 				E67536DB20285A8400CA2E6A /* ShowEventsTableViewController.storyboard */,
 			);
 			name = ShowEventsTableViewController;
-			sourceTree = "<group>";
-		};
-		E67536DD2029B71F00CA2E6A /* EventAddTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */,
-				E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */,
-			);
-			name = EventAddTableViewController;
 			sourceTree = "<group>";
 		};
 		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
@@ -408,6 +370,44 @@
 				E67536E22029B78F00CA2E6A /* MyEventsTableViewController.storyboard */,
 			);
 			path = MyEventsTableViewController;
+			sourceTree = "<group>";
+		};
+		E6E00819206A5A67007D16C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E649CFCE1FF3C19B005DC4BA /* Model.swift */,
+				E649CFD01FF3C23D005DC4BA /* EventViewModel.swift */,
+				E649CFD21FF3CAD2005DC4BA /* PersonViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E6E0081A206A5A84007D16C3 /* EventsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E649CFD41FF3DD35005DC4BA /* EventTableViewCell.swift */,
+				E649CFD51FF3DD35005DC4BA /* EventTableViewCell.xib */,
+			);
+			path = EventsTableViewCell;
+			sourceTree = "<group>";
+		};
+		E6E0081B206A5A9E007D16C3 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E619E62A2015943B00A30592 /* LoginViewController.swift */,
+				E619E62C2015A60C00A30592 /* LoginViewController.storyboard */,
+				E619E62F2015CE5C00A30592 /* LoginButton.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		E6E0081D206A5EBA007D16C3 /* AddEvent */ = {
+			isa = PBXGroup;
+			children = (
+				E649CFC61FF3C0A2005DC4BA /* AddEventTableViewController.swift */,
+				E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */,
+			);
+			path = AddEvent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
