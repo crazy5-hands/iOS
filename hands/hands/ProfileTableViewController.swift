@@ -15,7 +15,7 @@ class ProfileTableViewController: UITableViewController {
     var userName: String?
     var statusMessage: String?
     var pictureURLString: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         apiClient?.getProfile(queue: .main, completion: { (profile, error) in
@@ -47,17 +47,30 @@ class ProfileTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 5
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "profile") as! ProfileTableViewCell
             cell.updateCell(pictureURLString: pictureURLString, userName: self.userName, statusMessage: self.statusMessage, sumOfWillJoin: 3, sumOfJoined: 5)
             return cell
+
         case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "通知の許可", status: true)
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "カレンダーへのアクセス", status: false)
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch") as! SwitchTableViewCell
+            cell.update(title: "ユーザーIDで探す", status: false)
+            return cell
+        case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
             return cell
         default:
@@ -65,19 +78,21 @@ class ProfileTableViewController: UITableViewController {
         }
     }
 
-    
-    
+
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height: CGFloat!
-        
-        if indexPath.row == 0{
-            height = 225
-        }else {
-            height = 100
+
+        switch indexPath.row {
+        case 0:
+            height = 250
+
+        default:
+            height = 60
         }
         return height
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
@@ -86,7 +101,7 @@ class ProfileTableViewController: UITableViewController {
             print("default was called")
         }
     }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -103,7 +118,7 @@ class ProfileTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 

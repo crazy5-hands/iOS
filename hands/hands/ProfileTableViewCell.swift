@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProfileTableViewCellDelegate {
+    func tappedAddFriendButton()
+}
+
 class ProfileTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -16,6 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var sumOfJoinedLabel: UILabel!
     @IBOutlet weak var statusMessageLabel: UILabel!
     
+    var delegate: ProfileTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +33,9 @@ class ProfileTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func addFriend(_ sender: Any) {
+        self.delegate?.tappedAddFriendButton()
+    }
 }
 
 
