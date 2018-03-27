@@ -241,17 +241,16 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6E00821206A5FF6007D16C3 /* UserInfo */,
+				E6E00820206A5F77007D16C3 /* Profile */,
+				E6E0081F206A5F6F007D16C3 /* EventsDetail */,
+				E6E0081E206A5F4C007D16C3 /* Show */,
 				E6E0081D206A5EBA007D16C3 /* AddEvent */,
 				E6E0081B206A5A9E007D16C3 /* LoginViewController */,
 				E6E0081A206A5A84007D16C3 /* EventsTableViewCell */,
 				E6E00819206A5A67007D16C3 /* Model */,
 				E6E00818206A59C8007D16C3 /* MyEventsTableViewController */,
 				E6E00817206A57D6007D16C3 /* MainTabBarController */,
-				E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */,
-				E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */,
-				E6A1AD792019E7C70044998D /* EditProfileViewController */,
-				E6A1AD742019E6020044998D /* ProfileTableViewController */,
-				E6A1AD6F20195A5F0044998D /* UserInfoViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
@@ -293,57 +292,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E67536DA20285A5100CA2E6A /* ShowEventsTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */,
-				E67536DB20285A8400CA2E6A /* ShowEventsTableViewController.storyboard */,
-			);
-			name = ShowEventsTableViewController;
-			sourceTree = "<group>";
-		};
-		E6A1AD6F20195A5F0044998D /* UserInfoViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */,
-				E6A1AD7220195AA80044998D /* UserInfoViewController.swift */,
-			);
-			name = UserInfoViewController;
-			sourceTree = "<group>";
-		};
-		E6A1AD742019E6020044998D /* ProfileTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E6A1AD99202087290044998D /* ProfileTableViewController.storyboard */,
-				E6F08A072034E9460099EBCB /* SwitchTableViewCell.swift */,
-				E6A1AD9B2020880C0044998D /* ProfileTableViewController.swift */,
-				E6A1AD9D20208A690044998D /* ProfileTableViewCell.swift */,
-			);
-			name = ProfileTableViewController;
-			sourceTree = "<group>";
-		};
-		E6A1AD792019E7C70044998D /* EditProfileViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = EditProfileViewController;
-			sourceTree = "<group>";
-		};
-		E6A1AD7A2019E87D0044998D /* EventDetailTableViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E6A1AD95201F69D00044998D /* MemberTableViewCell */,
-				E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */,
-				E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */,
-				E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */,
-				E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */,
-				E6A1AD80201B015F0044998D /* EventDetailHeaderTableViewCell.xib */,
-				E6A1AD91201DB2200044998D /* MemoTableViewCell.swift */,
-				E6A1AD92201DB2200044998D /* MemoTableViewCell.xib */,
-			);
-			name = EventDetailTableViewController;
-			sourceTree = "<group>";
-		};
 		E6A1AD95201F69D00044998D /* MemberTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +299,7 @@
 				E6A1AD8E201D5D0E0044998D /* MemberTableViewCell.xib */,
 			);
 			name = MemberTableViewCell;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		E6E00817206A57D6007D16C3 /* MainTabBarController */ = {
@@ -408,6 +357,50 @@
 				E67536DE2029B74600CA2E6A /* AddEventTableViewController.storyboard */,
 			);
 			path = AddEvent;
+			sourceTree = "<group>";
+		};
+		E6E0081E206A5F4C007D16C3 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				E649CFCA1FF3C0FA005DC4BA /* ShowEventsTableViewController.swift */,
+				E67536DB20285A8400CA2E6A /* ShowEventsTableViewController.storyboard */,
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
+		E6E0081F206A5F6F007D16C3 /* EventsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E6A1AD95201F69D00044998D /* MemberTableViewCell */,
+				E649CFC81FF3C0D1005DC4BA /* DetailEventViewController.swift */,
+				E6A1AD7B201B00950044998D /* EventDetailTableViewController.storyboard */,
+				E6A1AD7D201B01030044998D /* EventDetailTableViewController.swift */,
+				E6A1AD7F201B015F0044998D /* EventDetailHeaderTableViewCell.swift */,
+				E6A1AD80201B015F0044998D /* EventDetailHeaderTableViewCell.xib */,
+				E6A1AD91201DB2200044998D /* MemoTableViewCell.swift */,
+				E6A1AD92201DB2200044998D /* MemoTableViewCell.xib */,
+			);
+			path = EventsDetail;
+			sourceTree = "<group>";
+		};
+		E6E00820206A5F77007D16C3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E6A1AD99202087290044998D /* ProfileTableViewController.storyboard */,
+				E6F08A072034E9460099EBCB /* SwitchTableViewCell.swift */,
+				E6A1AD9B2020880C0044998D /* ProfileTableViewController.swift */,
+				E6A1AD9D20208A690044998D /* ProfileTableViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E6E00821206A5FF6007D16C3 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				E6A1AD7020195A7F0044998D /* UserInfoViewController.storyboard */,
+				E6A1AD7220195AA80044998D /* UserInfoViewController.swift */,
+			);
+			path = UserInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
