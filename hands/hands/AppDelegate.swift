@@ -9,6 +9,7 @@
 import UIKit
 import LineSDK
 import FBSDKCoreKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -92,6 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print(error.debugDescription)
                 }})
         }
+        FirebaseApp.configure()
         return true
     }
     
