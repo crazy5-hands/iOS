@@ -31,50 +31,65 @@ class LoginViewController: UIViewController {
             })
     }
     
-    //サーバーで確認
+    //send email and password to server
     @IBAction func submit(_ sender: Any) {
-        switch self.changeStatusSegmentedControl.selectedSegmentIndex {
-        case 0:
-            self.signIn()
-        case 1:
-            self.signUp()
-        default:
-            self.signUp()
-        }
-    }
-    
-    
-    //create new user
-    private func signUp() {
+        
         //show processing
         let processingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         processingView.center = self.view.center
         self.view.addSubview(processingView)
         processingView.startAnimating()
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-            
-            //remove processing
-            if processingView.isAnimating == true {
+        
+        if self.changeStatusSegmentedControl.selectedSegmentIndex == 0 {
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+                
+                //remove processing
                 processingView.stopAnimating()
-            }
-            self.view.willRemoveSubview(processingView)
-            
-            if let error = error {
-                if error.localizedDescription == "The email address is already in use by another account." {
-                    self.showAlert("このメールアドレスのアカウントはすでに存在しています。")
+                self.view.willRemoveSubview(processingView)
+                
+                if let error = error {
+                    print(error.localizedDescription)
+                    switch error.localizedDescription {
+                    case "The password is invalid or the user does not have a password.":
+                        self.showAlert("パスワードが違います。もう一度確認してください。")
+                    case "The email address is badly formatted.":
+                        self.showAlert("メールアドレスの形式が違います。")
+                    default:
+                        self.showAlert("メールアドレスかパスワードが違います。")
+                    }
+                }else {
+                    print("success login")
+//                    UserDefaults.standard.set(user?.displayName, forKey: "displayName")
+//                    UserDefaults.standard.set(user?.description, forKey: "description")
+//                    UserDefaults.standard.set(user?.email, forKey: "email")
+                    UserDefaults.standard.set(user?.uid, forKey: "uid")
+//                    UserDefaults.standard.set(user?.photoURL, forKey: "photoURL")
+                    
+                    if UserDefaults.standard.string(forKey: "uid") != nil {
+//                        self.segueToMain()
+                        print("画面遷移")
+                    }else {
+                        self.showAlert("アカウントを正常にサインインできませんでした。")
+                    }
                 }
-                return
-            }else {
-                print(user?.email)
-                print(user?.uid)
             }
+        }else {
+            //create new user
+            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+                
+                //remove processing
+                processingView.stopAnimating()
+                self.view.willRemoveSubview(processingView)
+                
+                if let error = error {
+                    if error.localizedDescription == "The email address is already in use by another account." {
+                        self.showAlert("このメールアドレスのアカウントはすでに存在しています。")
+                    }
+                    return
+                }else {
+//                    self.segueToMain()
+                }
             })
-    }
-    
-    //login existing user
-    private func signIn() {
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            
         }
     }
     
@@ -86,12 +101,10 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    //show processing view
-//    func showProcessing() {
-//        let processingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-//        processingView.center = self.view.center
-//        self.view.addSubview(processingView)
-//        processingView.startAnimating()
-//        self.view.willRemoveSubview(processingView)
-//    }
+    //segue to main tab ViewController
+    private func segueToMain() {
+        let storyboard = UIStoryboard(name: "MainTabViewController", bundle: nil)
+        let initalViewController = storyboard.instantiateInitialViewController()
+        self.present(initalViewController!, animated: true, completion: nil)
+    }
 }
