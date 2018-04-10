@@ -169,7 +169,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E6E58024207C9E5E00BB7EDB /* Login */,
+				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
@@ -216,12 +216,13 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		E6E58024207C9E5E00BB7EDB /* Login */ = {
+		E6E58024207C9E5E00BB7EDB /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */,
 				E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */,
 			);
+			name = LoginViewController;
 			path = Login;
 			sourceTree = "<group>";
 		};
