@@ -46,6 +46,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Auth
+  - Firebase/Core
   - LineSDK (~> 4.0.2)
   - RealmSwift (~> 3)
   - RxCocoa (= 3.6.1)
@@ -66,6 +67,6 @@ SPEC CHECKSUMS:
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
 
-PODFILE CHECKSUM: e91b3384e2d86e75848876873f17120f206d6215
+PODFILE CHECKSUM: d3dcfa880cf6a9ce62e04684c20f90e6a5bfa757
 
 COCOAPODS: 1.2.1

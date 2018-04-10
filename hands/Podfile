@@ -10,6 +10,7 @@ target 'hands' do
   pod 'RxCocoa', '3.6.1'
   pod 'LineSDK', '~> 4.0.2'
   pod 'Firebase/Auth'
+  pod 'Firebase/Core'
 
   target 'handsTests' do
     inherit! :search_paths
