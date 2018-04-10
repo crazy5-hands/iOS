@@ -50,6 +50,12 @@ class LoginViewController: UIViewController {
     //新しいユーザーを登録
     func signUp() {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            print(user?.email!)
+            user?.uid
             })
     }
     
