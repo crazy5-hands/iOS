@@ -19,6 +19,7 @@
 		E649CFB91FF3BE99005DC4BA /* handsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFB81FF3BE99005DC4BA /* handsUITests.swift */; };
 		E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */; };
 		E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */; };
+		E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */; };
 		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
@@ -73,6 +74,7 @@
 		E649CFBA1FF3BE99005DC4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditUserInfoViewController.storyboard; sourceTree = "<group>"; };
+		E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
 				E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */,
 				E6E58020207C8FA300BB7EDB /* MainTabViewController.storyboard */,
+				E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */,
 			);
 			path = hands;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
+				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
