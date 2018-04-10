@@ -23,6 +23,8 @@
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabViewController.storyboard */; };
+		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
+		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
 		E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabViewController.storyboard; sourceTree = "<group>"; };
+		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IntroductionBackground.jpg; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +169,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6E58024207C9E5E00BB7EDB /* Login */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
@@ -209,6 +214,15 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		E6E58024207C9E5E00BB7EDB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */,
+				E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +350,7 @@
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6E58021207C8FA300BB7EDB /* MainTabViewController.storyboard in Resources */,
+				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 			);
@@ -500,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
