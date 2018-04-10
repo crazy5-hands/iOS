@@ -56,11 +56,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vT-gC-HBY">
+                                <rect key="frame" x="67" y="551" width="241" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="submit:" destination="5bl-qU-lYw" eventType="touchUpInside" id="GHn-q0-WhI"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GwO-OI-aXf">
+                                <rect key="frame" x="79" y="430" width="216" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="m3g-wP-iBe"/>
                     </view>
                     <connections>
+                        <outlet property="changeStatusSegmentedControl" destination="GwO-OI-aXf" id="i0K-9B-glq"/>
                         <outlet property="emailTextField" destination="fzn-64-rua" id="jsW-6Z-bLN"/>
                         <outlet property="passwordTextField" destination="0oR-2v-q1h" id="JPB-74-wIc"/>
                     </connections>

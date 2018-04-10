@@ -13,10 +13,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var changeStatusSegmentedControl: UISegmentedControl!
     
     private var handle: AuthStateDidChangeListenerHandle?
-    private var email: String?
-    private var password: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +34,28 @@ class LoginViewController: UIViewController {
             })
     }
     
+    //サーバーで確認
+    @IBAction func submit(_ sender: Any) {
+        switch self.changeStatusSegmentedControl.selectedSegmentIndex {
+        case 1:
+            self.signUp()
+        case 0:
+            self.signIn()
+        default:
+            self.signUp()
+        }
+    }
+    
+    
     //新しいユーザーを登録
     func signUp() {
-        Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user, error) in
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             })
     }
     
     //既存のユーザーがログインをする
     private func signIn() {
-        Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             
         }
     }
