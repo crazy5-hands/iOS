@@ -19,13 +19,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,13 +45,14 @@ class LoginViewController: UIViewController {
     
     
     //create new user
-    func signUp() {
+    private func signUp() {
         //show processing
         let processingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         processingView.center = self.view.center
         self.view.addSubview(processingView)
         processingView.startAnimating()
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+            
             //remove processing
             if processingView.isAnimating == true {
                 processingView.stopAnimating()
@@ -66,9 +64,10 @@ class LoginViewController: UIViewController {
                     self.showAlert("このメールアドレスのアカウントはすでに存在しています。")
                 }
                 return
+            }else {
+                print(user?.email)
+                print(user?.uid)
             }
-            print(user?.email!)
-            user?.uid
             })
     }
     
