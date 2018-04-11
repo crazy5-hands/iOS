@@ -22,4 +22,10 @@ class EditUserInfoViewModel{
             0 < text.count && text.count <= 15
         })
     }
+    
+    func update() -> Bool {
+        let user = self.userModel.getUserProfile()
+//        user?.displayName = self.displayName.value
+        return self.userModel.updateUser(user!)
+    }
 }

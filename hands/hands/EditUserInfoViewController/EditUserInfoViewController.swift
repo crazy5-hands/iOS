@@ -25,6 +25,12 @@ class EditUserInfoViewController: UIViewController {
         setUpData()
     }
     
+    @IBAction func submit(_ sender: Any) {
+        if self.viewModel.update() == false {
+            showAlert("プロフィールの更新に失敗しました。")
+        }
+    }
+    
     func setUpData() {
         self.displayNameTextField.rx.text.orEmpty
             .bind(to: self.viewModel.displayName)
@@ -33,5 +39,15 @@ class EditUserInfoViewController: UIViewController {
             .bind(to: self.submitButton.rx.isEnabled)
             .disposed(by: self.disposeBag)
     }
+}
+
+extension EditUserInfoViewController {
     
+    //
+    fileprivate func showAlert(_ message: String) {
+        let alert = UIAlertController(title: "エラー", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
