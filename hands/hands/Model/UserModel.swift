@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class UserModel{
     
+    let user = Auth.auth().currentUser
+    
     //ユーザーの作成
     func createUser() {
         
@@ -32,11 +34,11 @@ class UserModel{
     }
     
     //ユーザーの更新
-    func updateUser(_ new: User) -> Bool {
+    func updateUser(_ displayName: String? , _ photoURL: URL?) -> Bool {
         var result = true
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-        changeRequest?.displayName = new.displayName
-        changeRequest?.photoURL = new.photoURL
+        changeRequest?.displayName = displayName ?? self.user?.displayName
+        changeRequest?.photoURL = photoURL ?? self.user?.photoURL
         changeRequest?.commitChanges(completion: { (error) in
             if error != nil {
                 print("更新に失敗")

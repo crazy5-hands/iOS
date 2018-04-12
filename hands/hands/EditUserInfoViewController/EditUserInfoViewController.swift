@@ -26,7 +26,7 @@ class EditUserInfoViewController: UIViewController {
     }
     
     @IBAction func submit(_ sender: Any) {
-        if self.viewModel.update() == false {
+        if self.viewModel.update(image: self.imageView.image) == false {
             showAlert("プロフィールの更新に失敗しました。")
         }
     }
