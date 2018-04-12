@@ -68,5 +68,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>カメラロールの写真を表示します。</string>
 </dict>
 </plist>

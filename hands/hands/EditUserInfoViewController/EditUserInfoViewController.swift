@@ -11,7 +11,7 @@ import FirebaseAuth
 import RxSwift
 import RxCocoa
 
-class EditUserInfoViewController: UIViewController {
+class EditUserInfoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var displayNameTextField: UITextField!
@@ -24,11 +24,14 @@ class EditUserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.displayNameTextField.delegate = self
+        self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
         setUpData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let user = Auth.auth().currentUser
+        imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(EditUserInfoViewController.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(EditUserInfoViewController.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
@@ -47,6 +50,21 @@ class EditUserInfoViewController: UIViewController {
         self.viewModel.shouldSubmit
             .bind(to: self.submitButton.rx.isEnabled)
             .disposed(by: self.disposeBag)
+    }
+    
+    @objc private func imageTapped() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let pickerView = UIImagePickerController()
+            pickerView.sourceType = .photoLibrary
+            pickerView.delegate = self
+            self.present(pickerView, animated: true, completion: nil)
+        }
+    }
+    
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.imageView.image = image
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -80,5 +98,20 @@ extension EditUserInfoViewController: UITextFieldDelegate {
         UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         }, completion: nil)
+    }
+    
+    func getImageFromURL(_ stringURL: String) -> UIImage? {
+        var image: UIImage?
+        let url = URL(string: stringURL)
+        let session = URLSession(configuration: .default)
+        let downloadPhotoTask = session.dataTask(with: url!){ data, response, error in
+            if error != nil {
+                print(error?.localizedDescription)
+            }else {
+                image = UIImage(data: data!)
+            }
+        }
+        downloadPhotoTask.resume()
+        return image
     }
 }
