@@ -40,14 +40,3 @@ class EditUserInfoViewController: UIViewController {
             .disposed(by: self.disposeBag)
     }
 }
-
-extension EditUserInfoViewController {
-    
-    //
-    fileprivate func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "エラー", message: message, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)
-    }
-}
