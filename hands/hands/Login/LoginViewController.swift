@@ -104,6 +104,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         activeTextField = textField
         return true
@@ -115,24 +116,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let keyboardY = self.view.frame.size.height - keyboardSize.height
         let editingTextFieldY: CGFloat = (self.activeTextField?.frame.origin.y)!
         
-//        let myBoundSize: CGSize = UIScreen.main.bounds.size
-//        let textLimit = (activeTextField?.frame.origin.y)! + (activeTextField?.frame.height)! + 8.0
-        
-//        var txtLimit = (activeTextField?.frame.origin.y)! + (activeTextField?.frame.height)! + 8.0
-//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-//        print("キーボードの上辺：(\(kbdLimit))")
-        
         if editingTextFieldY > keyboardY - 60 {
             UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
                 self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingTextFieldY - (keyboardY - 60)), width: self.view.bounds.width , height: self.view.bounds.height)
             }, completion: nil)
         }
-//        if textLimit >= kbdLimit {
-////            scrollView.contentOffset.y = textLimit - kbdLimit
-//            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-//                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y, width: self.view.bounds.width , height: self.view.bounds.height)
-//            }, completion: nil)
-//        }
     }
     
     @objc private func handleKeyboardWillHideNotification(_ notification: Notification) {
