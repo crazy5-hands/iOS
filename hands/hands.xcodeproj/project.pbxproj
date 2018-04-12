@@ -22,6 +22,7 @@
 		E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */; };
 		E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */; };
 		E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E0C207F07620031B4A0 /* UserModel.swift */; };
+		E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E0E207F0C510031B4A0 /* StorageModel.swift */; };
 		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
@@ -79,6 +80,7 @@
 		E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
 		E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewModel.swift; sourceTree = "<group>"; };
 		E6674E0C207F07620031B4A0 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E6674E0E207F0C510031B4A0 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				E6674E0C207F07620031B4A0 /* UserModel.swift */,
+				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
+				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 			);
