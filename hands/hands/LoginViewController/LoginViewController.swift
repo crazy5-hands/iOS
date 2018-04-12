@@ -9,22 +9,16 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController {
 
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var changeStatusSegmentedControl: UISegmentedControl!
-//    @IBOutlet private weak var scrollView: UIScrollView!
     
     private var handle: AuthStateDidChangeListenerHandle?
-    private var activeTextField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //delegate of TextField
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,11 +29,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             })
-        
-        //set notification for TextField
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(LoginViewController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(LoginViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     //send email and password to server
@@ -70,7 +59,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     }
                 }else {
                     print("success login")
+//                    UserDefaults.standard.set(user?.displayName, forKey: "displayName")
+//                    UserDefaults.standard.set(user?.description, forKey: "description")
+//                    UserDefaults.standard.set(user?.email, forKey: "email")
                     UserDefaults.standard.set(user?.uid, forKey: "uid")
+//                    UserDefaults.standard.set(user?.photoURL, forKey: "photoURL")
                     
                     if UserDefaults.standard.string(forKey: "uid") != nil {
 //                        self.segueToMain()
@@ -100,53 +93,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        activeTextField = textField
-        return true
-    }
-    
-    @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
-        let userInfo = notification.userInfo!
-        let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardY = self.view.frame.size.height - keyboardSize.height
-        let editingTextFieldY: CGFloat = (self.activeTextField?.frame.origin.y)!
-        
-//        let myBoundSize: CGSize = UIScreen.main.bounds.size
-//        let textLimit = (activeTextField?.frame.origin.y)! + (activeTextField?.frame.height)! + 8.0
-        
-//        var txtLimit = (activeTextField?.frame.origin.y)! + (activeTextField?.frame.height)! + 8.0
-//        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
-//        print("キーボードの上辺：(\(kbdLimit))")
-        
-        if editingTextFieldY > keyboardY - 60 {
-            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingTextFieldY - (keyboardY - 60)), width: self.view.bounds.width , height: self.view.bounds.height)
-            }, completion: nil)
-        }
-//        if textLimit >= kbdLimit {
-////            scrollView.contentOffset.y = textLimit - kbdLimit
-//            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-//                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y, width: self.view.bounds.width , height: self.view.bounds.height)
-//            }, completion: nil)
-//        }
-    }
-    
-    @objc private func handleKeyboardWillHideNotification(_ notification: Notification) {
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        }, completion: nil)
-    }
-}
-
-//
-extension LoginViewController {
-    
     //show alert
-    fileprivate func showAlert(_ message: String) {
+    func showAlert(_ message: String) {
         let alert = UIAlertController(title: "エラー", message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(defaultAction)
@@ -154,7 +102,7 @@ extension LoginViewController {
     }
     
     //segue to main tab ViewController
-    fileprivate func segueToMain() {
+    private func segueToMain() {
         let storyboard = UIStoryboard(name: "MainTabViewController", bundle: nil)
         let initalViewController = storyboard.instantiateInitialViewController()
         self.present(initalViewController!, animated: true, completion: nil)

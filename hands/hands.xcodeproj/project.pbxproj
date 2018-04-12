@@ -17,6 +17,11 @@
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
 		E649CFAE1FF3BE99005DC4BA /* handsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFAD1FF3BE99005DC4BA /* handsTests.swift */; };
 		E649CFB91FF3BE99005DC4BA /* handsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFB81FF3BE99005DC4BA /* handsUITests.swift */; };
+		E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */; };
+		E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */; };
+		E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */; };
+		E6674E03207E56F20031B4A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E02207E56F20031B4A0 /* UserModel.swift */; };
+		E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */; };
 		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
@@ -69,6 +74,11 @@
 		E649CFB41FF3BE99005DC4BA /* handsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = handsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CFB81FF3BE99005DC4BA /* handsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handsUITests.swift; sourceTree = "<group>"; };
 		E649CFBA1FF3BE99005DC4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
+		E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditUserInfoViewController.storyboard; sourceTree = "<group>"; };
+		E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
+		E6674E02207E56F20031B4A0 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewModel.swift; sourceTree = "<group>"; };
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -169,7 +179,8 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E6E58024207C9E5E00BB7EDB /* Login */,
+				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
+				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
@@ -178,6 +189,8 @@
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
 				E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */,
 				E6E58020207C8FA300BB7EDB /* MainTabViewController.storyboard */,
+				E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */,
+				E6674E02207E56F20031B4A0 /* UserModel.swift */,
 			);
 			path = hands;
 			sourceTree = "<group>";
@@ -209,6 +222,16 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		E6674DFB207D25320031B4A0 /* EditUserInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */,
+				E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */,
+				E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */,
+			);
+			path = EditUserInfoViewController;
+			sourceTree = "<group>";
+		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,12 +239,13 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		E6E58024207C9E5E00BB7EDB /* Login */ = {
+		E6E58024207C9E5E00BB7EDB /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */,
 				E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */,
 			);
+			name = LoginViewController;
 			path = Login;
 			sourceTree = "<group>";
 		};
@@ -350,6 +374,7 @@
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6E58021207C8FA300BB7EDB /* MainTabViewController.storyboard in Resources */,
+				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
@@ -517,6 +542,10 @@
 			files = (
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
+				E6674E03207E56F20031B4A0 /* UserModel.swift in Sources */,
+				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
+				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
+				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
