@@ -18,7 +18,11 @@ class EditUserInfoViewModel{
     let shouldSubmit: Observable<Bool>
     
     init() {
-        self.displayName = Variable<String>((userModel.getUserProfile()?.displayName)!)
+        if userModel.getUserProfile()?.displayName == nil {
+            self.displayName = Variable<String>("")
+        }else {
+            self.displayName = Variable<String>((userModel.getUserProfile()?.displayName)!)
+        }
         self.shouldSubmit = self.displayName.asObservable().map({ text -> Bool in
             0 < text.count && text.count <= 15
         })

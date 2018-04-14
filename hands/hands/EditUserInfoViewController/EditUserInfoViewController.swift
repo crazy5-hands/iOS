@@ -31,7 +31,9 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let user = Auth.auth().currentUser
-        imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
+        if user?.photoURL != nil {
+            imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
+        }
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(EditUserInfoViewController.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(EditUserInfoViewController.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)

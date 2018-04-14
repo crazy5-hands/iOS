@@ -69,12 +69,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.showAlert("メールアドレスかパスワードが違います。")
                     }
                 }else {
-                    print("success login")
                     UserDefaults.standard.set(user?.uid, forKey: "uid")
                     
                     if UserDefaults.standard.string(forKey: "uid") != nil {
-//                        self.segueToMain()
-                        print("画面遷移")
+                        self.segueToEditUserInfo()
                     }else {
                         self.showAlert("アカウントを正常にサインインできませんでした。")
                     }
@@ -94,7 +92,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     }
                     return
                 }else {
-//                    self.segueToMain()
+                    self.segueToEditUserInfo()
                 }
             })
         }
@@ -132,9 +130,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 extension LoginViewController {
     
-    //segue to main tab ViewController
-    fileprivate func segueToMain() {
-        let storyboard = UIStoryboard(name: "MainTabViewController", bundle: nil)
+    //segue to editUserInfoViewController
+    fileprivate func segueToEditUserInfo() {
+        let storyboard = UIStoryboard(name: "EditUserInfoViewController", bundle: nil)
         let initalViewController = storyboard.instantiateInitialViewController()
         self.present(initalViewController!, animated: true, completion: nil)
     }
