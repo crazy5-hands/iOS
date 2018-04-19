@@ -29,7 +29,10 @@ class EditUserInfoViewModel{
     }
     
     func update(image: UIImage?) -> Bool {
-        let newPhotoURL = self.storageModel.uplodeImage(image!, url: self.displayName.value + ".jpg")
+        var newPhotoURL:URL?
+        if image != nil {
+            newPhotoURL = self.storageModel.uplodeImage(image!, url: self.displayName.value + ".jpg")
+        }
         return self.userModel.updateUser(self.displayName.value, newPhotoURL)
     }
 }

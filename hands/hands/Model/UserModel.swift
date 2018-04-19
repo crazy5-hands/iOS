@@ -38,7 +38,9 @@ class UserModel{
         var result = true
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = displayName ?? self.user?.displayName
-        changeRequest?.photoURL = photoURL ?? self.user?.photoURL
+        if photoURL != nil {
+            changeRequest?.photoURL = photoURL ?? self.user?.photoURL
+        }
         changeRequest?.commitChanges(completion: { (error) in
             if error != nil {
                 print("更新に失敗")
