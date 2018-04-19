@@ -11,6 +11,7 @@ target 'hands' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Database'
 
   target 'handsTests' do
     inherit! :search_paths
