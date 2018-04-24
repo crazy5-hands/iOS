@@ -25,7 +25,7 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
         self.displayNameTextField.delegate = self
         self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
-        setUpData()
+        setUpBind()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,7 +45,7 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    private func setUpData() {
+    private func setUpBind() {
         self.displayNameTextField.rx.text.orEmpty
             .bind(to: self.viewModel.displayName)
             .disposed(by: self.disposeBag)

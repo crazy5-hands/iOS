@@ -94,6 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                }})
 //        }
         FirebaseApp.configure()
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
         return true
     }
     
