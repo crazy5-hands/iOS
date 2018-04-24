@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: TextFieldViewController {
 
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
@@ -17,34 +17,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //    @IBOutlet private weak var scrollView: UIScrollView!
     
     private var handle: AuthStateDidChangeListenerHandle?
-    private var activeTextField: UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //delegate of TextField
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             })
-        
-        //set notification for TextField
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(LoginViewController.handleKeyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(LoginViewController.handleKeyboardWillHideNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        self.setUpNotificationForTextField()
     }
     
-    //send email and password to server
     @IBAction func submit(_ sender: Any) {
-        
         //show processing
         let processingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         processingView.center = self.view.center
@@ -96,35 +84,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             })
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        activeTextField = textField
-        return true
-    }
-    
-    @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
-        let userInfo = notification.userInfo!
-        let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardY = self.view.frame.size.height - keyboardSize.height
-        let editingTextFieldY: CGFloat = (self.activeTextField?.frame.origin.y)!
-        
-        if editingTextFieldY > keyboardY - 60 {
-            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingTextFieldY - (keyboardY - 60)), width: self.view.bounds.width , height: self.view.bounds.height)
-            }, completion: nil)
-        }
-    }
-    
-    @objc private func handleKeyboardWillHideNotification(_ notification: Notification) {
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        }, completion: nil)
     }
 }
 
