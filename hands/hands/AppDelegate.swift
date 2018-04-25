@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userDefault.set(false, forKey: "firstLaunch")
             
             //do first Launch action here
+            let initalViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
+            self.window?.rootViewController = initalViewController
+            self.window?.makeKeyAndVisible()
         }
         
         //do action when it's not first launch
