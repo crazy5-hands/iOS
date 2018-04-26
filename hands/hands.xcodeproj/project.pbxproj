@@ -187,6 +187,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD112091999600310158 /* MainTabBarController */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
 				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
@@ -197,11 +198,9 @@
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
 				E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */,
-				E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */,
 				E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */,
 				E6674E07207F07380031B4A0 /* Model */,
 				E6674E10207F3BB70031B4A0 /* Extension.swift */,
-				E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */,
 			);
 			path = hands;
 			sourceTree = "<group>";
@@ -250,6 +249,15 @@
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E6ADAD112091999600310158 /* MainTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */,
+				E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */,
+			);
+			path = MainTabBarController;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
