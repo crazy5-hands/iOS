@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         var viewcontrollers = [UIViewController]()
         
-        let listViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateInitialViewController()
+        let listViewController = UIStoryboard(name: "ListViewController", bundle: nil).instantiateInitialViewController()
         listViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         viewcontrollers.append(listViewController!)
         
