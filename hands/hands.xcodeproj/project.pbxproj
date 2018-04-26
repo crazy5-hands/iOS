@@ -31,6 +31,12 @@
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
 		E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1320919C7F00310158 /* ProfileViewController.swift */; };
 		E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */; };
+		E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD182091A46800310158 /* ListViewController.storyboard */; };
+		E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1A2091A47300310158 /* ListViewController.swift */; };
+		E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1E2091A4B500310158 /* NotificationViewController.swift */; };
+		E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD202091A4C300310158 /* NotificationViewController.storyboard */; };
+		E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD222091A4D000310158 /* SearchViewController.storyboard */; };
+		E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD242091A4DC00310158 /* SearchViewController.swift */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
@@ -93,6 +99,12 @@
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E6ADAD1320919C7F00310158 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		E6ADAD182091A46800310158 /* ListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListViewController.storyboard; sourceTree = "<group>"; };
+		E6ADAD1A2091A47300310158 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		E6ADAD1E2091A4B500310158 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		E6ADAD202091A4C300310158 /* NotificationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationViewController.storyboard; sourceTree = "<group>"; };
+		E6ADAD222091A4D000310158 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		E6ADAD242091A4DC00310158 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
@@ -191,6 +203,9 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
+				E6ADAD1C2091A48900310158 /* SearchViewController */,
+				E6ADAD172091A45000310158 /* ListViewController */,
 				E6ADAD1220919C6100310158 /* ProfileViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
@@ -272,6 +287,33 @@
 				E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */,
 			);
 			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		E6ADAD172091A45000310158 /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD182091A46800310158 /* ListViewController.storyboard */,
+				E6ADAD1A2091A47300310158 /* ListViewController.swift */,
+			);
+			path = ListViewController;
+			sourceTree = "<group>";
+		};
+		E6ADAD1C2091A48900310158 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD222091A4D000310158 /* SearchViewController.storyboard */,
+				E6ADAD242091A4DC00310158 /* SearchViewController.swift */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		E6ADAD1D2091A49F00310158 /* NotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD1E2091A4B500310158 /* NotificationViewController.swift */,
+				E6ADAD202091A4C300310158 /* NotificationViewController.storyboard */,
+			);
+			path = NotificationViewController;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
@@ -421,11 +463,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */,
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
+				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
+				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
 				E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
@@ -593,12 +638,15 @@
 			files = (
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
+				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
+				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
+				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
