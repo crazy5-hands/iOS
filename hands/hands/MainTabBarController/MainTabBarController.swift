@@ -8,12 +8,27 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var viewcontrollers = [UIViewController]()
         
-        let listViewController = 
+        let listViewController = UIStoryboard(name: "MainViewController", bundle: nil).instantiateInitialViewController()
+        listViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        viewcontrollers.append(listViewController!)
+        
+        let searchViewController = UIStoryboard(name: "SearchViewController", bundle: nil).instantiateInitialViewController()
+        searchViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
+        viewcontrollers.append(searchViewController!)
+        
+        let notificationViewController = UIStoryboard(name: "NotificationViewController", bundle: nil).instantiateInitialViewController()
+        notificationViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 3)
+        viewcontrollers.append(notificationViewController!)
+        
+        let profileViewController = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateInitialViewController()
+        profileViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 4)
+        viewcontrollers.append(profileViewController!)
+        
         self.setViewControllers(viewControllers, animated: false)
     }
 }
