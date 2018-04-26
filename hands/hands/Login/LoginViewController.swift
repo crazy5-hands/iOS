@@ -57,13 +57,7 @@ class LoginViewController: TextFieldViewController {
                         self.showAlert("メールアドレスかパスワードが違います。")
                     }
                 }else {
-                    UserDefaults.standard.set(user?.uid, forKey: "uid")
-                    
-                    if UserDefaults.standard.string(forKey: "uid") != nil {
-                        self.segueToEditUserInfo()
-                    }else {
-                        self.showAlert("アカウントを正常にサインインできませんでした。")
-                    }
+                    self.segueToEditUserInfo()
                 }
             }
         }else {
@@ -80,15 +74,7 @@ class LoginViewController: TextFieldViewController {
                     }
                     return
                 }else {
-                    let userDefaults = UserDefaults.standard
-                    userDefaults.setValue(user?.uid, forKey: "uid")
-                    userDefaults.setValue(user?.email, forKey: "email")
-                    userDefaults.synchronize()
                     self.segueToEditUserInfo()
-
-////                    UserDefaults.setValue(user?.refreshToken, forKey: "refreshToken")
-//                    userDefaults.setValue(user?.displayName, forKey: "displayName")
-//                    userDefaults.setValue(user?.photoURL, forKey: "photoURL")
                 }
             })
         }
