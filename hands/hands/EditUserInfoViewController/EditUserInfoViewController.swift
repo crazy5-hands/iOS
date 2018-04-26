@@ -11,7 +11,7 @@ import FirebaseAuth
 import RxSwift
 import RxCocoa
 
-class EditUserInfoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditUserInfoViewController: TextFieldViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var displayNameTextField: UITextField!
@@ -34,9 +34,7 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         if user?.photoURL != nil {
             imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
         }
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(EditUserInfoViewController.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(EditUserInfoViewController.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+        self.setUpNotificationForTextField()
     }
     
     @IBAction func submit(_ sender: Any) {
@@ -71,38 +69,9 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
 }
 
 //set textField's delegate
-extension EditUserInfoViewController: UITextFieldDelegate {
+extension EditUserInfoViewController {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.activeTextField = textField
-        return true
-    }
-    
-    @objc fileprivate func handleKeyboardWillShowNotification(_ notification: Notification) {
-        let userInfo = notification.userInfo!
-        let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardY = self.view.frame.size.height - keyboardSize.height
-        let editingTextFieldY: CGFloat = (self.activeTextField?.frame.origin.y)!
-        
-        if editingTextFieldY > keyboardY - 60 {
-            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingTextFieldY - (keyboardY - 60)), width: self.view.bounds.width , height: self.view.bounds.height)
-            }, completion: nil)
-        }
-    }
-    
-    @objc fileprivate func handleKeyboardWillHideNotification(_ notification: Notification) {
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
-            self.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
-        }, completion: nil)
-    }
-    
-    func getImageFromURL(_ stringURL: String) -> UIImage? {
+    fileprivate func getImageFromURL(_ stringURL: String) -> UIImage? {
         var image: UIImage?
         let url = URL(string: stringURL)
         let session = URLSession(configuration: .default)

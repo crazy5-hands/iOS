@@ -57,13 +57,7 @@ class LoginViewController: TextFieldViewController {
                         self.showAlert("メールアドレスかパスワードが違います。")
                     }
                 }else {
-                    UserDefaults.standard.set(user?.uid, forKey: "uid")
-                    
-                    if UserDefaults.standard.string(forKey: "uid") != nil {
-                        self.segueToEditUserInfo()
-                    }else {
-                        self.showAlert("アカウントを正常にサインインできませんでした。")
-                    }
+                    self.segueToEditUserInfo()
                 }
             }
         }else {
