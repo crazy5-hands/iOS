@@ -37,25 +37,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         if let user = user {
-            if  user.uid == "" {
-                // segue to loginViewController
-                let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
-                self.window?.rootViewController = loginViewController
+            if user.displayName == nil {
+                //segue to EditUserInfoViewController
+                let editUserInfoViewController = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
+                self.window?.rootViewController = editUserInfoViewController
                 self.window?.makeKeyAndVisible()
-            }else {
-                if user.displayName == nil {
-                    //segue to EditUserInfoViewController
-                    let editUserInfoViewController = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
-                    self.window?.rootViewController = editUserInfoViewController
-                    self.window?.makeKeyAndVisible()
-                }else {
-                    //segue MainTabBarController
-                    let mainTabBarController = UIStoryboard(name: "MainTabBarController", bundle: nil).instantiateInitialViewController()
-                    self.window?.rootViewController = mainTabBarController
-                    self.window?.makeKeyAndVisible()
-                }
+            } else {
+                //segue MainTabBarController
+                let mainTabBarController = UIStoryboard(name: "MainTabBarController", bundle: nil).instantiateInitialViewController()
+                self.window?.rootViewController = mainTabBarController
+                self.window?.makeKeyAndVisible()
             }
+        } else {
+            // segue to loginViewController
+            let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
+            self.window?.rootViewController = loginViewController
+            self.window?.makeKeyAndVisible()
         }
+        
         var ref: DatabaseReference!
         
         ref = Database.database().reference()
