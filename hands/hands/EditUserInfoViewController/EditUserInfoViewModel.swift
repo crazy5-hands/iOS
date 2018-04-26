@@ -8,24 +8,31 @@
 
 import Foundation
 import RxSwift
+import Firebase
 
 class EditUserInfoViewModel{
     
     private let userModel = UserModel()
-    
+    private let storageModel = StorageModel()
     var displayName = Variable<String>("")
     let shouldSubmit: Observable<Bool>
     
     init() {
-        self.displayName = Variable<String>((userModel.getUserProfile()?.displayName)!)
+        if userModel.getUserProfile()?.displayName == nil {
+            self.displayName = Variable<String>("")
+        }else {
+            self.displayName = Variable<String>((userModel.getUserProfile()?.displayName)!)
+        }
         self.shouldSubmit = self.displayName.asObservable().map({ text -> Bool in
             0 < text.count && text.count <= 15
         })
     }
     
-    func update() -> Bool {
-        let user = self.userModel.getUserProfile()
-//        user?.displayName = self.displayName.value
-        return self.userModel.updateUser(user!)
+    func update(image: UIImage?) -> Bool {
+        var newPhotoURL:URL?
+        if image != nil {
+            newPhotoURL = self.storageModel.uplodeImage(image!, url: self.displayName.value + ".jpg")
+        }
+        return self.userModel.updateUser(self.displayName.value, newPhotoURL)
     }
 }

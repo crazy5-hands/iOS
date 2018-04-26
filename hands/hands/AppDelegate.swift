@@ -15,85 +15,49 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-//    var apiClient: LineSDKAPI?
-    
     var userName: String?
     var statusMessage: String?
     var pictureURLString: String?
 
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-//        return LineSDKLogin.sharedInstance().handleOpen(url)
-//    }
-    
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        let user = Auth.auth().currentUser
         
         let userDefault = UserDefaults.standard
         let dict = ["firstLaunch" : true]
         userDefault.register(defaults: dict)
+        
         if userDefault.bool(forKey: "firstLaunch"){
             userDefault.set(false, forKey: "firstLaunch")
             
             //do first Launch action here
+            let initalViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
+            self.window?.rootViewController = initalViewController
+            self.window?.makeKeyAndVisible()
         }
         
-        //do action when it's not first launch
-//
-//        let apiClient = LineSDKAPI(configuration: LineSDKConfiguration.defaultConfig())
-//        let accessTokenObject = apiClient.currentAccessToken()
-//        if accessTokenObject == nil {
-//            //トークンがない
-//            //ログイン画面
-//            print("this app don't have access token")
-//            self.window = UIWindow(frame: UIScreen.main.bounds)
-//            let storyboard = UIStoryboard(name: "LoginViewController", bundle: nil)
-//            let initalVC = storyboard.instantiateViewController(withIdentifier: "loginViewController")
-//            self.window?.rootViewController = initalVC
-//            self.window?.makeKeyAndVisible()
-//        }else {
-//            //トークンがある
-//
-//            apiClient.verifyToken(queue: DispatchQueue.main, completion: {_, error in
-//                if error == nil {
-//                    //token is valid
-//                    apiClient.getProfile(queue: .main, completion: { (profile, error) in
-//                        if error == nil{
-//                            if profile?.pictureURL != nil {
-//                                self.pictureURLString = profile?.pictureURL?.absoluteString
-//                            }
-////                            print(profile?.displayName)
-//                            self.userName = profile?.displayName
-//                            self.statusMessage = profile?.statusMessage
-//                            print(profile?.displayName)
-//                        }
-//                    })
-//                    if self.userName != nil {
-//                        self.window = UIWindow(frame: UIScreen.main.bounds)
-//                        let main = UIStoryboard(name: "MainTabBarController", bundle: nil)
-//                        let mainTabBC = main.instantiateInitialViewController() as! MainTabBarController
-//                        mainTabBC.apiClient = self.apiClient
-//                        self.window?.rootViewController = mainTabBC
-//                        self.window?.makeKeyAndVisible()
-//                    }
-//                }else {
-//                    //token is invalid
-//                    print("token is invalid")
-//                    self.apiClient?.refreshToken(with: accessTokenObject, completion: { accessToken, error in
-//                        if let error = error {
-//                            print(error.localizedDescription)
-//                        }else {
-//                            print("success to refresh")
-//                            self.window = UIWindow(frame: UIScreen.main.bounds)
-//                            let main = MainTabBarController()
-//                            main.apiClient = apiClient
-//                            self.window?.rootViewController = main
-//                            self.window?.makeKeyAndVisible()
-//                        }
-//                        })
-//                    print(error.debugDescription)
-//                }})
-//        }
-        FirebaseApp.configure()
+        if let user = user {
+            if user.displayName == nil {
+                //segue to EditUserInfoViewController
+                let editUserInfoViewController = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
+                self.window?.rootViewController = editUserInfoViewController
+                self.window?.makeKeyAndVisible()
+            } else {
+                //segue MainTabBarController
+                let mainTabBarController = UIStoryboard(name: "MainTabBarController", bundle: nil).instantiateInitialViewController()
+                self.window?.rootViewController = mainTabBarController
+                self.window?.makeKeyAndVisible()
+            }
+        } else {
+            // segue to loginViewController
+            let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
+            self.window?.rootViewController = loginViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
+        var ref: DatabaseReference!
+        
+        ref = Database.database().reference()
         return true
     }
     

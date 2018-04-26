@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ct-x3-ZDc">
+                                <rect key="frame" x="16" y="36" width="343" height="518"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fzn-64-rua">
                                 <rect key="frame" x="37" y="175" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,30 +54,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GwO-OI-aXf">
-                                <rect key="frame" x="79" y="430" width="216" height="29"/>
+                                <rect key="frame" x="66" y="415" width="216" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="サインイン"/>
                                     <segment title="サインアップ"/>
                                 </segments>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vT-gC-HBY">
-                                <rect key="frame" x="118" y="229" width="241" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="ログイン"/>
-                                <connections>
-                                    <action selector="submit:" destination="5bl-qU-lYw" eventType="touchUpInside" id="GHn-q0-WhI"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iZw-hf-GCw">
-                                <rect key="frame" x="50" y="506" width="245" height="30"/>
+                                <rect key="frame" x="37" y="304" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vT-gC-HBY">
+                                <rect key="frame" x="66" y="587" width="243" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zmD-rd-Hau"/>
+                                </constraints>
+                                <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="submit:" destination="5bl-qU-lYw" eventType="touchUpInside" id="GHn-q0-WhI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4vT-gC-HBY" firstAttribute="leading" secondItem="m3g-wP-iBe" secondAttribute="leading" constant="66" id="1bu-iC-VkV"/>
+                            <constraint firstItem="m3g-wP-iBe" firstAttribute="bottom" secondItem="4vT-gC-HBY" secondAttribute="bottom" constant="50" id="J6m-RE-g01"/>
+                            <constraint firstItem="4ct-x3-ZDc" firstAttribute="leading" secondItem="m3g-wP-iBe" secondAttribute="leading" constant="16" id="hfH-lA-Yfo"/>
+                            <constraint firstItem="m3g-wP-iBe" firstAttribute="trailing" secondItem="4ct-x3-ZDc" secondAttribute="trailing" constant="16" id="igK-4x-SR6"/>
+                            <constraint firstItem="4ct-x3-ZDc" firstAttribute="top" secondItem="m3g-wP-iBe" secondAttribute="top" constant="16" id="qHi-jL-tcH"/>
+                            <constraint firstItem="m3g-wP-iBe" firstAttribute="trailing" secondItem="4vT-gC-HBY" secondAttribute="trailing" constant="66" id="s0c-DV-N0d"/>
+                            <constraint firstItem="4vT-gC-HBY" firstAttribute="centerX" secondItem="LCT-qu-Z1G" secondAttribute="centerX" id="vYD-ti-v1i"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="m3g-wP-iBe"/>
                     </view>
                     <connections>

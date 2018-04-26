@@ -20,7 +20,8 @@ class StorageModel {
         let imageData = UIImageJPEGRepresentation(image, 1.0)
         imageRef.putData(imageData!, metadata: nil){ metadata, error in
             if (error != nil){
-                print("hello")
+                print(error.debugDescription)
+                print("fail to upload image")
             }else {
                 downloadURL = (metadata?.downloadURL())!
             }

@@ -12,6 +12,7 @@
 		6613C7B47FC07050AED8E06C /* Pods_handsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F63A447E3891D0562C0F05A /* Pods_handsUITests.framework */; };
 		E619E6262014DAA800A30592 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E6252014DAA800A30592 /* CoreTelephony.framework */; };
 		E619E6282014DAAF00A30592 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E6272014DAAF00A30592 /* Security.framework */; };
+		E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6277883208ED3F9008F11BC /* TextFieldViewController.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -23,12 +24,14 @@
 		E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */; };
 		E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E0C207F07620031B4A0 /* UserModel.swift */; };
 		E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E0E207F0C510031B4A0 /* StorageModel.swift */; };
+		E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E10207F3BB70031B4A0 /* Extension.swift */; };
 		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
+		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
-		E6E58021207C8FA300BB7EDB /* MainTabViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabViewController.storyboard */; };
+		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
 		E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */; };
@@ -64,6 +67,7 @@
 		E619E6272014DAAF00A30592 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E619E6292014DE0500A30592 /* hands.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hands.entitlements; sourceTree = "<group>"; };
 		E619E63320172FDD00A30592 /* LineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LineSDK.framework; path = Pods/LineSDK/LineSDK/LineSDK.framework; sourceTree = "<group>"; };
+		E6277883208ED3F9008F11BC /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,11 +85,13 @@
 		E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewModel.swift; sourceTree = "<group>"; };
 		E6674E0C207F07620031B4A0 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E6674E0E207F0C510031B4A0 /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModel.swift; sourceTree = "<group>"; };
+		E6674E10207F3BB70031B4A0 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E6E58020207C8FA300BB7EDB /* MainTabViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabViewController.storyboard; sourceTree = "<group>"; };
+		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IntroductionBackground.jpg; sourceTree = "<group>"; };
@@ -181,6 +187,8 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD112091999600310158 /* MainTabBarController */,
+				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
 				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
@@ -190,9 +198,9 @@
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
 				E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */,
-				E6E58020207C8FA300BB7EDB /* MainTabViewController.storyboard */,
 				E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */,
 				E6674E07207F07380031B4A0 /* Model */,
+				E6674E10207F3BB70031B4A0 /* Extension.swift */,
 			);
 			path = hands;
 			sourceTree = "<group>";
@@ -241,6 +249,23 @@
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E6ADAD112091999600310158 /* MainTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */,
+				E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */,
+			);
+			path = MainTabBarController;
+			sourceTree = "<group>";
+		};
+		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				E6277883208ED3F9008F11BC /* TextFieldViewController.swift */,
+			);
+			path = CustomClasses;
 			sourceTree = "<group>";
 		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
@@ -384,7 +409,7 @@
 			files = (
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
-				E6E58021207C8FA300BB7EDB /* MainTabViewController.storyboard in Resources */,
+				E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
@@ -556,8 +581,11 @@
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
+				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
+				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
+				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
