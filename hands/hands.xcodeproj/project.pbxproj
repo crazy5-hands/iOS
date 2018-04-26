@@ -29,6 +29,8 @@
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
+		E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1320919C7F00310158 /* ProfileViewController.swift */; };
+		E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
@@ -89,6 +91,8 @@
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		E6ADAD1320919C7F00310158 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD1220919C6100310158 /* ProfileViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
@@ -258,6 +263,15 @@
 				E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */,
 			);
 			path = MainTabBarController;
+			sourceTree = "<group>";
+		};
+		E6ADAD1220919C6100310158 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD1320919C7F00310158 /* ProfileViewController.swift */,
+				E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */,
+			);
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
@@ -413,6 +427,7 @@
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
+				E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,6 +597,7 @@
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
+				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
