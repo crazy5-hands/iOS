@@ -28,6 +28,7 @@ class MainTabBarController: UITabBarController {
         let profileViewController = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateInitialViewController()
         profileViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 4)
         viewcontrollers.append(profileViewController!)
+        self.viewControllers = viewcontrollers.map{ UINavigationController(rootViewController: $0)}
         
         self.setViewControllers(viewControllers, animated: false)
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XUM-Bx-eve">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aIS-69-EC0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="250" id="vwj-wi-3x9">
@@ -47,26 +47,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKp-6m-0mU">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="RBN-dC-0HX"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AKp-6m-0mU" firstAttribute="top" secondItem="17d-LF-weV" secondAttribute="top" id="3ft-oa-WdK"/>
-                            <constraint firstItem="aIS-69-EC0" firstAttribute="top" secondItem="AKp-6m-0mU" secondAttribute="bottom" id="5SI-bl-OA3"/>
                             <constraint firstItem="aIS-69-EC0" firstAttribute="trailing" secondItem="17d-LF-weV" secondAttribute="trailing" id="JCe-nN-WDF"/>
                             <constraint firstItem="aIS-69-EC0" firstAttribute="leading" secondItem="17d-LF-weV" secondAttribute="leading" id="U0F-er-fd5"/>
-                            <constraint firstItem="AKp-6m-0mU" firstAttribute="trailing" secondItem="17d-LF-weV" secondAttribute="trailing" id="UUO-IM-jHt"/>
-                            <constraint firstItem="aIS-69-EC0" firstAttribute="top" secondItem="AKp-6m-0mU" secondAttribute="bottom" id="UcT-rD-LCC"/>
-                            <constraint firstItem="AKp-6m-0mU" firstAttribute="leading" secondItem="17d-LF-weV" secondAttribute="leading" id="nK2-xx-DXU"/>
+                            <constraint firstItem="aIS-69-EC0" firstAttribute="top" secondItem="17d-LF-weV" secondAttribute="top" id="dr2-f0-0T0"/>
                             <constraint firstItem="aIS-69-EC0" firstAttribute="bottom" secondItem="17d-LF-weV" secondAttribute="bottom" id="qVA-kL-5eD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="17d-LF-weV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="lAj-zY-krr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0F9-wK-bQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

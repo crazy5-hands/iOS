@@ -45,7 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 //segue MainTabBarController
 //                let mainTabBarController = UIStoryboard(name: "MainTabBarController", bundle: nil).instantiateInitialViewController()
-                self.window?.rootViewController = MainTabBarController()
+                let mainTabBarControlller = MainTabBarController()
+                self.window?.rootViewController = mainTabBarControlller
                 self.window?.makeKeyAndVisible()
             }
         } else {
