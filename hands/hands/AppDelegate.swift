@@ -27,7 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        FirebaseApp.configure()
+        let user = Auth.auth().currentUser
+        if let user = user {
+            print(user.uid)
+        }
         let userDefault = UserDefaults.standard
         let dict = ["firstLaunch" : true]
         userDefault.register(defaults: dict)
@@ -38,6 +42,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let initalViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
             self.window?.rootViewController = initalViewController
             self.window?.makeKeyAndVisible()
+        }else {
+            let userDefaults = UserDefaults.standard
+            userDefaults.register(defaults: ["uid" : "none", "displayName" : "none"])
+            if userDefaults.string(forKey: "uid")! == "none" {
+                // segue to loginViewController
+                let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
+                self.window?.rootViewController = loginViewController
+                self.window?.makeKeyAndVisible()
+            }else {
+                if userDefaults.string(forKey: "displayName")! == "none" {
+                    //segue to EditUserInfoViewController
+                    let editUserInfoViewController = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
+                    self.window?.rootViewController = editUserInfoViewController
+                    self.window?.makeKeyAndVisible()
+                }else {
+                    //segue MainTabBarController
+                    let mainTabBarController = UIStoryboard(name: "MainTabBarController", bundle: nil).instantiateInitialViewController()
+                    self.window?.rootViewController = mainTabBarController
+                    self.window?.makeKeyAndVisible()
+                }
+            }
         }
         
         //do action when it's not first launch
@@ -96,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    print(error.debugDescription)
 //                }})
 //        }
-        FirebaseApp.configure()
+        
         var ref: DatabaseReference!
         
         ref = Database.database().reference()

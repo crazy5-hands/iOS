@@ -80,13 +80,15 @@ class LoginViewController: TextFieldViewController {
                     }
                     return
                 }else {
-                    self.segueToEditUserInfo()
                     let userDefaults = UserDefaults.standard
                     userDefaults.setValue(user?.uid, forKey: "uid")
                     userDefaults.setValue(user?.email, forKey: "email")
-//                    UserDefaults.setValue(user?.refreshToken, forKey: "refreshToken")
-                    userDefaults.setValue(user?.displayName, forKey: "displayName")
-                    userDefaults.setValue(user?.photoURL, forKey: "photoURL")
+                    userDefaults.synchronize()
+                    self.segueToEditUserInfo()
+
+////                    UserDefaults.setValue(user?.refreshToken, forKey: "refreshToken")
+//                    userDefaults.setValue(user?.displayName, forKey: "displayName")
+//                    userDefaults.setValue(user?.photoURL, forKey: "photoURL")
                 }
             })
         }
