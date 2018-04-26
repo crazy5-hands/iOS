@@ -26,6 +26,8 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         self.displayNameTextField.delegate = self
         self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
         setUpBind()
+        let userDefaults = UserDefaults.standard
+        print(userDefaults.string(forKey: "uid"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
