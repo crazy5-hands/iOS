@@ -39,6 +39,8 @@
 		E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD242091A4DC00310158 /* SearchViewController.swift */; };
 		E6ADAD2B209380EA00310158 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD2A209380EA00310158 /* User.swift */; };
 		E6ADAD2D209386AB00310158 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD2C209386AA00310158 /* Event.swift */; };
+		E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD2F2093998200310158 /* NewEventViewController.swift */; };
+		E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD312093999100310158 /* NewEventViewController.storyboard */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
@@ -109,6 +111,8 @@
 		E6ADAD242091A4DC00310158 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E6ADAD2A209380EA00310158 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6ADAD2C209386AA00310158 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E6ADAD2F2093998200310158 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
+		E6ADAD312093999100310158 /* NewEventViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEventViewController.storyboard; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
 				E6ADAD1C2091A48900310158 /* SearchViewController */,
 				E6ADAD172091A45000310158 /* ListViewController */,
@@ -320,6 +325,15 @@
 				E6ADAD202091A4C300310158 /* NotificationViewController.storyboard */,
 			);
 			path = NotificationViewController;
+			sourceTree = "<group>";
+		};
+		E6ADAD2E2093996200310158 /* NewEventViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD2F2093998200310158 /* NewEventViewController.swift */,
+				E6ADAD312093999100310158 /* NewEventViewController.storyboard */,
+			);
+			path = NewEventViewController;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
@@ -470,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */,
+				E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */,
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
 				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
@@ -648,6 +663,7 @@
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
+				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
