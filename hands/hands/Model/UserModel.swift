@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Firebase
 
 
 class UserModel{
@@ -26,10 +26,10 @@ class UserModel{
     
     //プロフィールの取得
     func getUserProfile() -> User? {
-        let user = Auth.auth().currentUser
-        if let user = user {
-            return user
-        }
+//        let user = Auth.auth().currentUser
+//        if let user = user {
+//            return user
+//        }
         return nil
     }
     
@@ -89,6 +89,38 @@ class UserModel{
     
     //ユーザーの再認証
     func reVerifyUser() {
+        
+    }
+}
+
+class User: NSObject {
+    
+    private var ref: DatabaseReference!
+    var uid: String
+    var username: String
+    var photoURL: URL
+    var note: String
+    var own = [String]() //event id
+    var join = [String]() //event id
+    var follow = [String]() //user id
+    var follower = [String]() //user id
+    
+    init(username: String) {
+        self.username = username
+        self.ref = Database.database().reference()
+        let db = self.ref.child("users").child(self.uid)
+        db.observeSingleEvent(of: .value, with: { snapchat in
+            
+        }) { error in
+            print(error.localizedDescription)
+        }
+    }
+    
+    convenience override init() {
+        self.init(username: "")
+    }
+    
+    func getData(){
         
     }
 }
