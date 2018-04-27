@@ -37,6 +37,7 @@
 		E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD202091A4C300310158 /* NotificationViewController.storyboard */; };
 		E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD222091A4D000310158 /* SearchViewController.storyboard */; };
 		E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD242091A4DC00310158 /* SearchViewController.swift */; };
+		E6ADAD2B209380EA00310158 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD2A209380EA00310158 /* User.swift */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
@@ -105,6 +106,7 @@
 		E6ADAD202091A4C300310158 /* NotificationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD222091A4D000310158 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD242091A4DC00310158 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E6ADAD2A209380EA00310158 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 		E6674E07207F07380031B4A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD2A209380EA00310158 /* User.swift */,
 				E6674E0C207F07620031B4A0 /* UserModel.swift */,
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
 			);
@@ -640,6 +643,7 @@
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
+				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
