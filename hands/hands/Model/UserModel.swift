@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Firebase
 
 
 class UserModel{
     
-    let user = Auth.auth().currentUser
+    var user = Auth.auth().currentUser
     
     //ユーザーの作成
     func createUser() {
@@ -25,13 +25,9 @@ class UserModel{
     }
     
     //プロフィールの取得
-    func getUserProfile() -> User? {
-        let user = Auth.auth().currentUser
-        if let user = user {
-            return user
-        }
-        return nil
-    }
+//    func getUserProfile() -> User? {
+//
+//    }
     
     //ユーザーの更新
     func updateUser(_ displayName: String? , _ photoURL: URL?) -> Bool {
