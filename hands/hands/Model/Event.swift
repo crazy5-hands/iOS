@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 
 class Event: NSObject {
+    
     var eventId: String
     var uid: String
     var author: String
@@ -18,6 +19,7 @@ class Event: NSObject {
     var body: String
     var create_at: String
     var joinerCount: NSObject?
+    var joiner: Dictionary<String, Bool>?
     
     init(eventId: String, uid: String, author: String, title: String, body: String, create_at: String) {
         self.eventId = eventId
