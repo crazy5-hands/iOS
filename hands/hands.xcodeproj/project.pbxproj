@@ -270,6 +270,7 @@
 				E6ADAD2A209380EA00310158 /* User.swift */,
 				E6674E0C207F07620031B4A0 /* UserModel.swift */,
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
+				E6ADAD262093768B00310158 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
