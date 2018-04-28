@@ -28,6 +28,7 @@ class NewEventViewController: TextFieldViewController {
             let username = value?["username"] as? String ?? ""
             
             self.writeNewEvent(userID: uid!, author: username, title: self.titleTextField.text!, body: self.bodyTextView.text, create_at: "")
+            self.navigationController?.popViewController(animated: true)
         }) { (error) in
             print(error.localizedDescription)
         }
