@@ -28,7 +28,17 @@ class EventTableViewCell: UITableViewCell {
     @IBAction func submitJoin(_ sender: Any) {
         if let eventKey = self.eventKey {
             eventRef = Database.database().reference().child("events").child(eventKey)
-            
+            self.increaseJoin(forRef: eventRef)
+            eventRef.observeSingleEvent(of: .value, with:{ snapshot in
+                let value = snapshot.value as? NSDictionary
+                if let uid = value?["uid"] as? String {
+                    let userEventRef = Database.database().reference()
+                        .child("user-events")
+                        .child(uid)
+                        .child(eventKey)
+                    self.increaseJoin(forRef: userEventRef)
+                }
+            })
         }
     }
     
