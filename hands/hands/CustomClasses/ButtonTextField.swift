@@ -31,7 +31,7 @@ class DoneTextField: UITextField{
         self.inputAccessoryView = tools
     }
     
-    func closeButtonTapped(){
+    private func closeButtonTapped(){
         self.endEditing(true)
         self.resignFirstResponder()
     }
