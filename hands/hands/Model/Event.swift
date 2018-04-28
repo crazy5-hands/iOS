@@ -23,6 +23,7 @@ class Event: NSObject {
     
     init(eventId: String, uid: String, author: String, title: String, body: String, create_at: String) {
         self.eventId = eventId
+        
         self.uid = uid
         self.author = author
         self.title = title
