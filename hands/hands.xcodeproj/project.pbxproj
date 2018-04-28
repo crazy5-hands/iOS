@@ -43,6 +43,8 @@
 		E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD312093999100310158 /* NewEventViewController.storyboard */; };
 		E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD332094285300310158 /* DoneButtonTextField.swift */; };
 		E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD352094522F00310158 /* DoneButtonTextView.swift */; };
+		E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD3920945AB200310158 /* EventTableViewCell.swift */; };
+		E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
@@ -117,6 +119,8 @@
 		E6ADAD312093999100310158 /* NewEventViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEventViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD332094285300310158 /* DoneButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonTextField.swift; sourceTree = "<group>"; };
 		E6ADAD352094522F00310158 /* DoneButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonTextView.swift; sourceTree = "<group>"; };
+		E6ADAD3920945AB200310158 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD3820945A7200310158 /* EventTableViewCell */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
 				E6ADAD1C2091A48900310158 /* SearchViewController */,
@@ -338,6 +343,15 @@
 				E6ADAD312093999100310158 /* NewEventViewController.storyboard */,
 			);
 			path = NewEventViewController;
+			sourceTree = "<group>";
+		};
+		E6ADAD3820945A7200310158 /* EventTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD3920945AB200310158 /* EventTableViewCell.swift */,
+				E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */,
+			);
+			path = EventTableViewCell;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
@@ -501,6 +515,7 @@
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
 				E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
+				E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +686,7 @@
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
+				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
