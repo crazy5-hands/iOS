@@ -10,6 +10,13 @@ import UIKit
 
 class EventTableViewCell: UITableViewCell {
 
+    
+    
+    func updateCell() {
+        
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
