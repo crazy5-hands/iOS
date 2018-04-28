@@ -12,12 +12,11 @@ import Firebase
 class NewEventViewController: TextFieldViewController {
 
     private var ref: DatabaseReference!
-    @IBOutlet private weak var titleTextField: UITextField!
-    @IBOutlet private weak var bodyTextView: UITextView!
+    @IBOutlet weak var titleTextField: DoneButtonTextField!
+    @IBOutlet weak var bodyTextView: DoneButtonTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.ref = Database.database().reference()
     }
     
@@ -36,13 +35,13 @@ class NewEventViewController: TextFieldViewController {
     
     private func writeNewEvent(userID: String, author: String, title: String, body: String, create_at: String) {
         let key = self.ref.child("events").childByAutoId().key
-        let post = ["uid": userID,
+        let event = ["uid": userID,
                     "author": author,
                     "title": title,
                     "body": body,
                     "create_at": create_at]
-        let childUpdates = ["/posts/\(key)": post,
-                            "/user-posts/\(userID)/\(key)/": post]
+        let childUpdates = ["/events/\(key)": event,
+                            "/user-events/\(userID)/\(key)/": event]
         ref.updateChildValues(childUpdates)
     }
 }

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ci-7w-vDj">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ci-7w-vDj" customClass="DoneButtonTextField" customModule="hands" customModuleProvider="target">
                                 <rect key="frame" x="38" y="74" width="298" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -32,8 +32,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mmZ-yu-gwb">
-                                <rect key="frame" x="38" y="162" width="285" height="229"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mmZ-yu-gwb" customClass="DoneButtonTextView" customModule="hands" customModuleProvider="target">
+                                <rect key="frame" x="38" y="162" width="298" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -60,8 +60,8 @@
                         <viewLayoutGuide key="safeArea" id="90p-z8-x9g"/>
                     </view>
                     <connections>
-                        <outlet property="bodyTextView" destination="mmZ-yu-gwb" id="wgv-pP-WjA"/>
-                        <outlet property="titleTextField" destination="2ci-7w-vDj" id="Xky-Ye-uAj"/>
+                        <outlet property="bodyTextView" destination="mmZ-yu-gwb" id="PQj-4D-lO3"/>
+                        <outlet property="titleTextField" destination="2ci-7w-vDj" id="feL-Ov-hXL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2p-Ai-Iae" userLabel="First Responder" sceneMemberID="firstResponder"/>
