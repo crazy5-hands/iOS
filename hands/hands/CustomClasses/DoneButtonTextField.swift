@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class DoneTextField: UITextField{
+class DoneButtonTextField: UITextField{
     
     override init(frame: CGRect) {
         super.init(frame: frame)

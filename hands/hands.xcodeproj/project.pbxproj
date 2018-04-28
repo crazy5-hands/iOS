@@ -41,7 +41,7 @@
 		E6ADAD2D209386AB00310158 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD2C209386AA00310158 /* Event.swift */; };
 		E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD2F2093998200310158 /* NewEventViewController.swift */; };
 		E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD312093999100310158 /* NewEventViewController.storyboard */; };
-		E6ADAD342094285300310158 /* ButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD332094285300310158 /* ButtonTextField.swift */; };
+		E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD332094285300310158 /* DoneButtonTextField.swift */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
@@ -114,7 +114,7 @@
 		E6ADAD2C209386AA00310158 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E6ADAD2F2093998200310158 /* NewEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		E6ADAD312093999100310158 /* NewEventViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewEventViewController.storyboard; sourceTree = "<group>"; };
-		E6ADAD332094285300310158 /* ButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTextField.swift; sourceTree = "<group>"; };
+		E6ADAD332094285300310158 /* DoneButtonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonTextField.swift; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
@@ -342,7 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				E6277883208ED3F9008F11BC /* TextFieldViewController.swift */,
-				E6ADAD332094285300310158 /* ButtonTextField.swift */,
+				E6ADAD332094285300310158 /* DoneButtonTextField.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -677,7 +677,7 @@
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
-				E6ADAD342094285300310158 /* ButtonTextField.swift in Sources */,
+				E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
