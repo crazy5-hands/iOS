@@ -7,34 +7,61 @@
 //
 
 import UIKit
+import Firebase
 
 class ListDetailTableViewController: UITableViewController {
 
+    private let kSectionEvent = 0
+    private let kSectionJoiner = 1
+    private let joiner = [String: Bool]()
+    private var eventRef: DatabaseReference!
+    private var eventKey = ""
+    lazy var ref = Database.database().reference()
+    private var event = Event()
+    private var refHandle: DatabaseHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.eventRef = ref.child("events").child(eventKey)
+        let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "event")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refHandle = eventRef.observe(DataEventType.value, with: { (snapshot) in
+            let eventDict = snapshot.value as? [String: AnyObject] ?? [:]
+            self.event.setValuesForKeys(eventDict)
+            self.tableView.reloadData()
+            self.navigationItem.title = self.event.title
+        })
     }
-
-    // MARK: - Table view data source
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let refHandle = self.refHandle {
+            self.eventRef.removeObserver(withHandle: refHandle)
+        }
+        
+        // Is this need??  ↓
+        if let uid = Auth.auth().currentUser?.uid {
+            Database.database().reference().child("users").child(uid).removeAllObservers()
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        switch section {
+        case kSectionEvent:
+            return 1
+        case kSectionJoiner:
+            return self.joiner.count
+        default:
+            return 0
+        }
     }
 
     /*
