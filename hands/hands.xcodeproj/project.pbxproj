@@ -45,6 +45,10 @@
 		E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD352094522F00310158 /* DoneButtonTextView.swift */; };
 		E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD3920945AB200310158 /* EventTableViewCell.swift */; };
 		E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */; };
+		E6ADAD3F2095C43200310158 /* ListDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD3E2095C43200310158 /* ListDetailTableViewController.swift */; };
+		E6ADAD412095C43E00310158 /* ListDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */; };
+		E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD4320960A4800310158 /* UserTableViewCell.swift */; };
+		E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD4420960A4800310158 /* UserTableViewCell.xib */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */; };
@@ -121,6 +125,10 @@
 		E6ADAD352094522F00310158 /* DoneButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonTextView.swift; sourceTree = "<group>"; };
 		E6ADAD3920945AB200310158 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
+		E6ADAD3E2095C43200310158 /* ListDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewController.swift; sourceTree = "<group>"; };
+		E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListDetailTableViewController.storyboard; sourceTree = "<group>"; };
+		E6ADAD4320960A4800310158 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		E6ADAD4420960A4800310158 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58020207C8FA300BB7EDB /* MainTabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTabBarController.storyboard; sourceTree = "<group>"; };
@@ -219,6 +227,8 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD4220960A0400310158 /* UserTableViewCell */,
+				E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */,
 				E6ADAD3820945A7200310158 /* EventTableViewCell */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
@@ -352,6 +362,24 @@
 				E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */,
 			);
 			path = EventTableViewCell;
+			sourceTree = "<group>";
+		};
+		E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD3E2095C43200310158 /* ListDetailTableViewController.swift */,
+				E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */,
+			);
+			path = ListDetailTableViewController;
+			sourceTree = "<group>";
+		};
+		E6ADAD4220960A0400310158 /* UserTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD4320960A4800310158 /* UserTableViewCell.swift */,
+				E6ADAD4420960A4800310158 /* UserTableViewCell.xib */,
+			);
+			path = UserTableViewCell;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
@@ -507,9 +535,11 @@
 				E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */,
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
 				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
+				E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6E58021207C8FA300BB7EDB /* MainTabBarController.storyboard in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
+				E6ADAD412095C43E00310158 /* ListDetailTableViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
@@ -680,6 +710,7 @@
 			files = (
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
+				E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */,
 				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
@@ -691,6 +722,7 @@
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
+				E6ADAD3F2095C43200310158 /* ListDetailTableViewController.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
