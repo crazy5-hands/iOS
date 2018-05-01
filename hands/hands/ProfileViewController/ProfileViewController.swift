@@ -30,14 +30,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.userRef.observe(.value, with: { (snapshot) in
+        self.refHandle = self.userRef.observe(.value, with: { (snapshot) in
             print(snapshot.value as! String)
         }, withCancel: { (error) in
-            if error != nil {
-                print(error.localizedDescription)
-            }else {
-                print("エラーなし")
-            }
+            print(error.localizedDescription)
         })
 //        self.refHandle = self.userRef.observe(DataEventType.value, with: { (snapshot) in
 //            let dict = snapshot.value(forKey: "username") as! String
