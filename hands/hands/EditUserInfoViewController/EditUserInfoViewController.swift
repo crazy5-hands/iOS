@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 import RxSwift
 import RxCocoa
 
@@ -20,6 +21,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     fileprivate let viewModel = EditUserInfoViewModel()
     fileprivate let disposeBag = DisposeBag()
     fileprivate var activeTextField: UITextField?
+    private let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,26 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     @IBAction func submit(_ sender: Any) {
         if self.viewModel.update(image: self.imageView.image) == false {
             showAlert("プロフィールの更新に失敗しました。")
+        }
+        let uid = Auth.auth().currentUser?.uid ?? ""
+        let username = self.displayNameTextField.text ?? ""
+        let note = "これはテスト用のデータです"
+        let photo = ""
+        let own = [""]
+        let join = [""]
+        let follow = [""]
+        let follower = [""]
+        var ref: DocumentReference? = nil
+        ref = self.db.collection("users").addDocument(data: [
+            "id": uid,
+            "username": username,
+            "note": note,
+            "photo": photo,
+            "own": own,
+            "join": join,
+            "follow": follow,
+            "follower": follower]){ error in
+                print(error.debugDescription)
         }
     }
     
