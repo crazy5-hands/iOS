@@ -33,7 +33,11 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.userRef.observe(.value, with: { (snapshot) in
             print(snapshot.value as! String)
         }, withCancel: { (error) in
-            print(error.localizedDescription)
+            if error != nil {
+                print(error.localizedDescription)
+            }else {
+                print("エラーなし")
+            }
         })
 //        self.refHandle = self.userRef.observe(DataEventType.value, with: { (snapshot) in
 //            let dict = snapshot.value(forKey: "username") as! String
@@ -58,8 +62,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
