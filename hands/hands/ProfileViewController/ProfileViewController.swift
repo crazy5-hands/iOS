@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
+    
     private let kSectionPhoto = 0
     private let kSectionUsername = 1
     private let kSectionNote = 2
@@ -74,4 +77,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             return 0
         }
     }
+    
+    func collectionview
 }
