@@ -8,10 +8,11 @@
 
 import Foundation
 import Firebase
+import RxSwift
 
 class ProfileViewModel {
     
-    var user: User?
+    var user = Variable<User>(User())
     private let db = Firestore.firestore()
     private var docRef: DocumentReference?
     
@@ -20,9 +21,7 @@ class ProfileViewModel {
         self.docRef = db.collection("users").document(displayName!)
         self.docRef?.getDocument(completion: { (document, error) in
             if document != nil {
-                self.user = User(dictionary: (document?.data())!)
-                print("hellow")
-                print(self.user?.id)
+                self.user = Variable<User>(User(dictionary: (document?.data())!)!)
             }else {
                 print(error?.localizedDescription ?? "error")
             }

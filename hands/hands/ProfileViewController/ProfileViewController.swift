@@ -35,6 +35,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewWillDisappear(animated)
     }
     
+    func setUpBind() {
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // write segue here
         if indexPath.section == kSectionOthers {

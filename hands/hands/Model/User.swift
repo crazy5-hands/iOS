@@ -31,6 +31,7 @@ struct User {
             "follower": self.follower
         ]
     }
+    
     init?(dictionary: [String: Any]) {
         let id = dictionary["id"] as! String
         let username = dictionary["username"] as! String
@@ -56,6 +57,10 @@ struct User {
         self.join = join
         self.follow = follow
         self.follower = follower
+    }
+    
+    init(){
+        self.init(id: "", username: "", note: "", photo: "", own: [""], join: [""], follow: [""], follower: [""])
     }
 }
 
