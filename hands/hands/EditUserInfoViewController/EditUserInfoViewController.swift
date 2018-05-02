@@ -64,16 +64,17 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
 //            "follower": follower]){ error in
 //                print(error.debugDescription)
 //        }
-        print(displayName)
-        self.db.collection("users").document(displayName!).updateData([
-            "id": uid,
-            "username": username,
-            "note": note,
-            "photo": photo,
-            "own": own,
-            "join": join,
-            "follow": follow,
-            "follower": follower])
+//        print(displayName)
+//        self.db.collection("users").document(displayName!).updateData([
+//            "id": uid,
+//            "username": username,
+//            "note": note,
+//            "photo": photo,
+//            "own": own,
+//            "join": join,
+//            "follow": follow,
+//            "follower": follower])
+        self.viewModel.updateData(key: "username", data: username)
     }
     
     private func setUpBind() {
