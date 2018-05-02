@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     private let kSectionOthers = 3
     private var userRef: DatabaseReference!
     private var uid = ""
-    private var user = User()
+    private var user: User?
     private var refHandle: DatabaseHandle?
     
     @IBOutlet private weak var collectionView: UICollectionView!

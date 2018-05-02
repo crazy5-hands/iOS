@@ -12,27 +12,53 @@ import Firebase
 
 class EditUserInfoViewModel{
     
-    private let userModel = UserModel()
-    private let storageModel = StorageModel()
+//    private let userModel = UserModel()
+//    private let storageModel = StorageModel()
     var displayName = Variable<String>("")
     let shouldSubmit: Observable<Bool>
+    var user: User?
+    private let db = Firestore.firestore()
+    private var docRef: DocumentReference?
     
     init() {
-//        if userModel.getUserProfile()?.displayNam == nil {
-//            self.displayName = Variable<String>("")
-//        }else {
-//            self.displayName = Variable<String>((userModel.getUserProfile()?.displayName)!)
-//        }
         self.shouldSubmit = self.displayName.asObservable().map({ text -> Bool in
             0 < text.count && text.count <= 15
         })
+        self.docRef = db.collection("users").document((Auth.auth().currentUser?.displayName)!)
+        self.docRef?.getDocument { (document, error) in
+            if document != nil {
+                self.user = User(dictionary: (document?.data())!)
+                print(document?.data())
+            }else {
+                print(error?.localizedDescription ?? "there is a problem with user data")
+            }
+        }
     }
     
-    func update(image: UIImage?) -> Bool {
-        var newPhotoURL:URL?
-        if image != nil {
-            newPhotoURL = self.storageModel.uplodeImage(image!, url: self.displayName.value + ".jpg")
+    func updateData(key: String, data: Any){
+        self.docRef?.updateData([key: data]){ error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            print("success to update")
         }
-        return self.userModel.updateUser(self.displayName.value, newPhotoURL)
     }
+
+    func createData(){
+        self.docRef?.setData((self.user?.dictionary)!){ error in
+            if let error = error {
+                print(error.localizedDescription)
+            }else {
+                print("success to create")
+            }
+        }
+    }
+    
+//    func update(image: UIImage?) -> Bool {
+////        var newPhotoURL:URL?
+////        if image != nil {
+////            newPhotoURL = self.storageModel.uplodeImage(image!, url: self.displayName.value + ".jpg")
+////        }
+//////        return self.userModel.updateUser(self.displayName.value, newPhotoURL)
+//    }
 }

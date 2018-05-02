@@ -31,9 +31,15 @@ class MainTabBarController: UITabBarController {
         
         let profileViewController = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateInitialViewController()
         profileViewController?.tabBarItem = UITabBarItem(title: "プロフィール", image: UIImage(named: "icon-user"), tag: 3)
+        profileViewController?.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.openEditUserInfo)), animated: true)
         viewcontrollers.append(profileViewController!)
         self.viewControllers = viewcontrollers.map{ UINavigationController(rootViewController: $0)}
         
         self.setViewControllers(viewControllers, animated: false)
+    }
+    
+    func openEditUserInfo(){
+        let next = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
+        self.present(next!, animated: true, completion: nil)
     }
 }

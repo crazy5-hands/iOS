@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 import RxSwift
 import RxCocoa
 
@@ -17,14 +18,16 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     @IBOutlet private weak var displayNameTextField: UITextField!
     @IBOutlet private weak var submitButton: UIButton!
     
-    fileprivate let viewModel = EditUserInfoViewModel()
+    fileprivate var viewModel: EditUserInfoViewModel!
     fileprivate let disposeBag = DisposeBag()
     fileprivate var activeTextField: UITextField?
+    private let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.displayNameTextField.delegate = self
         self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
+        self.viewModel = EditUserInfoViewModel()
         setUpBind()
     }
     
@@ -35,12 +38,13 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
             imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
         }
         self.setUpNotificationForTextField()
+        self.displayNameTextField.text = self.viewModel.user?.username
+        print(self.viewModel.user?.dictionary)
     }
     
     @IBAction func submit(_ sender: Any) {
-        if self.viewModel.update(image: self.imageView.image) == false {
-            showAlert("プロフィールの更新に失敗しました。")
-        }
+        let username = self.displayNameTextField.text ?? self.viewModel.user?.username
+        self.viewModel.updateData(key: "username", data: username!)
     }
     
     private func setUpBind() {
