@@ -58,25 +58,42 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell
         switch indexPath.section {
         case kSectionUser:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath) as! UserCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath) as! UserCollectionViewCell
+            return cell
+            
         case kSectionNote:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "label", for: indexPath) as! LabelCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "label", for: indexPath) as! LabelCollectionViewCell
+            cell.textLabel.text = self.viewModel.user?.note
+            return cell
         case kSectionOthers:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "square", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "square", for: indexPath) as! LabelCollectionViewCell
+            var text: String?
+            switch indexPath.item {
+            case 0: //own
+                text = String(describing: self.viewModel.user?.own.count)
+            case 1: //join
+                text = String(describing: self.viewModel.user?.join.count)
+            case 2: //follow
+                text = String(describing: self.viewModel.user?.follow.count)
+            case 3: //follower
+                text = String(describing: self.viewModel.user?.follower.count)
+            default: break
+            }
+            cell.textLabel.text = text
+            return cell
+            
         default:
-            cell = UICollectionViewCell()
+            let cell = UICollectionViewCell()
             cell.sizeThatFits(.zero)
+            return cell
         }
-        
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case kSectionPhoto:
+        case kSectionUser:
             return 1
         case kSectionNote:
             return 1
