@@ -40,10 +40,11 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     }
     
     @IBAction func submit(_ sender: Any) {
-        if self.viewModel.update(image: self.imageView.image) == false {
-            showAlert("プロフィールの更新に失敗しました。")
-        }
+//        if self.viewModel.update(image: self.imageView.image) == false {
+//            showAlert("プロフィールの更新に失敗しました。")
+//        }
         let uid = Auth.auth().currentUser?.uid ?? ""
+        let displayName = Auth.auth().currentUser?.displayName!
         let username = self.displayNameTextField.text ?? ""
         let note = "これはテスト用のデータです"
         let photo = ""
@@ -52,7 +53,19 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         let follow = [""]
         let follower = [""]
         var ref: DocumentReference? = nil
-        ref = self.db.collection("users").addDocument(data: [
+//        ref = self.db.collection("users").addDocument(data: [
+//            "id": uid,
+//            "username": username,
+//            "note": note,
+//            "photo": photo,
+//            "own": own,
+//            "join": join,
+//            "follow": follow,
+//            "follower": follower]){ error in
+//                print(error.debugDescription)
+//        }
+        print(displayName)
+        self.db.collection("users").document(displayName!).updateData([
             "id": uid,
             "username": username,
             "note": note,
@@ -60,9 +73,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
             "own": own,
             "join": join,
             "follow": follow,
-            "follower": follower]){ error in
-                print(error.debugDescription)
-        }
+            "follower": follower])
     }
     
     private func setUpBind() {
