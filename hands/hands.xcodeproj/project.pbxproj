@@ -52,6 +52,8 @@
 		E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD472099C96600310158 /* ProfileViewModel.swift */; };
 		E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD4A2099D22000310158 /* UserCollectionViewCell.swift */; };
 		E6ADAD4D2099D22000310158 /* UserCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD4B2099D22000310158 /* UserCollectionViewCell.xib */; };
+		E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD4F2099E0C400310158 /* LabelCollectionViewCell.swift */; };
+		E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD502099E0C400310158 /* LabelCollectionViewCell.xib */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
@@ -134,6 +136,8 @@
 		E6ADAD472099C96600310158 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E6ADAD4A2099D22000310158 /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6ADAD4B2099D22000310158 /* UserCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCollectionViewCell.xib; sourceTree = "<group>"; };
+		E6ADAD4F2099E0C400310158 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		E6ADAD502099E0C400310158 /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -231,8 +235,8 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E6ADAD4E2099E08C00310158 /* New Group */,
-				E6ADAD492099D18400310158 /* CollectionViewCell */,
+				E6ADAD4E2099E08C00310158 /* LabelCollectionViewCell */,
+				E6ADAD492099D18400310158 /* UserCollectionViewCell */,
 				E6ADAD4220960A0400310158 /* UserTableViewCell */,
 				E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */,
 				E6ADAD3820945A7200310158 /* EventTableViewCell */,
@@ -388,20 +392,22 @@
 			path = UserTableViewCell;
 			sourceTree = "<group>";
 		};
-		E6ADAD492099D18400310158 /* CollectionViewCell */ = {
+		E6ADAD492099D18400310158 /* UserCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				E6ADAD4A2099D22000310158 /* UserCollectionViewCell.swift */,
 				E6ADAD4B2099D22000310158 /* UserCollectionViewCell.xib */,
 			);
-			path = CollectionViewCell;
+			path = UserCollectionViewCell;
 			sourceTree = "<group>";
 		};
-		E6ADAD4E2099E08C00310158 /* New Group */ = {
+		E6ADAD4E2099E08C00310158 /* LabelCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD4F2099E0C400310158 /* LabelCollectionViewCell.swift */,
+				E6ADAD502099E0C400310158 /* LabelCollectionViewCell.xib */,
 			);
-			path = "New Group";
+			path = LabelCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
@@ -556,6 +562,7 @@
 				E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */,
 				E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */,
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
+				E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */,
 				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
 				E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
@@ -746,6 +753,7 @@
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
 				E6ADAD3F2095C43200310158 /* ListDetailTableViewController.swift in Sources */,
 				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
+				E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,

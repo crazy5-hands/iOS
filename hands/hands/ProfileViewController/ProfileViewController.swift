@@ -13,10 +13,9 @@ import RxCocoa
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
-    private let kSectionPhoto = 0
-    private let kSectionUsername = 1
-    private let kSectionNote = 2
-    private let kSectionOthers = 3
+    private let kSectionUser = 0
+    private let kSectionNote = 1
+    private let kSectionOthers = 2
     private var viewModel: ProfileViewModel!
     
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -59,15 +58,25 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath)
+        let cell: UICollectionViewCell
+        switch indexPath.section {
+        case kSectionUser:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath) as! UserCollectionViewCell
+        case kSectionNote:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "label", for: indexPath) as! LabelCollectionViewCell
+        case kSectionOthers:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "square", for: indexPath)
+        default:
+            cell = UICollectionViewCell()
+            cell.sizeThatFits(.zero)
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case kSectionPhoto:
-            return 1
-        case kSectionUsername:
             return 1
         case kSectionNote:
             return 1
@@ -77,6 +86,4 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             return 0
         }
     }
-    
-    func collectionview
 }
