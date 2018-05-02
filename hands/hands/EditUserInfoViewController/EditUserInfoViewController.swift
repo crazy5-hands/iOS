@@ -18,7 +18,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     @IBOutlet private weak var displayNameTextField: UITextField!
     @IBOutlet private weak var submitButton: UIButton!
     
-    fileprivate let viewModel = EditUserInfoViewModel()
+    fileprivate var viewModel: EditUserInfoViewModel!
     fileprivate let disposeBag = DisposeBag()
     fileprivate var activeTextField: UITextField?
     private let db = Firestore.firestore()
@@ -27,6 +27,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         super.viewDidLoad()
         self.displayNameTextField.delegate = self
         self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
+        self.viewModel = EditUserInfoViewModel()
         setUpBind()
     }
     
@@ -37,44 +38,13 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
             imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
         }
         self.setUpNotificationForTextField()
+        self.displayNameTextField.text = self.viewModel.user?.username
+        print(self.viewModel.user?.dictionary)
     }
     
     @IBAction func submit(_ sender: Any) {
-//        if self.viewModel.update(image: self.imageView.image) == false {
-//            showAlert("プロフィールの更新に失敗しました。")
-//        }
-        let uid = Auth.auth().currentUser?.uid ?? ""
-        let displayName = Auth.auth().currentUser?.displayName!
-        let username = self.displayNameTextField.text ?? ""
-        let note = "これはテスト用のデータです"
-        let photo = ""
-        let own = [""]
-        let join = [""]
-        let follow = [""]
-        let follower = [""]
-        var ref: DocumentReference? = nil
-//        ref = self.db.collection("users").addDocument(data: [
-//            "id": uid,
-//            "username": username,
-//            "note": note,
-//            "photo": photo,
-//            "own": own,
-//            "join": join,
-//            "follow": follow,
-//            "follower": follower]){ error in
-//                print(error.debugDescription)
-//        }
-//        print(displayName)
-//        self.db.collection("users").document(displayName!).updateData([
-//            "id": uid,
-//            "username": username,
-//            "note": note,
-//            "photo": photo,
-//            "own": own,
-//            "join": join,
-//            "follow": follow,
-//            "follower": follower])
-        self.viewModel.updateData(key: "username", data: username)
+        let username = self.displayNameTextField.text ?? self.viewModel.user?.username
+        self.viewModel.updateData(key: "username", data: username!)
     }
     
     private func setUpBind() {

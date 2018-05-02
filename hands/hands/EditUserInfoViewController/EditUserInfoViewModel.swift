@@ -28,6 +28,7 @@ class EditUserInfoViewModel{
         self.docRef?.getDocument { (document, error) in
             if document != nil {
                 self.user = User(dictionary: (document?.data())!)
+                print(document?.data())
             }else {
                 print(error?.localizedDescription ?? "there is a problem with user data")
             }
