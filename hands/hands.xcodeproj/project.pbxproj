@@ -49,6 +49,7 @@
 		E6ADAD412095C43E00310158 /* ListDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */; };
 		E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD4320960A4800310158 /* UserTableViewCell.swift */; };
 		E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD4420960A4800310158 /* UserTableViewCell.xib */; };
+		E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD472099C96600310158 /* ProfileViewModel.swift */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
@@ -128,6 +129,7 @@
 		E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListDetailTableViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD4320960A4800310158 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		E6ADAD4420960A4800310158 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		E6ADAD472099C96600310158 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			children = (
 				E6ADAD1320919C7F00310158 /* ProfileViewController.swift */,
 				E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */,
+				E6ADAD472099C96600310158 /* ProfileViewModel.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
 				E6ADAD3F2095C43200310158 /* ListDetailTableViewController.swift in Sources */,
+				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,

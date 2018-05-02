@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -15,42 +14,41 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     private let kSectionUsername = 1
     private let kSectionNote = 2
     private let kSectionOthers = 3
-    private var userRef: DatabaseReference!
-    private var uid = ""
-    private var user: User?
-    private var refHandle: DatabaseHandle?
+    private var viewModel: ProfileViewModel!
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        uid = (Auth.auth().currentUser?.uid)!
-        self.userRef = Database.database().reference().child("users").child(uid)
+        self.viewModel = ProfileViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.refHandle = self.userRef.observe(.value, with: { (snapshot) in
-            print(snapshot.value as! String)
-        }, withCancel: { (error) in
-            print(error.localizedDescription)
-        })
-//        self.refHandle = self.userRef.observe(DataEventType.value, with: { (snapshot) in
-//            let dict = snapshot.value(forKey: "username") as! String
-//            print(dict)
-////            self.user.
-//        })
+        print("this is profileviewmodel's userdata")
+        print(self.viewModel.user?.username)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if let handle = self.refHandle {
-            self.userRef.removeObserver(withHandle: handle)
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // write segue here
+        if indexPath.section == kSectionOthers {
+            switch indexPath.item {
+            case 0: //own
+                print("segue to owner")
+            case 1: //join
+                print("segue to join")
+            case 2:
+                print("segue to follow")
+            case 3:
+                print("segue to follower")
+            default:
+                break
+            }
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
