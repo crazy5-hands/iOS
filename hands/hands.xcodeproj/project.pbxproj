@@ -56,6 +56,7 @@
 		E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD502099E0C400310158 /* LabelCollectionViewCell.xib */; };
 		E6ADAD58209ACCE200310158 /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD56209ACCE200310158 /* SquareCollectionViewCell.swift */; };
 		E6ADAD59209ACCE200310158 /* SquareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD57209ACCE200310158 /* SquareCollectionViewCell.xib */; };
+		E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD5A209AFA9C00310158 /* Follow.swift */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
@@ -142,6 +143,7 @@
 		E6ADAD502099E0C400310158 /* LabelCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCollectionViewCell.xib; sourceTree = "<group>"; };
 		E6ADAD56209ACCE200310158 /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6ADAD57209ACCE200310158 /* SquareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCollectionViewCell.xib; sourceTree = "<group>"; };
+		E6ADAD5A209AFA9C00310158 /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				E6ADAD2A209380EA00310158 /* User.swift */,
 				E6674E0C207F07620031B4A0 /* UserModel.swift */,
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
+				E6ADAD5A209AFA9C00310158 /* Follow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
+				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
