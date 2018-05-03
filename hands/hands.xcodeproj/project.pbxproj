@@ -57,6 +57,7 @@
 		E6ADAD58209ACCE200310158 /* SquareCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD56209ACCE200310158 /* SquareCollectionViewCell.swift */; };
 		E6ADAD59209ACCE200310158 /* SquareCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD57209ACCE200310158 /* SquareCollectionViewCell.xib */; };
 		E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD5A209AFA9C00310158 /* Follow.swift */; };
+		E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD5D209AFE6C00310158 /* UserListTableViewController.swift */; };
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
@@ -144,6 +145,7 @@
 		E6ADAD56209ACCE200310158 /* SquareCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6ADAD57209ACCE200310158 /* SquareCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SquareCollectionViewCell.xib; sourceTree = "<group>"; };
 		E6ADAD5A209AFA9C00310158 /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		E6ADAD5D209AFE6C00310158 /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
 				E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
@@ -439,6 +442,14 @@
 				E6ADAD57209ACCE200310158 /* SquareCollectionViewCell.xib */,
 			);
 			path = SquareCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		E6ADAD5C209AFE3600310158 /* UserListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD5D209AFE6C00310158 /* UserListTableViewController.swift */,
+			);
+			path = UserListTableViewController;
 			sourceTree = "<group>";
 		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
@@ -781,6 +792,7 @@
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
+				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
