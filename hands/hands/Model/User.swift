@@ -31,17 +31,21 @@ struct User {
             "follower": self.follower
         ]
     }
+    
     init?(dictionary: [String: Any]) {
-        guard let id = dictionary["id"] as? String,
-            let username = dictionary["username"] as? String,
-            let note = dictionary["note"] as? String,
-            let photo = dictionary["photo"] as? String,
-            let own = dictionary["own"] as? [String],
-            let join = dictionary["join"] as? [String],
-            let follow = dictionary["follow"] as? [String],
-            let follower = dictionary["follower"] as? [String] else { return nil }
+        let id = dictionary["id"] as! String
+        let username = dictionary["username"] as! String
+        let note = dictionary["note"] as! String
+        let photo = dictionary["photo"] as! String
+        let own = dictionary["own"] as! [String]
+        let join = dictionary["join"] as! [String]
+        let follow = dictionary["follow"] as! [String]
+        let follower = dictionary["follower"] as! [String]
+        print("id")
+        print(id)
         
         self.init(id: id, username: username, note: note, photo: photo, own: own, join: join, follow: follow, follower: follower)
+        print(self.id)
     }
     
     init(id: String, username: String, note: String, photo: String, own: [String], join: [String], follow: [String], follower: [String]) {
@@ -53,6 +57,10 @@ struct User {
         self.join = join
         self.follow = follow
         self.follower = follower
+    }
+    
+    init(){
+        self.init(id: "", username: "", note: "", photo: "", own: [""], join: [""], follow: [""], follower: [""])
     }
 }
 
