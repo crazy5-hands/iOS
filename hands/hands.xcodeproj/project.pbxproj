@@ -235,11 +235,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E6ADAD4E2099E08C00310158 /* LabelCollectionViewCell */,
-				E6ADAD492099D18400310158 /* UserCollectionViewCell */,
-				E6ADAD4220960A0400310158 /* UserTableViewCell */,
 				E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */,
-				E6ADAD3820945A7200310158 /* EventTableViewCell */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
 				E6ADAD1C2091A48900310158 /* SearchViewController */,
@@ -410,9 +406,29 @@
 			path = LabelCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		E6ADAD53209ACC0400310158 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD492099D18400310158 /* UserCollectionViewCell */,
+				E6ADAD4E2099E08C00310158 /* LabelCollectionViewCell */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		E6ADAD54209ACC3100310158 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				E6ADAD3820945A7200310158 /* EventTableViewCell */,
+				E6ADAD4220960A0400310158 /* UserTableViewCell */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				E6ADAD54209ACC3100310158 /* TableView */,
+				E6ADAD53209ACC0400310158 /* CollectionView */,
 				E6277883208ED3F9008F11BC /* TextFieldViewController.swift */,
 				E6ADAD332094285300310158 /* DoneButtonTextField.swift */,
 				E6ADAD352094522F00310158 /* DoneButtonTextView.swift */,

@@ -8,20 +8,38 @@
 
 import Foundation
 import Firebase
-import RxSwift
+
+protocol ProfileViewModelDelegate {
+    func loadData()
+}
 
 class ProfileViewModel {
     
-    var user = Variable<User>(User())
+    var user: User?
     private let db = Firestore.firestore()
     private var docRef: DocumentReference?
+    var delegate: ProfileViewModelDelegate?
     
     init() {
         let displayName = Auth.auth().currentUser?.displayName
         self.docRef = db.collection("users").document(displayName!)
+        self.user = User()
+//        self.docRef?.getDocument(completion: { (document, error) in
+//            if document != nil {
+//                self.user = User(dictionary: (document?.data())!)
+//                print(self.user?.id)
+//            }else {
+//                print(error?.localizedDescription ?? "error")
+//            }
+//        })
+    }
+    
+    func getData() {
         self.docRef?.getDocument(completion: { (document, error) in
             if document != nil {
-                self.user = Variable<User>(User(dictionary: (document?.data())!)!)
+                self.user = User(dictionary: (document?.data())!)
+                print(self.user?.id)
+                self.delegate?.loadData()
             }else {
                 print(error?.localizedDescription ?? "error")
             }

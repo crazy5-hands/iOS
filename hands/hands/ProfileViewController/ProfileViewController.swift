@@ -7,11 +7,8 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProfileViewModelDelegate {
     
     private let kSectionUser = 0
     private let kSectionNote = 1
@@ -23,12 +20,18 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = ProfileViewModel()
+        self.viewModel.delegate = self
+        let userCell = UINib(nibName: "UserCollectionViewCell", bundle: nil)
+        let labelCell = UINib(nibName: "LabelCollectionViewCell", bundle: nil)
+        collectionView.register(userCell, forCellWithReuseIdentifier: "user")
+        collectionView.register(labelCell, forCellWithReuseIdentifier: "note")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.viewModel.getData()
         print("this is profileviewmodel's userdata")
-        print(self.viewModel.user?.username)
+        print(self.viewModel.user?.username ?? "")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,6 +39,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func setUpBind() {
+    }
+    
+    func loadData() {
+        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -67,7 +74,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             return cell
             
         case kSectionNote:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "label", for: indexPath) as! LabelCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "note", for: indexPath) as! LabelCollectionViewCell
             cell.textLabel.text = self.viewModel.user?.note
             return cell
         case kSectionOthers:
