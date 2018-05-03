@@ -11,6 +11,7 @@ import Firebase
 
 protocol ProfileViewModelDelegate {
     func loadData()
+    func errorToGetData()
 }
 
 class ProfileViewModel {
@@ -38,66 +39,75 @@ class ProfileViewModel {
         self.user = User()
     }
     
-    func getData(callback: (String?) -> Void) {
-
-        //user
+    /// gettUserData expected to use when this viewmodel
+    /// is initalize, or any chnage in userdata.
+    ///
+    /// - Parameter callback: Bool
+    func getUserData(callback:@escaping (Bool) -> Void) {
         self.docRef?.getDocument(completion: { (document, error) in
             if document != nil {
-                self.user = User(dictionary: (document?.data())!)
-                self.delegate?.loadData()
+                self.user = User(dictionary: (document?.data())!)!
+                callback(true)
             }else {
                 print(error?.localizedDescription ?? "error")
+                callback(false)
             }
         })
-        if self.uid == nil {
-            callback(self.uid)
-        }
-        
-        // own
-        self.eventRef?.whereField("author_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    self.owns.append(document.data()["id"] as! String)
-                }
-            }else {
-                print(error?.localizedDescription ?? "fail to get own's event")
-            }
-        }
-        //join
-        self.joinRef?.whereField("user_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    self.joins.append(document.data()["event_id"] as! String)
+    }
+    
+    func getAdditionalData(callback: (Bool) -> Void) {
+        if self.uid != nil {
+            // own
+            self.owns.removeAll()
+            self.eventRef?.whereField("author_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
+                if let snapshot = snapshot {
+                    for document in snapshot.documents {
+                        self.owns.append(document.data()["id"] as! String)
+                    }
+                }else {
+                    print(error?.localizedDescription ?? "fail to get own's event")
                 }
             }
-        }
-        //follow
-        self.followRef?.whereField("user_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    let id = document.data()["follow_id"] as? String
-                    if id != nil {
-                        self.follows.append(id!)
+            //join
+            self.joins.removeAll()
+            self.joinRef?.whereField("user_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
+                if let snapshot = snapshot {
+                    for document in snapshot.documents {
+                        self.joins.append(document.data()["event_id"] as! String)
                     }
                 }
-            }else {
-                print(error?.localizedDescription ?? "error follow")
             }
-        }
-        //follower
-        self.followRef?.whereField("follow_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    let id = document.data()["user_id"] as? String
-                    if  id != nil {
-                        self.followers.append(id!)
+            //follow
+            self.follows.removeAll()
+            self.followRef?.whereField("user_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
+                if let snapshot = snapshot {
+                    for document in snapshot.documents {
+                        let id = document.data()["follow_id"] as? String
+                        if id != nil {
+                            self.follows.append(id!)
+                        }
                     }
+                }else {
+                    print(error?.localizedDescription ?? "error follow")
                 }
-            }else {
-                print(error?.localizedDescription ?? "error follower")
             }
+            //follower
+            self.followers.removeAll()
+            self.followRef?.whereField("follow_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
+                if let snapshot = snapshot {
+                    for document in snapshot.documents {
+                        let id = document.data()["user_id"] as? String
+                        if  id != nil {
+                            self.followers.append(id!)
+                        }
+                    }
+                }else {
+                    print(error?.localizedDescription ?? "error follower")
+                }
+            }
+            callback(true)
+        }else {
+            callback(false)
         }
-        callback((self.user?.id)!)
-//        self.delegate?.loadData()
     }
 }
