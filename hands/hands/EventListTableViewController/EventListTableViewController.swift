@@ -8,44 +8,46 @@
 
 import UIKit
 
-class EventListTableViewController: UITableViewController {
-
+class EventListTableViewController: UITableViewController, EventListTableViewModelDelegate {
+    
+    private var viewModel: EventListTableViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.viewModel = EventListTableViewModel()
+        self.viewModel.delegate = self
+        
+        let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "event")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.loadEvents()
+        self.tableView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func loadData() {
+        self.tableView.reloadData()
     }
-
-    // MARK: - Table view data source
+    
+    func errorToGetData() {
+        print("error this tableviewcontroller")
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.viewModel.events.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath) as! EventTableViewCell
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
