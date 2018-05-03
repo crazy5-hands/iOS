@@ -23,8 +23,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.viewModel.delegate = self
         let userCell = UINib(nibName: "UserCollectionViewCell", bundle: nil)
         let labelCell = UINib(nibName: "LabelCollectionViewCell", bundle: nil)
+        let squareCell = UINib(nibName: "SquareCollectionViewCell", bundle: nil)
         collectionView.register(userCell, forCellWithReuseIdentifier: "user")
         collectionView.register(labelCell, forCellWithReuseIdentifier: "note")
+        collectionView.register(squareCell, forCellWithReuseIdentifier: "square")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +73,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch indexPath.section {
         case kSectionUser:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath) as! UserCollectionViewCell
+            cell.usernameLabel.text = self.viewModel.user?.username
             return cell
             
         case kSectionNote:
@@ -78,20 +81,23 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.textLabel.text = self.viewModel.user?.note
             return cell
         case kSectionOthers:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "square", for: indexPath) as! LabelCollectionViewCell
-            var text: String?
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "square", for: indexPath) as! SquareCollectionViewCell
+            
             switch indexPath.item {
             case 0: //own
-                text = String(describing: self.viewModel.user?.own.count)
+                cell.titleLabel.text = "Own"
+                cell.contentLabel.text = String(describing: self.viewModel.user?.own.count)
             case 1: //join
-                text = String(describing: self.viewModel.user?.join.count)
+                cell.titleLabel.text = "Join"
+                cell.contentLabel.text = String(describing: self.viewModel.user?.own.count)
             case 2: //follow
-                text = String(describing: self.viewModel.user?.follow.count)
+                cell.titleLabel.text = "Follow"
+                cell.contentLabel.text = String(describing: self.viewModel.user?.follow.count)
             case 3: //follower
-                text = String(describing: self.viewModel.user?.follower.count)
+                cell.titleLabel.text = "Follower"
+                cell.contentLabel.text = String(describing: self.viewModel.user?.follower.count)
             default: break
             }
-            cell.textLabel.text = text
             return cell
             
         default:
