@@ -14,6 +14,7 @@
 		E619E6282014DAAF00A30592 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E6272014DAAF00A30592 /* Security.framework */; };
 		E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6277883208ED3F9008F11BC /* TextFieldViewController.swift */; };
 		E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F601209B416200BC48C6 /* EventListTableViewController.swift */; };
+		E640F604209B4F5200BC48C6 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F603209B4F5200BC48C6 /* Join.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -98,6 +99,7 @@
 		E619E63320172FDD00A30592 /* LineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LineSDK.framework; path = Pods/LineSDK/LineSDK/LineSDK.framework; sourceTree = "<group>"; };
 		E6277883208ED3F9008F11BC /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
 		E640F601209B416200BC48C6 /* EventListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewController.swift; sourceTree = "<group>"; };
+		E640F603209B4F5200BC48C6 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				E6674E0C207F07620031B4A0 /* UserModel.swift */,
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
 				E6ADAD5A209AFA9C00310158 /* Follow.swift */,
+				E640F603209B4F5200BC48C6 /* Join.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -804,6 +807,7 @@
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
+				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
