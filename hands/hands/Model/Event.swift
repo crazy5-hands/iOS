@@ -7,47 +7,40 @@
 //
 
 import Foundation
-import UIKit
-import Firebase
 
-class Event: NSObject {
+
+struct Event {
     
-    var eventId: String
-    var uid: String
-    var author: String
+    var id: String
+    var author_id: String
     var title: String
     var body: String
-    var create_at: String
-    var joinerCount: NSObject?
-    var joiner: Dictionary<String, Bool>?
-    
-    init(eventId: String, uid: String, author: String, title: String, body: String, create_at: String) {
-        self.eventId = eventId
-        self.uid = uid
-        self.author = author
-        self.title = title
-        self.body = body
-        self.create_at = create_at
+    var create_at: NSDate
+    var dictionary: [String: Any] {
+        return [
+            "id": self.id,
+            "author_id": self.author_id,
+            "title": self.title,
+            "body": self.body,
+            "create_at": self.create_at
+        ]
     }
     
-    init?(snapchat: DataSnapshot) {
-        guard let dict = snapchat.value as? [String: Any] else { return nil }
-        guard let eventId = dict["eventId"] as? String else { return nil }
-        guard let uid = dict["uid"] as? String else { return nil }
-        guard let author = dict["author"] as? String else { return nil }
-        guard let title = dict["title"] as? String else { return nil }
-        guard let body = dict["body"] as? String else { return nil }
-        guard let create_at = dict["create_at"] as? String else { return nil }
+    init?(dictionary: [String: Any]) {
+        let id = dictionary["id"] as! String
+        let author_id = dictionary["author_id"] as! String
+        let title = dictionary["title"] as! String
+        let body = dictionary["body"] as! String
+        let create_at = dictionary["create_at"] as! NSDate
         
-        self.eventId = eventId
-        self.uid = uid
-        self.author = author
+        self.init(id: id, author_id: author_id, title: title, body: body, create_at: create_at)
+    }
+    
+    init(id: String, author_id: String, title: String, body: String, create_at: NSDate) {
+        self.id = id
+        self.author_id = author_id
         self.title = title
         self.body = body
         self.create_at = create_at
-     }
-    
-    convenience override init() {
-        self.init(eventId: "", uid: "", author: "", title: "", body: "", create_at: "")
     }
 }
