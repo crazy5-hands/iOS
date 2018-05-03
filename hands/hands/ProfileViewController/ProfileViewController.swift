@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProfileViewModelDelegate {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProfileViewModelDelegate, UICollectionViewDelegateFlowLayout {
     
     private let kSectionUser = 0
     private let kSectionNote = 1
@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         self.viewModel = ProfileViewModel()
         self.viewModel.delegate = self
+        
         let userCell = UINib(nibName: "UserCollectionViewCell", bundle: nil)
         let labelCell = UINib(nibName: "LabelCollectionViewCell", bundle: nil)
         let squareCell = UINib(nibName: "SquareCollectionViewCell", bundle: nil)
@@ -117,6 +118,21 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             return 4
         default:
             return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch indexPath.section {
+        case kSectionUser:
+            return CGSize(width: self.view.frame.size.width, height: 160.0)
+        case kSectionNote:
+            return CGSize(width: self.view.frame.size.width, height: 60.0)
+        case kSectionOthers:
+            let width = (self.view.frame.size.width - 10)/2
+            let height = width
+            return CGSize(width: width, height: height)
+        default:
+            return CGSize(width: self.view.frame.size.width, height: 60.0)
         }
     }
 }
