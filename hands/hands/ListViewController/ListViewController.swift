@@ -29,8 +29,8 @@ class ListViewController: UIViewController, UITableViewDelegate {
         
         dataSource = FUITableViewDataSource(query: getQuery(), populateCell: { (tableView, indexPath, snapShot) -> UITableViewCell in
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! EventTableViewCell
-            guard let event = Event(snapchat: snapShot) else {return cell }
-            cell.updateCell(eventKey: event.eventId, title: event.title, body: event.body, createAt: event.create_at)
+//            guard let event = Event(snapchat: snapShot) else {return cell }
+//            cell.updateCell(eventKey: event.eventId, title: event.title, body: event.body, createAt: event.create_at)
             return cell
         })
         

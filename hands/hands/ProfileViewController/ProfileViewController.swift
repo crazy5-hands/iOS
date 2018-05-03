@@ -32,9 +32,13 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.viewModel.getData()
-        print("this is profileviewmodel's userdata")
-        print(self.viewModel.user?.username ?? "")
+        self.viewModel.getData { (id) in
+            if id != nil {
+                self.collectionView.reloadData()
+            }else {
+                print("didnt get uer id")
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -87,16 +91,17 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             switch indexPath.item {
             case 0: //own
                 cell.titleLabel.text = "Own"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.own.count)
+                cell.contentLabel.text = String(describing: self.viewModel.owns.count)
             case 1: //join
                 cell.titleLabel.text = "Join"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.own.count)
+                cell.contentLabel.text = String(describing: self.viewModel.joins.count)
             case 2: //follow
                 cell.titleLabel.text = "Follow"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.follow.count)
+                cell.contentLabel.text = String(describing: self.viewModel.follows.count)
             case 3: //follower
                 cell.titleLabel.text = "Follower"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.follower.count)
+                cell.contentLabel.text = String(describing: self.viewModel.followers.count)
+//                cell.contentLabel.text = String(describing: self.viewModel.followers.count)
             default: break
             }
             return cell
