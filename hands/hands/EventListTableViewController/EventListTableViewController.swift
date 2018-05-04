@@ -51,6 +51,10 @@ class EventListTableViewController: UITableViewController, EventListTableViewMod
         cell.createAtLabel.text = DateUtils.stringFromDate(date: self.viewModel.events[indexPath.row].created_at)
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.0
+    }
 
     /*
     // Override to support conditional editing of the table view.
