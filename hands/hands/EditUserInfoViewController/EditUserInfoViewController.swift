@@ -31,8 +31,8 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         setUpBind()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let user = Auth.auth().currentUser
         if user?.photoURL != nil {
             imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
@@ -44,7 +44,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     
     @IBAction func submit(_ sender: Any) {
         let username = self.displayNameTextField.text ?? self.viewModel.user?.username
-        self.viewModel.updateData(key: "username", data: username!)
+        self.viewModel.updateData(username: username!)
     }
     
     private func setUpBind() {
