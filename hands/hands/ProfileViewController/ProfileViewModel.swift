@@ -30,9 +30,8 @@ class ProfileViewModel {
     var delegate: ProfileViewModelDelegate?
     
     init() {
-        let displayName = Auth.auth().currentUser?.displayName
         self.uid = (Auth.auth().currentUser?.uid)!
-        self.docRef = db.collection("users").document(displayName!)
+        self.docRef = db.collection("users").document(uid!)
         self.eventRef = db.collection("events")
         self.followRef = db.collection("follows")
         self.joinRef = db.collection("joins")
