@@ -41,15 +41,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let id = user.uid
             db.collection("users").whereField("id", isEqualTo: id).getDocuments { (snapshot, error) in
                 if let snapshot = snapshot {
-                    if snapshot.documents[0].data()["username"] as! String == "" { //username未設定
-                        //segue to EditUserInfoViewController
-                        let editUserInfoViewController = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
-                        self.window?.rootViewController = editUserInfoViewController
+                    if snapshot.documents.count == 0 {
+                        // segue to loginViewController
+                        let loginViewController = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
+                        self.window?.rootViewController = loginViewController
                         self.window?.makeKeyAndVisible()
                     }else {
-                        let mainTabBarControlller = MainTabBarController()
-                        self.window?.rootViewController = mainTabBarControlller
-                        self.window?.makeKeyAndVisible()
+                        if snapshot.documents[0].data()["username"] as! String == "" { //username未設定
+                            //segue to EditUserInfoViewController
+                            let editUserInfoViewController = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
+                            self.window?.rootViewController = editUserInfoViewController
+                            self.window?.makeKeyAndVisible()
+                        }else {
+                            let mainTabBarControlller = MainTabBarController()
+                            self.window?.rootViewController = mainTabBarControlller
+                            self.window?.makeKeyAndVisible()
+                        }
                     }
                 }else {
                     print(error?.localizedDescription as Any)
