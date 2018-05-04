@@ -22,6 +22,8 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
         self.viewModel = NewEventViewModel()
         self.titleTextField.delegate = self
         self.bodyTextView.delegate = self
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.close))
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +41,10 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
                 self.showAlert("新しいイベントの作成に失敗しました")
             }
         })
+    }
+    
+    func close() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
