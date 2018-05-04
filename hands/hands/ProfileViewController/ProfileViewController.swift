@@ -20,8 +20,12 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = ProfileViewModel()
-        self.viewModel.delegate = self
-        
+//        self.viewModel.delegate = self
+        self.viewModel.getUserData { (result) in
+            if result == true {
+                self.collectionView.reloadData()
+            }
+        }
         let userCell = UINib(nibName: "UserCollectionViewCell", bundle: nil)
         let labelCell = UINib(nibName: "LabelCollectionViewCell", bundle: nil)
         let squareCell = UINib(nibName: "SquareCollectionViewCell", bundle: nil)
@@ -32,20 +36,41 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.viewModel.getData()
-        print("this is profileviewmodel's userdata")
-        print(self.viewModel.user?.username ?? "")
+        if self.viewModel.user == nil {
+            self.viewModel.getUserData { (result) in
+                if result == true {
+                    self.viewModel.getAdditionalData(callback: { (result) in
+                        if result == true {
+                            print("success to get additional data")
+                        }else {
+                            print("false to get data")
+                        }
+                        self.collectionView.reloadData()
+                    })
+                }else {
+                    self.errorToGetData()
+                }
+            }
+        }else {
+            self.viewModel.getAdditionalData { (result) in
+                if result == true {
+                    print("success to get additional data")
+                    self.collectionView.reloadData()
+                }
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
-    func setUpBind() {
-    }
-    
     func loadData() {
         self.collectionView.reloadData()
+    }
+    
+    func errorToGetData() {
+        print("not load collectionview")
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -87,16 +112,16 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             switch indexPath.item {
             case 0: //own
                 cell.titleLabel.text = "Own"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.own.count)
+                cell.contentLabel.text = String(describing: self.viewModel.owns.count)
             case 1: //join
                 cell.titleLabel.text = "Join"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.own.count)
+                cell.contentLabel.text = String(describing: self.viewModel.joins.count)
             case 2: //follow
                 cell.titleLabel.text = "Follow"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.follow.count)
+                cell.contentLabel.text = String(describing: self.viewModel.follows.count)
             case 3: //follower
                 cell.titleLabel.text = "Follower"
-                cell.contentLabel.text = String(describing: self.viewModel.user?.follower.count)
+                cell.contentLabel.text = String(describing: self.viewModel.followers.count)
             default: break
             }
             return cell

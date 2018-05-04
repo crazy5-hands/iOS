@@ -13,6 +13,10 @@
 		E619E6262014DAA800A30592 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E6252014DAA800A30592 /* CoreTelephony.framework */; };
 		E619E6282014DAAF00A30592 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E6272014DAAF00A30592 /* Security.framework */; };
 		E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6277883208ED3F9008F11BC /* TextFieldViewController.swift */; };
+		E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F601209B416200BC48C6 /* EventListTableViewController.swift */; };
+		E640F604209B4F5200BC48C6 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F603209B4F5200BC48C6 /* Join.swift */; };
+		E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F605209B81CF00BC48C6 /* EventListTableViewModel.swift */; };
+		E640F608209C438500BC48C6 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F607209C438500BC48C6 /* DateUtils.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -96,6 +100,10 @@
 		E619E6292014DE0500A30592 /* hands.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hands.entitlements; sourceTree = "<group>"; };
 		E619E63320172FDD00A30592 /* LineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LineSDK.framework; path = Pods/LineSDK/LineSDK/LineSDK.framework; sourceTree = "<group>"; };
 		E6277883208ED3F9008F11BC /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
+		E640F601209B416200BC48C6 /* EventListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewController.swift; sourceTree = "<group>"; };
+		E640F603209B4F5200BC48C6 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
+		E640F605209B81CF00BC48C6 /* EventListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewModel.swift; sourceTree = "<group>"; };
+		E640F607209C438500BC48C6 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -217,6 +225,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E640F600209B414700BC48C6 /* EventListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E640F601209B416200BC48C6 /* EventListTableViewController.swift */,
+				E640F605209B81CF00BC48C6 /* EventListTableViewModel.swift */,
+			);
+			path = EventListTableViewController;
+			sourceTree = "<group>";
+		};
 		E649CF8C1FF3BE99005DC4BA = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +260,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E640F600209B414700BC48C6 /* EventListTableViewController */,
 				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
 				E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
@@ -313,6 +331,7 @@
 				E6674E0C207F07620031B4A0 /* UserModel.swift */,
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
 				E6ADAD5A209AFA9C00310158 /* Follow.swift */,
+				E640F603209B4F5200BC48C6 /* Join.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -460,6 +479,7 @@
 				E6277883208ED3F9008F11BC /* TextFieldViewController.swift */,
 				E6ADAD332094285300310158 /* DoneButtonTextField.swift */,
 				E6ADAD352094522F00310158 /* DoneButtonTextView.swift */,
+				E640F607209C438500BC48C6 /* DateUtils.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -787,11 +807,13 @@
 				E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */,
 				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
+				E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */,
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
+				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
@@ -803,7 +825,9 @@
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
+				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
+				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
