@@ -45,7 +45,10 @@ class EventListTableViewController: UITableViewController, EventListTableViewMod
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath) as! EventTableViewCell
-        
+//        cell.photoImageView.image
+        cell.titleLabel.text = self.viewModel.events[indexPath.row].title
+        cell.bodyLabel.text = self.viewModel.events[indexPath.row].body
+        cell.createAtLabel.text = DateUtils.stringFromDate(date: self.viewModel.events[indexPath.row].created_at)
         return cell
     }
 
