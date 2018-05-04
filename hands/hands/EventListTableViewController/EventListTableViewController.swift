@@ -45,7 +45,7 @@ class EventListTableViewController: UITableViewController, EventListTableViewMod
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath) as! EventTableViewCell
-
+        
         return cell
     }
 

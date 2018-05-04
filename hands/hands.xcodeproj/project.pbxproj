@@ -16,6 +16,7 @@
 		E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F601209B416200BC48C6 /* EventListTableViewController.swift */; };
 		E640F604209B4F5200BC48C6 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F603209B4F5200BC48C6 /* Join.swift */; };
 		E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F605209B81CF00BC48C6 /* EventListTableViewModel.swift */; };
+		E640F608209C438500BC48C6 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F607209C438500BC48C6 /* DateUtils.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -102,6 +103,7 @@
 		E640F601209B416200BC48C6 /* EventListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewController.swift; sourceTree = "<group>"; };
 		E640F603209B4F5200BC48C6 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		E640F605209B81CF00BC48C6 /* EventListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewModel.swift; sourceTree = "<group>"; };
+		E640F607209C438500BC48C6 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				E6277883208ED3F9008F11BC /* TextFieldViewController.swift */,
 				E6ADAD332094285300310158 /* DoneButtonTextField.swift */,
 				E6ADAD352094522F00310158 /* DoneButtonTextView.swift */,
+				E640F607209C438500BC48C6 /* DateUtils.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
+				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
