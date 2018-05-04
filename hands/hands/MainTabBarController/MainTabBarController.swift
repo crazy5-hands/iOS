@@ -16,9 +16,10 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         var viewcontrollers = [UIViewController]()
         
-        let listViewController = UIStoryboard(name: "ListViewController", bundle: nil).instantiateInitialViewController()
-        listViewController?.tabBarItem = UITabBarItem(title: "一覧", image: UIImage(named: "icon-list"), tag: 0)
-        viewcontrollers.append(listViewController!)
+        let eventListTableViewController = EventListTableViewController()
+        eventListTableViewController.tabBarItem = UITabBarItem(title: "一覧", image: UIImage(named: "icon-list"), tag: 0)
+        eventListTableViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.segueToNewEvent))
+        viewcontrollers.append(eventListTableViewController)
         
         let searchViewController = UIStoryboard(name: "SearchViewController", bundle: nil).instantiateInitialViewController()
 //        searchViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
@@ -36,6 +37,11 @@ class MainTabBarController: UITabBarController {
         self.viewControllers = viewcontrollers.map{ UINavigationController(rootViewController: $0)}
         
         self.setViewControllers(viewControllers, animated: false)
+    }
+    
+    func segueToNewEvent() {
+        let next = UIStoryboard(name: "NewEventViewController", bundle: nil).instantiateInitialViewController()
+        self.present(next!, animated: true, completion: nil)
     }
     
     func openEditUserInfo(){
