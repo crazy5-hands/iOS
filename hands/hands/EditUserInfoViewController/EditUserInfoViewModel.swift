@@ -24,8 +24,7 @@ class EditUserInfoViewModel{
         self.shouldSubmit = self.displayName.asObservable().map({ text -> Bool in
             0 < text.count && text.count <= 15
         })
-        self.docRef = db.collection("users").document((Auth.auth().currentUser?.displayName)!)
-        self.docRef?.getDocument { (document, error) in
+        db.collection("users").document((Auth.auth().currentUser?.displayName)!).getDocument { (document, error) in
             if document != nil {
                 self.user = User(dictionary: (document?.data())!)
                 print(document?.data())

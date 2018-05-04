@@ -23,6 +23,7 @@ class LoginViewController: TextFieldViewController {
         //delegate of TextField
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+        self.passwordTextField.isSecureTextEntry = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
