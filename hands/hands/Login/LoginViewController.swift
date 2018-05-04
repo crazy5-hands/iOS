@@ -14,7 +14,6 @@ class LoginViewController: TextFieldViewController {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var changeStatusSegmentedControl: UISegmentedControl!
-//    @IBOutlet private weak var scrollView: UIScrollView!
     
     private var handle: AuthStateDidChangeListenerHandle?
     
@@ -68,14 +67,14 @@ class LoginViewController: TextFieldViewController {
                 //remove processing
                 processingView.stopAnimating()
                 self.view.willRemoveSubview(processingView)
-                
-                if let error = error {
-                    if error.localizedDescription == "The email address is already in use by another account." {
+                if let user = user {
+                    print("create user")
+                    print(user.uid)
+                    self.segueToEditUserInfo()
+                }else {
+                    if error?.localizedDescription == "The email address is already in use by another account." {
                         self.showAlert("このメールアドレスのアカウントはすでに存在しています。")
                     }
-                    return
-                }else {
-                    self.segueToEditUserInfo()
                 }
             })
         }

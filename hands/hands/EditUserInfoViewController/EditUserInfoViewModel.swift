@@ -12,11 +12,10 @@ import Firebase
 
 class EditUserInfoViewModel{
     
-//    private let userModel = UserModel()
-//    private let storageModel = StorageModel()
     var displayName = Variable<String>("")
     let shouldSubmit: Observable<Bool>
     var user: User?
+    private let uid = Auth.auth().currentUser?.uid
     private let db = Firestore.firestore()
     private var docRef: DocumentReference?
     
@@ -24,33 +23,25 @@ class EditUserInfoViewModel{
         self.shouldSubmit = self.displayName.asObservable().map({ text -> Bool in
             0 < text.count && text.count <= 15
         })
-        db.collection("users").document((Auth.auth().currentUser?.displayName)!).getDocument { (document, error) in
-            if document != nil {
-                self.user = User(dictionary: (document?.data())!)
-                print(document?.data())
+        self.docRef = self.db.collection("users").document(self.uid!)
+        //存在チェック
+        self.db.collection("users").whereField("id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
+            if let snapshot = snapshot {
+                if snapshot.documents.count == 0 { // user data doesn't exist
+                    self.user = User(id: self.uid!, username: "", note: "", photo: "")
+                }else { // user data exists
+                    self.user = User(dictionary: snapshot.documents[0].data())
+                }
             }else {
-                print(error?.localizedDescription ?? "there is a problem with user data")
+                print(error?.localizedDescription ?? "can't get data")
+                self.user = User(id: self.uid!, username: "", note: "", photo: "")
             }
         }
     }
     
-    func updateData(key: String, data: Any){
-        self.docRef?.updateData([key: data]){ error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            print("success to update")
-        }
-    }
-
-    func createData(){
-        self.docRef?.setData((self.user?.dictionary)!){ error in
-            if let error = error {
-                print(error.localizedDescription)
-            }else {
-                print("success to create")
-            }
-        }
+    func updateData(username: String){
+        self.user?.username = username
+        self.db.collection("users").document(self.uid!).setData((self.user?.dictionary)!)
     }
     
 //    func update(image: UIImage?) -> Bool {
