@@ -20,12 +20,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = ProfileViewModel()
-//        self.viewModel.delegate = self
-        self.viewModel.getUserData { (result) in
-            if result == true {
-                self.collectionView.reloadData()
-            }
-        }
         let userCell = UINib(nibName: "UserCollectionViewCell", bundle: nil)
         let labelCell = UINib(nibName: "LabelCollectionViewCell", bundle: nil)
         let squareCell = UINib(nibName: "SquareCollectionViewCell", bundle: nil)
@@ -59,7 +53,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
             }
         }
-        self.viewModel.getProfilePhoto()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
