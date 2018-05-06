@@ -47,6 +47,12 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         self.viewModel.updateData(username: username!)
     }
     
+    @IBAction func changeImage(_ sender: Any) {
+        
+        
+    }
+    
+    
     private func setUpBind() {
         self.displayNameTextField.rx.text.orEmpty
             .bind(to: self.viewModel.displayName)

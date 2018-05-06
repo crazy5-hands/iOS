@@ -59,6 +59,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 }
             }
         }
+        self.viewModel.getProfilePhoto()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -100,6 +101,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         case kSectionUser:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath) as! UserCollectionViewCell
             cell.usernameLabel.text = self.viewModel.user?.username
+            if let image = self.viewModel.profilePhoto {
+                cell.photoImageView.image = image
+            }
             return cell
             
         case kSectionNote:

@@ -21,11 +21,15 @@ class ProfileViewModel {
     var joins: [String] = []
     var follows: [String] = []
     var followers: [String] = []
+    var profilePhoto: UIImage?
     private let db = Firestore.firestore()
+    private let storage = Storage.storage()
     private var docRef: DocumentReference?
     private var eventRef: CollectionReference?
     private var followRef: CollectionReference?
     private var joinRef: CollectionReference?
+    private var storageRef: StorageReference?
+    private var photoRef: StorageReference?
     private var uid: String?
     var delegate: ProfileViewModelDelegate?
     
@@ -36,6 +40,12 @@ class ProfileViewModel {
         self.followRef = db.collection("follows")
         self.joinRef = db.collection("joins")
         self.user = User()
+        self.storageRef = self.storage.reference()
+        if self.user?.photo == "" {
+            let usersRef = self.storageRef?.child("users")
+            let fileName = "\(self.uid!)" + ".jpg"
+            self.photoRef = usersRef?.child(fileName)
+        }
     }
     
     /// gettUserData expected to use when this viewmodel
@@ -46,6 +56,7 @@ class ProfileViewModel {
         self.docRef?.getDocument(completion: { (document, error) in
             if document != nil {
                 self.user = User(dictionary: (document?.data())!)!
+                self.photoRef = self.storageRef?.child((self.user?.photo)!)
                 callback(true)
             }else {
                 print(error?.localizedDescription ?? "error")
@@ -108,5 +119,15 @@ class ProfileViewModel {
         }else {
             callback(false)
         }
+    }
+    
+    func getProfilePhoto() {
+        self.photoRef?.getData(maxSize: 1 * 1024 * 1024, completion: { (data, error) in
+            if let data = data {
+                self.profilePhoto = UIImage(data: data)
+            }else {
+                print(error?.localizedDescription ?? "error getProfilePhoto")
+            }
+        })
     }
 }
