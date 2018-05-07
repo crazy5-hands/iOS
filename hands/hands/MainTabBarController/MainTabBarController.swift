@@ -26,12 +26,16 @@ class MainTabBarController: UITabBarController {
         searchViewController?.tabBarItem = UITabBarItem(title: "検索", image: UIImage(named: "icon-search"), tag: 1)
         viewcontrollers.append(searchViewController!)
         
+        let userListTableViewController = UserListTableViewController()
+        userListTableViewController.tabBarItem = UITabBarItem(title: "ユーザー", image: UIImage(named: "icon-users"), tag: 2)
+        viewcontrollers.append(userListTableViewController)
+        
         let notificationViewController = UIStoryboard(name: "NotificationViewController", bundle: nil).instantiateInitialViewController()
-        notificationViewController?.tabBarItem = UITabBarItem(title: "通知", image: UIImage(named: "icon-notification"), tag: 2)
+        notificationViewController?.tabBarItem = UITabBarItem(title: "通知", image: UIImage(named: "icon-notification"), tag: 3)
         viewcontrollers.append(notificationViewController!)
         
         let profileViewController = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateInitialViewController()
-        profileViewController?.tabBarItem = UITabBarItem(title: "プロフィール", image: UIImage(named: "icon-user"), tag: 3)
+        profileViewController?.tabBarItem = UITabBarItem(title: "プロフィール", image: UIImage(named: "icon-user"), tag: 4)
         profileViewController?.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.openEditUserInfo)), animated: true)
         viewcontrollers.append(profileViewController!)
         self.viewControllers = viewcontrollers.map{ UINavigationController(rootViewController: $0)}

@@ -11,97 +11,60 @@ import Firebase
 
 class UserListTableViewController: UITableViewController {
 
-    var followed: Bool?
-    var id: String?
-    private let db = Firestore.firestore()
-    private var follows: [Follow?] = []
-    private var photos: [UIImage?] = []
-    private var usernames: [String?] = []
+    var pattern: UserListDataPattern = .all
+    var id: String = (Auth.auth().currentUser?.uid)!
+    private var viewModel: UserListTableViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "UserTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "user")
+        
+        let refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "読み込み中")
+        refresh.tintColor = .blue
+        refresh.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
+        tableView.addSubview(refresh)
+        self.refreshControl = refresh
+        
+        self.loadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        var title = ""
-        db.collection("users").whereField("id", isEqualTo: self.id!).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    title = document.data()["username"] as! String
-                }
-            }
-        }
-        self.navigationItem.title = title
+    @objc private func refreshTable() {
+        self.refreshControl?.beginRefreshing()
         self.loadData()
-        
+        self.refreshControl?.endRefreshing()
     }
     
     private func loadData() {
-        if let followed = self.followed, let id = self.id {
-            if followed == true { // get which user follows
-                db.collection("follows").whereField("follow_id", isEqualTo: id).getDocuments { (snapshot, error) in
-                    if let snapshot = snapshot {
-                        for document in snapshot.documents {
-                            self.follows.append(Follow(dictionary: document.data()))
-                        }
-                    }else {
-                        print(error?.localizedDescription ?? "error to get follow_id follows")
-                    }
-                }
-                for follow in follows {
-                    if followed == true {
-                        db.collection("users").whereField("id", isEqualTo: follow!.user_id).getDocuments { (snapshot, error) in
-                            if let snapshot = snapshot {
-                                for document in snapshot.documents {
-                                    self.usernames.append(document.data()["username"] as? String)
-                                    self.photos.append(UIImage())
-                                }
-                            }
-                        }
-                    }
-                }
-            }else { // get which user is followed
-                db.collection("follows").whereField("user_id", isEqualTo: id).getDocuments { (snapshot, error) in
-                    if let snapshot = snapshot {
-                        for document in snapshot.documents {
-                            self.follows.append(Follow(dictionary: document.data()))
-                        }
-                    }else {
-                        print(error?.localizedDescription ?? "error to get follow_id follows")
-                    }
-                }
-                for follow in follows {
-                    if followed == false {
-                        db.collection("users").whereField("id", isEqualTo: follow!.follow_id).getDocuments { (snapshot, error) in
-                            if let snapshot = snapshot {
-                                for document in snapshot.documents {
-                                    self.usernames.append(document.data()["username"] as? String)
-                                    self.photos.append(UIImage())
-                                }
-                            }
-                        }
-                    }
+        let queue = DispatchQueue(label: "viewModel")
+        queue.async {
+            self.viewModel = UserListTableViewModel()
+            self.viewModel.getUserData(id: self.id, pattern: self.pattern) { (result) in
+                if result == true {
+                    
+                }else {
+                    print("error user list tableviewcontroller")
                 }
             }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-        self.tableView.reloadData()
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.follows.count
+        return self.viewModel.users.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! UserTableViewCell
-        cell.nameLabel.text = self.usernames[indexPath.row]
-        cell.profileImageView.image = self.photos[indexPath.row]
+        cell.nameLabel.text = self.viewModel.users[indexPath.row].username
+//        cell.profileImageView.image =
         return cell
     }
     
