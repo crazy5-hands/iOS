@@ -20,8 +20,8 @@ class UserListTableViewModel {
     var users: [User] = []
     private let db = Firestore.firestore()
     
-    func getUserData(id: String, pattern: UserListDataPattern, complition: (Bool?) -> Void) {
-        var result: Bool? = nil
+    func getUserData(id: String, pattern: UserListDataPattern, complition: (Bool) -> Void) {
+        var result: Bool = false
         if self.users.count != 0 {
             self.users.removeAll()
         }
@@ -29,8 +29,14 @@ class UserListTableViewModel {
         case .follow:
             self.db.collection("follows").whereField("user_id", isEqualTo: id).getDocuments { (snapshot, error) in
                 if let snapshot = snapshot {
+                    var follows: [Follow] = []
                     for document in snapshot.documents {
-                        self.users.append(User(dictionary: document.data())!)
+                        follows.append(Follow(dictionary: document.data())!)
+                    }
+                    for follow in follows {
+                        if let user =  UserUtil().getUser(id: follow.follow_id) {
+                            self.users.append(user)
+                        }
                     }
                     result = true
                 }else {
@@ -41,8 +47,14 @@ class UserListTableViewModel {
         case .follower:
             self.db.collection("follows").whereField("follow_id", isEqualTo: id).getDocuments { (snapshot, error) in
                 if let snapshot = snapshot {
+                    var followers: [Follow] = []
                     for document in snapshot.documents {
-                        self.users.append(User(dictionary: document.data())!)
+                        followers.append(Follow(dictionary: document.data())!)
+                    }
+                    for follower in followers {
+                        if let user = UserUtil().getUser(id: follower.user_id) {
+                            self.users.append(user)
+                        }
                     }
                     result = true
                 }else {
@@ -51,16 +63,11 @@ class UserListTableViewModel {
                 }
             }
         case .all:
-            self.db.collection("users").getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    for document in snapshot.documents {
-                        self.users.append(User(dictionary: document.data())!)
-                    }
-                    result = true
-                }else {
-                    print(error!.localizedDescription)
-                    result = false
-                }
+            self.users =  UserUtil().getAllUsers()
+            if self.users.count == 0 {
+                result = false
+            }else {
+                result = true
             }
         }//end switch
         complition(result)

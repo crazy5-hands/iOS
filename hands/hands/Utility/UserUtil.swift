@@ -24,6 +24,10 @@ class UserUtil {
         return user
     }
     
+    
+    /// すべてのユーザーを返す
+    ///
+    /// - Returns: ただし、データが一つしかない場合は取得に失敗している
     func getAllUsers() -> [User] {
         var users: [User] = []
         let collectionRef = Firestore.firestore().collection("users")
