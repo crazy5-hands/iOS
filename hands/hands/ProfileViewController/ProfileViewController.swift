@@ -20,12 +20,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = ProfileViewModel()
-//        self.viewModel.delegate = self
-        self.viewModel.getUserData { (result) in
-            if result == true {
-                self.collectionView.reloadData()
-            }
-        }
         let userCell = UINib(nibName: "UserCollectionViewCell", bundle: nil)
         let labelCell = UINib(nibName: "LabelCollectionViewCell", bundle: nil)
         let squareCell = UINib(nibName: "SquareCollectionViewCell", bundle: nil)
@@ -100,6 +94,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         case kSectionUser:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath) as! UserCollectionViewCell
             cell.usernameLabel.text = self.viewModel.user?.username
+            if let image = self.viewModel.profilePhoto {
+                cell.photoImageView.image = image
+            }
             return cell
             
         case kSectionNote:

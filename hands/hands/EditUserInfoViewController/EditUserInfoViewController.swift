@@ -22,6 +22,8 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     fileprivate let disposeBag = DisposeBag()
     fileprivate var activeTextField: UITextField?
     private let db = Firestore.firestore()
+    private var photoURL: URL?
+    private let photoSize = CGSize(width: 100, height: 100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +36,31 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let user = Auth.auth().currentUser
-        if user?.photoURL != nil {
-            imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
-        }
+        
+            imageView.image = self.viewModel.getPhoto()?.resize(size: photoSize)
+//                getImageFromURL((user?.photoURL?.absoluteString)!)?.resize(size: photoSize)
+        
         self.setUpNotificationForTextField()
         self.displayNameTextField.text = self.viewModel.user?.username
-        print(self.viewModel.user?.dictionary)
     }
     
     @IBAction func submit(_ sender: Any) {
         let username = self.displayNameTextField.text ?? self.viewModel.user?.username
-        self.viewModel.updateData(username: username!)
+        self.viewModel.updateData(username: username!, photo: self.imageView.image, url: self.photoURL, handler: { result in
+            if result == true {
+                self.dismiss(animated: true, completion: nil)
+            }else {
+                showAlert("更新失敗")
+            }
+        })
     }
+    
+    @IBAction func changeImage(_ sender: Any) {
+        let imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.delegate = self
+        self.present(imagePickerViewController, animated: true, completion: nil)
+    }
+    
     
     private func setUpBind() {
         self.displayNameTextField.rx.text.orEmpty
@@ -67,7 +82,9 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.imageView.image = image
+        let url = info[UIImagePickerControllerImageURL] as? URL
+        self.photoURL = url
+        self.imageView.image = image.resize(size: photoSize)
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -81,7 +98,7 @@ extension EditUserInfoViewController {
         let session = URLSession(configuration: .default)
         let downloadPhotoTask = session.dataTask(with: url!){ data, response, error in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "error get Image URL")
             }else {
                 image = UIImage(data: data!)
             }

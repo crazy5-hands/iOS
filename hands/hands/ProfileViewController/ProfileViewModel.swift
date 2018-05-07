@@ -16,12 +16,14 @@ protocol ProfileViewModelDelegate {
 
 class ProfileViewModel {
     
-    var user: User?
+    var user: User? = nil
     var owns: [String] = []
     var joins: [String] = []
     var follows: [String] = []
     var followers: [String] = []
+    var profilePhoto: UIImage? = nil
     private let db = Firestore.firestore()
+    private let storage = Storage.storage()
     private var docRef: DocumentReference?
     private var eventRef: CollectionReference?
     private var followRef: CollectionReference?
@@ -35,7 +37,6 @@ class ProfileViewModel {
         self.eventRef = db.collection("events")
         self.followRef = db.collection("follows")
         self.joinRef = db.collection("joins")
-        self.user = User()
     }
     
     /// gettUserData expected to use when this viewmodel
@@ -46,6 +47,10 @@ class ProfileViewModel {
         self.docRef?.getDocument(completion: { (document, error) in
             if document != nil {
                 self.user = User(dictionary: (document?.data())!)!
+//                self.photoRef = self.storageRef?.child((self.user?.photo)!)
+                if self.user?.photo != "" {
+                    self.profilePhoto = PhotoUtil().getPhoto(path: (self.user?.photo)!)
+                }
                 callback(true)
             }else {
                 print(error?.localizedDescription ?? "error")

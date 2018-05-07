@@ -18,6 +18,8 @@
 		E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F605209B81CF00BC48C6 /* EventListTableViewModel.swift */; };
 		E640F608209C438500BC48C6 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F607209C438500BC48C6 /* DateUtils.swift */; };
 		E640F60A209C82E900BC48C6 /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F609209C82E900BC48C6 /* NewEventViewModel.swift */; };
+		E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F60C209ED68000BC48C6 /* PhotoUtil.swift */; };
+		E640F650209F28D800BC48C6 /* resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F64F209F28D800BC48C6 /* resize.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -106,6 +108,8 @@
 		E640F605209B81CF00BC48C6 /* EventListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewModel.swift; sourceTree = "<group>"; };
 		E640F607209C438500BC48C6 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		E640F609209C82E900BC48C6 /* NewEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
+		E640F60C209ED68000BC48C6 /* PhotoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUtil.swift; sourceTree = "<group>"; };
+		E640F64F209F28D800BC48C6 /* resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resize.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -236,6 +240,14 @@
 			path = EventListTableViewController;
 			sourceTree = "<group>";
 		};
+		E640F60B209ED66C00BC48C6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				E640F60C209ED68000BC48C6 /* PhotoUtil.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		E649CF8C1FF3BE99005DC4BA = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +274,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E640F60B209ED66C00BC48C6 /* Utility */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
 				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
 				E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */,
@@ -284,6 +297,7 @@
 				E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */,
 				E6674E07207F07380031B4A0 /* Model */,
 				E6674E10207F3BB70031B4A0 /* Extension.swift */,
+				E640F64F209F28D800BC48C6 /* resize.swift */,
 			);
 			path = hands;
 			sourceTree = "<group>";
@@ -830,9 +844,11 @@
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
+				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
+				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
