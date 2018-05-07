@@ -24,5 +24,6 @@ class UserTableViewCell: UITableViewCell {
     func updateCell(image: UIImage, name: String){
         self.profileImageView.image = image
         self.nameLabel.text = name
+        
     }
 }
