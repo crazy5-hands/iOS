@@ -23,6 +23,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     fileprivate var activeTextField: UITextField?
     private let db = Firestore.firestore()
     private var photoURL: URL?
+    private let photoSize = CGSize(width: 100, height: 100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,10 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let user = Auth.auth().currentUser
-        if user?.photoURL != nil {
-            imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)?.resize(size: CGSize(width: 100, height: 100))
-        }
+        
+            imageView.image = self.viewModel.getPhoto()?.resize(size: photoSize)
+//                getImageFromURL((user?.photoURL?.absoluteString)!)?.resize(size: photoSize)
+        
         self.setUpNotificationForTextField()
         self.displayNameTextField.text = self.viewModel.user?.username
     }
@@ -82,7 +84,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let url = info[UIImagePickerControllerImageURL] as? URL
         self.photoURL = url
-        self.imageView.image = image.resize(size: CGSize(width: 100, height: 100))
+        self.imageView.image = image.resize(size: photoSize)
         self.dismiss(animated: true, completion: nil)
     }
 }
