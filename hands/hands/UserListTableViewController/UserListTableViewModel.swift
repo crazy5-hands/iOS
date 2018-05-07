@@ -68,7 +68,7 @@ class UserListTableViewModel {
         case .all:
             self.users =  UserUtil().getAllUsers()
             semaphore.signal()
-            if self.users.count == 0 {
+            if self.users.count != 0 {
                 result = true
             }
         }//end switch

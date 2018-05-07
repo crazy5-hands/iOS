@@ -19,15 +19,30 @@ class UserListTableViewController: UITableViewController {
         super.viewDidLoad()
         let nib = UINib(nibName: "UserTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "user")
+        
+        let refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "読み込み中")
+        refresh.tintColor = .blue
+        refresh.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
+        tableView.addSubview(refresh)
+        self.refreshControl = refresh
+        
+        self.loadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    @objc private func refreshTable() {
+        self.refreshControl?.beginRefreshing()
+        self.loadData()
+        self.refreshControl?.endRefreshing()
+    }
+    
+    private func loadData() {
         let queue = DispatchQueue(label: "viewModel")
         queue.async {
             self.viewModel = UserListTableViewModel()
             self.viewModel.getUserData(id: self.id, pattern: self.pattern) { (result) in
                 if result == true {
+                    
                 }else {
                     print("error user list tableviewcontroller")
                 }
@@ -37,7 +52,7 @@ class UserListTableViewController: UITableViewController {
             }
         }
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
