@@ -30,6 +30,7 @@ class UserUtil {
     /// - Returns: ただし、データが一つしかない場合は取得に失敗している
     func getAllUsers() -> [User] {
         var users: [User] = []
+        let semaphore = DispatchSemaphore(value: 0)
         let collectionRef = Firestore.firestore().collection("users")
         collectionRef.getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
@@ -39,7 +40,9 @@ class UserUtil {
             }else {
                 print(error!.localizedDescription)
             }
+            semaphore.signal()
         }
+        semaphore.wait()
         return users
     }
 }

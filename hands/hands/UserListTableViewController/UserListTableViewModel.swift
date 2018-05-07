@@ -22,6 +22,7 @@ class UserListTableViewModel {
     
     func getUserData(id: String, pattern: UserListDataPattern, complition: (Bool) -> Void) {
         var result: Bool = false
+        let semaphore = DispatchSemaphore(value: 0)
         if self.users.count != 0 {
             self.users.removeAll()
         }
@@ -43,6 +44,7 @@ class UserListTableViewModel {
                     result = false
                     print(error!.localizedDescription)
                 }
+                semaphore.signal()
             }
         case .follower:
             self.db.collection("follows").whereField("follow_id", isEqualTo: id).getDocuments { (snapshot, error) in
@@ -61,15 +63,16 @@ class UserListTableViewModel {
                     result = false
                     print(error!.localizedDescription)
                 }
+                semaphore.signal()
             }
         case .all:
             self.users =  UserUtil().getAllUsers()
+            semaphore.signal()
             if self.users.count == 0 {
-                result = false
-            }else {
                 result = true
             }
         }//end switch
+        semaphore.wait()
         complition(result)
     }//end function
 }

@@ -23,14 +23,19 @@ class UserListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = title
-        self.viewModel.getUserData(id: self.id, pattern: self.pattern) { (result) in
-            if result == true {
-                self.tableView.reloadData()
-            }else {
-                print("error user list tableviewcontroller")
+        let queue = DispatchQueue(label: "viewModel")
+        queue.async {
+            self.viewModel = UserListTableViewModel()
+            self.viewModel.getUserData(id: self.id, pattern: self.pattern) { (result) in
+                if result == true {
+                }else {
+                    print("error user list tableviewcontroller")
+                }
             }
-        } 
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
