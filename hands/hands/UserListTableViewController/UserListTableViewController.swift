@@ -63,8 +63,7 @@ class UserListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! UserTableViewCell
-        cell.nameLabel.text = self.viewModel.users[indexPath.row].username
-//        cell.profileImageView.image =
+        cell.updateCell(user: self.viewModel.users[indexPath.row])
         return cell
     }
     
