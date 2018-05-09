@@ -7,15 +7,16 @@
 //
 
 import UIKit
-
-class EventListTableViewController: UITableViewController, EventListTableViewModelDelegate {
+import FirebaseAuth
+class EventListTableViewController: UITableViewController {
     
+    var id: String = (Auth.auth().currentUser?.uid)!
+    var pattern: EventDataPattern = .all
     private var viewModel: EventListTableViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = EventListTableViewModel()
-        self.viewModel.delegate = self
         self.tableView.estimatedRowHeight = 140
         self.tableView.rowHeight = UITableViewAutomaticDimension
         let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
@@ -26,16 +27,16 @@ class EventListTableViewController: UITableViewController, EventListTableViewMod
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.viewModel.loadEvents()
-        self.tableView.reloadData()
-    }
-
-    func loadData() {
-        self.tableView.reloadData()
-    }
-    
-    func errorToGetData() {
-        print("error this tableviewcontroller")
+        let queue = DispatchQueue(label: "eventViewModel getEvent")
+        queue.sync {
+            self.viewModel.getEvents(id: self.id, dataPattern: self.pattern, complition: { (result) in
+                if result == false {
+                    print("error tvc")
+                }else {
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

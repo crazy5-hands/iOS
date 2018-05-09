@@ -23,6 +23,7 @@
 		E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65120A048C500BC48C6 /* UserListTableViewModel.swift */; };
 		E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65320A0877A00BC48C6 /* UserUtil.swift */; };
 		E640F65620A0BF5300BC48C6 /* FollowUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65520A0BF5300BC48C6 /* FollowUtil.swift */; };
+		E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65720A188EB00BC48C6 /* EventUtil.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -116,6 +117,7 @@
 		E640F65120A048C500BC48C6 /* UserListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewModel.swift; sourceTree = "<group>"; };
 		E640F65320A0877A00BC48C6 /* UserUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
 		E640F65520A0BF5300BC48C6 /* FollowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUtil.swift; sourceTree = "<group>"; };
+		E640F65720A188EB00BC48C6 /* EventUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUtil.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				E640F60C209ED68000BC48C6 /* PhotoUtil.swift */,
 				E640F65320A0877A00BC48C6 /* UserUtil.swift */,
 				E640F65520A0BF5300BC48C6 /* FollowUtil.swift */,
+				E640F65720A188EB00BC48C6 /* EventUtil.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */,
+				E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */,
 				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */,
