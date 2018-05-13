@@ -13,7 +13,7 @@ class UserListTableViewController: UITableViewController {
 
     var pattern: UserListDataPattern = .all
     var id: String = (Auth.auth().currentUser?.uid)!
-    private var viewModel: UserListTableViewModel!
+    private var viewModel = UserListTableViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,6 @@ class UserListTableViewController: UITableViewController {
         refresh.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
         tableView.addSubview(refresh)
         self.refreshControl = refresh
-        
         self.loadData()
     }
     
@@ -37,19 +36,18 @@ class UserListTableViewController: UITableViewController {
     }
     
     private func loadData() {
-        let queue = DispatchQueue(label: "viewModel")
-        queue.async {
-            self.viewModel = UserListTableViewModel()
-            self.viewModel.getUserData(id: self.id, pattern: self.pattern) { (result) in
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.viewModel.getUserData(id: self.id, pattern: self.pattern, complition: { (result) in
                 if result == true {
-                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                        self.tableView.reloadData()
+                    })
                 }else {
-                    print("error user list tableviewcontroller")
+                    DispatchQueue.main.async {
+                        self.navigationItem.prompt = "ユーザーデータの取得に失敗しました"
+                    }
                 }
-            }
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            })
         }
     }
     
@@ -58,12 +56,12 @@ class UserListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.users.count
+        return self.viewModel.getUserCount()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! UserTableViewCell
-        cell.updateCell(user: self.viewModel.users[indexPath.row])
+        cell.updateCell(user: self.viewModel.getUserByNunber(number: indexPath.item))
         return cell
     }
     
