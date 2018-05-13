@@ -17,7 +17,7 @@ enum UserListDataPattern {
 
 class UserListTableViewModel {
     
-    var users: [User] = []
+    private var users: [User] = []
     private let db = Firestore.firestore()
     
     func getUserData(id: String, pattern: UserListDataPattern, complition: (Bool) -> Void) {
@@ -75,4 +75,12 @@ class UserListTableViewModel {
         semaphore.wait()
         complition(result)
     }//end function
+    
+    func getUserCount() -> Int {
+        return self.users.count
+    }
+    
+    func getUserByNunber(number: Int) -> User {
+        return self.users[number]
+    }
 }
