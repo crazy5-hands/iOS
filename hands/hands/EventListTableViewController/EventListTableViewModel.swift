@@ -18,7 +18,7 @@ enum EventDataPattern {
 
 class EventListTableViewModel {
     
-    var events: [Event] = []
+    private var events: [Event] = []
     
     func getEvents(id: String, dataPattern: EventDataPattern, complition: @escaping (Bool) -> Void) {
         var events: [Event] = []
@@ -50,7 +50,6 @@ class EventListTableViewModel {
                     if let snapshot = snapshot {
                         for document in snapshot.documents {
                             events.append(Event(dictionary: document.data())!)
-                            print(document.data())
                         }
                         complition(true)
                     }else {
@@ -69,6 +68,14 @@ class EventListTableViewModel {
             }
         }
         group.leave()
+    }
+    
+    func getEventCount() -> Int {
+        return self.events.count
+    }
+    
+    func getEventByNumber(number: Int) -> Event {
+        return self.events[number]
     }
     
     private func orderByCreatedAt(events: [Event]) -> [Event]{

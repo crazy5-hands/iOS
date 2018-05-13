@@ -17,6 +17,17 @@ class EventListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = EventListTableViewModel()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.viewModel.getEvents(id: self.id, dataPattern: self.pattern, complition: { (result) in
+                if result == true {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }else {
+                    print("error to get Data")
+                }
+            })
+        }
         self.tableView.estimatedRowHeight = 140
         self.tableView.rowHeight = UITableViewAutomaticDimension
         let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
@@ -24,35 +35,19 @@ class EventListTableViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let queue = DispatchQueue(label: "eventViewModel getEvent")
-        queue.sync {
-            self.viewModel.getEvents(id: self.id, dataPattern: self.pattern, complition: { (result) in
-                if result == false {
-                    print("error tvc")
-                }else {
-                    self.tableView.reloadData()
-                }
-            })
-        }
-    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.events.count
+        return self.viewModel.getEventCount()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath) as! EventTableViewCell
-//        cell.photoImageView.image
-        cell.titleLabel.text = self.viewModel.events[indexPath.row].title
-        cell.bodyLabel.text = self.viewModel.events[indexPath.row].body
-        cell.createAtLabel.text = DateUtils.stringFromDate(date: self.viewModel.events[indexPath.row].created_at)
+        let event = self.viewModel.getEventByNumber(number: indexPath.row)
+        cell.updateCell(eventKey: event.id, title: event.title, body: event.body, createAt: event.created_at)
         return cell
     }
 }
