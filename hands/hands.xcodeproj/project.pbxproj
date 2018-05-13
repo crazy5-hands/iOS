@@ -25,6 +25,9 @@
 		E640F65620A0BF5300BC48C6 /* FollowUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65520A0BF5300BC48C6 /* FollowUtil.swift */; };
 		E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65720A188EB00BC48C6 /* EventUtil.swift */; };
 		E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */; };
+		E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */; };
+		E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */; };
+		E648E52720A87E230058DE85 /* EventDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E648E52520A87E230058DE85 /* EventDetailTableViewCell.xib */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -118,6 +121,9 @@
 		E640F65520A0BF5300BC48C6 /* FollowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUtil.swift; sourceTree = "<group>"; };
 		E640F65720A188EB00BC48C6 /* EventUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUtil.swift; sourceTree = "<group>"; };
 		E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
+		E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewModel.swift; sourceTree = "<group>"; };
+		E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E648E52520A87E230058DE85 /* EventDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailTableViewCell.xib; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +261,15 @@
 				E640F65720A188EB00BC48C6 /* EventUtil.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		E648E52320A87DEC0058DE85 /* EventDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */,
+				E648E52520A87E230058DE85 /* EventDetailTableViewCell.xib */,
+			);
+			path = EventDetailTableViewCell;
 			sourceTree = "<group>";
 		};
 		E649CF8C1FF3BE99005DC4BA = {
@@ -429,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */,
+				E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */,
 			);
 			path = EventDetailTableViewController;
 			sourceTree = "<group>";
@@ -473,6 +489,7 @@
 		E6ADAD54209ACC3100310158 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				E648E52320A87DEC0058DE85 /* EventDetailTableViewCell */,
 				E6ADAD3820945A7200310158 /* EventTableViewCell */,
 				E6ADAD4220960A0400310158 /* UserTableViewCell */,
 			);
@@ -652,6 +669,7 @@
 				E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */,
 				E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */,
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
+				E648E52720A87E230058DE85 /* EventDetailTableViewCell.xib in Resources */,
 				E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */,
 				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
 				E6ADAD59209ACCE200310158 /* SquareCollectionViewCell.xib in Resources */,
@@ -846,6 +864,7 @@
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
+				E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */,
 				E640F60A209C82E900BC48C6 /* NewEventViewModel.swift in Sources */,
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
@@ -858,6 +877,7 @@
 				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
+				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
