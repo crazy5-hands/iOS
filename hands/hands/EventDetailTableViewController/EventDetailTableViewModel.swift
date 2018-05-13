@@ -20,29 +20,19 @@ class EventDetailTableViewModel {
         self.author = User(id: "", username: "", note: "", photo: "")
     }
     
-    func getData(eventId: String, complition: @escaping (Bool) -> Void){
+    func getData(event: Event, complition: @escaping (Bool) -> Void){
+        self.event = event
         let db = Firestore.firestore()
-        db.collection("events").whereField("event_id", isEqualTo: eventId).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    self.event = Event(dictionary: document.data())!
-                }
-                complition(true)
-            }else{
-                complition(false)
-            }
-        }
         
-        db.collection("joins").whereField("event_id", isEqualTo: eventId).getDocuments { (snapshot, error) in
+        db.collection("joins").whereField("event_id", isEqualTo: self.event.id).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
                 for document in snapshot.documents {
                     self.joins.append(Join(dictionary: document.data())!)
                 }
-                complition(true)
             }else {
-                complition(false)
             }
         }
+        
         if self.event.author_id != "" {
             db.collection("users").whereField("user_id", isEqualTo: self.event.author_id).getDocuments { (snapshot, error) in
                 if let snapshot = snapshot {
@@ -51,7 +41,6 @@ class EventDetailTableViewModel {
                     }
                     complition(true)
                 }else {
-                    complition(false)
                 }
             }
         }

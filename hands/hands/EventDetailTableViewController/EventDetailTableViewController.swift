@@ -10,7 +10,7 @@ import UIKit
 
 class EventDetailTableViewController: UITableViewController {
 
-    var eventId: String?
+    var event: Event?
     private let viewModel = EventDetailTableViewModel()
     
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class EventDetailTableViewController: UITableViewController {
         let eventNib = UINib(nibName: "EventDetailTableViewCell", bundle: nil)
         self.tableView.register(eventNib, forCellReuseIdentifier: "event")
         DispatchQueue.global(qos: .userInitiated).async {
-            self.viewModel.getData(eventId: self.eventId!, complition: { (result) in
+            self.viewModel.getData(event: self.event!, complition: { (result) in
                 if result == true {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()

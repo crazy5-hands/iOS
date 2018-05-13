@@ -54,9 +54,8 @@ class EventListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let event = self.viewModel.getEventByNumber(number: indexPath.item)
-        let eventId = event.id
         let eventDetailTVC = EventDetailTableViewController()
-        eventDetailTVC.eventId = eventId
+        eventDetailTVC.event = event
         self.navigationController?.pushViewController(eventDetailTVC, animated: true)
     }
 }
