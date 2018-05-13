@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+
 class EventListTableViewController: UITableViewController {
     
     var id: String = (Auth.auth().currentUser?.uid)!
@@ -24,7 +25,7 @@ class EventListTableViewController: UITableViewController {
                         self.tableView.reloadData()
                     }
                 }else {
-                    print("error to get Data")
+                    self.navigationItem.prompt = "データの取得ができませんでした。"
                 }
             })
         }
