@@ -24,6 +24,7 @@
 		E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65320A0877A00BC48C6 /* UserUtil.swift */; };
 		E640F65620A0BF5300BC48C6 /* FollowUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65520A0BF5300BC48C6 /* FollowUtil.swift */; };
 		E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65720A188EB00BC48C6 /* EventUtil.swift */; };
+		E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -56,8 +57,6 @@
 		E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD352094522F00310158 /* DoneButtonTextView.swift */; };
 		E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD3920945AB200310158 /* EventTableViewCell.swift */; };
 		E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */; };
-		E6ADAD3F2095C43200310158 /* ListDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD3E2095C43200310158 /* ListDetailTableViewController.swift */; };
-		E6ADAD412095C43E00310158 /* ListDetailTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */; };
 		E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD4320960A4800310158 /* UserTableViewCell.swift */; };
 		E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD4420960A4800310158 /* UserTableViewCell.xib */; };
 		E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD472099C96600310158 /* ProfileViewModel.swift */; };
@@ -118,6 +117,7 @@
 		E640F65320A0877A00BC48C6 /* UserUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
 		E640F65520A0BF5300BC48C6 /* FollowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUtil.swift; sourceTree = "<group>"; };
 		E640F65720A188EB00BC48C6 /* EventUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUtil.swift; sourceTree = "<group>"; };
+		E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,8 +155,6 @@
 		E6ADAD352094522F00310158 /* DoneButtonTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonTextView.swift; sourceTree = "<group>"; };
 		E6ADAD3920945AB200310158 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		E6ADAD3A20945AB200310158 /* EventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventTableViewCell.xib; sourceTree = "<group>"; };
-		E6ADAD3E2095C43200310158 /* ListDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailTableViewController.swift; sourceTree = "<group>"; };
-		E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListDetailTableViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD4320960A4800310158 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		E6ADAD4420960A4800310158 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		E6ADAD472099C96600310158 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -288,7 +286,7 @@
 				E640F60B209ED66C00BC48C6 /* Utility */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
 				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
-				E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */,
+				E6ADAD3D2095C3F200310158 /* EventDetailTableViewController */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
 				E6ADAD1C2091A48900310158 /* SearchViewController */,
@@ -427,13 +425,12 @@
 			path = EventTableViewCell;
 			sourceTree = "<group>";
 		};
-		E6ADAD3D2095C3F200310158 /* ListDetailTableViewController */ = {
+		E6ADAD3D2095C3F200310158 /* EventDetailTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E6ADAD3E2095C43200310158 /* ListDetailTableViewController.swift */,
-				E6ADAD402095C43E00310158 /* ListDetailTableViewController.storyboard */,
+				E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */,
 			);
-			path = ListDetailTableViewController;
+			path = EventDetailTableViewController;
 			sourceTree = "<group>";
 		};
 		E6ADAD4220960A0400310158 /* UserTableViewCell */ = {
@@ -662,7 +659,6 @@
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6ADAD4D2099D22000310158 /* UserCollectionViewCell.xib in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
-				E6ADAD412095C43E00310158 /* ListDetailTableViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
@@ -843,6 +839,7 @@
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
+				E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */,
 				E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
 				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
@@ -852,7 +849,6 @@
 				E640F60A209C82E900BC48C6 /* NewEventViewModel.swift in Sources */,
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
-				E6ADAD3F2095C43200310158 /* ListDetailTableViewController.swift in Sources */,
 				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
 				E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
