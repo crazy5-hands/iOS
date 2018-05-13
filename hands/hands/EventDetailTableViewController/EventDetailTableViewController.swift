@@ -11,6 +11,9 @@ import UIKit
 class EventDetailTableViewController: UITableViewController {
 
     var event: Event?
+    private let kSectionEvent = 0
+    private let kSectionAuthor = 1
+    private let kSectionJoin = 2
     private let viewModel = EventDetailTableViewModel()
     
     override func viewDidLoad() {
@@ -18,7 +21,9 @@ class EventDetailTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 305
         self.tableView.rowHeight = UITableViewAutomaticDimension
         let eventNib = UINib(nibName: "EventDetailTableViewCell", bundle: nil)
+        let userNib = UINib(nibName: "UserTableViewCell", bundle: nil)
         self.tableView.register(eventNib, forCellReuseIdentifier: "event")
+        self.tableView.register(userNib, forCellReuseIdentifier: "user")
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getData(event: self.event!, complition: { (result) in
                 if result == true {
@@ -33,21 +38,44 @@ class EventDetailTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 // event and join
+        return 3 // event and join
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
+        switch section {
+        case kSectionEvent:
             return 1
+        case kSectionAuthor:
+            return 1
+        case kSectionJoin:
+            return self.viewModel.getJoinsCount()
+        default:
+            return 0
         }
-        return self.viewModel.getJoinsCount()
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventDetailTableViewCell
-        cell.updateCell(event: self.viewModel.getEvent())
-        return cell
+        switch indexPath.section {
+        case kSectionEvent:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventDetailTableViewCell
+            cell.updateCell(event: self.viewModel.getEvent())
+            return cell
+        case kSectionAuthor:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "user") as! UserTableViewCell
+            if let author = self.viewModel.getAuthor() {
+                cell.updateCell(user: author)
+                print(author.username)
+            }
+            return cell
+        case kSectionJoin:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "user") as! UserTableViewCell
+            cell.updateCell(user: self.viewModel.getJoinerById(number: indexPath.item))
+            return cell
+        default:
+            return UITableViewCell()
+        }
+
     }
     
 }

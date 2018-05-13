@@ -12,8 +12,9 @@ import Firebase
 class EventDetailTableViewModel {
     
     private var event: Event
-    private var joins: [Join] = []
+    private var joiners: [User] = []
     private var author: User?
+    private let db = Firestore.firestore()
     
     init() {
         self.event = Event(id: "", author_id: "", title: "", body: "", created_at: NSDate())
@@ -22,26 +23,27 @@ class EventDetailTableViewModel {
     
     func getData(event: Event, complition: @escaping (Bool) -> Void){
         self.event = event
-        let db = Firestore.firestore()
+        var joiners: [String] = []
         
         db.collection("joins").whereField("event_id", isEqualTo: self.event.id).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
                 for document in snapshot.documents {
-                    self.joins.append(Join(dictionary: document.data())!)
+                    joiners.append((Join(dictionary: document.data())?.user_id)!)
                 }
             }else {
             }
         }
         
+        for joinerId in joiners {
+            if let user = UserUtil().getUser(id: joinerId) {
+                self.joiners.append(user)
+            }
+        }
+        
         if self.event.author_id != "" {
-            db.collection("users").whereField("user_id", isEqualTo: self.event.author_id).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    for document in snapshot.documents {
-                        self.author = User(dictionary: document.data())
-                    }
-                    complition(true)
-                }else {
-                }
+            if let user = UserUtil().getUser(id: self.event.author_id) {
+                self.author = user
+                complition(true)
             }
         }
     }
@@ -54,11 +56,11 @@ class EventDetailTableViewModel {
         return self.author
     }
     
-    func getJoinsById(number: Int) -> Join {
-        return self.joins[number]
+    func getJoinerById(number: Int) -> User {
+        return self.joiners[number]
     }
     
     func getJoinsCount() -> Int {
-        return self.joins.count
+        return self.joiners.count
     }
 }
