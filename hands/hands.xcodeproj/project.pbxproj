@@ -28,6 +28,7 @@
 		E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */; };
 		E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */; };
 		E648E52720A87E230058DE85 /* EventDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E648E52520A87E230058DE85 /* EventDetailTableViewCell.xib */; };
+		E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52820A88E610058DE85 /* JoinUtil.swift */; };
 		E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CF981FF3BE99005DC4BA /* AppDelegate.swift */; };
 		E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */; };
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
@@ -124,6 +125,7 @@
 		E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewModel.swift; sourceTree = "<group>"; };
 		E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
 		E648E52520A87E230058DE85 /* EventDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailTableViewCell.xib; sourceTree = "<group>"; };
+		E648E52820A88E610058DE85 /* JoinUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinUtil.swift; sourceTree = "<group>"; };
 		E649CF951FF3BE99005DC4BA /* hands.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hands.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CF981FF3BE99005DC4BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				E640F65320A0877A00BC48C6 /* UserUtil.swift */,
 				E640F65520A0BF5300BC48C6 /* FollowUtil.swift */,
 				E640F65720A188EB00BC48C6 /* EventUtil.swift */,
+				E648E52820A88E610058DE85 /* JoinUtil.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
+				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */,
 				E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */,

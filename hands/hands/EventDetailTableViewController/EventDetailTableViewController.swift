@@ -29,6 +29,7 @@ class EventDetailTableViewController: UITableViewController {
                 if result == true {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        print("データは正常に取得できました")
                     }
                 }else {
                     self.navigationItem.prompt = "イベントのデータの読み込みに失敗しました。"

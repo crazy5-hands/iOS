@@ -24,7 +24,7 @@ class MainTabBarController: UITabBarController {
         let searchViewController = UIStoryboard(name: "SearchViewController", bundle: nil).instantiateInitialViewController()
 //        searchViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
         searchViewController?.tabBarItem = UITabBarItem(title: "検索", image: UIImage(named: "icon-search"), tag: 1)
-        viewcontrollers.append(searchViewController!)
+//        viewcontrollers.append(searchViewController!)
         
         let userListTableViewController = UserListTableViewController()
         userListTableViewController.tabBarItem = UITabBarItem(title: "ユーザー", image: UIImage(named: "icon-users"), tag: 2)
@@ -32,7 +32,7 @@ class MainTabBarController: UITabBarController {
         
         let notificationViewController = UIStoryboard(name: "NotificationViewController", bundle: nil).instantiateInitialViewController()
         notificationViewController?.tabBarItem = UITabBarItem(title: "通知", image: UIImage(named: "icon-notification"), tag: 3)
-        viewcontrollers.append(notificationViewController!)
+//        viewcontrollers.append(notificationViewController!)
         
         let profileViewController = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateInitialViewController()
         profileViewController?.tabBarItem = UITabBarItem(title: "プロフィール", image: UIImage(named: "icon-user"), tag: 4)

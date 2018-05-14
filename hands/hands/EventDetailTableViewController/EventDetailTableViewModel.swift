@@ -22,28 +22,24 @@ class EventDetailTableViewModel {
     }
     
     func getData(event: Event, complition: @escaping (Bool) -> Void){
-        self.event = event
-        var joiners: [String] = []
-        
-        db.collection("joins").whereField("event_id", isEqualTo: self.event.id).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    joiners.append((Join(dictionary: document.data())?.user_id)!)
+        DispatchQueue.global(qos: .userInitiated).sync {
+            self.event = event
+            var joiners: [String] = []
+            
+            joiners = JoinUtil().getJoinerIdByEventId(eventId: event.id)
+            
+            for joinerId in joiners {
+                if let user = UserUtil().getUser(id: joinerId) {
+                    self.joiners.append(user)
                 }
-            }else {
             }
-        }
-        
-        for joinerId in joiners {
-            if let user = UserUtil().getUser(id: joinerId) {
-                self.joiners.append(user)
-            }
-        }
-        
-        if self.event.author_id != "" {
-            if let user = UserUtil().getUser(id: self.event.author_id) {
-                self.author = user
+            
+            if event.author_id != "" {
+                self.author = UserUtil().getUser(id: event.author_id)
+                print(self.author?.username)
                 complition(true)
+            }else {
+                complition(false)
             }
         }
     }
