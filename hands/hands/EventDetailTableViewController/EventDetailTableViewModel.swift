@@ -53,7 +53,6 @@ class EventDetailTableViewModel {
                 DispatchQueue.main.async {
                     complition(false)
                 }
-//                complition(false)
             }
         }
     }
