@@ -53,7 +53,32 @@ class EventDetailTableViewController: UITableViewController {
         default:
             return 0
         }
-        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case kSectionEvent:
+            return ""
+        case kSectionAuthor:
+            return "投稿者"
+        case kSectionJoin:
+            return "参加者"
+        default:
+            return ""
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case kSectionEvent:
+            return CGFloat(0.0)
+        case kSectionAuthor:
+            return CGFloat(25)
+        case kSectionJoin:
+            return CGFloat(25)
+        default:
+            return CGFloat(0.0)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,6 +86,7 @@ class EventDetailTableViewController: UITableViewController {
         case kSectionEvent:
             let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventDetailTableViewCell
             cell.updateCell(event: self.viewModel.getEvent())
+            cell.selectionStyle  = .none
             return cell
         case kSectionAuthor:
             let cell = tableView.dequeueReusableCell(withIdentifier: "user") as! UserTableViewCell
@@ -76,7 +102,5 @@ class EventDetailTableViewController: UITableViewController {
         default:
             return UITableViewCell()
         }
-
     }
-    
 }
