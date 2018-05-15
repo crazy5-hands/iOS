@@ -35,9 +35,11 @@ class UserListTableViewModel {
                         follows.append(Follow(dictionary: document.data())!)
                     }
                     for follow in follows {
-                        if let user =  UserUtil().getUser(id: follow.follow_id) {
-                            self.users.append(user)
-                        }
+                        UserUtil().getUser(id: follow.follow_id, completion: { (user) in
+                            if let user = user {
+                                self.users.append(user)
+                            }
+                        })
                     }
                     result = true
                 }else {
@@ -54,9 +56,11 @@ class UserListTableViewModel {
                         followers.append(Follow(dictionary: document.data())!)
                     }
                     for follower in followers {
-                        if let user = UserUtil().getUser(id: follower.user_id) {
-                            self.users.append(user)
-                        }
+                        UserUtil().getUser(id: follower.user_id, completion: { (user) in
+                            if let user = user {
+                                self.users.append(user)
+                            }
+                        })
                     }
                     result = true
                 }else {

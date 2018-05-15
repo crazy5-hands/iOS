@@ -22,6 +22,7 @@ class EventDetailTableViewModel {
     }
     
     func getData(event: Event, complition: @escaping (Bool) -> Void){
+        let authorQueue = DispatchQueue(label: "/users/", attributes: .concurrent)
         DispatchQueue.global(qos: .userInitiated).sync {
             self.event = event
             var joiners: [String] = []
@@ -29,17 +30,30 @@ class EventDetailTableViewModel {
             joiners = JoinUtil().getJoinerIdByEventId(eventId: event.id)
             
             for joinerId in joiners {
-                if let user = UserUtil().getUser(id: joinerId) {
-                    self.joiners.append(user)
-                }
+                UserUtil().getUser(id: joinerId, completion: { (joiner) in
+                    if let joiner = joiner {
+                        self.joiners.append(joiner)
+                    }
+                })
             }
             
             if event.author_id != "" {
-                self.author = UserUtil().getUser(id: event.author_id)
-                print(self.author?.username)
-                complition(true)
+                authorQueue.async(flags: .barrier) {
+                    UserUtil().getUser(id: event.author_id, completion: { (user) in
+                        if let user = user {
+                            self.author = user
+                        }
+                        DispatchQueue.main.async {
+                            complition(true)
+                        }
+                    })
+
+                }
             }else {
-                complition(false)
+                DispatchQueue.main.async {
+                    complition(false)
+                }
+//                complition(false)
             }
         }
     }

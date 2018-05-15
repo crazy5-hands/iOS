@@ -11,18 +11,17 @@ import Firebase
 
 class UserUtil {
     
-    func getUser(id: String) -> User? {
-        var user: User? = nil
+    func getUser(id: String, completion: @escaping (User?) -> Void) {
         let collectionRef = Firestore.firestore().collection("users")
         collectionRef.whereField("id", isEqualTo: id).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
                 print(snapshot.documents[0].data())
-                user = User(dictionary: snapshot.documents[0].data())
+                completion(User(dictionary: snapshot.documents[0].data()))
             }else {
                 print(error!.localizedDescription)
+                completion(nil)
             }
         }
-        return user
     }
     
     
