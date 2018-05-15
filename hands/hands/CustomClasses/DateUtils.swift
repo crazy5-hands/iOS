@@ -10,14 +10,14 @@ import Foundation
 
 class DateUtils {
     
-    class func dateFromString(stringDate: String, format: String) -> NSDate {
+    func dateFromString(stringDate: String, format: String) -> NSDate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yMdkHms"
         formatter.locale = Locale(identifier: "ja_JP")
         return formatter.date(from: stringDate)! as NSDate
     }
     
-    class func stringFromDate(date: NSDate) -> String {
+    func stringFromDate(date: NSDate) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMdkHms", options: 0, locale: Locale(identifier: "ja_JP"))
         formatter.locale = Locale(identifier: "ja_JP")

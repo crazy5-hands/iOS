@@ -28,6 +28,6 @@ class EventTableViewCell: UITableViewCell {
         self.eventKey = eventKey
         self.titleLabel.text = title
         self.bodyLabel.text = body
-        self.createAtLabel.text = DateUtils.stringFromDate(date: createAt)
+        self.createAtLabel.text = DateUtils().stringFromDate(date: createAt)
     }
 }
