@@ -9,16 +9,18 @@
 import UIKit
 import Firebase
 
-class EditUserInfoViewController: TextFieldViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditUserInfoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
     @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var displayNameTextField: UITextField!
+    @IBOutlet private weak var displayNameTextField: DoneButtonTextField!
+    @IBOutlet weak var noteTextView: DoneButtonTextView!
     @IBOutlet private weak var submitButton: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    fileprivate var activeTextField: UITextField?
+    fileprivate var activeTextView: UITextView?
     
     
     fileprivate var viewModel: EditUserInfoViewModel!
-    fileprivate var activeTextField: UITextField?
     private let db = Firestore.firestore()
     private let photoSize = CGSize(width: 100, height: 100)
     private var photoURL: URL?
@@ -26,7 +28,11 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     override func viewDidLoad() {
         super.viewDidLoad()
         self.displayNameTextField.delegate = self
+        self.noteTextView.delegate = self
         self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
         DispatchQueue.global().async {
             self.viewModel = EditUserInfoViewModel(complition: { (result) in
                 if result == true {
@@ -34,6 +40,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
                         let user = self.viewModel.getUser()
                         self.displayNameTextField.text = user?.username
                         self.imageView.image = self.viewModel.getPhoto()?.resize(size: self.photoSize)
+                        self.noteTextView.text = user?.note
                     }
                 }else {
                     DispatchQueue.main.async {
@@ -46,11 +53,10 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setUpNotificationForTextField()
     }
     
     @IBAction func submit(_ sender: Any) {
-        self.viewModel.updateData(username: self.displayNameTextField.text!, photo: self.imageView.image, imageURL: photoURL, handler: { result in
+        self.viewModel.updateData(username: self.displayNameTextField.text!, note: self.noteTextView.text!, photo: self.imageView.image, imageURL: photoURL, handler: { result in
             if result == true {
                 self.dismiss(animated: true, completion: nil)
             }else {
@@ -85,5 +91,55 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         self.photoURL = url
         self.imageView.image = image
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
+        let userInfo = notification.userInfo //この中にキーボードの情報がある
+        let keyboardSize = (userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardY = self.view.frame.size.height - keyboardSize.height //画面全体の高さ - キーボードの高さ = キーボードが被らない高さ
+        
+        var editingY: CGFloat {
+            if self.activeTextField != nil {
+                return (self.activeTextField?.frame.origin.y)!
+            }else {
+                return (self.activeTextView?.frame.origin.y)!
+            }
+        }
+        if editingY > keyboardY - 60 {
+            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
+                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingY - (keyboardY - 60)), width: self.view.bounds.width, height: self.view.bounds.height)
+            }, completion: nil)
+            
+        }
+    }
+    
+    @objc private func handleKeyboardWillHideNotification(_ notification: Notification) {
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        }, completion: nil)
+    }
+    
+    //textfield
+    internal func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.activeTextField = textField
+        return true
+    }
+    
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.activeTextField = nil
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //textview
+    internal func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        self.activeTextView = textView
+        return true
+    }
+    
+    internal func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        self.activeTextView = nil
+        textView.resignFirstResponder()
+        return true
     }
 }

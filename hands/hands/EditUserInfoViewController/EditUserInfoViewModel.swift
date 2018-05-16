@@ -39,7 +39,7 @@ class EditUserInfoViewModel{
         return UIImage(named: "icon-userPhoto.png")
     }
     
-    func updateData(username: String, photo: UIImage?, imageURL: URL?, handler: @escaping (Bool) -> Void){
+    func updateData(username: String, note: String, photo: UIImage?, imageURL: URL?, handler: @escaping (Bool) -> Void){
         let semaphore = DispatchSemaphore(value: 0)
         var photoURL = ""
         if imageURL == nil{
@@ -62,7 +62,7 @@ class EditUserInfoViewModel{
             }
         }
         semaphore.wait()
-        let user = User(id: self.uid!, username: username, note: (self.user?.note)!, photo: photoURL)
+        let user = User(id: self.uid!, username: username, note: note, photo: photoURL)
         UserUtil().putUser(id: self.uid!, user: user, complition: { (result) in
             handler(result)
         })
