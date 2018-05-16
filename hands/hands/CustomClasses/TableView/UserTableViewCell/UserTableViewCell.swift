@@ -25,8 +25,7 @@ class UserTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func updateCell(user: User){
-//        self.profileImageView.image =
+    func updateCell(user: User) {
         let semaphore = DispatchSemaphore.init(value: 0)
         self.nameLabel.text = user.username
         if self.id == user.id {
@@ -43,5 +42,5 @@ class UserTableViewCell: UITableViewCell {
             semaphore.signal()
         }
         semaphore.wait()
-    }// end updatecell
+    } // end updatecell
 }
