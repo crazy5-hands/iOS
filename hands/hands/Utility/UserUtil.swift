@@ -44,4 +44,15 @@ class UserUtil {
         semaphore.wait()
         return users
     }
+    
+    func putUser(id: String, user: User, complition: @escaping (Bool) -> Void) {
+        let collectionRef = Firestore.firestore().collection("users")
+        collectionRef.document(id).setData(user.dictionary) { (error) in
+            if error != nil {
+                complition(false)
+            }else {
+                complition(true)
+            }
+        }
+    }
 }

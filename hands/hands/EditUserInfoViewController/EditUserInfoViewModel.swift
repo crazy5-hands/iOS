@@ -39,22 +39,33 @@ class EditUserInfoViewModel{
         return UIImage(named: "icon-userPhoto.png")
     }
     
-    func updateData(username: String, photo: UIImage?, url: URL?, handler: (Bool) -> Void){
-        var result: Bool = false
-        self.user?.username = username
-        let path = "users/" + self.uid! + ".jpg"
-        if let url = url {
-            PhotoUtil().putPhoto(path: path, image: photo!, imageURL: url) { (stringURL) in
+    func updateData(username: String, photo: UIImage?, imageURL: URL?, handler: @escaping (Bool) -> Void){
+        let semaphore = DispatchSemaphore(value: 0)
+        var photoURL = ""
+        if imageURL == nil{
+            photoURL = ""
+            semaphore.signal()
+        }else { //upload photo
+            let path = "users/" + self.uid! + ".jpg"
+//            PhotoUtil().putPhoto(path: path, image: photo!) { (stringURL) in
+//                if let stringURL = stringURL {
+//                    photoURL = stringURL
+//                }
+//                semaphore.signal()
+//            }
+            print(imageURL?.absoluteString)
+            PhotoUtil().putPhotoWithURL(path: path, imageURL: imageURL!) { (stringURL) in
                 if let stringURL = stringURL {
-                    self.user?.photo = stringURL
-                    self.db.collection("users").document(self.uid!).setData((self.user?.dictionary)!)
-                    result = true
-                    handler(result)
-                }else {
-                    print("fail to update photo")
-                    handler(result)
+                    photoURL = stringURL
                 }
+                semaphore.signal()
             }
         }
+        semaphore.wait()
+        let user = User(id: self.uid!, username: username, note: (self.user?.note)!, photo: photoURL)
+        UserUtil().putUser(id: self.uid!, user: user, complition: { (result) in
+            handler(result)
+        })
+
     }
 }

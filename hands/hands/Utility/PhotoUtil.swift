@@ -25,18 +25,33 @@ class PhotoUtil {
         return image
     }
     
-    func putPhoto(path: String, image: UIImage, imageURL: URL, handler: (String?) -> Void) {
-        var urlString: String? = nil
+    func putPhoto(path: String, image: UIImage, complition: @escaping (String?) -> Void) {
         let imageRef = Storage.storage().reference().child(path)
         let imageData = UIImageJPEGRepresentation(image, CGFloat(0.7))!
-        let uploadTask = imageRef.putData(imageData, metadata: nil) { metadata, error in
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        imageRef.putData(imageData, metadata: metaData) { metadata, error in
             if let metadata = metadata {
-                urlString = metadata.downloadURL()?.absoluteString
+                complition(metadata.downloadURL()?.absoluteString)
             }else {
                 print(error!.localizedDescription + "put Photo")
+                complition(nil)
+            }
+            }.observe(.progress) { (snapshot) in
+                print("\(snapshot.progress?.fileCompletedCount)")
+        }
+    }
+    
+    func putPhotoWithURL(path: String, imageURL: URL , complition: @escaping (String?) -> Void) {
+        let imageRef = Storage.storage().reference().child(path)
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpeg"
+        imageRef.putFile(from: imageURL, metadata: metaData) { (snapshot, error) in
+            if let snapshot = snapshot {
+                complition(snapshot.downloadURL()?.absoluteString)
+            }else {
+                complition(nil)
             }
         }
-        uploadTask.resume()
-        handler(urlString)
     }
 }

@@ -50,11 +50,11 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     }
     
     @IBAction func submit(_ sender: Any) {
-        self.viewModel.updateData(username: self.displayNameTextField.text!, photo: self.imageView.image, url: self.photoURL, handler: { result in
+        self.viewModel.updateData(username: self.displayNameTextField.text!, photo: self.imageView.image, imageURL: photoURL, handler: { result in
             if result == true {
                 self.dismiss(animated: true, completion: nil)
             }else {
-                showAlert("更新失敗")
+                self.showAlert("更新失敗")
             }
         })
     }
@@ -83,7 +83,7 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let url = info[UIImagePickerControllerImageURL] as? URL
         self.photoURL = url
-        self.imageView.image = image.resize(size: photoSize)
+        self.imageView.image = image
         self.dismiss(animated: true, completion: nil)
     }
 }
