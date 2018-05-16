@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8uD-rT-bpr">
-                                <rect key="frame" x="67" y="57" width="240" height="240"/>
+                                <rect key="frame" x="67" y="84" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3C-AN-seh">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q3C-AN-seh" customClass="DoneButtonTextField" customModule="hands" customModuleProvider="target">
                                 <rect key="frame" x="67" y="414" width="235" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -36,37 +36,73 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phw-J6-K59">
-                                <rect key="frame" x="61" y="532" width="260" height="74"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phw-J6-K59" customClass="MaterialButton" customModule="hands" customModuleProvider="target">
+                                <rect key="frame" x="59" y="588" width="257" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
+                                <color key="backgroundColor" red="0.0" green="0.76470588235294112" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <state key="normal" title="更新">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="submit:" destination="oZf-RQ-rDi" eventType="touchUpInside" id="mQs-oH-km2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="プロフィール画像" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOK-dR-NiN">
-                                <rect key="frame" x="67" y="313" width="235" height="23"/>
+                                <rect key="frame" x="67" y="332" width="235" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCO-rH-F6z">
-                                <rect key="frame" x="269" y="306" width="31" height="30"/>
+                                <rect key="frame" x="271" y="328" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="変更"/>
                                 <connections>
                                     <action selector="changeImage:" destination="oZf-RQ-rDi" eventType="touchUpInside" id="DTd-hi-iAc"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUl-xT-QC3">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="プロフィールの編集" id="DnZ-o1-wwa">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="jmF-fJ-QTc">
+                                            <connections>
+                                                <action selector="dismissThisView:" destination="oZf-RQ-rDi" id="2aI-Qs-lK7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IxI-uI-d5Y" customClass="DoneButtonTextView" customModule="hands" customModuleProvider="target">
+                                <rect key="frame" x="67" y="473" width="240" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ひとこと" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvW-QP-i5c">
+                                <rect key="frame" x="67" y="452" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KUl-xT-QC3" firstAttribute="top" secondItem="C5a-ef-LZe" secondAttribute="top" id="DIv-b6-kPQ"/>
+                            <constraint firstItem="KUl-xT-QC3" firstAttribute="leading" secondItem="C5a-ef-LZe" secondAttribute="leading" id="jPV-6f-qQz"/>
+                            <constraint firstItem="KUl-xT-QC3" firstAttribute="trailing" secondItem="C5a-ef-LZe" secondAttribute="trailing" id="s9u-VA-r3P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="C5a-ef-LZe"/>
                     </view>
                     <connections>
-                        <outlet property="displayNameTextField" destination="q3C-AN-seh" id="Etd-EF-ye9"/>
+                        <outlet property="displayNameTextField" destination="q3C-AN-seh" id="cGC-wb-tMJ"/>
                         <outlet property="imageView" destination="8uD-rT-bpr" id="7pB-03-tev"/>
+                        <outlet property="navigationBar" destination="KUl-xT-QC3" id="2Wu-vD-HE4"/>
+                        <outlet property="noteTextView" destination="IxI-uI-d5Y" id="5Nq-Aw-XOE"/>
                         <outlet property="submitButton" destination="phw-J6-K59" id="aul-NL-kqe"/>
                     </connections>
                 </viewController>
