@@ -14,6 +14,8 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var displayNameTextField: UITextField!
     @IBOutlet private weak var submitButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     
     fileprivate var viewModel: EditUserInfoViewModel!
     fileprivate var activeTextField: UITextField?
@@ -61,6 +63,11 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
         let imagePickerViewController = UIImagePickerController()
         imagePickerViewController.delegate = self
         self.present(imagePickerViewController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func dismissThisView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func imageTapped() {
