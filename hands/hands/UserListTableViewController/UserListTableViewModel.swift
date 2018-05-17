@@ -20,65 +20,64 @@ class UserListTableViewModel {
     private var users: [User] = []
     private let db = Firestore.firestore()
     
-    func getUserData(id: String, pattern: UserListDataPattern, complition: (Bool) -> Void) {
-        var result: Bool = false
-        let semaphore = DispatchSemaphore(value: 0)
+    func getUserData(id: String, pattern: UserListDataPattern, complition: @escaping (Bool) -> Void) {
         if self.users.count != 0 {
             self.users.removeAll()
         }
         switch pattern {
         case .follow:
-            self.db.collection("follows").whereField("user_id", isEqualTo: id).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    var follows: [Follow] = []
-                    for document in snapshot.documents {
-                        follows.append(Follow(dictionary: document.data())!)
-                    }
+            FollowUtil().getFollows(user_id: id) { (follows) in
+                if follows.isEmpty != true {
+                    let group = DispatchGroup()
+                    group.enter()
                     for follow in follows {
+                        group.enter()
                         UserUtil().getUser(id: follow.follow_id, completion: { (user) in
                             if let user = user {
                                 self.users.append(user)
                             }
+                            group.leave()
                         })
                     }
-                    result = true
+                    group.leave()
+                    group.notify(queue: .main, execute: {
+                        complition(true)
+                    })
                 }else {
-                    result = false
-                    print(error!.localizedDescription)
+                    complition(false)
                 }
-                semaphore.signal()
             }
         case .follower:
-            self.db.collection("follows").whereField("follow_id", isEqualTo: id).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    var followers: [Follow] = []
-                    for document in snapshot.documents {
-                        followers.append(Follow(dictionary: document.data())!)
-                    }
+            FollowUtil().getFollowers(follow_id: id) { (followers) in
+                if followers.isEmpty != true {
+                    let group = DispatchGroup()
+                    group.enter()
                     for follower in followers {
+                        group.enter()
                         UserUtil().getUser(id: follower.user_id, completion: { (user) in
                             if let user = user {
                                 self.users.append(user)
                             }
+                            group.leave()
                         })
                     }
-                    result = true
+                    group.leave()
+                    group.notify(queue: .main, execute: {
+                        complition(true)
+                    })
                 }else {
-                    result = false
-                    print(error!.localizedDescription)
+                    complition(false)
                 }
-                semaphore.signal()
             }
         case .all:
             self.users =  UserUtil().getAllUsers()
-            semaphore.signal()
             if self.users.count != 0 {
-                result = true
+                complition(true)
+            }else {
+                complition(false)
             }
-        }//end switch
-        semaphore.wait()
-        complition(result)
-    }//end function
+        }
+    }
     
     func getUserCount() -> Int {
         return self.users.count

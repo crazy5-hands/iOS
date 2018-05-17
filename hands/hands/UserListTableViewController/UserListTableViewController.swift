@@ -26,6 +26,14 @@ class UserListTableViewController: UITableViewController {
         refresh.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
         tableView.addSubview(refresh)
         self.refreshControl = refresh
+        switch self.pattern {
+        case .follower:
+            self.navigationItem.title = "フォロワー一覧"
+        case .follow:
+            self.navigationItem.title = "フォロー一覧"
+        case .all:
+            self.navigationItem.title = "ユーザー一覧"
+        }
         self.loadData()
     }
     
