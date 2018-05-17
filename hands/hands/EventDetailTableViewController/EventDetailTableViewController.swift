@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EventDetailTableViewController: UITableViewController {
 
@@ -24,6 +25,7 @@ class EventDetailTableViewController: UITableViewController {
         let userNib = UINib(nibName: "UserTableViewCell", bundle: nil)
         self.tableView.register(eventNib, forCellReuseIdentifier: "event")
         self.tableView.register(userNib, forCellReuseIdentifier: "user")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "参加する", style: .done, target: self, action: #selector(self.joinThisEvent))
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getData(event: self.event!, complition: { (result) in
                 if result == true {
@@ -34,6 +36,21 @@ class EventDetailTableViewController: UITableViewController {
                     self.navigationItem.prompt = "イベントのデータの読み込みに失敗しました。"
                 }
             })
+        }
+    }
+    
+    @objc private func joinThisEvent() {
+        let id = NSUUID().uuidString
+        let eventId = self.viewModel.getEvent().id
+        let uid = Auth.auth().currentUser?.uid
+        let createAt = NSDate()
+        let newJoin = Join(id: id, event_id: eventId, user_id: uid!, created_at: createAt)
+        JoinUtil().createNewJoin(join: newJoin) { (result) in
+            if result == true { // success
+                self.showAlert("成功")
+            } else {
+                self.showAlert("失敗")
+            }
         }
     }
 

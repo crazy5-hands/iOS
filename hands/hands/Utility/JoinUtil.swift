@@ -25,4 +25,15 @@ class JoinUtil {
         }
         return joinersId
     }
+    
+    func createNewJoin(join: Join, complition: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("joins").addDocument(data: join.dictionary) { (error) in
+            if error == nil {
+                complition(true)
+            }else {
+                complition(false)
+            }
+        }
+    }
 }

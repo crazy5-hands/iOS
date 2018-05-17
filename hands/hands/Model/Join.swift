@@ -19,7 +19,7 @@ struct Join {
             "id": self.id,
             "event_id": self.event_id,
             "user_id": self.user_id,
-            "create_at": self.created_at
+            "created_at": self.created_at
         ]
     }
     
