@@ -317,7 +317,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E6C4F5EB20AD307200F92358 /* UserDetail */,
+				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
 				E640F60B209ED66C00BC48C6 /* Utility */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
 				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
@@ -551,13 +551,13 @@
 			path = CustomClasses;
 			sourceTree = "<group>";
 		};
-		E6C4F5EB20AD307200F92358 /* UserDetail */ = {
+		E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E6C4F5EC20AD30DA00F92358 /* UserDetailTableViewController.swift */,
 				E6C4F5EE20AD311A00F92358 /* UserDetailTableViewModel.swift */,
 			);
-			path = UserDetail;
+			path = UserDetailTableViewController;
 			sourceTree = "<group>";
 		};
 		E6C4F5F020AD553600F92358 /* UserDetailTableViewCell */ = {
