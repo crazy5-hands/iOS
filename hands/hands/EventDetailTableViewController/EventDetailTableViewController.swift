@@ -25,32 +25,49 @@ class EventDetailTableViewController: UITableViewController {
         let userNib = UINib(nibName: "UserTableViewCell", bundle: nil)
         self.tableView.register(eventNib, forCellReuseIdentifier: "event")
         self.tableView.register(userNib, forCellReuseIdentifier: "user")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "参加する", style: .done, target: self, action: #selector(self.joinThisEvent))
+        self.loadData()
+    }
+    
+    @objc private func joinThisEvent() {
+        self.viewModel.createJoin { (result) in
+            if result == true {
+                self.navigationItem.prompt = "参加しました"
+                self.loadData()
+            }else {
+                self.showAlert("参加できません。")
+            }
+        }
+//        let id = NSUUID().uuidString
+//        let eventId = self.viewModel.getEvent().id
+//        let uid = Auth.auth().currentUser?.uid
+//        let createAt = NSDate()
+//        let newJoin = Join(id: id, event_id: eventId, user_id: uid!, created_at: createAt)
+//        JoinUtil().createNewJoin(join: newJoin) { (result) in
+//            if result == true { // success
+//                self.showAlert("成功")
+//            } else {
+//                self.showAlert("失敗")
+//            }
+//        }
+    }
+    
+    private func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getData(event: self.event!, complition: { (result) in
                 if result == true {
                     DispatchQueue.main.async {
+                        if self.viewModel.isAuthorMe() != true {
+                            if self.viewModel.isAlreadyJoin() != true  {
+                                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "参加する", style: .done, target: self, action: #selector(self.joinThisEvent))
+                            }
+                        }
+                        print(self.viewModel.getJoinsCount())
                         self.tableView.reloadData()
                     }
                 }else {
                     self.navigationItem.prompt = "イベントのデータの読み込みに失敗しました。"
                 }
             })
-        }
-    }
-    
-    @objc private func joinThisEvent() {
-        let id = NSUUID().uuidString
-        let eventId = self.viewModel.getEvent().id
-        let uid = Auth.auth().currentUser?.uid
-        let createAt = NSDate()
-        let newJoin = Join(id: id, event_id: eventId, user_id: uid!, created_at: createAt)
-        JoinUtil().createNewJoin(join: newJoin) { (result) in
-            if result == true { // success
-                self.showAlert("成功")
-            } else {
-                self.showAlert("失敗")
-            }
         }
     }
 

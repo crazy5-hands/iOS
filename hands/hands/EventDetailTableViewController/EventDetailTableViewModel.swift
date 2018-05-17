@@ -15,6 +15,7 @@ class EventDetailTableViewModel {
     private var joiners: [User] = []
     private var author: User?
     private let db = Firestore.firestore()
+    private let uid = Auth.auth().currentUser?.uid
     
     init() {
         self.event = Event(id: "", author_id: "", title: "", body: "", created_at: NSDate())
@@ -22,39 +23,38 @@ class EventDetailTableViewModel {
     }
     
     func getData(event: Event, complition: @escaping (Bool) -> Void){
-        let authorQueue = DispatchQueue(label: "/users/", attributes: .concurrent)
-        DispatchQueue.global(qos: .userInitiated).sync {
-            self.event = event
-            var joiners: [String] = []
-            
-            joiners = JoinUtil().getJoinerIdByEventId(eventId: event.id)
-            
-            for joinerId in joiners {
+        let group = DispatchGroup()
+        self.event = event
+        group.enter()
+        
+        JoinUtil().getJoinerIdByEventId(eventId: event.id, complication: { (joinerIds) in
+            for joinerId in joinerIds {
+                group.enter()
                 UserUtil().getUser(id: joinerId, completion: { (joiner) in
                     if let joiner = joiner {
                         self.joiners.append(joiner)
                     }
+                    group.leave()
                 })
             }
-            
-            if event.author_id != "" {
-                authorQueue.async(flags: .barrier) {
-                    UserUtil().getUser(id: event.author_id, completion: { (user) in
-                        if let user = user {
-                            self.author = user
-                        }
-                        DispatchQueue.main.async {
-                            complition(true)
-                        }
-                    })
-
-                }
-            }else {
-                DispatchQueue.main.async {
-                    complition(false)
-                }
+            group.leave()
+        })
+        
+        group.enter()
+        UserUtil().getUser(id: event.author_id, completion: { (user) in
+            if let user = user {
+                self.author = user
             }
-        }
+            group.leave()
+        })
+        
+        group.notify(queue: .main, execute: {
+            if self.author != nil {
+                complition(true)
+            }else {
+                complition(false)
+            }
+        })
     }
     
     func getEvent() -> Event {
@@ -71,5 +71,27 @@ class EventDetailTableViewModel {
     
     func getJoinsCount() -> Int {
         return self.joiners.count
+    }
+    
+    func isAuthorMe() -> Bool {
+        return self.event.author_id == self.uid
+    }
+    
+    func isAlreadyJoin() -> Bool {
+        return self.joiners.contains(where: { (joiner) -> Bool in
+            return joiner.id == self.uid!
+        })
+    }
+    
+    func createJoin(complition: @escaping (Bool) -> Void) {
+        let id = NSUUID().uuidString
+        let eventId = self.event.id
+        JoinUtil().createNewJoin(join: Join(id: id, event_id: eventId, user_id: self.uid!, created_at: NSDate()), complition: { (result) in
+                if result == true {
+                    complition(true)
+                }else {
+                    complition(false)
+            }
+        })
     }
 }
