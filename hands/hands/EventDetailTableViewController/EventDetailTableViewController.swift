@@ -123,4 +123,21 @@ class EventDetailTableViewController: UITableViewController {
             return UITableViewCell()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case kSectionAuthor:
+            let next = UserDetailTableViewController()
+            next.userId = self.viewModel.getEvent().author_id
+            if next.userId != nil {
+                self.navigationController?.pushViewController(next, animated: true)
+            }
+        case kSectionJoin:
+            let next = UserDetailTableViewController()
+            next.userId = self.viewModel.getJoinerById(number: indexPath.item).id
+            self.navigationController?.pushViewController(next, animated: true)
+        default:
+            break
+        }
+    }
 }
