@@ -20,14 +20,22 @@ class UserDetailTableVIewModel {
         UserUtil().getUser(id: id) { (user) in
             if let user = user {
                 self.user = user
+                let queue = DispatchQueue.global(qos: .userInitiated)
+                let group = DispatchGroup()
                 let util = FollowUtil()
+                group.enter()
                 util.getFollows(user_id: id, complition: { (follows) in
                     self.follows = follows
+                    group.leave()
                 })
+                group.enter()
                 util.getFollowers(follow_id: id, complition: { (followers) in
                     self.followers = followers
+                    group.leave()
                 })
-                complition(true)
+                group.notify(queue: .main, execute: {
+                    complition(true)
+                })
             }else {
                 complition(false)
             }

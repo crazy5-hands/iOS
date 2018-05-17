@@ -511,7 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				E6C4F5F520AD76B900F92358 /* FollowCountTableViewCell */,
-				E6C4F5F020AD553600F92358 /* UserDetail */,
+				E6C4F5F020AD553600F92358 /* UserDetailTableViewCell */,
 				E648E52320A87DEC0058DE85 /* EventDetailTableViewCell */,
 				E6ADAD3820945A7200310158 /* EventTableViewCell */,
 				E6ADAD4220960A0400310158 /* UserTableViewCell */,
@@ -560,13 +560,13 @@
 			path = UserDetail;
 			sourceTree = "<group>";
 		};
-		E6C4F5F020AD553600F92358 /* UserDetail */ = {
+		E6C4F5F020AD553600F92358 /* UserDetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				E6C4F5F120AD556500F92358 /* UserDetailTableViewCell.swift */,
 				E6C4F5F220AD556500F92358 /* UserDetailTableViewCell.xib */,
 			);
-			path = UserDetail;
+			path = UserDetailTableViewCell;
 			sourceTree = "<group>";
 		};
 		E6C4F5F520AD76B900F92358 /* FollowCountTableViewCell */ = {
