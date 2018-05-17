@@ -20,7 +20,6 @@ class UserDetailTableVIewModel {
         UserUtil().getUser(id: id) { (user) in
             if let user = user {
                 self.user = user
-                let queue = DispatchQueue.global(qos: .userInitiated)
                 let group = DispatchGroup()
                 let util = FollowUtil()
                 group.enter()

@@ -73,16 +73,49 @@ class UserDetailTableViewController: UITableViewController {
             return cell
         case kSectionFollow:
             let cell = tableView.dequeueReusableCell(withIdentifier: "follow")! as! FollowCountTableViewCell
-            cell.updateCell(title: "フォロー", count: self.viewModel.getFollowsCount())
+            let count = self.viewModel.getFollowsCount()
+            cell.updateCell(title: "フォロー", count: count)
+            if count == 0 {
+                cell.selectionStyle = .none
+            }
             return cell
         case kSectionFollower:
             let cell = tableView.dequeueReusableCell(withIdentifier: "follow") as! FollowCountTableViewCell
-            cell.updateCell(title: "フォロワー", count: self.viewModel.getFollowersCount())
+            let count = self.viewModel.getFollowersCount()
+            cell.updateCell(title: "フォロワー", count: count)
+            if count == 0 {
+                cell.selectionStyle = .none
+            }
             return cell
         default:
             let cell = UITableViewCell()
             cell.sizeThatFits(.zero)
             return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case kSectionFollow:
+            if self.viewModel.getFollowsCount() != 0 {
+                if let id = self.viewModel.getUser()?.id {
+                    let next = UserListTableViewController()
+                    next.id = id
+                    next.pattern = .follow
+                    self.navigationController?.pushViewController(next, animated: true)
+                }
+            }
+        case kSectionFollower:
+            if self.viewModel.getFollowersCount() != 0 {
+                if let id = self.viewModel.getUser()?.id {
+                    let next = UserListTableViewController()
+                    next.id = id
+                    next.pattern = .follower
+                    self.navigationController?.pushViewController(next, animated: true)
+                }
+            }
+        default:
+            break
         }
     }
     
