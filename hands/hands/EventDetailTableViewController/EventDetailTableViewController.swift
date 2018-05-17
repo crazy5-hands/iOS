@@ -37,18 +37,6 @@ class EventDetailTableViewController: UITableViewController {
                 self.showAlert("参加できません。")
             }
         }
-//        let id = NSUUID().uuidString
-//        let eventId = self.viewModel.getEvent().id
-//        let uid = Auth.auth().currentUser?.uid
-//        let createAt = NSDate()
-//        let newJoin = Join(id: id, event_id: eventId, user_id: uid!, created_at: createAt)
-//        JoinUtil().createNewJoin(join: newJoin) { (result) in
-//            if result == true { // success
-//                self.showAlert("成功")
-//            } else {
-//                self.showAlert("失敗")
-//            }
-//        }
     }
     
     private func loadData() {
