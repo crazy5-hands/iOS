@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ProfileViewModelDelegate, UICollectionViewDelegateFlowLayout {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private let kSectionUser = 0
     private let kSectionNote = 1
@@ -26,45 +26,47 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.register(userCell, forCellWithReuseIdentifier: "user")
         collectionView.register(labelCell, forCellWithReuseIdentifier: "note")
         collectionView.register(squareCell, forCellWithReuseIdentifier: "square")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if self.viewModel.user == nil {
-            self.viewModel.getUserData { (result) in
+        let  refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "更新中")
+        refresh.tintColor = UIColor(red: 0.0, green: 195.0, blue: 0.0, alpha: 1.0)
+        refresh.addTarget(self, action: #selector(self.reloadCollection), for: .valueChanged)
+        collectionView.addSubview(refresh)
+        self.collectionView.refreshControl = refresh
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.viewModel.getUserData(complition: { (result) in
                 if result == true {
-                    self.viewModel.getAdditionalData(callback: { (result) in
+                    self.viewModel.getAdditionalData { (result) in
                         if result == true {
                             print("success to get additional data")
-                        }else {
-                            print("false to get data")
+                            self.collectionView.reloadData()
                         }
+                    }
+                    DispatchQueue.main.async {
                         self.collectionView.reloadData()
-                    })
-                }else {
-                    self.errorToGetData()
+                    }
                 }
-            }
-        }else {
-            self.viewModel.getAdditionalData { (result) in
+            })
+        }
+    }
+    
+    @objc func reloadCollection() {
+        self.collectionView.refreshControl?.beginRefreshing()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.viewModel.getUserData(complition: { (result) in
                 if result == true {
-                    print("success to get additional data")
+                    self.viewModel.getAdditionalData { (result) in
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.refreshControl?.endRefreshing()
                     self.collectionView.reloadData()
                 }
-            }
+            })
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-    }
-    
-    func loadData() {
-        self.collectionView.reloadData()
-    }
-    
-    func errorToGetData() {
-        print("not load collectionview")
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -93,7 +95,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         switch indexPath.section {
         case kSectionUser:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath) as! UserCollectionViewCell
-            cell.usernameLabel.text = self.viewModel.user?.username
+            cell.usernameLabel.text = self.viewModel.getUsername()
             if let image = self.viewModel.profilePhoto {
                 cell.photoImageView.image = image
             }
@@ -101,7 +103,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             
         case kSectionNote:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "note", for: indexPath) as! LabelCollectionViewCell
-            cell.textLabel.text = self.viewModel.user?.note
+            cell.textLabel.text = self.viewModel.getNote()
             return cell
         case kSectionOthers:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "square", for: indexPath) as! SquareCollectionViewCell

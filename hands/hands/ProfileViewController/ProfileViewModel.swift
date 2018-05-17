@@ -9,14 +9,9 @@
 import Foundation
 import Firebase
 
-protocol ProfileViewModelDelegate {
-    func loadData()
-    func errorToGetData()
-}
-
 class ProfileViewModel {
     
-    var user: User? = nil
+    private var user: User? = nil
     var owns: [String] = []
     var joins: [String] = []
     var follows: [String] = []
@@ -24,39 +19,35 @@ class ProfileViewModel {
     var profilePhoto: UIImage? = nil
     private let db = Firestore.firestore()
     private let storage = Storage.storage()
-    private var docRef: DocumentReference?
     private var eventRef: CollectionReference?
     private var followRef: CollectionReference?
     private var joinRef: CollectionReference?
     private var uid: String?
-    var delegate: ProfileViewModelDelegate?
     
     init() {
         self.uid = (Auth.auth().currentUser?.uid)!
-        self.docRef = db.collection("users").document(uid!)
         self.eventRef = db.collection("events")
         self.followRef = db.collection("follows")
         self.joinRef = db.collection("joins")
     }
     
-    /// gettUserData expected to use when this viewmodel
-    /// is initalize, or any chnage in userdata.
-    ///
-    /// - Parameter callback: Bool
-    func getUserData(callback:@escaping (Bool) -> Void) {
-        self.docRef?.getDocument(completion: { (document, error) in
-            if document != nil {
-                self.user = User(dictionary: (document?.data())!)!
-//                self.photoRef = self.storageRef?.child((self.user?.photo)!)
-                if self.user?.photo != "" {
-                    self.profilePhoto = PhotoUtil().getPhoto(path: (self.user?.photo)!)
-                }
-                callback(true)
+    func getUserData(complition:@escaping (Bool) -> Void) {
+        UserUtil().getUser(id: self.uid!) { (user) in
+            if let user = user {
+                self.user = user
+                complition(true)
             }else {
-                print(error?.localizedDescription ?? "error")
-                callback(false)
+                complition(false)
             }
-        })
+        }
+    }
+    
+    func getUsername() -> String? {
+        return self.user?.username
+    }
+    
+    func getNote() -> String? {
+        return self.user?.note
     }
     
     func getAdditionalData(callback: (Bool) -> Void) {
