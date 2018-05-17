@@ -16,14 +16,14 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var noteTextView: DoneButtonTextView!
     @IBOutlet private weak var submitButton: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     fileprivate var activeTextField: UITextField?
     fileprivate var activeTextView: UITextView?
-    
-    
     fileprivate var viewModel: EditUserInfoViewModel!
     private let db = Firestore.firestore()
     private let photoSize = CGSize(width: 100, height: 100)
     private var photoURL: URL?
+    var isFromProfile: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,9 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+        if self.isFromProfile == false {
+            self.cancelButton.isEnabled = false
+        }
         DispatchQueue.global().async {
             self.viewModel = EditUserInfoViewModel(complition: { (result) in
                 if result == true {
@@ -58,7 +61,12 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
     @IBAction func submit(_ sender: Any) {
         self.viewModel.updateData(username: self.displayNameTextField.text!, note: self.noteTextView.text!, photo: self.imageView.image, imageURL: photoURL, handler: { result in
             if result == true {
-                self.dismiss(animated: true, completion: nil)
+                if self.isFromProfile == true {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    let next = MainTabBarController()
+                    self.show(next, sender: nil)
+                }
             }else {
                 self.showAlert("更新失敗")
             }
