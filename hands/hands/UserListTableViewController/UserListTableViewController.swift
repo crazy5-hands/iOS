@@ -68,4 +68,10 @@ class UserListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(60.0)
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let next = UserDetailTableViewController()
+        next.userId = self.viewModel.getUserByNunber(number: indexPath.item).id
+        self.navigationController?.pushViewController(next, animated: true)
+    }
 }

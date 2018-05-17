@@ -18,6 +18,12 @@ class UserDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.estimatedRowHeight = 140
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        let userNib = UINib(nibName: "UserDetailTableViewCell", bundle: nil)
+        let followNib = UINib(nibName: "FollowCountTableViewCell", bundle: nil)
+        self.tableView.register(followNib, forCellReuseIdentifier: "follow")
+        self.tableView.register(userNib, forCellReuseIdentifier: "user")
         DispatchQueue.global(qos: .userInitiated).async {
             if let id = self.userId {
                 self.viewModel.getData(id: id, complition: { (result) in
@@ -65,10 +71,12 @@ class UserDetailTableViewController: UITableViewController {
             }
             return cell
         case kSectionFollow:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "follow")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "follow")! as! FollowCountTableViewCell
+            cell.updateCell(title: "フォロー", count: self.viewModel.getFollowsCount())
             return cell
         case kSectionFollower:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "follower")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "follow") as! FollowCountTableViewCell
+            cell.updateCell(title: "フォロワー", count: self.viewModel.getFollowersCount())
             return cell
         default:
             let cell = UITableViewCell()
