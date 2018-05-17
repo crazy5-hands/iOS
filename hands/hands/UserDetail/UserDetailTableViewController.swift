@@ -69,6 +69,7 @@ class UserDetailTableViewController: UITableViewController {
             if let user = self.viewModel.getUser() {
                 cell.updateCell(user: user)
             }
+            cell.selectionStyle = .none
             return cell
         case kSectionFollow:
             let cell = tableView.dequeueReusableCell(withIdentifier: "follow")! as! FollowCountTableViewCell

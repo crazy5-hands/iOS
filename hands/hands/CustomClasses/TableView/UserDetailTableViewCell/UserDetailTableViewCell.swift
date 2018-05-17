@@ -15,6 +15,7 @@ class UserDetailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.usernameLabel.adjustsFontSizeToFitWidth = true
         // Initialization code
     }
 
