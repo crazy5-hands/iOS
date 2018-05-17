@@ -39,7 +39,7 @@ class UserListTableViewController: UITableViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getUserData(id: self.id, pattern: self.pattern, complition: { (result) in
                 if result == true {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
                         self.tableView.reloadData()
                     })
                 }else {
