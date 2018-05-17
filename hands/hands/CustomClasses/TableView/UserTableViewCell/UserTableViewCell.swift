@@ -26,21 +26,19 @@ class UserTableViewCell: UITableViewCell {
     }
     
     func updateCell(user: User) {
-        let semaphore = DispatchSemaphore.init(value: 0)
         self.nameLabel.text = user.username
         if self.id == user.id {
             self.folllowButton.setTitle("自分", for: .disabled)
-            semaphore.signal()
         }else  {
-            let follows = FollowUtil().getFollows(user_id: self.id!)
-            for follow in follows {
-                if follow.follow_id == user.id {
-                    self.folllowButton.setTitle("フォロー中", for: .normal)
-                    break
+            FollowUtil().getFollows(user_id: self.id!) { (follows) in
+                for follow in follows {
+                    if follow.follow_id == user.id {
+                        self.folllowButton.setTitle("フォロー中", for: .normal)
+                        break
+                    }
                 }
+                
             }
-            semaphore.signal()
         }
-        semaphore.wait()
     } // end updatecell
 }

@@ -75,6 +75,12 @@
 		E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */; };
 		E6C4F5E720ABEF5700F92358 /* icon-userPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F5E620ABEF5600F92358 /* icon-userPhoto.png */; };
 		E6C4F5E920AC9F8900F92358 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5E820AC9F8900F92358 /* MaterialButton.swift */; };
+		E6C4F5ED20AD30DA00F92358 /* UserDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5EC20AD30DA00F92358 /* UserDetailTableViewController.swift */; };
+		E6C4F5EF20AD311A00F92358 /* UserDetailTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5EE20AD311A00F92358 /* UserDetailTableViewModel.swift */; };
+		E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5F120AD556500F92358 /* UserDetailTableViewCell.swift */; };
+		E6C4F5F420AD556500F92358 /* UserDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F5F220AD556500F92358 /* UserDetailTableViewCell.xib */; };
+		E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5F620AD76F000F92358 /* FollowCountTableViewCell.swift */; };
+		E6C4F5F920AD76F000F92358 /* FollowCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
@@ -179,6 +185,12 @@
 		E6C3F0CF2091777300D8BF05 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E6C4F5E620ABEF5600F92358 /* icon-userPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-userPhoto.png"; sourceTree = "<group>"; };
 		E6C4F5E820AC9F8900F92358 /* MaterialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		E6C4F5EC20AD30DA00F92358 /* UserDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewController.swift; sourceTree = "<group>"; };
+		E6C4F5EE20AD311A00F92358 /* UserDetailTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewModel.swift; sourceTree = "<group>"; };
+		E6C4F5F120AD556500F92358 /* UserDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E6C4F5F220AD556500F92358 /* UserDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailTableViewCell.xib; sourceTree = "<group>"; };
+		E6C4F5F620AD76F000F92358 /* FollowCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCountTableViewCell.swift; sourceTree = "<group>"; };
+		E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowCountTableViewCell.xib; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +317,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6C4F5EB20AD307200F92358 /* UserDetail */,
 				E640F60B209ED66C00BC48C6 /* Utility */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
 				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
@@ -497,6 +510,8 @@
 		E6ADAD54209ACC3100310158 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				E6C4F5F520AD76B900F92358 /* FollowCountTableViewCell */,
+				E6C4F5F020AD553600F92358 /* UserDetailTableViewCell */,
 				E648E52320A87DEC0058DE85 /* EventDetailTableViewCell */,
 				E6ADAD3820945A7200310158 /* EventTableViewCell */,
 				E6ADAD4220960A0400310158 /* UserTableViewCell */,
@@ -534,6 +549,33 @@
 				E6C4F5E820AC9F8900F92358 /* MaterialButton.swift */,
 			);
 			path = CustomClasses;
+			sourceTree = "<group>";
+		};
+		E6C4F5EB20AD307200F92358 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E6C4F5EC20AD30DA00F92358 /* UserDetailTableViewController.swift */,
+				E6C4F5EE20AD311A00F92358 /* UserDetailTableViewModel.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		E6C4F5F020AD553600F92358 /* UserDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6C4F5F120AD556500F92358 /* UserDetailTableViewCell.swift */,
+				E6C4F5F220AD556500F92358 /* UserDetailTableViewCell.xib */,
+			);
+			path = UserDetailTableViewCell;
+			sourceTree = "<group>";
+		};
+		E6C4F5F520AD76B900F92358 /* FollowCountTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6C4F5F620AD76F000F92358 /* FollowCountTableViewCell.swift */,
+				E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */,
+			);
+			path = FollowCountTableViewCell;
 			sourceTree = "<group>";
 		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
@@ -679,9 +721,11 @@
 				E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */,
 				E6C4F5E720ABEF5700F92358 /* icon-userPhoto.png in Resources */,
 				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
+				E6C4F5F420AD556500F92358 /* UserDetailTableViewCell.xib in Resources */,
 				E648E52720A87E230058DE85 /* EventDetailTableViewCell.xib in Resources */,
 				E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */,
 				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
+				E6C4F5F920AD76F000F92358 /* FollowCountTableViewCell.xib in Resources */,
 				E6ADAD59209ACCE200310158 /* SquareCollectionViewCell.xib in Resources */,
 				E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
@@ -866,6 +910,7 @@
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
+				E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
@@ -876,8 +921,10 @@
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
+				E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */,
 				E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */,
 				E640F60A209C82E900BC48C6 /* NewEventViewModel.swift in Sources */,
+				E6C4F5ED20AD30DA00F92358 /* UserDetailTableViewController.swift in Sources */,
 				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
 				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
@@ -888,6 +935,7 @@
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
 				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
+				E6C4F5EF20AD311A00F92358 /* UserDetailTableViewModel.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,

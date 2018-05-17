@@ -57,12 +57,12 @@ class EventListTableViewModel {
             }
         case .ownAndfollow:
             events = EventUtil().getOwnEvent(id: id)
-            var follows: [Follow] = []
-            follows = FollowUtil().getFollows(user_id: id)
-            for follow in follows {
-                let fEvents = EventUtil().getOwnEvent(id: follow.follow_id)
-                events = events + fEvents
-                complition(true)
+            FollowUtil().getFollows(user_id: id) { (follows) in
+                for follow in follows {
+                    let fEvents = EventUtil().getOwnEvent(id: follow.follow_id)
+                    events = events + fEvents
+                    complition(true)
+                }
             }
         }
     }

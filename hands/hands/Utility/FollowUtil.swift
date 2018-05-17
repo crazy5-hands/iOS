@@ -11,7 +11,7 @@ import Firebase
 
 class FollowUtil {
     
-    func getFollowers(follow_id: String) -> [Follow] {
+    func getFollowers(follow_id: String, complition: @escaping ([Follow]) -> Void) {
         var followers: [Follow] = []
         let db = Firestore.firestore().collection("follows")
         db.whereField("follow_id", isEqualTo: follow_id).getDocuments { (snapshot, error) in
@@ -19,14 +19,12 @@ class FollowUtil {
                 for document in snapshot.documents {
                     followers.append(Follow(dictionary: document.data())!)
                 }
-            }else {
-                print(error!.localizedDescription)
             }
+            complition(followers)
         }
-        return followers
     }
     
-    func getFollows(user_id: String) -> [Follow] {
+    func getFollows(user_id: String, complition: @escaping ([Follow]) -> Void) {
         var follows: [Follow] = []
         let db = Firestore.firestore().collection("follows")
         db.whereField("user_id", isEqualTo: user_id).getDocuments { (snapshot, error) in
@@ -34,10 +32,8 @@ class FollowUtil {
                 for document in snapshot.documents {
                     follows.append(Follow(dictionary: document.data())!)
                 }
-            }else{
-                print(error!.localizedDescription)
             }
+            complition(follows)
         }
-        return follows
     }
 }

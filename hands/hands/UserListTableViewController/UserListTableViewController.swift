@@ -39,7 +39,7 @@ class UserListTableViewController: UITableViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getUserData(id: self.id, pattern: self.pattern, complition: { (result) in
                 if result == true {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
                         self.tableView.reloadData()
                     })
                 }else {
@@ -67,5 +67,11 @@ class UserListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(60.0)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let next = UserDetailTableViewController()
+        next.userId = self.viewModel.getUserByNunber(number: indexPath.item).id
+        self.navigationController?.pushViewController(next, animated: true)
     }
 }
