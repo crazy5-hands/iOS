@@ -49,7 +49,8 @@ class MainTabBarController: UITabBarController {
     }
     
     func openEditUserInfo(){
-        let next = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
-        self.present(next!, animated: true, completion: nil)
+        let next = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController() as! EditUserInfoViewController
+        next.isFromProfile = true
+        self.present(next, animated: true, completion: nil)
     }
 }

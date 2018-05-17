@@ -99,6 +99,7 @@
                         <viewLayoutGuide key="safeArea" id="C5a-ef-LZe"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="jmF-fJ-QTc" id="gAt-hf-WLh"/>
                         <outlet property="displayNameTextField" destination="q3C-AN-seh" id="cGC-wb-tMJ"/>
                         <outlet property="imageView" destination="8uD-rT-bpr" id="7pB-03-tev"/>
                         <outlet property="navigationBar" destination="KUl-xT-QC3" id="2Wu-vD-HE4"/>
