@@ -18,23 +18,47 @@ class EventListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = EventListTableViewModel()
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.viewModel.getEvents(id: self.id, dataPattern: self.pattern, complition: { (result) in
-                if result == true {
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                }else {
-                    self.navigationItem.prompt = "データの取得ができませんでした。"
-                }
-            })
-        }
         self.tableView.estimatedRowHeight = 140
         self.tableView.rowHeight = UITableViewAutomaticDimension
         let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "event")
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        let refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "読み込み中")
+        refresh.tintColor = .gray
+        refresh.addTarget(self, action: #selector(self.refreshData), for: .valueChanged)
+        self.tableView.addSubview(refresh)
+        self.refreshControl = refresh
+        self.loadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.refreshControl?.endRefreshing()
+    }
+    
+    @objc private func refreshData() {
+        self.refreshControl?.beginRefreshing()
+        self.loadData()
+    }
+    
+    private func loadData() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.viewModel.getEvents(id: self.id, dataPattern: self.pattern, complition: { (result) in
+                if result == true {
+                    DispatchQueue.main.async {
+                        self.refreshControl?.endRefreshing()
+                        self.tableView.reloadData()
+                    }
+                }else {
+                    DispatchQueue.main.async {
+                        self.refreshControl?.endRefreshing()
+                        self.navigationItem.prompt = "データの取得ができませんでした。"
+                    }
+                }
+            })
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
