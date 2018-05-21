@@ -81,6 +81,8 @@
 		E6C4F5F420AD556500F92358 /* UserDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F5F220AD556500F92358 /* UserDetailTableViewCell.xib */; };
 		E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5F620AD76F000F92358 /* FollowCountTableViewCell.swift */; };
 		E6C4F5F920AD76F000F92358 /* FollowCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */; };
+		E6C4F5FB20B2B0B800F92358 /* CostUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5FA20B2B0B800F92358 /* CostUtil.swift */; };
+		E6C4F5FD20B2B1C900F92358 /* Cost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5FC20B2B1C900F92358 /* Cost.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
@@ -191,6 +193,8 @@
 		E6C4F5F220AD556500F92358 /* UserDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailTableViewCell.xib; sourceTree = "<group>"; };
 		E6C4F5F620AD76F000F92358 /* FollowCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowCountTableViewCell.swift; sourceTree = "<group>"; };
 		E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowCountTableViewCell.xib; sourceTree = "<group>"; };
+		E6C4F5FA20B2B0B800F92358 /* CostUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostUtil.swift; sourceTree = "<group>"; };
+		E6C4F5FC20B2B1C900F92358 /* Cost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cost.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 				E640F65520A0BF5300BC48C6 /* FollowUtil.swift */,
 				E640F65720A188EB00BC48C6 /* EventUtil.swift */,
 				E648E52820A88E610058DE85 /* JoinUtil.swift */,
+				E6C4F5FA20B2B0B800F92358 /* CostUtil.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				E6674E0E207F0C510031B4A0 /* StorageModel.swift */,
 				E6ADAD5A209AFA9C00310158 /* Follow.swift */,
 				E640F603209B4F5200BC48C6 /* Join.swift */,
+				E6C4F5FC20B2B1C900F92358 /* Cost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -899,11 +905,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C4F5FB20B2B0B800F92358 /* CostUtil.swift in Sources */,
 				E6C4F5E920AC9F8900F92358 /* MaterialButton.swift in Sources */,
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */,
 				E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */,
+				E6C4F5FD20B2B1C900F92358 /* Cost.swift in Sources */,
 				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */,
