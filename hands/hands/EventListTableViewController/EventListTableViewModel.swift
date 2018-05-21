@@ -21,11 +21,13 @@ class EventListTableViewModel {
     private var events: [Event] = []
     
     func getEvents(id: String, dataPattern: EventDataPattern, complition: @escaping (Bool) -> Void) {
-        var events: [Event] = []
+        var newEvents: [Event] = []
         let db = Firestore.firestore()
         switch dataPattern {
         case .own:
-            events = EventUtil().getOwnEvent(id: id)
+            newEvents = EventUtil().getOwnEvent(id: id)
+            self.events = newEvents
+            complition(true)
         case .join:
             var joins: [Join] = []
             db.collection("joins").whereField("user_id", isEqualTo: id).getDocuments { (snapshot, error) in
@@ -35,9 +37,10 @@ class EventListTableViewModel {
                     }
                     for join in joins {
                         if let event = EventUtil().getEventById(id: join.event_id){
-                            events.append(event)
+                            newEvents.append(event)
                         }
                     }
+                    self.events = newEvents
                     complition(true)
                 }else {
                     complition(false)
@@ -47,8 +50,10 @@ class EventListTableViewModel {
             db.collection("events").getDocuments { (snapshot, error) in
                 if let snapshot = snapshot {
                     for document in snapshot.documents {
-                        self.events.append(Event(dictionary: document.data())!)
+                        newEvents.append(Event(dictionary: document.data())!)
                     }
+                    newEvents.sort(by: {$0.created_at.timeIntervalSinceNow > $1.created_at.timeIntervalSinceNow})
+                    self.events = newEvents
                     complition(true)
                 }else {
                     print(error!.localizedDescription)
@@ -56,12 +61,17 @@ class EventListTableViewModel {
                 }
             }
         case .ownAndfollow:
-            events = EventUtil().getOwnEvent(id: id)
+            newEvents = EventUtil().getOwnEvent(id: id)
             FollowUtil().getFollows(user_id: id) { (follows) in
-                for follow in follows {
-                    let fEvents = EventUtil().getOwnEvent(id: follow.follow_id)
-                    events = events + fEvents
+                if follows.isEmpty != true {
+                    for follow in follows {
+                        let fEvents = EventUtil().getOwnEvent(id: follow.follow_id)
+                        newEvents = newEvents + fEvents
+                    }
+                    self.events = newEvents
                     complition(true)
+                } else {
+                    complition(false)
                 }
             }
         }
