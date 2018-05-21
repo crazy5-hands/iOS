@@ -13,10 +13,13 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
 
     @IBOutlet weak var titleTextField: DoneButtonTextField!
     @IBOutlet weak var bodyTextView: DoneButtonTextView!
+    @IBOutlet weak var costLabel: UILabel!
     private var viewModel: NewEventViewModel?
     fileprivate var activeTextField: UITextField?
     fileprivate var activeTextView: UITextView?
     private var indicator: UIActivityIndicatorView!
+    private let eventID = UUID().uuidString
+    private let notificationCenter = NotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +36,13 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+        self.notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
+        self.notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.notificationCenter.removeObserver(self)
     }
     
     @IBAction private func submit(_ sender: Any) {
@@ -53,7 +60,7 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
                 UIApplication.shared.endIgnoringInteractionEvents()
                 self.showAlert("メッセージ内容がありません")
             } else {
-                self.viewModel?.createNewEvent(title: self.titleTextField.text!, body: self.bodyTextView.text!, callback: { (result) in
+                self.viewModel?.createNewEvent(id: self.eventID, title: self.titleTextField.text!, body: self.bodyTextView.text!, callback: { (result) in
                     self.indicator.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents()
                     sleep(1)
@@ -70,6 +77,14 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func addCost(_ sender: Any) {
+        let editCostViewController = UIStoryboard(name: "EditCostViewController", bundle: nil).instantiateInitialViewController() as! EditCostViewController
+        editCostViewController.eventId = self.eventID
+        editCostViewController.isCreate = true
+        self.present(editCostViewController, animated: true, completion: nil)
+    }
+    
     
     @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
         let userInfo = notification.userInfo //この中にキーボードの情報がある
