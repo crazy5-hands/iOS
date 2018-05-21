@@ -38,4 +38,7 @@ struct Cost {
         self.event_id = event_id
         self.cost = cost
     }
+    init() {
+        self.init(id: "", created_at: NSDate(), event_id: "", cost: 0)
+    }
 }

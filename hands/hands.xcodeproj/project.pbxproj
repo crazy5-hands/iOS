@@ -45,6 +45,9 @@
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
+		E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */; };
+		E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */; };
+		E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325720B3064E00CDD5B9 /* cardView.swift */; };
 		E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1320919C7F00310158 /* ProfileViewController.swift */; };
 		E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */; };
 		E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD182091A46800310158 /* ListViewController.storyboard */; };
@@ -83,6 +86,9 @@
 		E6C4F5F920AD76F000F92358 /* FollowCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */; };
 		E6C4F5FB20B2B0B800F92358 /* CostUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5FA20B2B0B800F92358 /* CostUtil.swift */; };
 		E6C4F5FD20B2B1C900F92358 /* Cost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5FC20B2B1C900F92358 /* Cost.swift */; };
+		E6C4F60020B2BB3100F92358 /* EditCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5FF20B2BB3100F92358 /* EditCostViewController.swift */; };
+		E6C4F60220B2BB7D00F92358 /* EditCostViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F60120B2BB7D00F92358 /* EditCostViewController.storyboard */; };
+		E6C4F60420B2DF7800F92358 /* EditCostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F60320B2DF7800F92358 /* EditCostViewModel.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
@@ -157,6 +163,9 @@
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
+		E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostTableViewCell.xib; sourceTree = "<group>"; };
+		E6A7325720B3064E00CDD5B9 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		E6ADAD1320919C7F00310158 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD182091A46800310158 /* ListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListViewController.storyboard; sourceTree = "<group>"; };
@@ -195,6 +204,9 @@
 		E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowCountTableViewCell.xib; sourceTree = "<group>"; };
 		E6C4F5FA20B2B0B800F92358 /* CostUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostUtil.swift; sourceTree = "<group>"; };
 		E6C4F5FC20B2B1C900F92358 /* Cost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cost.swift; sourceTree = "<group>"; };
+		E6C4F5FF20B2BB3100F92358 /* EditCostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCostViewController.swift; sourceTree = "<group>"; };
+		E6C4F60120B2BB7D00F92358 /* EditCostViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditCostViewController.storyboard; sourceTree = "<group>"; };
+		E6C4F60320B2DF7800F92358 /* EditCostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCostViewModel.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +334,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
 				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
 				E640F60B209ED66C00BC48C6 /* Utility */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
@@ -401,6 +414,15 @@
 				E6C4F5FC20B2B1C900F92358 /* Cost.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */,
+				E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */,
+			);
+			path = CostTableViewCell;
 			sourceTree = "<group>";
 		};
 		E6ADAD112091999600310158 /* MainTabBarController */ = {
@@ -516,6 +538,7 @@
 		E6ADAD54209ACC3100310158 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */,
 				E6C4F5F520AD76B900F92358 /* FollowCountTableViewCell */,
 				E6C4F5F020AD553600F92358 /* UserDetailTableViewCell */,
 				E648E52320A87DEC0058DE85 /* EventDetailTableViewCell */,
@@ -553,6 +576,7 @@
 				E6ADAD352094522F00310158 /* DoneButtonTextView.swift */,
 				E640F607209C438500BC48C6 /* DateUtils.swift */,
 				E6C4F5E820AC9F8900F92358 /* MaterialButton.swift */,
+				E6A7325720B3064E00CDD5B9 /* cardView.swift */,
 			);
 			path = CustomClasses;
 			sourceTree = "<group>";
@@ -582,6 +606,16 @@
 				E6C4F5F720AD76F000F92358 /* FollowCountTableViewCell.xib */,
 			);
 			path = FollowCountTableViewCell;
+			sourceTree = "<group>";
+		};
+		E6C4F5FE20B2BA0100F92358 /* EditCostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6C4F5FF20B2BB3100F92358 /* EditCostViewController.swift */,
+				E6C4F60320B2DF7800F92358 /* EditCostViewModel.swift */,
+				E6C4F60120B2BB7D00F92358 /* EditCostViewController.storyboard */,
+			);
+			path = EditCostViewController;
 			sourceTree = "<group>";
 		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
@@ -731,6 +765,7 @@
 				E648E52720A87E230058DE85 /* EventDetailTableViewCell.xib in Resources */,
 				E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */,
 				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
+				E6C4F60220B2BB7D00F92358 /* EditCostViewController.storyboard in Resources */,
 				E6C4F5F920AD76F000F92358 /* FollowCountTableViewCell.xib in Resources */,
 				E6ADAD59209ACCE200310158 /* SquareCollectionViewCell.xib in Resources */,
 				E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */,
@@ -740,6 +775,7 @@
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
+				E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */,
 				E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 				E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */,
@@ -923,9 +959,11 @@
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */,
+				E6C4F60420B2DF7800F92358 /* EditCostViewModel.swift in Sources */,
 				E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
 				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
+				E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */,
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
@@ -940,12 +978,14 @@
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
+				E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
 				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E6C4F5EF20AD311A00F92358 /* UserDetailTableViewModel.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
+				E6C4F60020B2BB3100F92358 /* EditCostViewController.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
