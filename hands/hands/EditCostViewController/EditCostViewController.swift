@@ -34,9 +34,21 @@ class EditCostViewController: UIViewController, UITextFieldDelegate {
             if let text = self.numberTextField.text {
                 let cost = Int(text)!
                 if isCreate == true {
-                    self.viewModel?.create(cost: cost)
+                    self.viewModel?.create(cost: cost, complition: { (result) in
+                        if result == true {
+                            self.dismiss(animated: true, completion: nil)
+                        }else {
+                            self.showAlert("データを作成できませんでした")
+                        }
+                    })
                 } else {
-                    self.viewModel?.update(cost: cost)
+                    self.viewModel?.update(cost: cost, complition: { (result) in
+                        if result == true {
+                            self.dismiss(animated: true, completion: nil)
+                        } else {
+                            self.showAlert("データの更新に失敗しました。")
+                        }
+                    })
                 }
             } else {
                 self.showAlert("数字を入力してください")
