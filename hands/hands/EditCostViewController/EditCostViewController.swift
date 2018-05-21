@@ -14,6 +14,8 @@ class EditCostViewController: UIViewController, UITextFieldDelegate {
     var eventId: String? = nil
     var isCreate: Bool = true
     private var viewModel: EditCostViewModel?
+    private var activeTextField: UITextField? = nil
+    private let notificationCenter = NotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,17 @@ class EditCostViewController: UIViewController, UITextFieldDelegate {
         }
         self.numberTextField.delegate = self
         self.numberTextField.keyboardType = .numberPad
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
+        self.notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.notificationCenter.removeObserver(self)
     }
     
     @IBAction func dismiss(_ sender: Any) {
@@ -58,9 +71,42 @@ class EditCostViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
+        let userInfo = notification.userInfo //この中にキーボードの情報がある
+        let keyboardSize = (userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardY = self.view.frame.size.height - keyboardSize.height //画面全体の高さ - キーボードの高さ = キーボードが被らない高さ
+        
+        var editingY: CGFloat {
+            return (self.activeTextField?.frame.origin.y)!
+        }
+        if editingY > keyboardY - 60 {
+            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
+                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingY - (keyboardY - 60)), width: self.view.bounds.width, height: self.view.bounds.height)
+            }, completion: nil)
+            
+        }
+    }
+    
+    @objc private func handleKeyboardWillHideNotification(_ notification: Notification) {
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        }, completion: nil)
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
         return string.rangeOfCharacter(from: invalidCharacters, options: [], range:  string.startIndex ..< string.endIndex) == nil
+    }
+    
+    //textfield
+    internal func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.activeTextField = textField
+        return true
+    }
+    
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.activeTextField = nil
+        textField.resignFirstResponder()
+        return true
     }
 }
