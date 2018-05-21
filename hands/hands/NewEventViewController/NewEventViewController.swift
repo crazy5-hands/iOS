@@ -16,14 +16,19 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     private var viewModel: NewEventViewModel?
     fileprivate var activeTextField: UITextField?
     fileprivate var activeTextView: UITextView?
+    private var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel = NewEventViewModel()
         self.titleTextField.delegate = self
         self.bodyTextView.delegate = self
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.close))
-
+        self.indicator = UIActivityIndicatorView()
+        self.indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.indicator.center = self.view.center
+        self.indicator.hidesWhenStopped = true
+        self.indicator.activityIndicatorViewStyle = .gray
+        self.view.addSubview(self.indicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,16 +39,35 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     @IBAction private func submit(_ sender: Any) {
-        self.viewModel?.createNewEvent(title: self.titleTextField.text!, body: self.bodyTextView.text!, callback: { (result) in
-            if result == true {
-                self.dismiss(animated: true, completion: nil)
-            }else {
-                self.showAlert("新しいイベントの作成に失敗しました")
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        self.indicator.startAnimating()
+        sleep(1)
+        if self.titleTextField.text == nil || self.titleTextField.text?.isEmpty == true {
+            self.indicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.showAlert("タイトルがありません")
+        } else {
+            if self.bodyTextView.text == "" {
+                self.indicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.showAlert("メッセージ内容がありません")
+            } else {
+                self.viewModel?.createNewEvent(title: self.titleTextField.text!, body: self.bodyTextView.text!, callback: { (result) in
+                    self.indicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    sleep(1)
+                    if result == true {
+                        self.dismiss(animated: true, completion: nil)
+                    }else {
+                        self.showAlert("新しいイベントの作成に失敗しました")
+                    }
+                })
             }
-        })
+        }
     }
     
-    func close() {
+    @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
