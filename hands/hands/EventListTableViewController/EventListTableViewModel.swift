@@ -47,8 +47,10 @@ class EventListTableViewModel {
             db.collection("events").getDocuments { (snapshot, error) in
                 if let snapshot = snapshot {
                     for document in snapshot.documents {
-                        self.events.append(Event(dictionary: document.data())!)
+                        events.append(Event(dictionary: document.data())!)
                     }
+                    events.sort(by: {$0.created_at.timeIntervalSinceNow > $1.created_at.timeIntervalSinceNow})
+                    self.events = events
                     complition(true)
                 }else {
                     print(error!.localizedDescription)
