@@ -76,6 +76,7 @@ class ProfileTableViewController: UITableViewController {
         switch indexPath.section {
         case kSectionUserDetail:
             let cell = tableView.dequeueReusableCell(withIdentifier: "userDetail") as! UserDetailTableViewCell
+            cell.selectionStyle = .none
             if let user = self.viewModel.getUser() {
                 cell.updateCell(user: user)
             }
@@ -98,6 +99,7 @@ class ProfileTableViewController: UITableViewController {
             return cell
         case kSectionCost:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostTableViewCell
+            cell.selectionStyle = .none
             cell.update(cost: self.viewModel.getCost())
             return cell
         default:
@@ -106,5 +108,25 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case kSectionOwn:
+            let next = EventListTableViewController()
+            next.eventIds = self.viewModel.getOwnEventIds()
+            self.navigationController?.pushViewController(next, animated: true)
+        case kSectionJoin:
+            let next = EventListTableViewController()
+            next.eventIds = self.viewModel.getJoinEventIds()
+            self.navigationController?.pushViewController(next, animated: true)
+        case kSectionFollow:
+            let next = FollowListTableViewController()
+            next.userId = self.viewModel.getUser()?.id
+            self.navigationController?.pushViewController(next, animated: true)
+        case kSectionFollower:
+            let next = FollowerListTableViewController()
+            next.userId = self.viewModel.getUser()?.id
+            self.navigationController?.pushViewController(next, animated: true)
+        default:
+            break
+        }
     }
 }

@@ -43,4 +43,30 @@ class EventUtil {
         }
         return event
     }
-}
+    
+    func getEventByEventId(eventId: String, complition: @escaping (Event?) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("events").whereField("id", isEqualTo: eventId).getDocuments { (snapshot, error) in
+            var event: Event? = nil
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    event = Event(dictionary: document.data())!
+                }
+            }
+            complition(event)
+        }
+    }
+    
+    func getEventsAll(complition: @escaping ([Event]) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("events").getDocuments { (snapshot, error) in
+            var events: [Event] = []
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    events.append(Event(dictionary: document.data())!)
+                }
+            }
+            complition(events)
+        }
+    }
+ }

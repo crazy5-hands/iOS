@@ -11,52 +11,47 @@ import Firebase
 
 class UserListTableViewController: UITableViewController {
 
-    var pattern: UserListDataPattern = .all
-    var id: String = (Auth.auth().currentUser?.uid)!
-    private var viewModel = UserListTableViewModel()
+    var viewModel = UserListTableViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "UserTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "user")
-        
         let refresh = UIRefreshControl()
         refresh.attributedTitle = NSAttributedString(string: "読み込み中")
         refresh.tintColor = .blue
         refresh.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
         tableView.addSubview(refresh)
         self.refreshControl = refresh
-        switch self.pattern {
-        case .follower:
-            self.navigationItem.title = "フォロワー一覧"
-        case .follow:
-            self.navigationItem.title = "フォロー一覧"
-        case .all:
-            self.navigationItem.title = "ユーザー一覧"
-        }
-        self.loadData()
+        self.getData()
     }
     
     @objc private func refreshTable() {
         self.refreshControl?.beginRefreshing()
-        self.loadData()
+        self.getData()
         self.refreshControl?.endRefreshing()
     }
     
-    private func loadData() {
+    func getData() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.viewModel.getUserData(id: self.id, pattern: self.pattern, complition: { (result) in
+            self.viewModel.getAllUsers(complition: { (result) in
                 if result == true {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-                        self.tableView.reloadData()
-                    })
-                }else {
                     DispatchQueue.main.async {
-                        self.navigationItem.prompt = "ユーザーデータの取得に失敗しました"
+                        self.loadData()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.navigationItem.prompt = "データの取得ができませんでした。"
                     }
                 }
             })
+
         }
+    }
+    
+    func loadData() {
+        self.refreshControl?.endRefreshing()
+        self.tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

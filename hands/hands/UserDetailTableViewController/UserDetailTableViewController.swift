@@ -99,18 +99,16 @@ class UserDetailTableViewController: UITableViewController {
         case kSectionFollow:
             if self.viewModel.getFollowsCount() != 0 {
                 if let id = self.viewModel.getUser()?.id {
-                    let next = UserListTableViewController()
-                    next.id = id
-                    next.pattern = .follow
+                    let next = FollowListTableViewController()
+                    next.userId = id
                     self.navigationController?.pushViewController(next, animated: true)
                 }
             }
         case kSectionFollower:
             if self.viewModel.getFollowersCount() != 0 {
                 if let id = self.viewModel.getUser()?.id {
-                    let next = UserListTableViewController()
-                    next.id = id
-                    next.pattern = .follower
+                    let next = FollowerListTableViewController()
+                    next.userId = id
                     self.navigationController?.pushViewController(next, animated: true)
                 }
             }

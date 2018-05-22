@@ -16,7 +16,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         var viewcontrollers = [UIViewController]()
         
-        let eventListTableViewController = EventListTableViewController()
+        let eventListTableViewController = AllEventTableViewController()
         eventListTableViewController.tabBarItem = UITabBarItem(title: "一覧", image: UIImage(named: "icon-list"), tag: 0)
         eventListTableViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.segueToNewEvent))
         viewcontrollers.append(eventListTableViewController)

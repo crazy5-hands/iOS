@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import FirebaseAuth
 
 class EventListTableViewController: UITableViewController {
     
-    var id: String = (Auth.auth().currentUser?.uid)!
-    var pattern: EventDataPattern = .all
+    var eventIds: [String] = []
     private var viewModel: EventListTableViewModel!
     
     override func viewDidLoad() {
@@ -38,27 +36,33 @@ class EventListTableViewController: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
-    @objc private func refreshData() {
+    @objc func refreshData() {
         self.refreshControl?.beginRefreshing()
         self.loadData()
     }
     
     private func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.viewModel.getEvents(id: self.id, dataPattern: self.pattern, complition: { (result) in
+            self.viewModel.getEventsByEventIds(eventIds: self.getEventIDs(), complition: { (result) in
                 if result == true {
                     DispatchQueue.main.async {
                         self.refreshControl?.endRefreshing()
+                        sleep(1)
                         self.tableView.reloadData()
                     }
-                }else {
+                } else {
                     DispatchQueue.main.async {
                         self.refreshControl?.endRefreshing()
-                        self.navigationItem.prompt = "データの取得ができませんでした。"
+                        sleep(1)
+                        self.navigationItem.prompt = "データが取得できませんでした。"
                     }
                 }
             })
         }
+    }
+    
+    func getEventIDs() -> [String] {
+        return self.eventIds
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
