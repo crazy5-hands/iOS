@@ -117,6 +117,14 @@ class ProfileTableViewController: UITableViewController {
             let next = EventListTableViewController()
             next.eventIds = self.viewModel.getJoinEventIds()
             self.navigationController?.pushViewController(next, animated: true)
+        case kSectionFollow:
+            let next = FollowListTableViewController()
+            next.userId = self.viewModel.getUser()?.id
+            self.navigationController?.pushViewController(next, animated: true)
+        case kSectionFollower:
+            let next = FollowerTableViewController()
+            next.userId = self.viewModel.getUser()?.id
+            self.navigationController?.pushViewController(next, animated: true)
         default:
             break
         }
