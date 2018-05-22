@@ -12,15 +12,22 @@ class EditCostViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var numberTextField: UITextField!
     var eventId: String? = nil
-    var isCreate: Bool = true
     private var viewModel: EditCostViewModel?
     private var activeTextField: UITextField? = nil
     private let notificationCenter = NotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let id = self.eventId {
-            self.viewModel = EditCostViewModel(event_id: id)
+        DispatchQueue.global(qos: .userInitiated).async {
+            if let id = self.eventId {
+                self.viewModel = EditCostViewModel(eventId: id) { (result) in
+                    if result == true {
+                        DispatchQueue.main.async {
+                            self.numberTextField.text = "\(self.viewModel?.getCost)"
+                        }
+                    }
+                }
+            }
         }
         self.numberTextField.delegate = self
         self.numberTextField.keyboardType = .numberPad
@@ -42,33 +49,17 @@ class EditCostViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func submit(_ sender: Any) {
-        print("追加ー！")
-        if eventId != nil {
-            if let text = self.numberTextField.text {
-                let cost = Int(text)!
-                if isCreate == true {
-                    self.viewModel?.create(cost: cost, complition: { (result) in
-                        if result == true {
-                            self.dismiss(animated: true, completion: nil)
-                        }else {
-                            self.showAlert("データを作成できませんでした")
-                        }
-                    })
-                } else {
-                    self.viewModel?.update(cost: cost, complition: { (result) in
-                        if result == true {
-                            self.dismiss(animated: true, completion: nil)
-                        } else {
-                            self.showAlert("データの更新に失敗しました。")
-                        }
-                    })
-                }
-            } else {
-                self.showAlert("数字を入力してください")
-            }
-        } else {
-            self.showAlert("eventIDがありません")//いずれ消す
+        var number = 0
+        if let text = self.numberTextField.text {
+            number = Int(text)!
         }
+        self.viewModel?.update(cost: number, complition: { (result) in
+            if result == true {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.showAlert("更新に失敗しました。")
+            }
+        })
     }
     
     @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {

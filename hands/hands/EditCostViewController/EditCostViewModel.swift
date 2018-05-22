@@ -10,44 +10,45 @@ import Foundation
 
 class EditCostViewModel {
     
-    private var cost: Cost? = nil
-    
-    init(event_id: String) {
-        self.cost = Cost()
-        self.cost?.event_id = event_id
+    private var cost: Cost
+
+    init(eventId: String, complition: @escaping (Bool) -> Void) {
+        self.cost = Cost(id: UUID().uuidString, created_at: NSDate(), event_id: eventId, cost: 0)
+        CostUtil().getCostByEventId(eventId: eventId) { (cost) in
+            if let cost = cost {
+                self.cost = cost
+                complition(true)
+            } else {
+                complition(false)
+            }
+        }
     }
     
-    func create(cost: Int, complition: @escaping (Bool) -> Void) {
-        if self.cost != nil {
-            self.cost!.id = UUID().uuidString
-            self.cost!.created_at = NSDate()
-            self.cost!.cost = cost
-            CostUtil().create(newCost: self.cost!) { (result) in
-                complition(result)
+    func getData(eventId: String, complition: @escaping (Bool) -> Void) {
+        CostUtil().getCostByEventId(eventId: eventId) { (cost) in
+            if let cost = cost {
+                self.cost = cost
+                complition(true)
+            } else {
+                complition(false)
             }
-        } else {
-            complition(false)
         }
     }
     
     func update(cost: Int, complition: @escaping (Bool) -> Void) {
-        if self.cost != nil {
-            self.cost!.cost = cost
-            CostUtil().update(target: self.cost!) { (result) in
-                complition(result)
-            }
-        } else {
-            complition(false)
+        self.cost.cost = cost
+        CostUtil().update(target: self.cost) { (result) in
+            complition(result)
         }
     }
     
     func delete(complition: @escaping (Bool) -> Void) {
-        if let cost = self.cost {
-            CostUtil().destroy(target: cost) { (result) in
-                complition(result)
-            }
-        } else {
-            complition(false)
+        CostUtil().destroy(target: cost) { (result) in
+            complition(result)
         }
+    }
+    
+    func getCost() -> Int {
+        return cost.cost
     }
 }

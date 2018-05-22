@@ -81,7 +81,6 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBAction func addCost(_ sender: Any) {
         let editCostViewController = UIStoryboard(name: "EditCostViewController", bundle: nil).instantiateInitialViewController() as! EditCostViewController
         editCostViewController.eventId = self.eventID
-        editCostViewController.isCreate = true
         self.present(editCostViewController, animated: true, completion: nil)
     }
     
