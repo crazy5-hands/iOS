@@ -15,21 +15,21 @@ class FollowListTableViewController: UserListTableViewController {
     override func getData() {
         DispatchQueue.global(qos: .userInitiated).async {
             if let userId = self.userId {
-                var users: [String] = []
                 FollowUtil().getFollows(user_id: userId) { (follows) in
+                    var users: [String] = []
                     for follow in follows {
                         users.append(follow.follow_id)
                     }
-                }
-                self.viewModel.getUsersData(userIds: users) { (result) in
-                    if result == true {
-                        DispatchQueue.main.async {
-                            self.loadData()
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.refreshControl?.endRefreshing()
-                            self.navigationItem.prompt = "フォローデータの取得に失敗しました。"
+                    self.viewModel.getUsersData(userIds: users) { (result) in
+                        if result == true {
+                            DispatchQueue.main.async {
+                                self.loadData()
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                self.refreshControl?.endRefreshing()
+                                self.navigationItem.prompt = "フォローデータの取得に失敗しました。"
+                            }
                         }
                     }
                 }

@@ -84,9 +84,6 @@ class UserListTableViewModel {
     }
     
     func getUsersData(userIds: [String], complition: @escaping (Bool) -> Void) {
-        if userIds.count == 0 {
-            complition(false)
-        }
         let group = DispatchGroup()
         for userId in userIds {
             group.enter()

@@ -27,7 +27,7 @@ class FollowerTableViewController: UserListTableViewController {
                             }
                         } else {
                             DispatchQueue.main.async {
-                                self.navigationItem.prompt = "フォロワーデータを取得できませんでした。"
+                                self.navigationItem.prompt = "フォロワーデータの取得できませんでした。"
                             }
                         }
                     })
