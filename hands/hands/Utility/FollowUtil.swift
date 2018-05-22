@@ -11,6 +11,18 @@ import Firebase
 
 class FollowUtil {
     
+    func update(target: Follow, comlition: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("follows").document(target.id).setData(target.dictionary) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                comlition(false)
+            } else {
+                comlition(true)
+            }
+        }
+    }
+    
     func getFollowers(follow_id: String, complition: @escaping ([Follow]) -> Void) {
         var followers: [Follow] = []
         let db = Firestore.firestore().collection("follows")
@@ -34,6 +46,18 @@ class FollowUtil {
                 }
             }
             complition(follows)
+        }
+    }
+    
+    func delete(target: Follow, complition: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("follows").document(target.id).delete { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                complition(false)
+            } else {
+                complition(true)
+            }
         }
     }
 }

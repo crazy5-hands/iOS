@@ -25,9 +25,12 @@ class EventListTableViewModel {
         let db = Firestore.firestore()
         switch dataPattern {
         case .own:
-            newEvents = EventUtil().getOwnEvent(id: id)
-            self.events = newEvents
-            complition(true)
+            EventUtil().getOwnEvents(authorId: id) { (events) in
+                if events.isEmpty != true {
+                    self.events = events
+                }
+                complition(true)
+            }
         case .join:
             var joins: [Join] = []
             db.collection("joins").whereField("user_id", isEqualTo: id).getDocuments { (snapshot, error) in
@@ -61,18 +64,25 @@ class EventListTableViewModel {
                 }
             }
         case .ownAndfollow:
-            newEvents = EventUtil().getOwnEvent(id: id)
+            let group = DispatchGroup()
+            group.enter()
+            EventUtil().getOwnEvents(authorId: id) { (events) in
+                self.events = self.events + events
+                group.leave()
+            }
+            group.enter()
             FollowUtil().getFollows(user_id: id) { (follows) in
                 if follows.isEmpty != true {
                     for follow in follows {
-                        let fEvents = EventUtil().getOwnEvent(id: follow.follow_id)
-                        newEvents = newEvents + fEvents
+                        EventUtil().getOwnEvents(authorId: follow.follow_id, complition: { (events) in
+                            self.events = self.events + events
+                        })
                     }
-                    self.events = newEvents
-                    complition(true)
-                } else {
-                    complition(false)
                 }
+                group.leave()
+            }
+            group.notify(queue: .main) {
+                complition(true)
             }
         }
     }

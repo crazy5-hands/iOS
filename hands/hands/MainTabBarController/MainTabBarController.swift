@@ -34,10 +34,10 @@ class MainTabBarController: UITabBarController {
         notificationViewController?.tabBarItem = UITabBarItem(title: "通知", image: UIImage(named: "icon-notification"), tag: 3)
 //        viewcontrollers.append(notificationViewController!)
         
-        let profileViewController = UIStoryboard(name: "ProfileViewController", bundle: nil).instantiateInitialViewController()
-        profileViewController?.tabBarItem = UITabBarItem(title: "プロフィール", image: UIImage(named: "icon-user"), tag: 4)
-        profileViewController?.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.openEditUserInfo)), animated: true)
-        viewcontrollers.append(profileViewController!)
+        let profileViewController = ProfileTableViewController()
+        profileViewController.tabBarItem = UITabBarItem(title: "プロフィール", image: UIImage(named: "icon-user"), tag: 4)
+        profileViewController.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.openEditUserInfo)), animated: true)
+        viewcontrollers.append(profileViewController)
         self.viewControllers = viewcontrollers.map{ UINavigationController(rootViewController: $0)}
         
         self.setViewControllers(viewControllers, animated: false)
