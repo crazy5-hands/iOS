@@ -11,19 +11,22 @@ import Firebase
 
 class EventUtil {
     
-    func getOwnEvent(id: String) -> [Event] {
-        var events: [Event] = []
+    func getOwnEvents(authorId: String, complition: @escaping ([Event]) -> Void) {
         let db = Firestore.firestore()
-        db.collection("events").whereField("author_id", isEqualTo: id).getDocuments { (snapshot, error) in
+        db.collection("events").whereField("author_id", isEqualTo: authorId).getDocuments { (snapshot, error) in
+            var events: [Event] = []
             if let snapshot = snapshot {
-                for document in snapshot.documents {
-                    events.append(Event(dictionary: document.data())!)
+                if snapshot.documents.isEmpty != true {
+                    for document in snapshot.documents {
+                        events.append(Event(dictionary: document.data())!)
+                    }
                 }
+                complition(events)
             }else {
                 print(error!.localizedDescription)
+                complition(events)
             }
         }
-        return events
     }
     
     func getEventById(id: String) -> Event? {
