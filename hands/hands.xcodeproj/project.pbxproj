@@ -347,7 +347,7 @@
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
 				E6ADAD1C2091A48900310158 /* SearchViewController */,
 				E6ADAD172091A45000310158 /* ListViewController */,
-				E6ADAD1220919C6100310158 /* ProfileViewController */,
+				E6ADAD1220919C6100310158 /* ProfileTableViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
@@ -437,13 +437,13 @@
 			path = MainTabBarController;
 			sourceTree = "<group>";
 		};
-		E6ADAD1220919C6100310158 /* ProfileViewController */ = {
+		E6ADAD1220919C6100310158 /* ProfileTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E6A7325D20B3E91B00CDD5B9 /* ProfileTableViewController.swift */,
 				E6ADAD472099C96600310158 /* ProfileViewModel.swift */,
 			);
-			path = ProfileViewController;
+			path = ProfileTableViewController;
 			sourceTree = "<group>";
 		};
 		E6ADAD172091A45000310158 /* ListViewController */ = {
