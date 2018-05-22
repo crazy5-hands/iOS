@@ -51,6 +51,7 @@
 		E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325920B3B98500CDD5B9 /* Pay.swift */; };
 		E6A7325C20B3BAA300CDD5B9 /* PayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325B20B3BAA300CDD5B9 /* PayUtil.swift */; };
 		E6A7325E20B3E91B00CDD5B9 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325D20B3E91B00CDD5B9 /* ProfileTableViewController.swift */; };
+		E6A7326420B40A7200CDD5B9 /* AllEventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7326320B40A7200CDD5B9 /* AllEventTableViewController.swift */; };
 		E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD182091A46800310158 /* ListViewController.storyboard */; };
 		E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1A2091A47300310158 /* ListViewController.swift */; };
 		E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1E2091A4B500310158 /* NotificationViewController.swift */; };
@@ -170,6 +171,7 @@
 		E6A7325920B3B98500CDD5B9 /* Pay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pay.swift; sourceTree = "<group>"; };
 		E6A7325B20B3BAA300CDD5B9 /* PayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayUtil.swift; sourceTree = "<group>"; };
 		E6A7325D20B3E91B00CDD5B9 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		E6A7326320B40A7200CDD5B9 /* AllEventTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEventTableViewController.swift; sourceTree = "<group>"; };
 		E6ADAD182091A46800310158 /* ListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD1A2091A47300310158 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E6ADAD1E2091A4B500310158 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6A7326220B40A4000CDD5B9 /* AllEventTableViewController */,
 				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
 				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
 				E640F60B209ED66C00BC48C6 /* Utility */,
@@ -427,6 +430,14 @@
 				E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */,
 			);
 			path = CostTableViewCell;
+			sourceTree = "<group>";
+		};
+		E6A7326220B40A4000CDD5B9 /* AllEventTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6A7326320B40A7200CDD5B9 /* AllEventTableViewController.swift */,
+			);
+			path = AllEventTableViewController;
 			sourceTree = "<group>";
 		};
 		E6ADAD112091999600310158 /* MainTabBarController */ = {
@@ -961,6 +972,7 @@
 				E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
+				E6A7326420B40A7200CDD5B9 /* AllEventTableViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */,
 				E6C4F60420B2DF7800F92358 /* EditCostViewModel.swift in Sources */,
