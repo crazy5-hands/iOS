@@ -48,6 +48,7 @@
 		E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */; };
 		E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */; };
 		E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325720B3064E00CDD5B9 /* cardView.swift */; };
+		E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325920B3B98500CDD5B9 /* Pay.swift */; };
 		E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1320919C7F00310158 /* ProfileViewController.swift */; };
 		E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */; };
 		E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD182091A46800310158 /* ListViewController.storyboard */; };
@@ -166,6 +167,7 @@
 		E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
 		E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostTableViewCell.xib; sourceTree = "<group>"; };
 		E6A7325720B3064E00CDD5B9 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
+		E6A7325920B3B98500CDD5B9 /* Pay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pay.swift; sourceTree = "<group>"; };
 		E6ADAD1320919C7F00310158 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD182091A46800310158 /* ListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListViewController.storyboard; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				E6ADAD5A209AFA9C00310158 /* Follow.swift */,
 				E640F603209B4F5200BC48C6 /* Join.swift */,
 				E6C4F5FC20B2B1C900F92358 /* Cost.swift */,
+				E6A7325920B3B98500CDD5B9 /* Pay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -953,6 +956,7 @@
 				E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */,
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */,
+				E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
