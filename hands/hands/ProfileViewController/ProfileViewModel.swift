@@ -19,11 +19,12 @@ class ProfileViewModel {
     private var followers: [String] = []
     private var cost: Cost?
     
-    func loadData(complition: (Bool) -> Void) {
+    func loadData(complition: @escaping (Bool) -> Void) {
         if self.uid == nil {
             complition(false)
         }
         let group = DispatchGroup()
+        
         group.enter()
         UserUtil().getUser(id: self.uid!) { (user) in
             if let user = user {
@@ -31,10 +32,30 @@ class ProfileViewModel {
             }
             group.leave()
         }
+        
         group.enter()
-        group.leave()
+        EventUtil().getOwnEvents(authorId: self.uid!) { (events) in
+            if events.isEmpty != true {
+                for event in events {
+                    self.owns.append(event.id)
+                }
+            }
+            group.leave()
+        }
+        
+        group.enter()
+        JoinUtil().getJoinEventsByUserId(userId: self.uid!) { (joins) in
+            if joins.isEmpty != true {
+                for join in joins {
+                    self.joins.append(join.id)
+                }
+            }
+            group.leave()
+        }
+        
+        
         group.notify(queue: .main) {
-            
+            complition(true)
         }
     }
     

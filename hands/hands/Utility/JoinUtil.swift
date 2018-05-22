@@ -37,4 +37,22 @@ class JoinUtil {
             }
         }
     }
+    
+    func getJoinEventsByUserId(userId: String, complition: @escaping ([Join]) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("joins").whereField("user_id", isEqualTo: userId).getDocuments { (snapshot, error) in
+            var joins: [Join] = []
+            if let snapshot = snapshot {
+                if snapshot.documents.isEmpty != true {
+                    for document in snapshot.documents {
+                        joins.append(Join(dictionary: document.data())!)
+                    }
+                }
+            } else {
+                print(error!.localizedDescription)
+                
+            }
+            complition(joins)
+        }
+    }
 }
