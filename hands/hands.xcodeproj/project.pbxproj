@@ -24,6 +24,8 @@
 		E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65320A0877A00BC48C6 /* UserUtil.swift */; };
 		E640F65620A0BF5300BC48C6 /* FollowUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65520A0BF5300BC48C6 /* FollowUtil.swift */; };
 		E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65720A188EB00BC48C6 /* EventUtil.swift */; };
+		E644385120B43E0B00C89D4F /* FollowListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644385020B43E0B00C89D4F /* FollowListTableViewController.swift */; };
+		E644385320B446A000C89D4F /* FollowerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644385220B446A000C89D4F /* FollowerTableViewController.swift */; };
 		E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */; };
 		E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */; };
 		E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */; };
@@ -139,6 +141,8 @@
 		E640F65320A0877A00BC48C6 /* UserUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUtil.swift; sourceTree = "<group>"; };
 		E640F65520A0BF5300BC48C6 /* FollowUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUtil.swift; sourceTree = "<group>"; };
 		E640F65720A188EB00BC48C6 /* EventUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUtil.swift; sourceTree = "<group>"; };
+		E644385020B43E0B00C89D4F /* FollowListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListTableViewController.swift; sourceTree = "<group>"; };
+		E644385220B446A000C89D4F /* FollowerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerTableViewController.swift; sourceTree = "<group>"; };
 		E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewModel.swift; sourceTree = "<group>"; };
 		E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -367,6 +371,8 @@
 				E6674E07207F07380031B4A0 /* Model */,
 				E6674E10207F3BB70031B4A0 /* Extension.swift */,
 				E640F64F209F28D800BC48C6 /* resize.swift */,
+				E644385020B43E0B00C89D4F /* FollowListTableViewController.swift */,
+				E644385220B446A000C89D4F /* FollowerTableViewController.swift */,
 			);
 			path = hands;
 			sourceTree = "<group>";
@@ -972,6 +978,7 @@
 				E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
+				E644385120B43E0B00C89D4F /* FollowListTableViewController.swift in Sources */,
 				E6A7326420B40A7200CDD5B9 /* AllEventTableViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */,
@@ -998,6 +1005,7 @@
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
 				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
+				E644385320B446A000C89D4F /* FollowerTableViewController.swift in Sources */,
 				E6C4F5EF20AD311A00F92358 /* UserDetailTableViewModel.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
