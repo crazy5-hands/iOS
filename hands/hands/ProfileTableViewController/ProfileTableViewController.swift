@@ -103,6 +103,8 @@ class ProfileTableViewController: UITableViewController {
         default:
             return UITableViewCell()
         }
-        return UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
