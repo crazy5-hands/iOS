@@ -11,6 +11,20 @@ import Firebase
 
 class CostUtil {
     
+    func getCostByEventId(eventId: String, complition: @escaping (Cost?) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("costs").whereField("event_id", isEqualTo: eventId).getDocuments { (snapshot, error) in
+            if let snapshot = snapshot {
+                if snapshot.documents.isEmpty == false {
+                    complition(Cost(dictionary: snapshot.documents[0].data())!)
+                }
+            } else {
+                print(error!.localizedDescription)
+                complition(nil)
+            }
+        }
+    }
+    
     func create(newCost: Cost, complition: @escaping (Bool) -> Void) {
         let db = Firestore.firestore()
         db.collection("costs").addDocument(data: newCost.dictionary) { (error) in
