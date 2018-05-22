@@ -11,6 +11,7 @@ import UIKit
 class CostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var costLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +24,7 @@ class CostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func update(cost: Int) {
+        self.costLabel.text = "\(cost)" + "円"
+    }
 }

@@ -16,6 +16,7 @@ class EventDetailTableViewModel {
     private var author: User?
     private let db = Firestore.firestore()
     private let uid = Auth.auth().currentUser?.uid
+    private var cost: Cost?
     
     init() {
         self.event = Event(id: "", author_id: "", title: "", body: "", created_at: NSDate())
@@ -47,6 +48,14 @@ class EventDetailTableViewModel {
             }
             group.leave()
         })
+        
+        group.enter()
+        CostUtil().getCostByEventId(eventId: event.id) { (cost) in
+            if let cost = cost {
+                self.cost = cost
+            }
+            group.leave()
+        }
         
         group.notify(queue: .main, execute: {
             if self.author != nil {
@@ -81,6 +90,14 @@ class EventDetailTableViewModel {
         return self.joiners.contains(where: { (joiner) -> Bool in
             return joiner.id == self.uid!
         })
+    }
+    
+    func getCost() -> Int {
+        if let cost = self.cost {
+            return cost.cost
+        } else {
+            return 0
+        }
     }
     
     func createJoin(complition: @escaping (Bool) -> Void) {
