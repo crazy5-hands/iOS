@@ -36,7 +36,7 @@ class EventListTableViewController: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
-    @objc private func refreshData() {
+    @objc func refreshData() {
         self.refreshControl?.beginRefreshing()
         self.loadData()
     }

@@ -47,12 +47,13 @@ class EventUtil {
     func getEventByEventId(eventId: String, complition: @escaping (Event?) -> Void) {
         let db = Firestore.firestore()
         db.collection("events").whereField("id", isEqualTo: eventId).getDocuments { (snapshot, error) in
+            var event: Event? = nil
             if let snapshot = snapshot {
-                if snapshot.documents.isEmpty != true {
-                    complition(Event(dictionary: snapshot.documents[0].data()))
+                for document in snapshot.documents {
+                    event = Event(dictionary: document.data())!
                 }
             }
-            complition(nil)
+            complition(event)
         }
     }
     

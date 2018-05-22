@@ -98,10 +98,15 @@ class ProfileViewModel {
         return self.ownEventIds.count
     }
     
+    func getOwnEventIds() -> [String] {
+        return self.ownEventIds
+    }
+    
     func getJoinsCount() -> Int {
         print("\(self.joins.count)")
         return self.joins.count
     }
+    
     
     func getFollowsCount() -> Int {
         return self.followIds.count

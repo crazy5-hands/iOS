@@ -106,5 +106,13 @@ class ProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case kSectionOwn:
+            let next = EventListTableViewController()
+            next.eventIds = self.viewModel.getOwnEventIds()
+            self.navigationController?.pushViewController(next, animated: true)
+        default:
+            break
+        }
     }
 }
