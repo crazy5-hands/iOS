@@ -59,9 +59,28 @@ class ProfileTableViewController: UITableViewController {
         switch indexPath.section {
         case kSectionUserDetail:
             let cell = tableView.dequeueReusableCell(withIdentifier: "userDetail") as! UserDetailTableViewCell
+            if let user = self.viewModel?.getUser() {
+                cell.updateCell(user: user)
+            }
+            return cell
+        case kSectionOwn:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "follow") as! FollowCountTableViewCell
+            cell.updateCell(title: "投稿イベント", count: (self.viewModel?.getOwnsCount())!)
+            return cell
+        case kSectionJoin:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "follow") as! FollowCountTableViewCell
+            cell.updateCell(title: "参加イベント", count: (self.viewModel?.getJoinsCount())!)
+        case kSectionFollow:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "follow") as! FollowCountTableViewCell
+            cell.updateCell(title: "フォロー", count: (self.viewModel?.getFollowsCount())!)
+            return cell
+        case kSectionFollower:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "follower") as! FollowCountTableViewCell
+            cell.updateCell(title: "フォロワー", count: (self.viewModel?.getFollowersCount())!)
             return cell
         default:
             return UITableViewCell()
         }
+        return UITableViewCell()
     }
 }

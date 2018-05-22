@@ -11,98 +11,58 @@ import Firebase
 
 class ProfileViewModel {
     
-    private var user: User? = nil
-    var owns: [String] = []
-    var joins: [String] = []
-    var follows: [String] = []
-    var followers: [String] = []
-    var profilePhoto: UIImage? = nil
-    private let db = Firestore.firestore()
-    private let storage = Storage.storage()
-    private var eventRef: CollectionReference?
-    private var followRef: CollectionReference?
-    private var joinRef: CollectionReference?
-    private var uid: String?
+    private let uid = Auth.auth().currentUser?.uid
+    private var user: User?
+    private var owns: [String] = []
+    private var joins: [String] = []
+    private var follows: [String] = []
+    private var followers: [String] = []
+    private var cost: Cost?
     
-    init() {
-        self.uid = (Auth.auth().currentUser?.uid)!
-        self.eventRef = db.collection("events")
-        self.followRef = db.collection("follows")
-        self.joinRef = db.collection("joins")
-    }
-    
-    func getUserData(complition:@escaping (Bool) -> Void) {
+    func loadData(complition: (Bool) -> Void) {
+        if self.uid == nil {
+            complition(false)
+        }
+        let group = DispatchGroup()
+        group.enter()
         UserUtil().getUser(id: self.uid!) { (user) in
             if let user = user {
                 self.user = user
-                complition(true)
-            }else {
-                complition(false)
             }
+            group.leave()
+        }
+        group.enter()
+        group.leave()
+        group.notify(queue: .main) {
+            
         }
     }
     
-    func getUsername() -> String? {
-        return self.user?.username
+    func getUser() -> User? {
+        return self.user
     }
     
-    func getNote() -> String? {
-        return self.user?.note
+    func getOwnsCount() -> Int {
+        return self.owns.count
     }
     
-    func getAdditionalData(callback: (Bool) -> Void) {
-        if self.uid != nil {
-            // own
-            self.owns.removeAll()
-            self.eventRef?.whereField("author_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    for document in snapshot.documents {
-                        self.owns.append(document.data()["id"] as! String)
-                    }
-                }else {
-                    print(error?.localizedDescription ?? "fail to get own's event")
-                }
-            }
-            //join
-            self.joins.removeAll()
-            self.joinRef?.whereField("user_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    for document in snapshot.documents {
-                        self.joins.append(document.data()["event_id"] as! String)
-                    }
-                }
-            }
-            //follow
-            self.follows.removeAll()
-            self.followRef?.whereField("user_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    for document in snapshot.documents {
-                        let id = document.data()["follow_id"] as? String
-                        if id != nil {
-                            self.follows.append(id!)
-                        }
-                    }
-                }else {
-                    print(error?.localizedDescription ?? "error follow")
-                }
-            }
-            //follower
-            self.followers.removeAll()
-            self.followRef?.whereField("follow_id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                    for document in snapshot.documents {
-                        let id = document.data()["user_id"] as? String
-                        if  id != nil {
-                            self.followers.append(id!)
-                        }
-                    }
-                }else {
-                    print(error?.localizedDescription ?? "error follower")
-                }
-            }
-            callback(true)
+    func getJoinsCount() -> Int {
+        return self.joins.count
+    }
+    
+    func getFollowsCount() -> Int {
+        return self.follows.count
+    }
+    
+    func getFollowersCount() -> Int {
+        return self.followers.count
+    }
+    
+    func getCost() -> Int {
+        if let cost = self.cost {
+            return cost.cost
         }else {
-            callback(false)
+            return 0
         }
     }
 }
