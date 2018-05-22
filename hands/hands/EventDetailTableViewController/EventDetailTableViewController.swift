@@ -15,6 +15,7 @@ class EventDetailTableViewController: UITableViewController {
     private let kSectionEvent = 0
     private let kSectionAuthor = 1
     private let kSectionJoin = 2
+    private let kSectionCost = 3
     private let viewModel = EventDetailTableViewModel()
     
     override func viewDidLoad() {
@@ -23,8 +24,10 @@ class EventDetailTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         let eventNib = UINib(nibName: "EventDetailTableViewCell", bundle: nil)
         let userNib = UINib(nibName: "UserTableViewCell", bundle: nil)
+        let costNib = UINib(nibName: "CostTableViewCell", bundle: nil)
         self.tableView.register(eventNib, forCellReuseIdentifier: "event")
         self.tableView.register(userNib, forCellReuseIdentifier: "user")
+        self.tableView.register(costNib, forCellReuseIdentifier: "cost")
         self.loadData()
     }
     
@@ -60,7 +63,7 @@ class EventDetailTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3 // event and join
+        return 4 // event and join
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +74,8 @@ class EventDetailTableViewController: UITableViewController {
             return 1
         case kSectionJoin:
             return self.viewModel.getJoinsCount()
+        case kSectionCost:
+            return 1
         default:
             return 0
         }
@@ -84,6 +89,8 @@ class EventDetailTableViewController: UITableViewController {
             return "投稿者"
         case kSectionJoin:
             return "参加者"
+        case kSectionCost:
+            return "料金"
         default:
             return ""
         }
@@ -96,6 +103,8 @@ class EventDetailTableViewController: UITableViewController {
         case kSectionAuthor:
             return CGFloat(25)
         case kSectionJoin:
+            return CGFloat(25)
+        case kSectionCost:
             return CGFloat(25)
         default:
             return CGFloat(0.0)
@@ -119,6 +128,12 @@ class EventDetailTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "user") as! UserTableViewCell
             cell.updateCell(user: self.viewModel.getJoinerById(number: indexPath.item))
             return cell
+        case kSectionCost:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostTableViewCell
+            cell.update(cost: self.viewModel.getCost())
+            cell.selectionStyle = .none
+            print("\(self.viewModel.getCost())")
+            return cell
         default:
             return UITableViewCell()
         }
@@ -138,6 +153,21 @@ class EventDetailTableViewController: UITableViewController {
             self.navigationController?.pushViewController(next, animated: true)
         default:
             break
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case kSectionEvent:
+            return 200.0
+        case kSectionAuthor:
+            return 50.0
+        case kSectionJoin:
+            return 50.0
+        case kSectionCost:
+            return 170.0
+        default:
+            return CGFloat()
         }
     }
 }

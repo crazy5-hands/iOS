@@ -71,6 +71,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cardView" destination="jeV-ko-5nz" id="AAK-vx-1NY"/>
+                <outlet property="costLabel" destination="Pck-Gh-ZRs" id="f8u-H5-e5P"/>
             </connections>
             <point key="canvasLocation" x="34" y="116"/>
         </tableViewCell>

@@ -26,8 +26,8 @@ struct Cost {
     init?(dictionary: [String: Any]) {
         let id = dictionary["id"] as! String
         let created_at = dictionary["created_at"] as! NSDate
-        let event_id = dictionary["title"] as! String
-        let cost = dictionary["body"] as! Int
+        let event_id = dictionary["event_id"] as! String
+        let cost = dictionary["cost"] as! Int
         
         self.init(id: id, created_at: created_at, event_id: event_id, cost: cost)
     }
