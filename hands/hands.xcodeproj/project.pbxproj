@@ -50,8 +50,7 @@
 		E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325720B3064E00CDD5B9 /* cardView.swift */; };
 		E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325920B3B98500CDD5B9 /* Pay.swift */; };
 		E6A7325C20B3BAA300CDD5B9 /* PayUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325B20B3BAA300CDD5B9 /* PayUtil.swift */; };
-		E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1320919C7F00310158 /* ProfileViewController.swift */; };
-		E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */; };
+		E6A7325E20B3E91B00CDD5B9 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325D20B3E91B00CDD5B9 /* ProfileTableViewController.swift */; };
 		E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6ADAD182091A46800310158 /* ListViewController.storyboard */; };
 		E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1A2091A47300310158 /* ListViewController.swift */; };
 		E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ADAD1E2091A4B500310158 /* NotificationViewController.swift */; };
@@ -170,8 +169,7 @@
 		E6A7325720B3064E00CDD5B9 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
 		E6A7325920B3B98500CDD5B9 /* Pay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pay.swift; sourceTree = "<group>"; };
 		E6A7325B20B3BAA300CDD5B9 /* PayUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayUtil.swift; sourceTree = "<group>"; };
-		E6ADAD1320919C7F00310158 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		E6A7325D20B3E91B00CDD5B9 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		E6ADAD182091A46800310158 /* ListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListViewController.storyboard; sourceTree = "<group>"; };
 		E6ADAD1A2091A47300310158 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		E6ADAD1E2091A4B500310158 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -442,8 +440,7 @@
 		E6ADAD1220919C6100310158 /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E6ADAD1320919C7F00310158 /* ProfileViewController.swift */,
-				E6ADAD1520919CFC00310158 /* ProfileViewController.storyboard */,
+				E6A7325D20B3E91B00CDD5B9 /* ProfileTableViewController.swift */,
 				E6ADAD472099C96600310158 /* ProfileViewModel.swift */,
 			);
 			path = ProfileViewController;
@@ -782,7 +779,6 @@
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
 				E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */,
-				E6ADAD1620919CFC00310158 /* ProfileViewController.storyboard in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 				E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */,
 			);
@@ -978,8 +974,8 @@
 				E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */,
 				E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */,
 				E640F60A209C82E900BC48C6 /* NewEventViewModel.swift in Sources */,
+				E6A7325E20B3E91B00CDD5B9 /* ProfileTableViewController.swift in Sources */,
 				E6C4F5ED20AD30DA00F92358 /* UserDetailTableViewController.swift in Sources */,
-				E6ADAD1420919C7F00310158 /* ProfileViewController.swift in Sources */,
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
 				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
 				E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */,
