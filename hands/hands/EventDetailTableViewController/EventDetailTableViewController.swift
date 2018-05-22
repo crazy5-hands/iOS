@@ -156,10 +156,11 @@ class EventDetailTableViewController: UITableViewController {
         }
     }
     
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case kSectionEvent:
-            return 200.0
+            return UITableViewAutomaticDimension
         case kSectionAuthor:
             return 50.0
         case kSectionJoin:
