@@ -122,7 +122,7 @@ class ProfileTableViewController: UITableViewController {
             next.userId = self.viewModel.getUser()?.id
             self.navigationController?.pushViewController(next, animated: true)
         case kSectionFollower:
-            let next = FollowerTableViewController()
+            let next = FollowerListTableViewController()
             next.userId = self.viewModel.getUser()?.id
             self.navigationController?.pushViewController(next, animated: true)
         default:

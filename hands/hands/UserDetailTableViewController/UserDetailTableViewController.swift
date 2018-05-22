@@ -107,7 +107,7 @@ class UserDetailTableViewController: UITableViewController {
         case kSectionFollower:
             if self.viewModel.getFollowersCount() != 0 {
                 if let id = self.viewModel.getUser()?.id {
-                    let next = FollowerTableViewController()
+                    let next = FollowerListTableViewController()
                     next.userId = id
                     self.navigationController?.pushViewController(next, animated: true)
                 }

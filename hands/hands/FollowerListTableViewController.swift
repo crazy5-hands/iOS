@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FollowerTableViewController: UserListTableViewController {
+class FollowerListTableViewController: UserListTableViewController {
     
     var userId: String?
     
