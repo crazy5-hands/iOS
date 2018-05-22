@@ -103,10 +103,16 @@ class ProfileViewModel {
     }
     
     func getJoinsCount() -> Int {
-        print("\(self.joins.count)")
         return self.joins.count
     }
     
+    func getJoinEventIds() -> [String] {
+        var ids: [String] = []
+        for join in self.joins {
+            ids.append(join.event_id)
+        }
+        return ids
+    }
     
     func getFollowsCount() -> Int {
         return self.followIds.count
