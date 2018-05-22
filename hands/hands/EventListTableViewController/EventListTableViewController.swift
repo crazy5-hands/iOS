@@ -37,28 +37,35 @@ class EventListTableViewController: UITableViewController {
     }
     
     @objc func refreshData() {
-        self.refreshControl?.beginRefreshing()
         self.loadData()
     }
     
     private func loadData() {
+        self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getEventsByEventIds(eventIds: self.getEventIDs(), complition: { (result) in
                 if result == true {
                     DispatchQueue.main.async {
-                        self.refreshControl?.endRefreshing()
-                        sleep(1)
+                        self.endLoading()
                         self.tableView.reloadData()
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self.refreshControl?.endRefreshing()
-                        sleep(1)
+                        self.endLoading()
                         self.navigationItem.prompt = "データが取得できませんでした。"
                     }
                 }
             })
         }
+    }
+    
+    func startLoading() {
+        self.refreshControl?.beginRefreshing()
+    }
+    
+    func endLoading() {
+        self.refreshControl?.endRefreshing()
+        sleep(1)
     }
     
     func getEventIDs() -> [String] {
