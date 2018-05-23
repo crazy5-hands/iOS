@@ -36,16 +36,18 @@ class ProfileTableViewController: UITableViewController {
     }
     
     
-    
     func loadData() {
+        self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.loadData(complition: { (result) in
                 if result == true {
                     DispatchQueue.main.async {
+                        self.endLaoding()
                         self.tableView.reloadData()
                     }
                 } else {
                     DispatchQueue.main.async {
+                        self.endLaoding()
                         self.navigationItem.prompt = "データの取得ができませんでした。"
                     }
                 }
