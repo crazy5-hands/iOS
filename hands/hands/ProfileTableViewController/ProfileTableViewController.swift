@@ -26,8 +26,16 @@ class ProfileTableViewController: UITableViewController {
         self.tableView.register(userDetailNib, forCellReuseIdentifier: "userDetail")
         self.tableView.register(followNib, forCellReuseIdentifier: "follow")
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .black
+        refreshControl.attributedTitle = NSAttributedString(string: "読み込み中")
+        refreshControl.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+        self.refreshControl = refreshControl
         self.loadData()
     }
+    
+    
     
     func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
@@ -43,6 +51,14 @@ class ProfileTableViewController: UITableViewController {
                 }
             })
         }
+    }
+    
+    func startLoading() {
+        self.refreshControl?.beginRefreshing()
+    }
+    
+    func endLaoding() {
+        self.refreshControl?.endRefreshing()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

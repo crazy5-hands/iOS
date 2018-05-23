@@ -65,6 +65,24 @@ class ProfileViewModel {
             group.leave()
         }
     
+        
+        
+        group.notify(queue: .main) {
+            
+//            self.loadCostData(complition: { (result) in
+//                if result == true {
+//                    complition(true)
+//                } else {
+//                    complition(false)
+//                }
+//            })
+            complition(true)
+        }
+    }
+    
+    func loadCostData(complition: @escaping (Bool) -> Void) {
+        let group = DispatchGroup()
+        
         for own in self.ownEventIds {
             group.enter()
             CostUtil().getCostByEventId(eventId: own) { (cost) in
@@ -84,7 +102,6 @@ class ProfileViewModel {
                 group.leave()
             }
         }
-        
         group.notify(queue: .main) {
             complition(true)
         }
