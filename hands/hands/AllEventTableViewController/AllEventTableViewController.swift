@@ -14,8 +14,9 @@ class AllEventTableViewController: EventListTableViewController {
     override func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             EventUtil().getEventsAll(complition: { (events) in
-                self.events = events
+                let newEvents = events
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.events = newEvents
                     self.loadData()
                 })
             })

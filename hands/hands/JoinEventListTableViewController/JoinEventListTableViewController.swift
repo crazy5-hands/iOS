@@ -15,18 +15,20 @@ class JoinEventListTableViewController: EventListTableViewController {
     override func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             if let userId = self.userId {
+                var newEvents: [Event] = []
                 let group = DispatchGroup()
                 JoinUtil().getJoinsByUserId(userId: userId, complition: { (joins) in
                     group.enter()
                     for join in joins {
                         EventUtil().getEventById(id: join.event_id, complition: { (event) in
                             if let event = event {
-                                self.events.append(event)
+                                newEvents.append(event)
                             }
                             group.leave()
                         })
                     }
                     group.notify(queue: .main, execute: {
+                        self.events = newEvents
                         self.reloadData()
                     })
                 })

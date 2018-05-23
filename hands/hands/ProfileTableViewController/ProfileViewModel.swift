@@ -23,6 +23,12 @@ class ProfileViewModel {
         if self.uid == nil {
             complition(false)
         }
+        self.joins.removeAll()
+        self.ownEventIds.removeAll()
+        self.followIds.removeAll()
+        self.followerIds.removeAll()
+        self.costs.removeAll()
+        
         let group = DispatchGroup()
         
         group.enter()

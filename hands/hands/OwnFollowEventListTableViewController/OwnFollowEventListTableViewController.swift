@@ -16,26 +16,33 @@ class OwnFollowEventListTableViewController: EventListTableViewController {
         self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             if let uid = self.userId {
+                var newEvents: [Event] = []
                 let group = DispatchGroup()
                 group.enter()
                 EventUtil().getOwnEvents(authorId: uid, complition: { (events) in
-                    self.events += events
+                    newEvents += events
                     group.leave()
                 })
                 group.enter()
                 FollowUtil().getFollows(user_id: uid, complition: { (follows) in
-                    let semaphore = DispatchSemaphore(value: 0)
+                    let group2 = DispatchGroup()
                     for follow in follows {
+                        group2.enter()
                         EventUtil().getOwnEvents(authorId: follow.follow_id, complition: { (events) in
-                            self.events += events
-                            semaphore.signal()
+                            newEvents += events
+                            group2.leave()
                         })
-                        semaphore.wait(timeout: DispatchTime(uptimeNanoseconds: 1))
+                        
                     }
-                    group.leave()
+                    group2.notify(queue: .main, execute: {
+                        group.leave()
+                    })
                 })
                 group.notify(queue: .main, execute: {
-                    self.reloadData()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self.events = newEvents
+                        self.reloadData()
+                    })
                 })
             } else {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {

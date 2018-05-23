@@ -25,16 +25,18 @@ class UserListTableViewModel {
     
     func getUsersData(userIds: [String], complition: @escaping (Bool) -> Void) {
         let group = DispatchGroup()
+        var newUsers: [User] = []
         for userId in userIds {
             group.enter()
             UserUtil().getUser(id: userId) { (user) in
                 if let user = user {
-                    self.users.append(user)
+                    newUsers.append(user)
                 }
                 group.leave()
             }
         }
         group.notify(queue: .main) {
+            self.users = newUsers
             complition(true)
         }
     }

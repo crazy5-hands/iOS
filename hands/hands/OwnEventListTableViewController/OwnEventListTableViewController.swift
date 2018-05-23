@@ -15,9 +15,11 @@ class OwnEventListTableViewController: EventListTableViewController {
     override func loadData() {
         DispatchQueue.global(qos: .userInitiated).async {
             if let userId = self.userId {
+                var newEvents: [Event] = []
                 EventUtil().getOwnEvents(authorId: userId, complition: { (events) in
-                    self.events = self.orderByCreatedAt(events: events)
+                    newEvents = self.orderByCreatedAt(events: events)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
+                        self.events = newEvents
                         self.reloadData()
                     })
                 })
