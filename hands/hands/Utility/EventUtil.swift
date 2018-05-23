@@ -29,7 +29,7 @@ class EventUtil {
         }
     }
     
-    func getEventById(id: String) -> Event? {
+    func getEventById(id: String, complition: @escaping (Event?) -> Void) {
         var event: Event? = nil
         let db = Firestore.firestore()
         db.collection("events").whereField("id", isEqualTo: id).getDocuments { (snapshot, error) in
@@ -40,8 +40,8 @@ class EventUtil {
             }else {
                 print(error!.localizedDescription)
             }
+            complition(event)
         }
-        return event
     }
     
     func getEventByEventId(eventId: String, complition: @escaping (Event?) -> Void) {

@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import Firebase
 
 class OwnFollowEventListTableViewController: EventListTableViewController {
+    
+    var userId: String?
     
     override func loadData() {
         self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
-            if let uid = Auth.auth().currentUser?.uid {
+            if let uid = self.userId {
                 let group = DispatchGroup()
                 group.enter()
                 EventUtil().getOwnEvents(authorId: uid, complition: { (events) in
@@ -34,7 +35,7 @@ class OwnFollowEventListTableViewController: EventListTableViewController {
                     group.leave()
                 })
                 group.notify(queue: .main, execute: {
-                    self.loadData()
+                    self.reloadData()
                 })
             }
         }

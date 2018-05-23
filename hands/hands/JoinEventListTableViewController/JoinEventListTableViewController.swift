@@ -19,14 +19,15 @@ class JoinEventListTableViewController: EventListTableViewController {
                 JoinUtil().getJoinsByUserId(userId: userId, complition: { (joins) in
                     group.enter()
                     for join in joins {
-                        let event = EventUtil().getEventById(id: join.event_id)
-                        if let event = event {
-                            self.events.append(event)
-                        }
-                        group.leave()
+                        EventUtil().getEventById(id: join.event_id, complition: { (event) in
+                            if let event = event {
+                                self.events.append(event)
+                            }
+                            group.leave()
+                        })
                     }
                     group.notify(queue: .main, execute: {
-                        self.loadData()
+                        self.reloadData()
                     })
                 })
             }
