@@ -38,7 +38,7 @@ class JoinUtil {
         }
     }
     
-    func getJoinEventsByUserId(userId: String, complition: @escaping ([Join]) -> Void) {
+    func getJoinsByUserId(userId: String, complition: @escaping ([Join]) -> Void) {
         let db = Firestore.firestore()
         db.collection("joins").whereField("user_id", isEqualTo: userId).getDocuments { (snapshot, error) in
             var joins: [Join] = []
