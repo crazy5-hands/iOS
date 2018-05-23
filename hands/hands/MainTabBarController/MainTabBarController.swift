@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainTabBarController: UITabBarController {
     
@@ -16,10 +17,11 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         var viewcontrollers = [UIViewController]()
         
-        let eventListTableViewController = AllEventTableViewController()
-        eventListTableViewController.tabBarItem = UITabBarItem(title: "一覧", image: UIImage(named: "icon-list"), tag: 0)
-        eventListTableViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.segueToNewEvent))
-        viewcontrollers.append(eventListTableViewController)
+        let ownFollowEventListTableViewController = OwnFollowEventListTableViewController()
+        ownFollowEventListTableViewController.userId = Auth.auth().currentUser?.uid
+        ownFollowEventListTableViewController.tabBarItem = UITabBarItem(title: "一覧", image: UIImage(named: "icon-list"), tag: 0)
+        ownFollowEventListTableViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.segueToNewEvent))
+        viewcontrollers.append(ownFollowEventListTableViewController)
         
         let searchViewController = UIStoryboard(name: "SearchViewController", bundle: nil).instantiateInitialViewController()
 //        searchViewController?.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)

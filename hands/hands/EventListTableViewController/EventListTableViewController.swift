@@ -49,6 +49,7 @@ class EventListTableViewController: UITableViewController {
     func reloadData() {
         let rvents = self.events
         self.events = self.orderByCreatedAt(events: rvents)
+        self.endLoading()
         self.tableView.reloadData()
     }
     

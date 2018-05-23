@@ -26,7 +26,7 @@ class JoinEventListTableViewController: EventListTableViewController {
                         group.leave()
                     }
                     group.notify(queue: .main, execute: {
-                        self.loadData()
+                        self.reloadData()
                     })
                 })
             }
