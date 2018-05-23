@@ -35,7 +35,6 @@ class ProfileTableViewController: UITableViewController {
         self.loadData()
     }
     
-    
     func loadData() {
         self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
