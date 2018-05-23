@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 
 class AllEventTableViewController: EventListTableViewController {
-    override func getEventIDs() -> [String] {
-        var eventIDs: [String] = []
-        EventUtil().getEventsAll { (events) in
-            for event in events {
-                eventIDs.append(event.id)
-            }
+    
+    override func loadData() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            EventUtil().getEventsAll(complition: { (events) in
+                self.events = events
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.loadData()
+                })
+            })
         }
-        return eventIDs
     }
 }

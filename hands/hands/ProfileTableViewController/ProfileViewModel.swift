@@ -42,7 +42,7 @@ class ProfileViewModel {
             group.leave()
         }
         group.enter()
-        JoinUtil().getJoinEventsByUserId(userId: self.uid!) { (joins) in
+        JoinUtil().getJoinsByUserId(userId: self.uid!) { (joins) in
             self.joins = joins
             group.leave()
         }

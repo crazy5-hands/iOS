@@ -127,13 +127,17 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case kSectionOwn:
-            let next = EventListTableViewController()
-            next.eventIds = self.viewModel.getOwnEventIds()
-            self.navigationController?.pushViewController(next, animated: true)
+            let next = OwnEventListTableViewController()
+            if let id = self.viewModel.getUser()?.id {
+                next.userId = id
+                self.navigationController?.pushViewController(next, animated: true)
+            }
         case kSectionJoin:
-            let next = EventListTableViewController()
-            next.eventIds = self.viewModel.getJoinEventIds()
-            self.navigationController?.pushViewController(next, animated: true)
+            let next = JoinEventListTableViewController()
+            if let id = self.viewModel.getUser()?.id {
+                next.userId = id
+                self.navigationController?.pushViewController(next, animated: true)
+            }
         case kSectionFollow:
             let next = FollowListTableViewController()
             next.userId = self.viewModel.getUser()?.id

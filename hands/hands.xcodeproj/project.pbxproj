@@ -26,6 +26,9 @@
 		E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640F65720A188EB00BC48C6 /* EventUtil.swift */; };
 		E644385120B43E0B00C89D4F /* FollowListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644385020B43E0B00C89D4F /* FollowListTableViewController.swift */; };
 		E644385320B446A000C89D4F /* FollowerListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644385220B446A000C89D4F /* FollowerListTableViewController.swift */; };
+		E644385620B59C3300C89D4F /* OwnFollowEventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644385520B59C3300C89D4F /* OwnFollowEventListTableViewController.swift */; };
+		E644385920B5A09400C89D4F /* OwnEventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644385820B5A09400C89D4F /* OwnEventListTableViewController.swift */; };
+		E644385C20B5A1B600C89D4F /* JoinEventListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E644385B20B5A1B600C89D4F /* JoinEventListTableViewController.swift */; };
 		E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */; };
 		E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */; };
 		E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */; };
@@ -143,6 +146,9 @@
 		E640F65720A188EB00BC48C6 /* EventUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUtil.swift; sourceTree = "<group>"; };
 		E644385020B43E0B00C89D4F /* FollowListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListTableViewController.swift; sourceTree = "<group>"; };
 		E644385220B446A000C89D4F /* FollowerListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListTableViewController.swift; sourceTree = "<group>"; };
+		E644385520B59C3300C89D4F /* OwnFollowEventListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnFollowEventListTableViewController.swift; sourceTree = "<group>"; };
+		E644385820B5A09400C89D4F /* OwnEventListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnEventListTableViewController.swift; sourceTree = "<group>"; };
+		E644385B20B5A1B600C89D4F /* JoinEventListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinEventListTableViewController.swift; sourceTree = "<group>"; };
 		E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewModel.swift; sourceTree = "<group>"; };
 		E648E52420A87E230058DE85 /* EventDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -308,6 +314,30 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		E644385420B59C1A00C89D4F /* OwnFollowEventListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E644385520B59C3300C89D4F /* OwnFollowEventListTableViewController.swift */,
+			);
+			path = OwnFollowEventListTableViewController;
+			sourceTree = "<group>";
+		};
+		E644385720B5A07900C89D4F /* OwnEventListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E644385820B5A09400C89D4F /* OwnEventListTableViewController.swift */,
+			);
+			path = OwnEventListTableViewController;
+			sourceTree = "<group>";
+		};
+		E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E644385B20B5A1B600C89D4F /* JoinEventListTableViewController.swift */,
+			);
+			path = JoinEventListTableViewController;
+			sourceTree = "<group>";
+		};
 		E648E52320A87DEC0058DE85 /* EventDetailTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,6 +373,9 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
+				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
+				E644385420B59C1A00C89D4F /* OwnFollowEventListTableViewController */,
 				E6A7326220B40A4000CDD5B9 /* AllEventTableViewController */,
 				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
 				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
@@ -999,8 +1032,10 @@
 				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
 				E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
+				E644385C20B5A1B600C89D4F /* JoinEventListTableViewController.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
+				E644385920B5A09400C89D4F /* OwnEventListTableViewController.swift in Sources */,
 				E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
 				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
@@ -1017,6 +1052,7 @@
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
 				E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */,
 				E640F65620A0BF5300BC48C6 /* FollowUtil.swift in Sources */,
+				E644385620B59C3300C89D4F /* OwnFollowEventListTableViewController.swift in Sources */,
 				E6ADAD58209ACCE200310158 /* SquareCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
