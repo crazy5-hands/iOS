@@ -52,7 +52,6 @@ class EventDetailTableViewController: UITableViewController {
                                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "参加する", style: .done, target: self, action: #selector(self.joinThisEvent))
                             }
                         }
-                        print(self.viewModel.getJoinsCount())
                         self.tableView.reloadData()
                     }
                 }else {
@@ -132,7 +131,6 @@ class EventDetailTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostTableViewCell
             cell.update(cost: self.viewModel.getCost())
             cell.selectionStyle = .none
-            print("\(self.viewModel.getCost())")
             return cell
         default:
             return UITableViewCell()
