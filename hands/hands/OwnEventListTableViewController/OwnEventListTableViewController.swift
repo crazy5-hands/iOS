@@ -21,6 +21,10 @@ class OwnEventListTableViewController: EventListTableViewController {
                         self.reloadData()
                     })
                 })
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.navigationItem.prompt = "表示するデータがありません。"
+                })
             }
         }
     }
