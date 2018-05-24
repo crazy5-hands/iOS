@@ -18,7 +18,7 @@ class FollowerListTableViewController: UserListTableViewController {
                 FollowUtil().getFollowers(follow_id: userId, complition: { (follows) in
                     var followers: [String] = []
                     for follow in follows {
-                        followers.append(follow.follow_id)
+                        followers.append(follow.user_id)
                     }
                     self.viewModel.getUsersData(userIds: followers, complition: { (result) in
                         if result == true {
