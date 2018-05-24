@@ -15,6 +15,7 @@ class UserDetailTableVIewModel {
     private let db = Firestore.firestore()
     private var follows: [Follow] = []
     private var followers: [Follow] = []
+    private let uid = Auth.auth().currentUser?.uid
     
     func getData(id: String, complition: @escaping (Bool) -> Void) {
         UserUtil().getUser(id: id) { (user) in
@@ -37,6 +38,36 @@ class UserDetailTableVIewModel {
                 })
             }else {
                 complition(false)
+            }
+        }
+    }
+    
+    func isMe() -> Bool {
+        if let user = self.user {
+            if let uid = self.uid {
+                return user.id == uid
+            }
+        }
+        return false
+    }
+    
+    func followedByMe() -> Bool {
+        var result = false
+        for follower in self.followers {
+            if follower.user_id == self.uid {
+                result = true
+            }
+        }
+        return result
+    }
+    
+    func addFollow(complition: @escaping (Bool) -> Void) {
+        if let uid = self.uid {
+            if let followId = self.user?.id {
+                let follow = Follow(id: UUID().uuidString, update_at: NSDate(), user_id: uid, follow_id: followId)
+                FollowUtil().update(target: follow) { (result) in
+                    complition(result)
+                }
             }
         }
     }

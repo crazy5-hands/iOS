@@ -24,19 +24,42 @@ class UserDetailTableViewController: UITableViewController {
         let followNib = UINib(nibName: "FollowCountTableViewCell", bundle: nil)
         self.tableView.register(followNib, forCellReuseIdentifier: "follow")
         self.tableView.register(userNib, forCellReuseIdentifier: "user")
+        getData()
+    }
+    
+    func getData() {
         DispatchQueue.global(qos: .userInitiated).async {
             if let id = self.userId {
                 self.viewModel.getData(id: id, complition: { (result) in
                     if result == true {
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                            self.reloadData()
+                        })
                     }else {
                         DispatchQueue.main.async {
                             self.navigationItem.prompt = "情報取得に失敗しました。"
                         }
                     }
                 })
+            }
+        }
+    }
+    
+    func reloadData() {
+        if self.viewModel.isMe() == false {
+            if self.viewModel.followedByMe() == false {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "フォロー", style: .done, target: self, action: #selector(self.addFollow))
+            }
+        }
+        self.tableView.reloadData()
+    }
+    
+    @objc func addFollow() {
+        self.viewModel.addFollow { (result) in
+            if result == true {
+                self.getData()
+            } else {
+                self.showAlert("何らかの原因でフォローに失敗しました。")
             }
         }
     }
