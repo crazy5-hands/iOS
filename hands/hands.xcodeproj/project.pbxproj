@@ -49,6 +49,8 @@
 		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
+		E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */; };
+		E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */; };
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
 		E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */; };
 		E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */; };
@@ -175,6 +177,8 @@
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
+		E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
 		E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
 		E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostTableViewCell.xib; sourceTree = "<group>"; };
 		E6A7325720B3064E00CDD5B9 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
@@ -462,6 +466,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E68EF34C20B86F12009933CB /* DeleteTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */,
+				E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */,
+			);
+			path = DeleteTableViewCell;
+			sourceTree = "<group>";
+		};
 		E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +604,7 @@
 		E6ADAD54209ACC3100310158 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				E68EF34C20B86F12009933CB /* DeleteTableViewCell */,
 				E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */,
 				E6C4F5F520AD76B900F92358 /* FollowCountTableViewCell */,
 				E6C4F5F020AD553600F92358 /* UserDetailTableViewCell */,
@@ -824,6 +838,7 @@
 				E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6ADAD4D2099D22000310158 /* UserCollectionViewCell.xib in Resources */,
+				E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
@@ -1033,6 +1048,7 @@
 				E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E644385C20B5A1B600C89D4F /* JoinEventListTableViewController.swift in Sources */,
+				E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E644385920B5A09400C89D4F /* OwnEventListTableViewController.swift in Sources */,
