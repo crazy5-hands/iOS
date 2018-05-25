@@ -11,9 +11,8 @@ import Firebase
 
 class UserTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var folllowButton: UIButton!
+    @IBOutlet weak var followstatusLabel: UILabel!
     private let id = Auth.auth().currentUser?.uid
     
     override func awakeFromNib() {
@@ -28,13 +27,12 @@ class UserTableViewCell: UITableViewCell {
     func updateCell(user: User) {
         self.nameLabel.text = user.username
         if self.id == user.id {
-            self.folllowButton.setTitle("自分", for: .disabled)
+            self.followstatusLabel.text = ""
         }else  {
             FollowUtil().getFollows(user_id: self.id!) { (follows) in
                 for follow in follows {
                     if follow.follow_id == user.id {
-                        self.folllowButton.setTitle("フォロー中", for: .normal)
-                        break
+                        self.followstatusLabel.text = "フォロー中"
                     }
                 }
                 

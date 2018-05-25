@@ -19,7 +19,7 @@ class UserListTableViewController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "user")
         let refresh = UIRefreshControl()
         refresh.attributedTitle = NSAttributedString(string: "読み込み中")
-        refresh.tintColor = .blue
+        refresh.tintColor = .black
         refresh.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
         tableView.addSubview(refresh)
         self.refreshControl = refresh
@@ -33,12 +33,14 @@ class UserListTableViewController: UITableViewController {
     }
     
     func getData() {
+        self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getAllUsers(complition: { (result) in
                 if result == true {
-                    DispatchQueue.main.async {
-                        self.loadData()
-                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                        self.endLaoding()
+                        self.reloadData()
+                    })
                 } else {
                     DispatchQueue.main.async {
                         self.navigationItem.prompt = "データの取得ができませんでした。"
@@ -49,9 +51,17 @@ class UserListTableViewController: UITableViewController {
         }
     }
     
-    func loadData() {
+    func reloadData() {
         self.refreshControl?.endRefreshing()
         self.tableView.reloadData()
+    }
+    
+    func startLoading() {
+        self.refreshControl?.beginRefreshing()
+    }
+    
+    func endLaoding() {
+        self.refreshControl?.endRefreshing()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,7 +79,7 @@ class UserListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(60.0)
+        return CGFloat(50.0)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -13,6 +13,7 @@ class FollowListTableViewController: UserListTableViewController {
     var userId: String?
     
     override func getData() {
+        self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             if let userId = self.userId {
                 FollowUtil().getFollows(user_id: userId) { (follows) in
@@ -22,12 +23,13 @@ class FollowListTableViewController: UserListTableViewController {
                     }
                     self.viewModel.getUsersData(userIds: users) { (result) in
                         if result == true {
-                            DispatchQueue.main.async {
-                                self.loadData()
-                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 , execute: {
+                                self.endLaoding()
+                                self.reloadData()
+                            })
                         } else {
                             DispatchQueue.main.async {
-                                self.refreshControl?.endRefreshing()
+                                self.endLaoding()
                                 self.navigationItem.prompt = "フォローデータの取得に失敗しました。"
                             }
                         }
