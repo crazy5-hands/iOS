@@ -21,6 +21,7 @@ class MainTabBarController: UITabBarController {
         ownFollowEventListTableViewController.userId = Auth.auth().currentUser?.uid
         ownFollowEventListTableViewController.tabBarItem = UITabBarItem(title: "一覧", image: UIImage(named: "icon-list"), tag: 0)
         ownFollowEventListTableViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.segueToNewEvent))
+        ownFollowEventListTableViewController.navigationItem.title = "イベント"
         viewcontrollers.append(ownFollowEventListTableViewController)
         
         let searchViewController = UIStoryboard(name: "SearchViewController", bundle: nil).instantiateInitialViewController()
@@ -30,6 +31,7 @@ class MainTabBarController: UITabBarController {
         
         let userListTableViewController = UserListTableViewController()
         userListTableViewController.tabBarItem = UITabBarItem(title: "ユーザー", image: UIImage(named: "icon-users"), tag: 2)
+        userListTableViewController.navigationItem.title = "ユーザー"
         viewcontrollers.append(userListTableViewController)
         
         let notificationViewController = UIStoryboard(name: "NotificationViewController", bundle: nil).instantiateInitialViewController()
@@ -39,6 +41,7 @@ class MainTabBarController: UITabBarController {
         let profileViewController = ProfileTableViewController()
         profileViewController.tabBarItem = UITabBarItem(title: "プロフィール", image: UIImage(named: "icon-user"), tag: 4)
         profileViewController.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(self.openEditUserInfo)), animated: true)
+        profileViewController.navigationItem.title = "プロフィール"
         viewcontrollers.append(profileViewController)
         self.viewControllers = viewcontrollers.map{ UINavigationController(rootViewController: $0)}
         
