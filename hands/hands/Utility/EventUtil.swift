@@ -69,4 +69,27 @@ class EventUtil {
             complition(events)
         }
     }
+    
+    func updateEvent(target: Event, complition: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("events").document(target.id).setData(target.dictionary) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                complition(false)
+            }else {
+                complition(true)
+            }
+        }
+    }
+    
+    func delete(target: Event, complition: @escaping (Bool) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("events").document(target.id).delete { (error) in
+            if error != nil {
+                complition(false)
+            } else {
+                complition(true)
+            }
+        }
+    }
  }

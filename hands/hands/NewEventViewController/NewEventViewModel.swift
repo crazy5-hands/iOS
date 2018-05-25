@@ -21,14 +21,8 @@ class NewEventViewModel {
     
     func createNewEvent(id: String, title: String, body: String, callback: @escaping (Bool) -> Void) {
         let event = Event(id: id, author_id: self.uid, title: title, body: body, created_at: NSDate())
-        db.collection("events").addDocument(data: event.dictionary){ error in
-            if let error = error {
-                print(error.localizedDescription )
-                callback(false)
-            }else {
-                callback(true)
-            }
+        EventUtil().updateEvent(target: event) { (result) in
+            callback(result)
         }
-        
     }
 }
