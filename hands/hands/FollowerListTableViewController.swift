@@ -13,20 +13,23 @@ class FollowerListTableViewController: UserListTableViewController {
     var userId: String?
     
     override func getData() {
+        self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             if let userId = self.userId {
                 FollowUtil().getFollowers(follow_id: userId, complition: { (follows) in
                     var followers: [String] = []
                     for follow in follows {
-                        followers.append(follow.follow_id)
+                        followers.append(follow.user_id)
                     }
                     self.viewModel.getUsersData(userIds: followers, complition: { (result) in
                         if result == true {
-                            DispatchQueue.main.async {
-                                self.loadData()
-                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                self.endLaoding()
+                                self.reloadData()
+                            })
                         } else {
                             DispatchQueue.main.async {
+                                self.endLaoding()
                                 self.navigationItem.prompt = "フォロワーデータの取得できませんでした。"
                             }
                         }
