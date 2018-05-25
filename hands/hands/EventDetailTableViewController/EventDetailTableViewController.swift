@@ -16,6 +16,7 @@ class EventDetailTableViewController: UITableViewController {
     private let kSectionAuthor = 1
     private let kSectionJoin = 2
     private let kSectionCost = 3
+    private let kSectionDelete = 4
     private let viewModel = EventDetailTableViewModel()
     
     override func viewDidLoad() {
@@ -25,9 +26,11 @@ class EventDetailTableViewController: UITableViewController {
         let eventNib = UINib(nibName: "EventDetailTableViewCell", bundle: nil)
         let userNib = UINib(nibName: "UserTableViewCell", bundle: nil)
         let costNib = UINib(nibName: "CostTableViewCell", bundle: nil)
+        let deleteNib = UINib(nibName: "DeleteTableViewCell", bundle: nil)
         self.tableView.register(eventNib, forCellReuseIdentifier: "event")
         self.tableView.register(userNib, forCellReuseIdentifier: "user")
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
+        self.tableView.register(deleteNib, forCellReuseIdentifier: "delete")
         self.loadData()
     }
     
@@ -60,9 +63,21 @@ class EventDetailTableViewController: UITableViewController {
             })
         }
     }
+    
+    func deleteEvent() {
+        if let event = self.event {
+            EventUtil().delete(target: event) { (result) in
+                if result == true {
+                    //success
+                } else {
+                    //fail
+                }
+            }
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4 // event and join
+        return 5 // event and join
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,6 +89,8 @@ class EventDetailTableViewController: UITableViewController {
         case kSectionJoin:
             return self.viewModel.getJoinsCount()
         case kSectionCost:
+            return 1
+        case kSectionDelete:
             return 1
         default:
             return 0
@@ -132,6 +149,10 @@ class EventDetailTableViewController: UITableViewController {
             cell.update(cost: self.viewModel.getCost())
             cell.selectionStyle = .none
             return cell
+        case kSectionDelete:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell
+            cell.selectionStyle = .none
+            return cell
         default:
             return UITableViewCell()
         }
@@ -149,11 +170,19 @@ class EventDetailTableViewController: UITableViewController {
             let next = UserDetailTableViewController()
             next.userId = self.viewModel.getJoinerById(number: indexPath.item).id
             self.navigationController?.pushViewController(next, animated: true)
+        case kSectionDelete:
+            let alert: UIAlertController = UIAlertController(title: "イベントの削除", message: "本当にイベントの削除をしていいですか？", preferredStyle: .actionSheet)
+            let deleteAction: UIAlertAction = UIAlertAction(title: "削除", style: .destructive) { (alertAction) in
+                self.deleteEvent()
+            }
+            let cancelAction: UIAlertAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            alert.addAction(deleteAction)
+            present(alert, animated: true, completion: nil)
         default:
             break
         }
     }
-    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
