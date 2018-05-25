@@ -43,21 +43,9 @@ class CostUtil {
     
     func destroy(target: Cost, complition: @escaping (Bool) -> Void) {
         let db = Firestore.firestore()
-        db.collection("costs").whereField("event_id", isEqualTo: target.event_id).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                if snapshot.documents[0].exists == true {
-                    let documentID = snapshot.documents[0].documentID
-                    db.collection("costs").document(documentID).delete(completion: { (error) in
-                        if let error = error {
-                            print(error.localizedDescription)
-                            complition(true)
-                        } else {
-                            complition(false)
-                        }
-                    })
-                } else {
-                    complition(false)
-                }
+        db.collection("costs").document(target.id).delete { (error) in
+            if error == nil {
+                complition(true)
             } else {
                 complition(false)
             }

@@ -18,6 +18,7 @@ class EventDetailTableViewController: UITableViewController {
     private let kSectionCost = 3
     private let kSectionDelete = 4
     private let viewModel = EventDetailTableViewModel()
+    private var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,12 @@ class EventDetailTableViewController: UITableViewController {
         self.tableView.register(userNib, forCellReuseIdentifier: "user")
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
         self.tableView.register(deleteNib, forCellReuseIdentifier: "delete")
+        self.activityIndicator = UIActivityIndicatorView()
+        self.activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = .gray
+        self.view.addSubview(self.activityIndicator)
         self.loadData()
     }
     
@@ -64,17 +71,57 @@ class EventDetailTableViewController: UITableViewController {
         }
     }
     
+    func startLoading() {
+        self.activityIndicator.startAnimating()
+    }
+    
+    func endLoading() {
+        self.activityIndicator.stopAnimating()
+    }
+    
     func deleteEvent() {
-        if let event = self.event {
-            EventUtil().delete(target: event) { (result) in
-                if result == true {
-                    //success
-                } else {
-                    //fail
-                }
+        self.startLoading()
+        DispatchQueue.global(qos: .userInitiated).async {
+            let group = DispatchGroup()
+            var eventResult = false
+            var costResult = false
+            if let event = self.event {
+                group.enter()
+                EventUtil().delete(target: event, complition: { (result) in
+                    eventResult = result
+                    group.leave()
+                })
+                
+                group.enter()
+                self.deleteCost(event: event, complition: { (result) in
+                    costResult = result
+                    group.leave()
+                })
+                group.notify(queue: .main, execute: {
+                    sleep(1)
+                    self.endLoading()
+                    if eventResult == true && costResult == true {
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        self.showAlert("削除に失敗しました。")
+                    }
+                })
             }
         }
     }
+    
+    func deleteCost(event: Event, complition: @escaping (Bool) -> Void) {
+        CostUtil().getCostByEventId(eventId: event.id) { (cost) in
+            if let cost = cost {
+                CostUtil().destroy(target: cost, complition: { (result) in
+                    complition(result)
+                })
+            } else {
+                complition(true)
+            }
+        }
+    }
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 5 // event and join
@@ -194,6 +241,8 @@ class EventDetailTableViewController: UITableViewController {
             return 50.0
         case kSectionCost:
             return 170.0
+        case kSectionDelete:
+            return 60
         default:
             return CGFloat()
         }
