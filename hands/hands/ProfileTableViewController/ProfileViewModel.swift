@@ -152,4 +152,12 @@ class ProfileViewModel {
         }
         return price
     }
+    
+    func logout() {
+        do {
+            try? Auth.auth().signOut()
+        } catch {
+            
+        }
+    }
 }

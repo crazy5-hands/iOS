@@ -10,6 +10,8 @@ import UIKit
 
 class DeleteTableViewCell: UITableViewCell {
 
+    @IBOutlet weak private var deleteLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +21,10 @@ class DeleteTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateCell(title: String) {
+        self.deleteLabel.text = title
     }
     
 }

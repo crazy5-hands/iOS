@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileTableViewController: UITableViewController {
 
@@ -16,16 +17,26 @@ class ProfileTableViewController: UITableViewController {
     private let kSectionFollow = 3
     private let kSectionFollower = 4
     private let kSectionCost = 5
+    private let kSectionDelete = 6
     private var viewModel = ProfileViewModel()
+    private var indicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let userDetailNib = UINib(nibName: "UserDetailTableViewCell", bundle: nil)
         let followNib = UINib(nibName: "FollowCountTableViewCell", bundle: nil)
         let costNib = UINib(nibName: "CostTableViewCell", bundle: nil)
+        let deleteNib = UINib(nibName: "DeleteTableViewCell", bundle: nil)
         self.tableView.register(userDetailNib, forCellReuseIdentifier: "userDetail")
         self.tableView.register(followNib, forCellReuseIdentifier: "follow")
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
+        self.tableView.register(deleteNib, forCellReuseIdentifier: "delete")
+        self.indicatorView = UIActivityIndicatorView()
+        self.indicatorView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.indicatorView.center = self.view.center
+        self.indicatorView.hidesWhenStopped = true
+        self.indicatorView.activityIndicatorViewStyle = .gray
+        self.view.addSubview(self.indicatorView)
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .black
         refreshControl.attributedTitle = NSAttributedString(string: "読み込み中")
@@ -63,7 +74,7 @@ class ProfileTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
+        return 7
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,6 +95,8 @@ class ProfileTableViewController: UITableViewController {
             return 50.0
         case kSectionCost:
             return 170.0
+        case kSectionDelete:
+            return 50
         default:
             return 0
         }
@@ -119,6 +132,10 @@ class ProfileTableViewController: UITableViewController {
             cell.selectionStyle = .none
             cell.update(cost: self.viewModel.getCost())
             return cell
+        case kSectionDelete:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell
+            cell.updateCell(title: "ログアウト")
+            return cell
         default:
             return UITableViewCell()
         }
@@ -146,6 +163,23 @@ class ProfileTableViewController: UITableViewController {
             let next = FollowerListTableViewController()
             next.userId = self.viewModel.getUser()?.id
             self.navigationController?.pushViewController(next, animated: true)
+        case kSectionDelete:
+            let alert = UIAlertController(title: "ログアウト", message: "本当にログアウトしますか", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            let logoutAction = UIAlertAction(title: "ログアウト", style: .destructive) { (alert) in
+                self.indicatorView.startAnimating()
+                try? Auth.auth().signOut()
+                self.indicatorView.stopAnimating()
+                if Auth.auth().currentUser == nil {
+                    let next = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
+                    self.present(next!, animated: false, completion: nil)
+                } else {
+                    self.showAlert("ログアウトに失敗しました。")
+                }
+            }
+            alert.addAction(logoutAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
         default:
             break
         }
