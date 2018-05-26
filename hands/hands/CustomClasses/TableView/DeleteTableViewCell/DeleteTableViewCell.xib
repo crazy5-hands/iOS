@@ -42,6 +42,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="deleteLabel" destination="mve-XO-FzD" id="kj6-Ae-PI0"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

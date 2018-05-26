@@ -23,6 +23,13 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.titleTextField.layer.borderWidth = 1
+        self.titleTextField.layer.borderColor = UIColor(red: 0.79, green: 0.79, blue: 0.79, alpha: 1).cgColor
+        self.titleTextField.layer.cornerRadius = 8.0
+        self.titleTextField.layer.masksToBounds = true
+        self.bodyTextView.layer.borderWidth = 1
+        self.bodyTextView.layer.borderColor = UIColor(red: 0.79, green: 0.79, blue: 0.79, alpha: 1).cgColor
+        self.bodyTextView.layer.cornerRadius = 10.0
         self.viewModel = NewEventViewModel()
         self.titleTextField.delegate = self
         self.bodyTextView.delegate = self

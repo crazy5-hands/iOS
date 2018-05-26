@@ -10,7 +10,7 @@ import UIKit
 
 class EditCostViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet private weak var numberTextField: UITextField!
+    @IBOutlet private weak var numberTextField: DoneButtonTextField!
     var eventId: String? = nil
     private var viewModel: EditCostViewModel?
     private var activeTextField: UITextField? = nil
