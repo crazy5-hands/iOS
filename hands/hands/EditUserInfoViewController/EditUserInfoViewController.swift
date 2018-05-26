@@ -11,7 +11,6 @@ import Firebase
 
 class EditUserInfoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
-    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var displayNameTextField: DoneButtonTextField!
     @IBOutlet weak var noteTextView: DoneButtonTextView!
     @IBOutlet private weak var submitButton: UIButton!
@@ -29,7 +28,15 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
         self.displayNameTextField.delegate = self
         self.noteTextView.delegate = self
-        self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
+        self.displayNameTextField.layer.borderColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1).cgColor
+        self.displayNameTextField.layer.borderWidth = 1.0
+        self.displayNameTextField.layer.cornerRadius = 8.0
+        self.displayNameTextField.layer.masksToBounds = true
+        self.noteTextView.layer.borderColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1).cgColor
+        self.noteTextView.layer.borderWidth = 1.0
+        self.noteTextView.layer.cornerRadius = 10.0
+        self.noteTextView.layer.masksToBounds = true
+//        self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
@@ -42,12 +49,12 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
                     DispatchQueue.main.async {
                         let user = self.viewModel.getUser()
                         self.displayNameTextField.text = user?.username
-                        self.imageView.image = self.viewModel.getPhoto()?.resize(size: self.photoSize)
+//                        self.imageView.image = self.viewModel.getPhoto()?.resize(size: self.photoSize)
                         self.noteTextView.text = user?.note
                     }
                 }else {
                     DispatchQueue.main.async {
-                        self.imageView.image = self.viewModel.getPhoto()?.resize(size: self.photoSize)
+//                        self.imageView.image = self.viewModel.getPhoto()?.resize(size: self.photoSize)
                     }
                 }
             })
@@ -59,7 +66,7 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     @IBAction func submit(_ sender: Any) {
-        self.viewModel.updateData(username: self.displayNameTextField.text!, note: self.noteTextView.text!, photo: self.imageView.image, imageURL: photoURL, handler: { result in
+        self.viewModel.updateData(username: self.displayNameTextField.text!, note: self.noteTextView.text!, photo: nil, imageURL: photoURL, handler: { result in
             if result == true {
                 if self.isFromProfile == true {
                     self.dismiss(animated: true, completion: nil)
@@ -97,7 +104,7 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         let url = info[UIImagePickerControllerImageURL] as? URL
         self.photoURL = url
-        self.imageView.image = image
+//        self.imageView.image = image
         self.dismiss(animated: true, completion: nil)
     }
     
