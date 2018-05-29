@@ -19,6 +19,7 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     private let disposeBag = DisposeBag()
     private var agreed = false
     private let activityIndicator = UIActivityIndicatorView()
+    var showNextButton = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,9 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
         let requestURL = URL(string: "https://crazy5-hands.github.io/hands.github.io/")
         let request = URLRequest(url: requestURL!)
         self.webView.loadRequest(request)
+        if self.showNextButton == false {
+            self.nextButton.isHidden = true
+        }
     }
     
     private func setUpBind() {

@@ -172,7 +172,8 @@ class ProfileTableViewController: UITableViewController {
             next.userId = self.viewModel.getUser()?.id
             self.navigationController?.pushViewController(next, animated: true)
         case kSectionPrivacyPolicy:
-            let next = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil).instantiateInitialViewController()!
+            let next = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil).instantiateInitialViewController() as! PrivacyPolicyViewController
+            next.showNextButton = false
             self.present(next, animated: true, completion: nil)
         case kSectionLogout:
             let alert = UIAlertController(title: "ログアウト", message: "本当にログアウトしますか", preferredStyle: .alert)
