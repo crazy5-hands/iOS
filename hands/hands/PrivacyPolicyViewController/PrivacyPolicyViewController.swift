@@ -48,5 +48,11 @@ class PrivacyPolicyViewController: UIViewController {
     
     @IBAction func next(_ sender: Any) {
         //segue to next
+        self.segueToEditUserInfo()
+    }
+    
+    private func segueToEditUserInfo() {
+        let inital = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
+        self.present(inital!, animated: true, completion: nil)
     }
 }

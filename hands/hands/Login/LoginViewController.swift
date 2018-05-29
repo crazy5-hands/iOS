@@ -58,7 +58,7 @@ class LoginViewController: TextFieldViewController {
                         self.showAlert("メールアドレスかパスワードが違います。")
                     }
                 }else {
-                    self.segueToEditUserInfo()
+                    self.segueToPrivacyPolicy()
                 }
             }
         }else {
@@ -71,7 +71,7 @@ class LoginViewController: TextFieldViewController {
                 if let user = user {
                     print("create user")
                     print(user.uid)
-                    self.segueToEditUserInfo()
+                    self.segueToPrivacyPolicy()
                 }else {
                     if error?.localizedDescription == "The email address is already in use by another account." {
                         self.showAlert("このメールアドレスのアカウントはすでに存在しています。")
@@ -83,6 +83,12 @@ class LoginViewController: TextFieldViewController {
 }
 
 extension LoginViewController {
+    
+    fileprivate func segueToPrivacyPolicy() {
+        let storyboard = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil)
+        let initalViewController = storyboard.instantiateInitialViewController()
+        self.present(initalViewController!, animated: true, completion: nil)
+    }
     
     //segue to editUserInfoViewController
     fileprivate func segueToEditUserInfo() {
