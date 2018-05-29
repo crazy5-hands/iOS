@@ -104,8 +104,6 @@
 		E6F02E4220BD30AB00554188 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */; };
 		E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */; };
 		E6F02E4620BD375100554188 /* PrivacyPolicyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */; };
-		E6F02E4820BD544300554188 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E6F02E4720BD544200554188 /* appicon.png */; };
-		E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,8 +233,6 @@
 		E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivacyPolicyViewController.storyboard; sourceTree = "<group>"; };
 		E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewModel.swift; sourceTree = "<group>"; };
-		E6F02E4720BD544200554188 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
-		E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IntroductionBackground.jpg; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -408,10 +404,8 @@
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
-				E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
 				E6C4F5E620ABEF5600F92358 /* icon-userPhoto.png */,
-				E6F02E4720BD544200554188 /* appicon.png */,
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
 				E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */,
 				E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */,
@@ -847,7 +841,6 @@
 				E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */,
 				E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */,
 				E6C4F5E720ABEF5700F92358 /* icon-userPhoto.png in Resources */,
-				E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */,
 				E6C4F5F420AD556500F92358 /* UserDetailTableViewCell.xib in Resources */,
 				E648E52720A87E230058DE85 /* EventDetailTableViewCell.xib in Resources */,
 				E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */,
@@ -860,7 +853,6 @@
 				E6ADAD4D2099D22000310158 /* UserCollectionViewCell.xib in Resources */,
 				E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
-				E6F02E4820BD544300554188 /* appicon.png in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,

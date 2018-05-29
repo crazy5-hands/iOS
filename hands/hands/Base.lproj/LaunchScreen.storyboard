@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,18 +22,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="YJY-V5-etY">
-                                <rect key="frame" x="62" y="208.5" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="9EZ-30-7Ey"/>
-                                    <constraint firstAttribute="width" constant="250" id="Qtk-l5-epQ"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to hands!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdT-DM-okf">
+                                <rect key="frame" x="16" y="317.5" width="343" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.87727493047714233" blue="0.0011687766527757049" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.78804999590000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YJY-V5-etY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hNr-jR-pFj"/>
-                            <constraint firstItem="YJY-V5-etY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="zLT-Ie-tLh"/>
+                            <constraint firstItem="PdT-DM-okf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Dwt-Uz-XgG"/>
+                            <constraint firstItem="PdT-DM-okf" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="JYg-qy-JZY"/>
+                            <constraint firstItem="PdT-DM-okf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jhI-8k-ZUI"/>
+                            <constraint firstItem="PdT-DM-okf" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="u8r-ZB-eZx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,7 +43,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="appicon.png" width="1024" height="1024"/>
-    </resources>
 </document>
