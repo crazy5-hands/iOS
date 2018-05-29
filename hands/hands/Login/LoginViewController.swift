@@ -22,6 +22,7 @@ class LoginViewController: TextFieldViewController {
         //delegate of TextField
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
+        self.emailTextField.keyboardType = .emailAddress
         self.passwordTextField.isSecureTextEntry = true
     }
     
