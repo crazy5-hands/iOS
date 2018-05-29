@@ -101,6 +101,9 @@
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
+		E6F02E4220BD30AB00554188 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */; };
+		E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */; };
+		E6F02E4620BD375100554188 /* PrivacyPolicyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */; };
 		E6F08A06202C9CB10099EBCB /* IntroductionBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */; };
 /* End PBXBuildFile section */
 
@@ -228,6 +231,9 @@
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivacyPolicyViewController.storyboard; sourceTree = "<group>"; };
+		E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewModel.swift; sourceTree = "<group>"; };
 		E6F08A05202C9CB00099EBCB /* IntroductionBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IntroductionBackground.jpg; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -377,6 +383,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
 				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
 				E644385420B59C1A00C89D4F /* OwnFollowEventListTableViewController */,
@@ -702,6 +709,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */,
+				E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */,
+				E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */,
+			);
+			path = PrivacyPolicyViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -841,6 +858,7 @@
 				E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
+				E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
 				E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */,
@@ -1023,7 +1041,9 @@
 				E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */,
 				E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
+				E6F02E4220BD30AB00554188 /* PrivacyPolicyViewController.swift in Sources */,
 				E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */,
+				E6F02E4620BD375100554188 /* PrivacyPolicyViewModel.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
 				E644385120B43E0B00C89D4F /* FollowListTableViewController.swift in Sources */,
