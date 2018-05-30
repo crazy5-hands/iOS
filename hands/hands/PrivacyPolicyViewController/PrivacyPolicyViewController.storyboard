@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j7l-g2-xJa">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="a5q-fg-PTA">
+            <objects>
+                <viewController id="j7l-g2-xJa" customClass="PrivacyPolicyViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vC6-a1-lDW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-5L-9TP">
+                                <rect key="frame" x="16" y="82" width="343" height="441"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ett-1g-fPv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="プライバシーポリシー" id="YSM-dq-QCR">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="tt2-F7-4g0">
+                                            <connections>
+                                                <action selector="dismiss:" destination="j7l-g2-xJa" id="Qtu-BO-S09"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfv-Yq-TAZ">
+                                <rect key="frame" x="37.5" y="597" width="300" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.78804999590000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ysr-v7-yCb"/>
+                                    <constraint firstAttribute="width" constant="300" id="aap-uv-MPC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="next:" destination="j7l-g2-xJa" eventType="touchUpInside" id="R7N-QZ-w2g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="psL-vX-j0Y">
+                                <rect key="frame" x="97.5" y="542" width="180" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="2pJ-8z-bPT"/>
+                                    <constraint firstAttribute="height" constant="25" id="QAG-bf-lNc"/>
+                                </constraints>
+                                <state key="normal" image="checkboxEmpty">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="規約に同意する">
+                                            <attributes>
+                                                <font key="NSFont" size="17" name="HiraginoSans-W4"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="checkedAgree:" destination="j7l-g2-xJa" eventType="touchUpInside" id="n4s-Uq-aQh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="psL-vX-j0Y" firstAttribute="centerX" secondItem="vC6-a1-lDW" secondAttribute="centerX" id="4hO-zl-YaV"/>
+                            <constraint firstItem="lfv-Yq-TAZ" firstAttribute="top" secondItem="psL-vX-j0Y" secondAttribute="bottom" constant="30" id="T5E-SI-Pwz"/>
+                            <constraint firstItem="ett-1g-fPv" firstAttribute="top" secondItem="Ez6-cg-EZ5" secondAttribute="top" id="Ugq-PS-G39"/>
+                            <constraint firstItem="lfv-Yq-TAZ" firstAttribute="centerX" secondItem="vC6-a1-lDW" secondAttribute="centerX" id="joI-a3-pgk"/>
+                            <constraint firstItem="ett-1g-fPv" firstAttribute="leading" secondItem="Ez6-cg-EZ5" secondAttribute="leading" id="l4X-KG-sUY"/>
+                            <constraint firstItem="ett-1g-fPv" firstAttribute="trailing" secondItem="Ez6-cg-EZ5" secondAttribute="trailing" id="m1h-ea-stn"/>
+                            <constraint firstItem="Ez6-cg-EZ5" firstAttribute="bottom" secondItem="lfv-Yq-TAZ" secondAttribute="bottom" constant="30" id="pCC-hA-epd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ez6-cg-EZ5"/>
+                    </view>
+                    <connections>
+                        <outlet property="acceptPrivacyPolicyButton" destination="psL-vX-j0Y" id="KRl-Ha-UYa"/>
+                        <outlet property="nextButton" destination="lfv-Yq-TAZ" id="UTG-NF-kZ2"/>
+                        <outlet property="webView" destination="bNm-5L-9TP" id="lmt-A4-kCj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zKK-Bx-9Hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71.200000000000003" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="checkboxEmpty" width="25" height="25"/>
+    </resources>
+</document>

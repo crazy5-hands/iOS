@@ -17,7 +17,8 @@ class ProfileTableViewController: UITableViewController {
     private let kSectionFollow = 3
     private let kSectionFollower = 4
     private let kSectionCost = 5
-    private let kSectionDelete = 6
+    private let kSectionPrivacyPolicy = 6
+    private let kSectionLogout = 7
     private var viewModel = ProfileViewModel()
     private var indicatorView: UIActivityIndicatorView!
     
@@ -74,7 +75,7 @@ class ProfileTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        return 8
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,7 +96,9 @@ class ProfileTableViewController: UITableViewController {
             return 50.0
         case kSectionCost:
             return 170.0
-        case kSectionDelete:
+        case kSectionPrivacyPolicy:
+            return 50
+        case kSectionLogout:
             return 50
         default:
             return 0
@@ -132,7 +135,12 @@ class ProfileTableViewController: UITableViewController {
             cell.selectionStyle = .none
             cell.update(cost: self.viewModel.getCost())
             return cell
-        case kSectionDelete:
+        case kSectionPrivacyPolicy:
+            let cell = UITableViewCell()
+            cell.selectionStyle = .none
+            cell.textLabel?.text = "privacy policy"
+            return cell
+        case kSectionLogout:
             let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell
             cell.updateCell(title: "ログアウト")
             return cell
@@ -163,7 +171,11 @@ class ProfileTableViewController: UITableViewController {
             let next = FollowerListTableViewController()
             next.userId = self.viewModel.getUser()?.id
             self.navigationController?.pushViewController(next, animated: true)
-        case kSectionDelete:
+        case kSectionPrivacyPolicy:
+            let next = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil).instantiateInitialViewController() as! PrivacyPolicyViewController
+            next.showNextButton = false
+            self.present(next, animated: true, completion: nil)
+        case kSectionLogout:
             let alert = UIAlertController(title: "ログアウト", message: "本当にログアウトしますか", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             let logoutAction = UIAlertAction(title: "ログアウト", style: .destructive) { (alert) in
