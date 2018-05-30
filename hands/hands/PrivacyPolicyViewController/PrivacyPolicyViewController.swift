@@ -17,6 +17,7 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var nextButton: UIButton!
     private let viewModel = PrivacyPolicyViewModel()
     private let disposeBag = DisposeBag()
+    private let keyForPrivacyPolicy = "privacyPolicy"
     private var agreed = false
     private let activityIndicator = UIActivityIndicatorView()
     var showNextButton = true
@@ -34,6 +35,16 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
         self.webView.loadRequest(request)
         if self.showNextButton == false {
             self.nextButton.isHidden = true
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let userDefaults = UserDefaults.standard
+        let isAgree = userDefaults.bool(forKey: self.keyForPrivacyPolicy)
+        if isAgree == true {
+            self.acceptPrivacyPolicyButton.setImage(#imageLiteral(resourceName: "checkboxChecked"), for: .normal)
+            self.nextButton.isEnabled = true
         }
     }
     
@@ -78,6 +89,8 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     
     @IBAction func next(_ sender: Any) {
         //segue to next
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(self.agreed, forKey: self.keyForPrivacyPolicy)
         self.segueToEditUserInfo()
     }
     
