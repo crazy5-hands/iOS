@@ -18,6 +18,7 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     private let viewModel = PrivacyPolicyViewModel()
     private let disposeBag = DisposeBag()
     private let keyForPrivacyPolicy = "privacyPolicy"
+    private let keyForAppsVersion = "appsVersion"
     private var agreed = false
     private let activityIndicator = UIActivityIndicatorView()
     var showNextButton = true
@@ -41,6 +42,8 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let userDefaults = UserDefaults.standard
+        // check version
+//        let version: String = Bundle.main.appStoreReceiptUR
         let isAgree = userDefaults.bool(forKey: self.keyForPrivacyPolicy)
         if isAgree == true {
             self.acceptPrivacyPolicyButton.setImage(#imageLiteral(resourceName: "checkboxChecked"), for: .normal)
