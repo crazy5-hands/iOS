@@ -10,8 +10,8 @@ import UIKit
 
 class CostListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var costLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
