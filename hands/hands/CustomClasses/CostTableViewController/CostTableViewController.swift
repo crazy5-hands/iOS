@@ -40,14 +40,23 @@ class CostTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.costs.count
+        return self.costs.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostListTableViewCell
-        let title = self.events[indexPath.row].title
-        let cost =  self.costs[indexPath.row].cost
-        cell.updateCell(title: title, cost: String(cost))
+        if indexPath.row == self.costs.count {
+            let title = "合計金額"
+            var sum = 0
+            for cost in self.costs {
+                sum += cost.cost
+            }
+            cell.updateCell(title: title, cost: String(sum))
+        } else {
+            let title = self.events[indexPath.row].title
+            let cost =  self.costs[indexPath.row].cost
+            cell.updateCell(title: title, cost: String(cost))
+        }
         return cell
     }
     
