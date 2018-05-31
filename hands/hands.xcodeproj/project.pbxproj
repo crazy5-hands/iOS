@@ -390,7 +390,6 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E69FE32520BFC81500A45FC6 /* CostTableViewController */,
 				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
 				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
@@ -668,6 +667,7 @@
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				E69FE32520BFC81500A45FC6 /* CostTableViewController */,
 				E6ADAD54209ACC3100310158 /* TableView */,
 				E6ADAD53209ACC0400310158 /* CollectionView */,
 				E6277883208ED3F9008F11BC /* TextFieldViewController.swift */,
