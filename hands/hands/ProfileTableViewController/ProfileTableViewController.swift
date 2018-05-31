@@ -138,7 +138,7 @@ class ProfileTableViewController: UITableViewController {
         case kSectionPrivacyPolicy:
             let cell = UITableViewCell()
             cell.selectionStyle = .none
-            cell.textLabel?.text = "privacy policy"
+            cell.textLabel?.text = "プライバシーポリシー"
             return cell
         case kSectionLogout:
             let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell
