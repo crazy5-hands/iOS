@@ -72,6 +72,7 @@
             <connections>
                 <outlet property="cardView" destination="jeV-ko-5nz" id="AAK-vx-1NY"/>
                 <outlet property="costLabel" destination="Pck-Gh-ZRs" id="f8u-H5-e5P"/>
+                <outlet property="titleLabel" destination="SsV-oo-rC1" id="suB-jw-gWb"/>
             </connections>
             <point key="canvasLocation" x="34" y="116"/>
         </tableViewCell>

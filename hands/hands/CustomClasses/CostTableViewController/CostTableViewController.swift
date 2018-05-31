@@ -22,7 +22,9 @@ class CostTableViewController: UITableViewController {
         self.tableView.addSubview(refreshControl)
         self.refreshControl = refreshControl
         let costNib = UINib(nibName: "CostListTableViewCell", bundle: nil)
+        let sumNib = UINib(nibName: "CostTableViewCell", bundle: nil)
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
+        self.tableView.register(sumNib, forCellReuseIdentifier: "sum")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,32 +42,35 @@ class CostTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.costs.count + 1
+        return self.costs.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostListTableViewCell
-        if indexPath.row == self.costs.count {
-            let title = "合計金額"
-            var sum = 0
-            for cost in self.costs {
-                sum += cost.cost
-            }
-            cell.updateCell(title: title, cost: String(sum))
-        } else {
-            let title = self.events[indexPath.row].title
-            let cost =  self.costs[indexPath.row].cost
-            cell.updateCell(title: title, cost: String(cost))
-        }
+        cell.selectionStyle = .none
+        let title = self.events[indexPath.row].title
+        let cost =  self.costs[indexPath.row].cost
+        cell.updateCell(title: title, cost: String(cost) + "円")
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(50)
+        return CGFloat(55)
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row)")
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "sum") as! CostTableViewCell
+        var sum = 0
+        for cost in self.costs {
+            sum += cost.cost
+        }
+        headerCell.updateCell(title: "合計金額", cost: sum)
+        let headerView = headerCell.contentView
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(100)
     }
     
     func startLoading() {

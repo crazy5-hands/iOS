@@ -12,6 +12,7 @@ class CostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,4 +28,9 @@ class CostTableViewCell: UITableViewCell {
     func update(cost: Int) {
         self.costLabel.text = "\(cost)" + "円"
     }
+    
+    func updateCell(title: String, cost: Int) {
+        self.titleLabel.text = title
+        self.costLabel.text = "\(cost)"
+ + "円"    }
 }
