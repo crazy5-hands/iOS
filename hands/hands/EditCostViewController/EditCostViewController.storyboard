@@ -38,10 +38,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金額を入力してください。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yue-fo-gUb">
-                                <rect key="frame" x="40" y="183" width="282" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コストとは、イベント参加者が主催者に払う金額です。ここにその金額を入力してください。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yue-fo-gUb">
+                                <rect key="frame" x="40" y="136" width="295" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="ory-7Q-ekW"/>
+                                    <constraint firstAttribute="height" constant="100" id="ory-7Q-ekW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,7 +56,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Kf9-fw-Ktk" firstAttribute="trailing" secondItem="yue-fo-gUb" secondAttribute="trailing" constant="53" id="04Y-ON-aql"/>
                             <constraint firstItem="6oT-8z-PQC" firstAttribute="centerY" secondItem="Usf-fJ-2b4" secondAttribute="centerY" constant="-66.5" id="0A0-fq-l2U"/>
                             <constraint firstItem="ImG-bs-Bdt" firstAttribute="trailing" secondItem="Kf9-fw-Ktk" secondAttribute="trailing" id="ANH-Bu-9Un"/>
                             <constraint firstItem="ImG-bs-Bdt" firstAttribute="leading" secondItem="Kf9-fw-Ktk" secondAttribute="leading" id="ASz-P2-fPe"/>
@@ -65,6 +64,7 @@
                             <constraint firstItem="Kf9-fw-Ktk" firstAttribute="trailing" secondItem="6oT-8z-PQC" secondAttribute="trailing" constant="40" id="LYg-KD-dwW"/>
                             <constraint firstItem="6oT-8z-PQC" firstAttribute="leading" secondItem="Kf9-fw-Ktk" secondAttribute="leading" constant="40" id="RQw-2D-lqT"/>
                             <constraint firstItem="yue-fo-gUb" firstAttribute="leading" secondItem="6oT-8z-PQC" secondAttribute="leading" id="ghS-IQ-QwW"/>
+                            <constraint firstItem="6oT-8z-PQC" firstAttribute="width" secondItem="yue-fo-gUb" secondAttribute="width" id="lb4-Pm-m4l"/>
                             <constraint firstItem="6oT-8z-PQC" firstAttribute="top" secondItem="yue-fo-gUb" secondAttribute="bottom" constant="8" symbolic="YES" id="mgZ-9t-SGf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kf9-fw-Ktk"/>
