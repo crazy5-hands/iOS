@@ -41,8 +41,8 @@ class CostTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostListTableViewCell
         let title = self.event[indexPath.row].title
-        let cost = self.cost[indexPath.row].cost
-        cell.updateCell(title: title, cost: cost)
+        let cost =  self.cost[indexPath.row].cost
+        cell.updateCell(title: title, cost: String(cost))
         return cell
     }
     
@@ -62,6 +62,9 @@ class CostTableViewController: UITableViewController {
         self.refreshControl?.endRefreshing()
     }
     
+    /// get data of events and costs
+    /// if it ready to show in tableview, stop refreshControl and reload tableview
+    /// if it has no data, notice it to user with using navigation prompt
     @objc func loadData() {
     }
 }
