@@ -11,6 +11,7 @@ import UIKit
 class CostTableViewController: UITableViewController {
     
     var cost: [Cost] = []
+    var event: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,9 @@ class CostTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostListTableViewCell
-        let costDate = DateUtils().stringFromDate(date: self.cost[indexPath.row].created_at)
-        cell.updateCell(title: costDate, cost: "\(cost[indexPath.row].cost)")
+        let title = self.event[indexPath.row].title
+        let cost = self.cost[indexPath.row].cost
+        cell.updateCell(title: title, cost: cost)
         return cell
     }
     
