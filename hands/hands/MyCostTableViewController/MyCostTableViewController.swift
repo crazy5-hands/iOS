@@ -30,7 +30,6 @@ class MyCostTableViewController: CostTableViewController {
                             }
                         })
                     }
-                    
                     group.leave()
                 })
                 group.notify(queue: .main, execute: {
