@@ -43,6 +43,15 @@ class ProfileViewModel {
             if events.isEmpty != true {
                 for event in events {
                     self.ownEventIds.append(event.id)
+                    group.enter()
+                    CostUtil().getCostByEventId(eventId: event.id, complition: { (cost) in
+                        if let cost = cost {
+                            self.costs.append(cost)
+                            group.leave()
+                        }else {
+                            group.leave()
+                        }
+                    })
                 }
             }
             group.leave()
