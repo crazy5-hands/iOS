@@ -15,22 +15,35 @@ class MyCostTableViewController: CostTableViewController {
         self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             if let uid = Auth.auth().currentUser?.uid {
+                let group = DispatchGroup()
+                var newEvents: [Event] = []
+                var newCosts: [Cost] = []
+                group.enter()
                 EventUtil().getOwnEvents(authorId: uid, complition: { (events) in
-                    var newCosts: [Cost] = []
+                    newEvents = events
                     for event in events {
+                        group.enter()
                         CostUtil().getCostByEventId(eventId: event.id, complition: { (cost) in
                             if let cost = cost {
                                 newCosts.append(cost)
+                                group.leave()
                             }
                         })
                     }
-                    self.events = self.sortEventsByDate(events: events)
-                    self.costs = self.sortCostsByDate(costs: newCosts)
+                    
+                    group.leave()
                 })
-            }
-            DispatchQueue.main.async {
-                self.endLoading()
-                self.tableView.reloadData()
+                group.notify(queue: .main, execute: {
+                    self.events = self.sortEventsByDate(events:newEvents)
+                    self.costs = self.sortCostsByDate(costs: newCosts)
+                    self.endLoading()
+                    self.tableView.reloadData()
+                })
+            } else {
+                DispatchQueue.main.async {
+                    self.endLoading()
+                    self.navigationItem.prompt = "データの取得に失敗しました。"
+                }
             }
         }
     }

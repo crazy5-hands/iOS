@@ -11,10 +11,9 @@ import Firebase
 
 class CostUtil {
     
-    func getCostByEventId(eventId: String, complition: (Cost?) -> Void) {
+    func getCostByEventId(eventId: String, complition: @escaping (Cost?) -> Void) {
         let db = Firestore.firestore()
         var cost: Cost? = nil
-        let semaphore = DispatchSemaphore.init(value: 0)
         db.collection("costs").whereField("event_id", isEqualTo: eventId).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
                 if snapshot.documents.count != 0 {
@@ -23,10 +22,8 @@ class CostUtil {
             } else {
                 print(error!.localizedDescription)
             }
-            semaphore.signal()
+            complition(cost)
         }
-        semaphore.wait()
-        complition(cost)
     }
     
     func update(target: Cost, complition: @escaping (Bool) -> Void) {

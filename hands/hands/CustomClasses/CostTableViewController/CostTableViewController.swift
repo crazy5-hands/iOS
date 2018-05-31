@@ -29,6 +29,11 @@ class CostTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.loadData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.endLoading()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -82,6 +87,5 @@ class CostTableViewController: UITableViewController {
             return first.created_at as Date > second.created_at as Date
         }
         return rEvents
-        
     }
 }
