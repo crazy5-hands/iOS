@@ -22,10 +22,12 @@ class CostTableViewController: UITableViewController {
         self.refreshControl = refreshControl
         let costNib = UINib(nibName: "CostListTableViewCell", bundle: nil)
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.loadData()
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
