@@ -171,6 +171,9 @@ class ProfileTableViewController: UITableViewController {
             let next = FollowerListTableViewController()
             next.userId = self.viewModel.getUser()?.id
             self.navigationController?.pushViewController(next, animated: true)
+        case kSectionCost:
+            let next = MyCostTableViewController()
+            self.navigationController?.pushViewController(next, animated: true)
         case kSectionPrivacyPolicy:
             let next = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil).instantiateInitialViewController() as! PrivacyPolicyViewController
             next.showNextButton = false
