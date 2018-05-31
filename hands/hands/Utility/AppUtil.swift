@@ -19,7 +19,7 @@ enum Version {
 
 class AppUtil {
     
-    let appId = "109102102"
+    let appId = "1390227882"
     
     func adjustVersion() -> Version {
         guard let currentVersion = self.getCurrentVersion() else { return .error }
@@ -36,14 +36,14 @@ class AppUtil {
     func getAppStoreAppVersion() -> String? {
         if let info = Bundle.main.infoDictionary {
             if let identifier = info["CFBundleIdentifier"] as? String {
-                guard let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)") else { return nil }
-                let data = try! Data(contentsOf: url)
-                guard let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {
-                    return nil
-                }
-                if let result = (json!["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
-                    return version
-                }
+//                guard let url = URL(string: "http://itunes.apple.com/lookup?bundleId=\(identifier)") else { return nil }
+//                let data = try! Data(contentsOf: url)
+//                guard let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments]) as? [String: Any] else {
+//                    return nil
+//                }
+//                if let result = (json!["results"] as? [Any])?.first as? [String: Any], let version = result["version"] as? String {
+//                    return version
+//                }
             }
         }
         return nil
