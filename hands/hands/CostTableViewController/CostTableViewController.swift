@@ -14,6 +14,12 @@ class CostTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .black
+        refreshControl.attributedTitle = NSAttributedString(string: "更新中")
+        refreshControl.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+        self.refreshControl = refreshControl
         let costNib = UINib(nibName: "CostListTableViewCell", bundle: nil)
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
         self.loadData()
@@ -33,7 +39,7 @@ class CostTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostListTableViewCell
         let costDate = DateUtils().stringFromDate(date: self.cost[indexPath.row].created_at)
         cell.updateCell(title: costDate, cost: "\(cost[indexPath.row].cost)")
-        return cell!
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -45,14 +51,13 @@ class CostTableViewController: UITableViewController {
     }
     
     func startLoading() {
-        
+        self.refreshControl?.beginRefreshing()
     }
     
     func endLoading() {
-        
+        self.refreshControl?.endRefreshing()
     }
     
-    func loadData() {
-        
+    @objc func loadData() {
     }
 }
