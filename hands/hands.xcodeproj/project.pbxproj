@@ -52,6 +52,9 @@
 		E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */; };
 		E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
+		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
+		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
+		E69FE32C20BFCA9D00A45FC6 /* CostListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E69FE32A20BFCA9D00A45FC6 /* CostListTableViewCell.xib */; };
 		E6A1AD8B201B54F30044998D /* LineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E619E63320172FDD00A30592 /* LineSDK.framework */; };
 		E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */; };
 		E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */; };
@@ -183,6 +186,9 @@
 		E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 		E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
+		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
+		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
+		E69FE32A20BFCA9D00A45FC6 /* CostListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostListTableViewCell.xib; sourceTree = "<group>"; };
 		E6A7325320B2F8D900CDD5B9 /* CostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewCell.swift; sourceTree = "<group>"; };
 		E6A7325420B2F8D900CDD5B9 /* CostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostTableViewCell.xib; sourceTree = "<group>"; };
 		E6A7325720B3064E00CDD5B9 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
@@ -384,6 +390,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E69FE32520BFC81500A45FC6 /* CostTableViewController */,
 				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
 				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
@@ -480,6 +487,23 @@
 				E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */,
 			);
 			path = DeleteTableViewCell;
+			sourceTree = "<group>";
+		};
+		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */,
+			);
+			path = CostTableViewController;
+			sourceTree = "<group>";
+		};
+		E69FE32820BFCA7E00A45FC6 /* CostListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */,
+				E69FE32A20BFCA9D00A45FC6 /* CostListTableViewCell.xib */,
+			);
+			path = CostListTableViewCell;
 			sourceTree = "<group>";
 		};
 		E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */ = {
@@ -611,6 +635,7 @@
 		E6ADAD54209ACC3100310158 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				E69FE32820BFCA7E00A45FC6 /* CostListTableViewCell */,
 				E68EF34C20B86F12009933CB /* DeleteTableViewCell */,
 				E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */,
 				E6C4F5F520AD76B900F92358 /* FollowCountTableViewCell */,
@@ -842,6 +867,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6ADAD212091A4C300310158 /* NotificationViewController.storyboard in Resources */,
+				E69FE32C20BFCA9D00A45FC6 /* CostListTableViewCell.xib in Resources */,
 				E6ADAD322093999100310158 /* NewEventViewController.storyboard in Resources */,
 				E6C4F5E720ABEF5700F92358 /* icon-userPhoto.png in Resources */,
 				E6C4F5F420AD556500F92358 /* UserDetailTableViewCell.xib in Resources */,
@@ -1071,6 +1097,7 @@
 				E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
+				E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */,
 				E644385920B5A09400C89D4F /* OwnEventListTableViewController.swift in Sources */,
 				E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
@@ -1081,6 +1108,7 @@
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
 				E6C4F60020B2BB3100F92358 /* EditCostViewController.swift in Sources */,
+				E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
