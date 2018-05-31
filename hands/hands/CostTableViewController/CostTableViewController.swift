@@ -12,7 +12,6 @@ class CostTableViewController: UITableViewController {
     
     var cost: [Cost] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let costNib = UINib(nibName: "CostListTableViewCell", bundle: nil)
