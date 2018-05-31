@@ -10,8 +10,8 @@ import UIKit
 
 class CostTableViewController: UITableViewController {
     
-    var cost: [Cost] = []
-    var event: [Event] = []
+    var costs: [Cost] = []
+    var events: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +35,13 @@ class CostTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cost.count
+        return self.costs.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostListTableViewCell
-        let title = self.event[indexPath.row].title
-        let cost =  self.cost[indexPath.row].cost
+        let title = self.events[indexPath.row].title
+        let cost =  self.costs[indexPath.row].cost
         cell.updateCell(title: title, cost: String(cost))
         return cell
     }
@@ -66,5 +66,22 @@ class CostTableViewController: UITableViewController {
     /// if it ready to show in tableview, stop refreshControl and reload tableview
     /// if it has no data, notice it to user with using navigation prompt
     @objc func loadData() {
+    }
+    
+    func sortCostsByDate(costs: [Cost]) -> [Cost] {
+        var rCosts = costs
+        rCosts.sort { (first, second) -> Bool in
+            return first.created_at as Date > second.created_at as Date
+        }
+        return rCosts
+    }
+    
+    func sortEventsByDate(events: [Event]) -> [Event] {
+        var rEvents = events
+        rEvents.sort { (first, second) -> Bool in
+            return first.created_at as Date > second.created_at as Date
+        }
+        return rEvents
+        
     }
 }
