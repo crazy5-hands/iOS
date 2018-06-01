@@ -7,53 +7,88 @@
 //
 
 import UIKit
-import FirebaseAuth
 import Firebase
-import RxSwift
-import RxCocoa
 
-class EditUserInfoViewController: TextFieldViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditUserInfoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var displayNameTextField: UITextField!
+    @IBOutlet private weak var displayNameTextField: DoneButtonTextField!
+    @IBOutlet weak var noteTextView: DoneButtonTextView!
     @IBOutlet private weak var submitButton: UIButton!
-    
-    fileprivate var viewModel: EditUserInfoViewModel!
-    fileprivate let disposeBag = DisposeBag()
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     fileprivate var activeTextField: UITextField?
+    fileprivate var activeTextView: UITextView?
+    fileprivate var viewModel: EditUserInfoViewModel!
     private let db = Firestore.firestore()
+    private let photoSize = CGSize(width: 100, height: 100)
+    private var photoURL: URL?
+    var isFromProfile: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.displayNameTextField.delegate = self
-        self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
-        self.viewModel = EditUserInfoViewModel()
-        setUpBind()
+        self.noteTextView.delegate = self
+        self.displayNameTextField.layer.borderColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1).cgColor
+        self.displayNameTextField.layer.borderWidth = 1.0
+        self.displayNameTextField.layer.cornerRadius = 8.0
+        self.displayNameTextField.layer.masksToBounds = true
+        self.noteTextView.layer.borderColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1).cgColor
+        self.noteTextView.layer.borderWidth = 1.0
+        self.noteTextView.layer.cornerRadius = 10.0
+        self.noteTextView.layer.masksToBounds = true
+//        self.imageView.addGestureRecognizer(.init(target: self, action: #selector(EditUserInfoViewController.imageTapped) ))
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+        if self.isFromProfile == false {
+            self.cancelButton.isEnabled = false
+        }
+        DispatchQueue.global().async {
+            self.viewModel = EditUserInfoViewModel(complition: { (result) in
+                if result == true {
+                    DispatchQueue.main.async {
+                        let user = self.viewModel.getUser()
+                        self.displayNameTextField.text = user?.username
+//                        self.imageView.image = self.viewModel.getPhoto()?.resize(size: self.photoSize)
+                        self.noteTextView.text = user?.note
+                    }
+                }else {
+                    DispatchQueue.main.async {
+//                        self.imageView.image = self.viewModel.getPhoto()?.resize(size: self.photoSize)
+                    }
+                }
+            })
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let user = Auth.auth().currentUser
-        if user?.photoURL != nil {
-            imageView.image = getImageFromURL((user?.photoURL?.absoluteString)!)
-        }
-        self.setUpNotificationForTextField()
-        self.displayNameTextField.text = self.viewModel.user?.username
-        print(self.viewModel.user?.dictionary)
     }
     
     @IBAction func submit(_ sender: Any) {
-        let username = self.displayNameTextField.text ?? self.viewModel.user?.username
-        self.viewModel.updateData(username: username!)
+        self.viewModel.updateData(username: self.displayNameTextField.text!, note: self.noteTextView.text!, photo: nil, imageURL: photoURL, handler: { result in
+            if result == true {
+                if self.isFromProfile == true {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    let next = MainTabBarController()
+                    self.show(next, sender: nil)
+                }
+            }else {
+                self.showAlert("更新失敗")
+            }
+        })
     }
     
-    private func setUpBind() {
-        self.displayNameTextField.rx.text.orEmpty
-            .bind(to: self.viewModel.displayName)
-            .disposed(by: self.disposeBag)
-        self.viewModel.shouldSubmit
-            .bind(to: self.submitButton.rx.isEnabled)
-            .disposed(by: self.disposeBag)
+    @IBAction func changeImage(_ sender: Any) {
+        let imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.delegate = self
+        self.present(imagePickerViewController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func dismissThisView(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc private func imageTapped() {
@@ -67,26 +102,59 @@ class EditUserInfoViewController: TextFieldViewController, UIImagePickerControll
     
     internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.imageView.image = image
+        let url = info[UIImagePickerControllerImageURL] as? URL
+        self.photoURL = url
+//        self.imageView.image = image
         self.dismiss(animated: true, completion: nil)
     }
-}
-
-//set textField's delegate
-extension EditUserInfoViewController {
     
-    fileprivate func getImageFromURL(_ stringURL: String) -> UIImage? {
-        var image: UIImage?
-        let url = URL(string: stringURL)
-        let session = URLSession(configuration: .default)
-        let downloadPhotoTask = session.dataTask(with: url!){ data, response, error in
-            if error != nil {
-                print(error?.localizedDescription)
+    @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
+        let userInfo = notification.userInfo //この中にキーボードの情報がある
+        let keyboardSize = (userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardY = self.view.frame.size.height - keyboardSize.height //画面全体の高さ - キーボードの高さ = キーボードが被らない高さ
+        
+        var editingY: CGFloat {
+            if self.activeTextField != nil {
+                return (self.activeTextField?.frame.origin.y)!
             }else {
-                image = UIImage(data: data!)
+                return (self.activeTextView?.frame.origin.y)!
             }
         }
-        downloadPhotoTask.resume()
-        return image
+        if editingY > keyboardY - 60 {
+            UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
+                self.view.frame = CGRect(x: 0, y: self.view.frame.origin.y - (editingY - (keyboardY - 60)), width: self.view.bounds.width, height: self.view.bounds.height)
+            }, completion: nil)
+            
+        }
+    }
+    
+    @objc private func handleKeyboardWillHideNotification(_ notification: Notification) {
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: .curveEaseIn, animations: {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        }, completion: nil)
+    }
+    
+    //textfield
+    internal func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.activeTextField = textField
+        return true
+    }
+    
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.activeTextField = nil
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //textview
+    internal func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        self.activeTextView = textView
+        return true
+    }
+    
+    internal func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        self.activeTextView = nil
+        textView.resignFirstResponder()
+        return true
     }
 }

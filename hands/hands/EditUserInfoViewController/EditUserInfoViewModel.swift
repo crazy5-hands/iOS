@@ -7,48 +7,65 @@
 //
 
 import Foundation
-import RxSwift
 import Firebase
 
 class EditUserInfoViewModel{
     
-    var displayName = Variable<String>("")
-    let shouldSubmit: Observable<Bool>
-    var user: User?
-    private let uid = Auth.auth().currentUser?.uid
+    private var user: User?
     private let db = Firestore.firestore()
-    private var docRef: DocumentReference?
+    private let uid = Auth.auth().currentUser?.uid
     
-    init() {
-        self.shouldSubmit = self.displayName.asObservable().map({ text -> Bool in
-            0 < text.count && text.count <= 15
-        })
-        self.docRef = self.db.collection("users").document(self.uid!)
-        //存在チェック
-        self.db.collection("users").whereField("id", isEqualTo: self.uid!).getDocuments { (snapshot, error) in
-            if let snapshot = snapshot {
-                if snapshot.documents.count == 0 { // user data doesn't exist
-                    self.user = User(id: self.uid!, username: "", note: "", photo: "")
-                }else { // user data exists
-                    self.user = User(dictionary: snapshot.documents[0].data())
-                }
+    init(complition: @escaping (Bool) -> Void) {
+        UserUtil().getUser(id: self.uid!) { (user) in
+            if let user = user {
+                self.user = user
+                complition(true)
             }else {
-                print(error?.localizedDescription ?? "can't get data")
-                self.user = User(id: self.uid!, username: "", note: "", photo: "")
+                complition(false)
             }
         }
     }
     
-    func updateData(username: String){
-        self.user?.username = username
-        self.db.collection("users").document(self.uid!).setData((self.user?.dictionary)!)
+    func getUser() -> User? {
+        return self.user
     }
     
-//    func update(image: UIImage?) -> Bool {
-////        var newPhotoURL:URL?
-////        if image != nil {
-////            newPhotoURL = self.storageModel.uplodeImage(image!, url: self.displayName.value + ".jpg")
-////        }
-//////        return self.userModel.updateUser(self.displayName.value, newPhotoURL)
-//    }
+    func getPhoto() -> UIImage? {
+        if let user = self.user {
+            if user.photo != "" {
+                return PhotoUtil().getPhoto(path: user.photo)
+            }
+        }
+        return UIImage(named: "icon-userPhoto.png")
+    }
+    
+    func updateData(username: String, note: String, photo: UIImage?, imageURL: URL?, handler: @escaping (Bool) -> Void){
+        let semaphore = DispatchSemaphore(value: 0)
+        var photoURL = ""
+        if imageURL == nil{
+            photoURL = ""
+            semaphore.signal()
+        }else { //upload photo
+            let path = "users/" + self.uid! + ".jpg"
+//            PhotoUtil().putPhoto(path: path, image: photo!) { (stringURL) in
+//                if let stringURL = stringURL {
+//                    photoURL = stringURL
+//                }
+//                semaphore.signal()
+//            }
+            print(imageURL?.absoluteString)
+            PhotoUtil().putPhotoWithURL(path: path, imageURL: imageURL!) { (stringURL) in
+                if let stringURL = stringURL {
+                    photoURL = stringURL
+                }
+                semaphore.signal()
+            }
+        }
+        semaphore.wait()
+        let user = User(id: self.uid!, username: username, note: note, photo: photoURL)
+        UserUtil().putUser(id: self.uid!, user: user, complition: { (result) in
+            handler(result)
+        })
+
+    }
 }

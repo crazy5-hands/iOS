@@ -8,31 +8,65 @@
 
 import UIKit
 
-class EventListTableViewController: UITableViewController, EventListTableViewModelDelegate {
+class EventListTableViewController: UITableViewController {
     
-    private var viewModel: EventListTableViewModel!
+    var events: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel = EventListTableViewModel()
-        self.viewModel.delegate = self
-        
+        self.tableView.estimatedRowHeight = 140
+        self.tableView.rowHeight = UITableViewAutomaticDimension
         let nib = UINib(nibName: "EventTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "event")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        let refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "読み込み中")
+        refresh.tintColor = .gray
+        refresh.addTarget(self, action: #selector(self.loadData), for: .valueChanged)
+        self.tableView.addSubview(refresh)
+        self.refreshControl = refresh
+        self.loadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.viewModel.loadEvents()
-        self.tableView.reloadData()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.endLoading()
     }
-
+    
     func loadData() {
+        self.startLoading()
+        DispatchQueue.global(qos: .userInitiated).async {
+            EventUtil().getEventsAll(complition: { (events) in
+                self.events = self.orderByCreatedAt(events: events)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                    self.reloadData()
+                })
+            })
+        }
+    }
+    
+    func reloadData() {
+        let rvents = self.events
+        self.events = self.orderByCreatedAt(events: rvents)
+        self.endLoading()
         self.tableView.reloadData()
     }
     
-    func errorToGetData() {
-        print("error this tableviewcontroller")
+    func orderByCreatedAt(events: [Event]) -> [Event] {
+        var rEvents = events
+        rEvents.sort { (first, second) -> Bool in
+            return first.created_at as Date > second.created_at as Date
+        }
+        return rEvents
+    }
+    
+    func startLoading() {
+        self.refreshControl?.beginRefreshing()
+    }
+    
+    func endLoading() {
+        self.refreshControl?.endRefreshing()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,65 +74,20 @@ class EventListTableViewController: UITableViewController, EventListTableViewMod
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.events.count
+        return self.events.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath) as! EventTableViewCell
-//        cell.photoImageView.image
-        cell.titleLabel.text = self.viewModel.events[indexPath.row].title
-        cell.bodyLabel.text = self.viewModel.events[indexPath.row].body
-        cell.createAtLabel.text = DateUtils.stringFromDate(date: self.viewModel.events[indexPath.row].created_at)
+        let event = self.events[indexPath.row]
+        cell.updateCell(eventKey: event.id, title: event.title, body: event.body, createAt: event.created_at)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let event = self.events[indexPath.row]
+        let eventDetailTVC = EventDetailTableViewController()
+        eventDetailTVC.event = event
+        self.navigationController?.pushViewController(eventDetailTVC, animated: true)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

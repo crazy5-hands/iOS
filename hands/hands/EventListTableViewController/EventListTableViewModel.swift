@@ -7,98 +7,44 @@
 //
 
 import Foundation
-import Firebase
-
-protocol EventListTableViewModelDelegate {
-    func loadData()
-    func errorToGetData()
-}
 
 class EventListTableViewModel {
     
-    var events: [Event] = []
-    private let uid = Auth.auth().currentUser?.uid
-    private let db = Firestore.firestore()
-    private var eventRef: CollectionReference?
-    private var followRef: CollectionReference?
-    var delegate: EventListTableViewModelDelegate?
+    private var events: [Event] = []
     
-    init() {
-        self.eventRef = db.collection("events")
-        self.followRef = db.collection("follows")
-    }
-    
-    func loadEvents() {
-        if self.events.count != 0 {
-            self.events.removeAll()
+    func getEventsByEventIds(eventIds: [String], complition: @escaping (Bool) -> Void) {
+        let group = DispatchGroup()
+        for eventId in eventIds {
+            group.enter()
+            EventUtil().getEventByEventId(eventId: eventId) { (event) in
+                if let event = event {
+                    self.events.append(event)
+                }
+                group.leave()
+            }
         }
-        self.getEvents(id: self.uid!) { (result) in
-            if result == true {
-                self.getFollowsEvents(callback: { (result) in
-                    if result == true {
-                        print("get follows")
-                        self.orderByCreatedAt()
-                        self.delegate?.loadData()
-                    }else {
-                        print("didn't get follows")
-                        self.orderByCreatedAt()
-                        self.delegate?.loadData()
-                    }
-                })
-            }else {
-                self.getFollowsEvents(callback: { (result) in
-                    if result == true {
-                        self.orderByCreatedAt()
-                        self.delegate?.loadData()
-                    }else {
-                        self.delegate?.errorToGetData()
-                    }
-                })
+        group.notify(queue: .main) {
+            if self.events.isEmpty != true {
+                complition(true)
+            } else {
+                complition(false)
             }
         }
     }
     
-    private func getEvents(id: String, callback: @escaping (Bool) -> Void) {
-        self.eventRef?.whereField("author_id", isEqualTo: id).getDocuments(completion: { (snapshot, error) in
-            if let snapshot = snapshot {
-                var events = [Event]()
-                for document in snapshot.documents {
-                    events.append(Event(dictionary: document.data())!)
-                }
-                self.events = self.events + events
-                callback(true)
-            }else {
-                print(error?.localizedDescription ?? "error getOwnEvents")
-                callback(false)
-            }
-        })
+    func getEventCount() -> Int {
+        return self.events.count
     }
     
-    private func getFollowsEvents(callback: @escaping (Bool) -> Void ) {
-        self.followRef?.whereField("user_id", isEqualTo: self.uid!).getDocuments(completion: { (snapshot, error) in
-            if let snapshot = snapshot {
-                var follows = [String]()
-                for document in snapshot.documents {
-                    follows.append(document.data()["follow_id"] as! String)
-                }
-                for follow in follows {
-                    self.getEvents(id: follow, callback: { (result) in
-                        if result == false {
-                            print("false to get data  getFollowsEvents")
-                        }
-                    })
-                }
-                callback(true)
-            }else {
-                print(error?.localizedDescription ?? "error getfollowsEvents")
-                callback(false)
-            }
-        })
+    func getEventByNumber(number: Int) -> Event {
+        return self.events[number]
     }
     
-    private func orderByCreatedAt() {
-        self.events.sort { (first, second) -> Bool in
+    private func orderByCreatedAt(events: [Event]) -> [Event]{
+        var rEvents = events
+        rEvents.sort { (first, second) -> Bool in
             return first.created_at as Date > second.created_at as Date
         }
+        return rEvents
     }
 }

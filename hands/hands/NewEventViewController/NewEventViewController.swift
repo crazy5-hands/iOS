@@ -13,39 +13,84 @@ class NewEventViewController: UIViewController, UITextFieldDelegate, UITextViewD
 
     @IBOutlet weak var titleTextField: DoneButtonTextField!
     @IBOutlet weak var bodyTextView: DoneButtonTextView!
+    @IBOutlet weak var costLabel: UILabel!
     private var viewModel: NewEventViewModel?
     fileprivate var activeTextField: UITextField?
     fileprivate var activeTextView: UITextView?
+    private var indicator: UIActivityIndicatorView!
+    private let eventID = UUID().uuidString
+    private let notificationCenter = NotificationCenter.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.titleTextField.layer.borderWidth = 1
+        self.titleTextField.layer.borderColor = UIColor(red: 0.79, green: 0.79, blue: 0.79, alpha: 1).cgColor
+        self.titleTextField.layer.cornerRadius = 8.0
+        self.titleTextField.layer.masksToBounds = true
+        self.bodyTextView.layer.borderWidth = 1
+        self.bodyTextView.layer.borderColor = UIColor(red: 0.79, green: 0.79, blue: 0.79, alpha: 1).cgColor
+        self.bodyTextView.layer.cornerRadius = 10.0
         self.viewModel = NewEventViewModel()
         self.titleTextField.delegate = self
         self.bodyTextView.delegate = self
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.close))
-
+        self.indicator = UIActivityIndicatorView()
+        self.indicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.indicator.center = self.view.center
+        self.indicator.hidesWhenStopped = true
+        self.indicator.activityIndicatorViewStyle = .gray
+        self.view.addSubview(self.indicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+        self.notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillShowNotification(_:)), name: .UIKeyboardWillShow, object: nil)
+        self.notificationCenter.addObserver(self, selector: #selector(self.handleKeyboardWillHideNotification(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.notificationCenter.removeObserver(self)
     }
     
     @IBAction private func submit(_ sender: Any) {
-        self.viewModel?.createNewEvent(title: self.titleTextField.text!, body: self.bodyTextView.text!, callback: { (result) in
-            if result == true {
-                self.dismiss(animated: true, completion: nil)
-            }else {
-                self.showAlert("新しいイベントの作成に失敗しました")
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        self.indicator.startAnimating()
+        sleep(1)
+        if self.titleTextField.text == nil || self.titleTextField.text?.isEmpty == true {
+            self.indicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            self.showAlert("タイトルがありません")
+        } else {
+            if self.bodyTextView.text == "" {
+                self.indicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.showAlert("メッセージ内容がありません")
+            } else {
+                self.viewModel?.createNewEvent(id: self.eventID, title: self.titleTextField.text!, body: self.bodyTextView.text!, callback: { (result) in
+                    self.indicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    sleep(1)
+                    if result == true {
+                        self.dismiss(animated: true, completion: nil)
+                    }else {
+                        self.showAlert("新しいイベントの作成に失敗しました")
+                    }
+                })
             }
-        })
+        }
     }
     
-    func close() {
+    @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func addCost(_ sender: Any) {
+        let editCostViewController = UIStoryboard(name: "EditCostViewController", bundle: nil).instantiateInitialViewController() as! EditCostViewController
+        editCostViewController.eventId = self.eventID
+        self.present(editCostViewController, animated: true, completion: nil)
+    }
+    
     
     @objc private func handleKeyboardWillShowNotification(_ notification: Notification) {
         let userInfo = notification.userInfo //この中にキーボードの情報がある
