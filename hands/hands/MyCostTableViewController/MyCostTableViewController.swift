@@ -27,7 +27,14 @@ class MyCostTableViewController: CostTableViewController {
                             if let cost = cost {
                                 newCosts.append(cost)
                                 group.leave()
+                            } else {
+                                group.leave()
                             }
+                        })
+                        group.enter()
+                        JoinUtil().getJoinerIdByEventId(eventId: event.id, complication: { (joiners) in
+                            self.joinerCount[event.id] = joiners.count
+                            group.leave()
                         })
                     }
                     group.leave()

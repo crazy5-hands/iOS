@@ -12,6 +12,7 @@ class CostTableViewController: UITableViewController {
     
     var costs: [Cost] = []
     var events: [Event] = []
+    var joinerCount: [String: Int] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +26,11 @@ class CostTableViewController: UITableViewController {
         let sumNib = UINib(nibName: "CostTableViewCell", bundle: nil)
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
         self.tableView.register(sumNib, forCellReuseIdentifier: "sum")
+        self.loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.loadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,7 +50,11 @@ class CostTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostListTableViewCell
         cell.selectionStyle = .none
         let title = self.events[indexPath.row].title
-        let cost =  self.costs[indexPath.row].cost
+        let eventId = self.events[indexPath.row].id
+        var cost =  self.costs[indexPath.row].cost
+        if let count = self.joinerCount[eventId] {
+            cost = cost / (count + 1)
+        }
         cell.updateCell(title: title, cost: String(cost) + "円")
         return cell
     }
@@ -62,7 +67,10 @@ class CostTableViewController: UITableViewController {
         let headerCell = self.tableView.dequeueReusableCell(withIdentifier: "sum") as! CostTableViewCell
         var sum = 0
         for cost in self.costs {
-            sum += cost.cost
+            if var count = self.joinerCount[cost.event_id] {
+                count = count + 1
+                sum += cost.cost / count
+            }
         }
         headerCell.updateCell(title: "合計金額", cost: sum)
         let headerView = headerCell.contentView

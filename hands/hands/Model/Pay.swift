@@ -12,14 +12,14 @@ struct Pay {
     
     var id: String
     var created_at: NSDate
-    var cost_id: String
+    var event_id: String
     var user_id: String
     var paid: Bool
     var dictionary: [String: Any] {
         return [
             "id": self.id,
             "created_at": self.created_at,
-            "event_id": self.cost_id,
+            "event_id": self.event_id,
             "user_id": self.user_id,
             "paid": self.paid
         ]
@@ -38,7 +38,7 @@ struct Pay {
     init(id: String, created_at: NSDate, event_id: String, user_id: String, paid: Bool) {
         self.id = id
         self.created_at = created_at
-        self.cost_id = event_id
+        self.event_id = event_id
         self.user_id = user_id
         self.paid = paid
     }
