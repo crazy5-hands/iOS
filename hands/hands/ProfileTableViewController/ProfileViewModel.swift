@@ -157,7 +157,13 @@ class ProfileViewModel {
     func getCost() -> Int {
         var price = 0
         for cost in self.costs {
-            price += cost.cost
+            var count = 1
+            for join in self.joins {
+                if join.event_id == cost.event_id {
+                    count += 1
+                }
+            }
+            price += (cost.cost / count)
         }
         return price
     }
