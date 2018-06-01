@@ -38,7 +38,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コストとは、イベント参加者が主催者に払う金額です。ここにその金額を入力してください。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yue-fo-gUb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コストとは、イベントでかかる合計金額です。実際に支払う金額はイベントの参加人数で等分されます。ここにはその合計金額を入力してください。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yue-fo-gUb">
                                 <rect key="frame" x="40" y="136" width="295" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ory-7Q-ekW"/>
