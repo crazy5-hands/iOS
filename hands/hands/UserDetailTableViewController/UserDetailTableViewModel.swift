@@ -9,9 +9,17 @@
 import Foundation
 import Firebase
 
+enum UserStatus {
+    case follow
+    case unrelated
+    case me
+    case error
+}
+
 class UserDetailTableVIewModel {
     
     private var user: User? = nil
+    private var userStatus: UserStatus?
     private let db = Firestore.firestore()
     private var follows: [Follow] = []
     private var followers: [Follow] = []
@@ -22,43 +30,41 @@ class UserDetailTableVIewModel {
             if let user = user {
                 self.user = user
                 let group = DispatchGroup()
-                let util = FollowUtil()
+                let followUtil = FollowUtil()
                 group.enter()
-                util.getFollows(user_id: id, complition: { (follows) in
+                followUtil.getFollows(user_id: id, complition: { (follows) in
                     self.follows = follows
                     group.leave()
                 })
                 group.enter()
-                util.getFollowers(follow_id: id, complition: { (followers) in
+                followUtil.getFollowers(follow_id: id, complition: { (followers) in
                     self.followers = followers
                     group.leave()
                 })
+                
                 group.notify(queue: .main, execute: {
+                    if self.uid == user.id {
+                        self.userStatus = .me
+                    } else {
+                        for follower in self.followers {
+                            if follower.user_id == self.uid {
+                                self.userStatus = .follow
+                            } else {
+                                self.userStatus = .unrelated
+                            }
+                        }
+                    }
                     complition(true)
                 })
             }else {
+                self.userStatus = .error
                 complition(false)
             }
         }
     }
     
-    func isMe() -> Bool {
-        if let user = self.user {
-            if let uid = self.uid {
-                return user.id == uid
-            }
-        }
-        return false
-    }
-    
-    func followedByMe() -> Bool {
-        var result = false
-        for follower in self.followers {
-            if follower.user_id == self.uid {
-                result = true
-            }
-        }
-        return result
+    func getUserStatus() -> UserStatus? {
+        return self.userStatus
     }
     
     func addFollow(complition: @escaping (Bool) -> Void) {
