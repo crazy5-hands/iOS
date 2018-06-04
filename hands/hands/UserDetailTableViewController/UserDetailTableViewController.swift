@@ -72,6 +72,8 @@ class UserDetailTableViewController: UITableViewController {
                 self.navigationItem.setRightBarButton(UIBarButtonItem(title: "フォロー中", style: .done, target: self, action: #selector(self.deleteFollow)), animated: true)
             case .unrelated:
                 self.navigationItem.setRightBarButton(UIBarButtonItem(title: "フォロー", style: .done, target:  self, action: #selector(self.addFollow)), animated: true)
+            case .error:
+                self.navigationItem.prompt = "データの取得に失敗しました。"
             default : break
             }
         }
