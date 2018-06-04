@@ -18,5 +18,16 @@ extension UIViewController {
         alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    func showDialog(_ title: String, _ message: String, complition: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "はい", style: .default) { (alert) in
+            complition()
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .default, handler: nil)
+        alert.addAction(defaultAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
