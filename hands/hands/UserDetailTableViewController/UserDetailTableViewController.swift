@@ -69,10 +69,9 @@ class UserDetailTableViewController: UITableViewController {
         if let status = self.viewModel.getUserStatus() {
             switch status {
             case .follow:
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "フォロー中", style: .done
-                    , target: self, action: #selector(self.deleteFollow))
+                self.navigationItem.setRightBarButton(UIBarButtonItem(title: "フォロー中", style: .done, target: self, action: #selector(self.deleteFollow)), animated: true)
             case .unrelated:
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "フォロー", style: .done, target:  self, action: #selector(self.addFollow))
+                self.navigationItem.setRightBarButton(UIBarButtonItem(title: "フォロー", style: .done, target:  self, action: #selector(self.addFollow)), animated: true)
             default : break
             }
         }
