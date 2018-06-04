@@ -43,16 +43,21 @@ class UserDetailTableVIewModel {
                 })
                 
                 group.notify(queue: .main, execute: {
-                    if self.uid == user.id {
-                        self.userStatus = .me
-                    } else {
-                        for follower in self.followers {
-                            if follower.user_id == self.uid {
-                                self.userStatus = .follow
-                            } else {
+                    if let uid = self.uid {
+                        if uid == user.id {
+                            self.userStatus = .me
+                        } else {
+                            for follower in self.followers {
+                                if follower.user_id == self.uid {
+                                    self.userStatus = .follow
+                                }
+                            }
+                            if self.userStatus != .follow {
                                 self.userStatus = .unrelated
                             }
                         }
+                    } else {
+                        self.userStatus = .error
                     }
                     complition(true)
                 })
@@ -70,6 +75,11 @@ class UserDetailTableVIewModel {
     func addFollow(complition: @escaping (Bool) -> Void) {
         if let uid = self.uid {
             if let followId = self.user?.id {
+                for follower in self.followers {
+                    if follower.user_id == uid {
+                        complition(false)
+                    }
+                }
                 let follow = Follow(id: UUID().uuidString, update_at: NSDate(), user_id: uid, follow_id: followId)
                 FollowUtil().update(target: follow) { (result) in
                     complition(result)
@@ -88,5 +98,18 @@ class UserDetailTableVIewModel {
     
     func getFollowersCount() -> Int {
         return self.followers.count
+    }
+    
+    func deleteFollow( complition: @escaping (Bool) -> Void) {
+        let follow = self.followers.filter { (follow) -> Bool in
+            follow.user_id == self.uid
+        }
+        if follow.count != 0 {
+            FollowUtil().delete(target: follow[0]) { (result) in
+                complition(result)
+            }
+        } else {
+            complition(false)
+        }
     }
 }
