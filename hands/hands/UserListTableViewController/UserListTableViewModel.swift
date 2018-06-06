@@ -53,46 +53,38 @@ class UserListTableViewModel {
     func getUsersData(userIds: [String], complition: @escaping (Bool) -> Void) {
         let group = DispatchGroup()
         var newUsers: [User] = []
-        var newStatus: [UserStatus] = []
-        
-        if userIds.isEmpty == true {
-            complition(false)
-        }
         for userId in userIds {
             group.enter()
             UserUtil().getUser(id: userId) { (user) in
                 if let user = user {
-                    group.enter()
-                    var status: UserStatus = .error
-                    
-                    if user.id == self.uid {
-                        status = .me
-                        newStatus.append(status)
-                    } else {
-                        group.enter()
-                        FollowUtil().getFollowers(follow_id: user.id, complition: { (followers) in
-                            for follower in followers {
-                                if follower.user_id == self.uid {
-                                    status = .follow
-                                }
-                            }
-                            if status == .error {
-                                status = .unrelated
-                            }
-                            newStatus.append(status)
-                            group.leave()
-                        })
-                    }
-                    
+                    //get follower
                     newUsers.append(user)
+                    let db = Firestore.firestore()
+                    db.collection("follows").whereField("follow_id", isEqualTo: user.id).whereField("user_id", isEqualTo: self.uid!).getDocuments(completion: { (snapshot, error) in
+                        if let snapshot = snapshot {
+                            if snapshot.documents.count != 0 {
+                                self.status.updateValue(.follow, forKey: user.id)
+                            } else {
+                                self.status.updateValue(.unrelated, forKey: user.id)
+                            }
+                        } else {
+                            self.status.updateValue(.error, forKey: user.id)
+                        }
+                    })
+                    group.leave()
+                } else {
+                    print("fail to get user data")
                     group.leave()
                 }
-                group.leave()
             }
         }
         group.notify(queue: .main) {
             self.users = newUsers
-            complition(true)
+            if newUsers.count == 0 {
+                complition(false)
+            } else {
+                complition(true)
+            }
         }
     }
     
