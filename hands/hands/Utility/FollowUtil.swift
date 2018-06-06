@@ -36,6 +36,8 @@ class FollowUtil {
         }
     }
     
+    
+    
     func getFollows(user_id: String, complition: @escaping ([Follow]) -> Void) {
         var follows: [Follow] = []
         let db = Firestore.firestore().collection("follows")

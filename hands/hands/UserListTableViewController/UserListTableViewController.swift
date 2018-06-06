@@ -20,19 +20,13 @@ class UserListTableViewController: UITableViewController {
         let refresh = UIRefreshControl()
         refresh.attributedTitle = NSAttributedString(string: "読み込み中")
         refresh.tintColor = .black
-        refresh.addTarget(self, action: #selector(self.refreshTable), for: .valueChanged)
+        refresh.addTarget(self, action: #selector(self.getData), for: .valueChanged)
         tableView.addSubview(refresh)
         self.refreshControl = refresh
         self.getData()
     }
     
-    @objc private func refreshTable() {
-        self.refreshControl?.beginRefreshing()
-        self.getData()
-        self.refreshControl?.endRefreshing()
-    }
-    
-    func getData() {
+    @objc func getData() {
         self.startLoading()
         DispatchQueue.global(qos: .userInitiated).async {
             self.viewModel.getAllUsers(complition: { (result) in
@@ -43,6 +37,7 @@ class UserListTableViewController: UITableViewController {
                     })
                 } else {
                     DispatchQueue.main.async {
+                        self.endLaoding()
                         self.navigationItem.prompt = "データの取得ができませんでした。"
                     }
                 }
@@ -74,7 +69,16 @@ class UserListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! UserTableViewCell
-        cell.updateCell(user: self.viewModel.getUserByNunber(number: indexPath.item))
+        let user = self.viewModel.getUserByNunber(number: indexPath.row)
+        let status = self.viewModel.getStatus(number: indexPath.row)
+        var statusString = ""
+        switch status {
+        case .follow:
+            statusString = "フォロー中"
+        default:
+            break
+        }
+        cell.updateCell(username: user.username, status: statusString)
         return cell
     }
     
