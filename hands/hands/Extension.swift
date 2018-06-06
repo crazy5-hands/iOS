@@ -25,8 +25,8 @@ extension UIViewController {
             complition()
         }
         let cancelAction = UIAlertAction(title: "キャンセル", style: .default, handler: nil)
-        alert.addAction(defaultAction)
         alert.addAction(cancelAction)
+        alert.addAction(defaultAction)
         present(alert, animated: true, completion: nil)
     }
 }
