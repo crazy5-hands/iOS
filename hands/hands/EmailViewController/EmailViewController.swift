@@ -11,7 +11,9 @@ import FirebaseAuth
 
 class EmailViewController: TextFieldViewController {
 
-    @IBOutlet private weak var emailTextField: DoneButtonTextField!
+    @IBOutlet weak var emailTextField: DoneButtonTextField!
+    @IBOutlet weak var oldEmailLabel: UILabel!
+    @IBOutlet weak var explainLabel: UILabel!
     private var indicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
@@ -20,6 +22,13 @@ class EmailViewController: TextFieldViewController {
         self.indicator?.tintColor = .black
         self.indicator?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.view.addSubview(self.indicator!)
+        self.emailTextField.keyboardType = .emailAddress
+        DispatchQueue.global(qos: .userInitiated).async {
+            let email = Auth.auth().currentUser?.email
+            DispatchQueue.main.async {
+                self.oldEmailLabel.text = email
+            }
+        }
     }
     
     @IBAction func dismiss(_ sender: Any) {
@@ -29,13 +38,17 @@ class EmailViewController: TextFieldViewController {
     @IBAction func update(_ sender: Any) {
         UIApplication.shared.beginIgnoringInteractionEvents()
         self.indicator?.startAnimating()
-        if let email = self.emailTextField.text {
+        if let email = self.emailTextField.text  {
             Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
                 UIApplication.shared.endIgnoringInteractionEvents()
                 self.indicator?.stopAnimating()
                 if let error = error {
                     // fail to update your email
                     self.showAlert(error.localizedDescription)
+                } else {
+                    self.showDialog("更新に成功しました。", "この画面を閉じますか？", complition: {
+                        self.dismiss(animated: true, completion: nil)
+                    })
                 }
             })
         } else {
