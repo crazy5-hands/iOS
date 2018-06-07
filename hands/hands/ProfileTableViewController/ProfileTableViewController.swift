@@ -175,9 +175,10 @@ class ProfileTableViewController: UITableViewController {
             let next = MyCostTableViewController()
             self.navigationController?.pushViewController(next, animated: true)
         case kSectionPrivacyPolicy:
-            let next = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil).instantiateInitialViewController() as! PrivacyPolicyViewController
-            next.showNextButton = false
-            self.present(next, animated: true, completion: nil)
+            let url = URL(string: "https://crazy5-hands.github.io/hands.github.io/")
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            }
         case kSectionLogout:
             let alert = UIAlertController(title: "ログアウト", message: "本当にログアウトしますか", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
