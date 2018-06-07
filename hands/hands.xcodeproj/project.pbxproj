@@ -51,6 +51,8 @@
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
 		E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */; };
 		E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */; };
+		E698B1C920C9260300840D66 /* EmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B1C820C9260300840D66 /* EmailViewController.storyboard */; };
+		E698B1CB20C9270F00840D66 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B1CA20C9270F00840D66 /* EmailViewController.swift */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
 		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
 		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
@@ -186,6 +188,8 @@
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 		E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
+		E698B1C820C9260300840D66 /* EmailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmailViewController.storyboard; sourceTree = "<group>"; };
+		E698B1CA20C9270F00840D66 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
@@ -392,6 +396,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E698B1C720C925E900840D66 /* EmailViewController */,
 				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
 				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
@@ -489,6 +494,15 @@
 				E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */,
 			);
 			path = DeleteTableViewCell;
+			sourceTree = "<group>";
+		};
+		E698B1C720C925E900840D66 /* EmailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B1C820C9260300840D66 /* EmailViewController.storyboard */,
+				E698B1CA20C9270F00840D66 /* EmailViewController.swift */,
+			);
+			path = EmailViewController;
 			sourceTree = "<group>";
 		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
@@ -897,6 +911,7 @@
 				E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
+				E698B1C920C9260300840D66 /* EmailViewController.storyboard in Resources */,
 				E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 				E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */,
@@ -1096,6 +1111,7 @@
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
 				E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */,
 				E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */,
+				E698B1CB20C9270F00840D66 /* EmailViewController.swift in Sources */,
 				E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */,
 				E640F60A209C82E900BC48C6 /* NewEventViewModel.swift in Sources */,
 				E6A7325E20B3E91B00CDD5B9 /* ProfileTableViewController.swift in Sources */,

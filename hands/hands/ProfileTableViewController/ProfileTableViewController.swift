@@ -18,7 +18,8 @@ class ProfileTableViewController: UITableViewController {
     private let kSectionFollower = 4
     private let kSectionCost = 5
     private let kSectionPrivacyPolicy = 6
-    private let kSectionLogout = 7
+    private let kSectionUpdateEmail = 7
+    private let kSectionLogout = 8
     private var viewModel = ProfileViewModel()
     private var indicatorView: UIActivityIndicatorView!
     
@@ -75,7 +76,7 @@ class ProfileTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 9
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,22 +87,10 @@ class ProfileTableViewController: UITableViewController {
         switch indexPath.section {
         case kSectionUserDetail:
             return UITableViewAutomaticDimension
-        case kSectionOwn:
-            return 50.0
-        case kSectionJoin:
-            return 50.0
-        case kSectionFollow:
-            return 50.0
-        case kSectionFollower:
-            return 50.0
         case kSectionCost:
             return 170.0
-        case kSectionPrivacyPolicy:
-            return 50
-        case kSectionLogout:
-            return 50
         default:
-            return 0
+            return 50
         }
     }
     
@@ -139,6 +128,11 @@ class ProfileTableViewController: UITableViewController {
             let cell = UITableViewCell()
             cell.selectionStyle = .none
             cell.textLabel?.text = "プライバシーポリシー"
+            return cell
+        case kSectionUpdateEmail:
+            let cell = UITableViewCell()
+            cell.selectionStyle = .none
+            cell.textLabel?.text = "メールアドレスの再設定"
             return cell
         case kSectionLogout:
             let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell
@@ -179,6 +173,9 @@ class ProfileTableViewController: UITableViewController {
             if UIApplication.shared.canOpenURL(url!) {
                 UIApplication.shared.open(url!, options: [:], completionHandler: nil)
             }
+        case kSectionUpdateEmail:
+            let next = UIStoryboard(name: "EmailViewController", bundle: nil).instantiateInitialViewController() as! EmailViewController
+            self.present(next, animated: true, completion: nil)
         case kSectionLogout:
             let alert = UIAlertController(title: "ログアウト", message: "本当にログアウトしますか", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
