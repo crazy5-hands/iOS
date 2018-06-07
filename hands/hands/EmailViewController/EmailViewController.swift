@@ -11,18 +11,28 @@ import FirebaseAuth
 
 class EmailViewController: TextFieldViewController {
 
-    @IBOutlet weak var emailTextField: DoneButtonTextField!
+    @IBOutlet private weak var emailTextField: DoneButtonTextField!
+    private var indicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.indicator = UIActivityIndicatorView()
+        self.indicator?.tintColor = .black
+        self.indicator?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        self.view.addSubview(self.indicator!)
     }
     
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func update(_ sender: Any) {
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        self.indicator?.startAnimating()
         if let email = self.emailTextField.text {
             Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.indicator?.stopAnimating()
                 if let error = error {
                     // fail to update your email
                     self.showAlert(error.localizedDescription)
