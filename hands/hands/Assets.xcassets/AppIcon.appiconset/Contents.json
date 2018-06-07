@@ -51,25 +51,25 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "icon@1x-1.png",
+      "filename" : "iPadNotifications@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "icon@2x-1.png",
+      "filename" : "iPadNotifications@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "icon@1x.png",
+      "filename" : "iPadSettings@1x.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "icon@2x.png",
+      "filename" : "iPadSettings@2x.png",
       "scale" : "2x"
     },
     {
