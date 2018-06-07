@@ -29,10 +29,12 @@ class ProfileTableViewController: UITableViewController {
         let followNib = UINib(nibName: "FollowCountTableViewCell", bundle: nil)
         let costNib = UINib(nibName: "CostTableViewCell", bundle: nil)
         let deleteNib = UINib(nibName: "DeleteTableViewCell", bundle: nil)
+        let titleNib = UINib(nibName: "TitleTableViewCell", bundle: nil)
         self.tableView.register(userDetailNib, forCellReuseIdentifier: "userDetail")
         self.tableView.register(followNib, forCellReuseIdentifier: "follow")
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
         self.tableView.register(deleteNib, forCellReuseIdentifier: "delete")
+        self.tableView.register(titleNib, forCellReuseIdentifier: "title")
         self.indicatorView = UIActivityIndicatorView()
         self.indicatorView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.indicatorView.center = self.view.center
@@ -125,14 +127,14 @@ class ProfileTableViewController: UITableViewController {
             cell.update(cost: self.viewModel.getCost())
             return cell
         case kSectionPrivacyPolicy:
-            let cell = UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
             cell.selectionStyle = .none
-            cell.textLabel?.text = "プライバシーポリシー"
+            cell.updateCell(title: "プライバシーポリシー")
             return cell
         case kSectionUpdateEmail:
-            let cell = UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
             cell.selectionStyle = .none
-            cell.textLabel?.text = "メールアドレスの再設定"
+            cell.updateCell(title: "メールアドレスの再設定")
             return cell
         case kSectionLogout:
             let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell

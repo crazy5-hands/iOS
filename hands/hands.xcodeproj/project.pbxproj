@@ -53,6 +53,8 @@
 		E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */; };
 		E698B1C920C9260300840D66 /* EmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B1C820C9260300840D66 /* EmailViewController.storyboard */; };
 		E698B1CB20C9270F00840D66 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B1CA20C9270F00840D66 /* EmailViewController.swift */; };
+		E698B1CF20C9312700840D66 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B1CD20C9312700840D66 /* TitleTableViewCell.swift */; };
+		E698B1D020C9312700840D66 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E698B1CE20C9312700840D66 /* TitleTableViewCell.xib */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
 		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
 		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
@@ -190,6 +192,8 @@
 		E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
 		E698B1C820C9260300840D66 /* EmailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmailViewController.storyboard; sourceTree = "<group>"; };
 		E698B1CA20C9270F00840D66 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		E698B1CD20C9312700840D66 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		E698B1CE20C9312700840D66 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
@@ -505,6 +509,15 @@
 			path = EmailViewController;
 			sourceTree = "<group>";
 		};
+		E698B1CC20C9310200840D66 /* TitleTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E698B1CD20C9312700840D66 /* TitleTableViewCell.swift */,
+				E698B1CE20C9312700840D66 /* TitleTableViewCell.xib */,
+			);
+			path = TitleTableViewCell;
+			sourceTree = "<group>";
+		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +672,7 @@
 		E6ADAD54209ACC3100310158 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				E698B1CC20C9310200840D66 /* TitleTableViewCell */,
 				E69FE32820BFCA7E00A45FC6 /* CostListTableViewCell */,
 				E68EF34C20B86F12009933CB /* DeleteTableViewCell */,
 				E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */,
@@ -911,6 +925,7 @@
 				E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
+				E698B1D020C9312700840D66 /* TitleTableViewCell.xib in Resources */,
 				E698B1C920C9260300840D66 /* EmailViewController.storyboard in Resources */,
 				E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
@@ -1077,6 +1092,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E698B1CF20C9312700840D66 /* TitleTableViewCell.swift in Sources */,
 				E6C4F5FB20B2B0B800F92358 /* CostUtil.swift in Sources */,
 				E6C4F5E920AC9F8900F92358 /* MaterialButton.swift in Sources */,
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
