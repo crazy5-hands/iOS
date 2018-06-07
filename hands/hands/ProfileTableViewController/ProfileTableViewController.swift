@@ -19,7 +19,8 @@ class ProfileTableViewController: UITableViewController {
     private let kSectionCost = 5
     private let kSectionPrivacyPolicy = 6
     private let kSectionUpdateEmail = 7
-    private let kSectionLogout = 8
+    private let kSectionUpdatePassword = 8
+    private let kSectionLogout = 9
     private var viewModel = ProfileViewModel()
     private var indicatorView: UIActivityIndicatorView!
     
@@ -78,7 +79,7 @@ class ProfileTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 9
+        return 10
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,6 +137,11 @@ class ProfileTableViewController: UITableViewController {
             cell.selectionStyle = .none
             cell.updateCell(title: "メールアドレスの再設定")
             return cell
+        case kSectionUpdatePassword:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
+            cell.selectionStyle = .none
+            cell.updateCell(title: "パスワードの再設定")
+            return cell
         case kSectionLogout:
             let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell
             cell.updateCell(title: "ログアウト")
@@ -177,6 +183,9 @@ class ProfileTableViewController: UITableViewController {
             }
         case kSectionUpdateEmail:
             let next = UIStoryboard(name: "EmailViewController", bundle: nil).instantiateInitialViewController() as! EmailViewController
+            self.present(next, animated: true, completion: nil)
+        case kSectionUpdatePassword:
+            let next = UIStoryboard(name: "PasswordViewController", bundle: nil).instantiateInitialViewController() as! PasswordViewController
             self.present(next, animated: true, completion: nil)
         case kSectionLogout:
             let alert = UIAlertController(title: "ログアウト", message: "本当にログアウトしますか", preferredStyle: .alert)
