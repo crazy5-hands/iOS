@@ -91,8 +91,7 @@ class LoginViewController: TextFieldViewController {
                         if let error = error {
                             self.showAlert(error.localizedDescription)
                         } else {
-                            self.showDialog("送信しました。", "\(email)に再設定用のメールを送信しました。", complition: {
-                            })
+                            self.showDialog("送信しました。", "\(email)", complition: nil)
                         }
                     })
                 }
