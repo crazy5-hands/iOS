@@ -80,6 +80,25 @@ class LoginViewController: TextFieldViewController {
             })
         }
     }
+    
+    @IBAction func sendPasswordResetWithEmail(_ sender: Any) {
+        if let email = self.emailTextField.text {
+            if email == "" {
+                self.showAlert("メールアドレスを入力してください。")
+            } else {
+                self.showDialog("パスワードの再設定", "\(email)にパスワード再設定用のメールを送りますか？") {
+                    Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+                        if let error = error {
+                            self.showAlert(error.localizedDescription)
+                        } else {
+                            self.showDialog("送信しました。", "\(email)に再設定用のメールを送信しました。", complition: {
+                            })
+                        }
+                    })
+                }
+            }
+        }
+    }
 }
 
 extension LoginViewController {

@@ -22,15 +22,15 @@ class PasswordViewController: TextFieldViewController {
         self.indicator?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.view.addSubview(self.indicator!)
         DispatchQueue.global(qos: .userInitiated).async {
-            let user = Auth.auth().currentUser
-            let credential = AuthCredential?
-            credential = Prompt
-            user?.reauthenticate(with: credential, completion: { (error) in
-                if let error = error {
-                    self.showAlert("ユーザーの再認証に失敗しました。パスワードやメールアドレスの更新はできません。")
-                    print(error.localizedDescription)
-                }
-            })
+            if let user = Auth.auth().currentUser {
+                let email = user.email
+                let credential = EmailAuthProvider.credential(withEmail: email!, password: "")
+                user.reauthenticate(with: credential, completion: { (error) in
+                    if let error = error {
+                        self.showAlert(error.localizedDescription)
+                    }
+                })
+            }
         }
     }
 
