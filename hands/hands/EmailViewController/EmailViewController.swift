@@ -28,6 +28,18 @@ class EmailViewController: TextFieldViewController {
             DispatchQueue.main.async {
                 self.oldEmailLabel.text = email
             }
+            if let user = Auth.auth().currentUser {
+                let email = user.email
+                guard let password = self.getPassword() else { return }
+                let credential = EmailAuthProvider.credential(withEmail: email!, password: password)
+                user.reauthenticate(with: credential, completion: { (error) in
+                    if let error = error {
+                        DispatchQueue.main.async {
+                            self.showAlert(error.localizedDescription)
+                        }
+                    }
+                })
+            }
         }
     }
     
@@ -55,5 +67,10 @@ class EmailViewController: TextFieldViewController {
             //text field is empty
             self.showAlert("メールアドレスが空です。メールアドレスを入力してください。")
         }
+    }
+    
+    private func getPassword() -> String? {
+        let userDefault = UserDefaults.standard
+        return userDefault.string(forKey: "password")
     }
 }
