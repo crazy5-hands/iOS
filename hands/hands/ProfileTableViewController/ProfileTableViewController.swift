@@ -192,8 +192,15 @@ class ProfileTableViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             let logoutAction = UIAlertAction(title: "ログアウト", style: .destructive) { (alert) in
                 self.indicatorView.startAnimating()
-                try? Auth.auth().signOut()
-                self.indicatorView.stopAnimating()
+                if Auth.auth().currentUser != nil {
+                    do {
+                        try Auth.auth().signOut()
+                        self.indicatorView.stopAnimating()
+                    }
+                    catch {
+                        self.showAlert(error.localizedDescription)
+                    }
+                }
                 if Auth.auth().currentUser == nil {
                     let next = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
                     self.present(next!, animated: false, completion: nil)
