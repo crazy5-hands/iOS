@@ -24,7 +24,8 @@ class PasswordViewController: TextFieldViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             if let user = Auth.auth().currentUser {
                 let email = user.email
-                let credential = EmailAuthProvider.credential(withEmail: email!, password: "")
+                guard let password = self.getPassword() else { return }
+                let credential = EmailAuthProvider.credential(withEmail: email!, password: password)
                 user.reauthenticate(with: credential, completion: { (error) in
                     if let error = error {
                         self.showAlert(error.localizedDescription)
@@ -54,5 +55,10 @@ class PasswordViewController: TextFieldViewController {
                 }
             })
         }
+    }
+    
+    private func getPassword() -> String? {
+        let userDefault = UserDefaults.standard
+        return userDefault.string(forKey: "password")
     }
 }
