@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5bl-qU-lYw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5bl-qU-lYw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -73,6 +73,16 @@
                                     <action selector="submit:" destination="5bl-qU-lYw" eventType="touchUpInside" id="GHn-q0-WhI"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8h-5r-LtK">
+                                <rect key="frame" x="199" y="344" width="146" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="パスワードを忘れた場合">
+                                    <color key="titleColor" red="0.0" green="0.78804999590000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendPasswordResetWithEmail:" destination="5bl-qU-lYw" eventType="touchUpInside" id="C2f-Vg-sGu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -86,7 +96,9 @@
                             <constraint firstItem="m3g-wP-iBe" firstAttribute="trailing" secondItem="2Qa-Ac-goR" secondAttribute="trailing" constant="30" id="NhF-ym-vxF"/>
                             <constraint firstItem="m3g-wP-iBe" firstAttribute="trailing" secondItem="iZw-hf-GCw" secondAttribute="trailing" constant="30" id="TJr-Wt-sXK"/>
                             <constraint firstItem="GwO-OI-aXf" firstAttribute="top" secondItem="iZw-hf-GCw" secondAttribute="bottom" constant="50" id="X4c-3W-Jyu"/>
+                            <constraint firstItem="iZw-hf-GCw" firstAttribute="top" secondItem="L8h-5r-LtK" secondAttribute="bottom" constant="1" id="ZPh-2E-4aZ"/>
                             <constraint firstItem="m3g-wP-iBe" firstAttribute="trailing" secondItem="fzn-64-rua" secondAttribute="trailing" constant="30" id="a1R-0J-5rD"/>
+                            <constraint firstItem="L8h-5r-LtK" firstAttribute="trailing" secondItem="iZw-hf-GCw" secondAttribute="trailing" id="btN-UZ-htE"/>
                             <constraint firstItem="GwO-OI-aXf" firstAttribute="leading" secondItem="m3g-wP-iBe" secondAttribute="leading" constant="60" id="ddp-3U-gkK"/>
                             <constraint firstItem="iZw-hf-GCw" firstAttribute="top" secondItem="TBv-kC-Q71" secondAttribute="bottom" constant="10" id="fHS-Qt-a6H"/>
                             <constraint firstItem="TBv-kC-Q71" firstAttribute="top" secondItem="fzn-64-rua" secondAttribute="bottom" constant="40" id="qGb-tv-OK2"/>

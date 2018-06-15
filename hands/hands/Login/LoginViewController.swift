@@ -39,10 +39,11 @@ class LoginViewController: TextFieldViewController {
         processingView.center = self.view.center
         self.view.addSubview(processingView)
         processingView.startAnimating()
-        
+        guard let email = self.emailTextField.text else { return }
+        guard let password = self.passwordTextField.text else { return }
+
         if self.changeStatusSegmentedControl.selectedSegmentIndex == 0 {
-            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-                
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 //remove processing
                 processingView.stopAnimating()
                 self.view.willRemoveSubview(processingView)
@@ -58,27 +59,48 @@ class LoginViewController: TextFieldViewController {
                         self.showAlert("メールアドレスかパスワードが違います。")
                     }
                 }else {
+                    self.savePassword(password)
                     self.segueToPrivacyPolicy()
                 }
             }
         }else {
             //create new user
-            Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-                
+            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                 //remove processing
                 processingView.stopAnimating()
                 self.view.willRemoveSubview(processingView)
-                if let user = user {
-                    print("create user")
-                    print(user.uid)
-                    self.segueToPrivacyPolicy()
-                }else {
-                    if error?.localizedDescription == "The email address is already in use by another account." {
+                if let error = error {
+                    if error.localizedDescription == "The email address is already in use by another account." {
                         self.showAlert("このメールアドレスのアカウントはすでに存在しています。")
                     }
+                }else {
+                    self.savePassword(password)
+                    self.segueToPrivacyPolicy()
                 }
             })
         }
+    }
+    
+    @IBAction func sendPasswordResetWithEmail(_ sender: Any) {
+        guard let email = self.emailTextField.text else { return }
+        if email == "" {
+            self.showAlert("メールアドレスを入力してください。")
+        } else {
+            self.showDialog("パスワードの再設定", "\(email)にパスワード再設定用のメールを送りますか？") {
+                Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+                    if let error = error {
+                        self.showAlert(error.localizedDescription)
+                    } else {
+                        self.showDialog("送信しました。", "\(email)", complition: nil)
+                    }
+                })
+            }
+        }
+    }
+    
+    private func savePassword(_ password: String) {
+        let userDefault = UserDefaults.standard
+        userDefault.set(password, forKey: "password")
     }
 }
 
