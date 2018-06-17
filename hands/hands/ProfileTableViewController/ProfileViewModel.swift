@@ -17,7 +17,6 @@ class ProfileViewModel {
     private var joins: [Join] = [] //Join id
     private var followIds: [String] = [] //Follow
     private var followerIds: [String] = [] //Follow
-    private var costs: [Cost] = []
     
     func loadData(complition: @escaping (Bool) -> Void) {
         if self.uid == nil {
@@ -27,7 +26,6 @@ class ProfileViewModel {
         self.ownEventIds.removeAll()
         self.followIds.removeAll()
         self.followerIds.removeAll()
-        self.costs.removeAll()
         
         let group = DispatchGroup()
         
@@ -43,15 +41,6 @@ class ProfileViewModel {
             if events.isEmpty != true {
                 for event in events {
                     self.ownEventIds.append(event.id)
-                    group.enter()
-                    CostUtil().getCostByEventId(eventId: event.id, complition: { (cost) in
-                        if let cost = cost {
-                            self.costs.append(cost)
-                            group.leave()
-                        }else {
-                            group.leave()
-                        }
-                    })
                 }
             }
             group.leave()
@@ -79,44 +68,7 @@ class ProfileViewModel {
             }
             group.leave()
         }
-    
         
-        
-        group.notify(queue: .main) {
-            
-//            self.loadCostData(complition: { (result) in
-//                if result == true {
-//                    complition(true)
-//                } else {
-//                    complition(false)
-//                }
-//            })
-            complition(true)
-        }
-    }
-    
-    func loadCostData(complition: @escaping (Bool) -> Void) {
-        let group = DispatchGroup()
-        
-        for own in self.ownEventIds {
-            group.enter()
-            CostUtil().getCostByEventId(eventId: own) { (cost) in
-                if let cost = cost {
-                    self.costs.append(cost)
-                }
-                group.leave()
-            }
-        }
-        
-        for join in self.joins {
-            group.enter()
-            CostUtil().getCostByEventId(eventId: join.event_id) { (cost) in
-                if let cost = cost {
-                    self.costs.append(cost)
-                }
-                group.leave()
-            }
-        }
         group.notify(queue: .main) {
             complition(true)
         }
@@ -152,20 +104,6 @@ class ProfileViewModel {
     
     func getFollowersCount() -> Int {
         return self.followerIds.count
-    }
-    
-    func getCost() -> Int {
-        var price = 0
-        for cost in self.costs {
-            var count = 1
-            for join in self.joins {
-                if join.event_id == cost.event_id {
-                    count += 1
-                }
-            }
-            price += (cost.cost / count)
-        }
-        return price
     }
     
     func logout() {
