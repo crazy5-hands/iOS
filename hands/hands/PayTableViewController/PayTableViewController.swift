@@ -19,16 +19,23 @@ class TableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        switch indexPath.section {
+        case kSectionPayButton:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "payButton") as! PayButtonTableViewCell
+            cell.selectionStyle = .none
+            return cell
+        default:
+            let cell = UITableViewCell()
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
