@@ -58,6 +58,8 @@
 		E698B1D320C9342F00840D66 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B1D220C9342F00840D66 /* PasswordViewController.swift */; };
 		E698B1D520C9343B00840D66 /* PasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B1D420C9343B00840D66 /* PasswordViewController.storyboard */; };
 		E698B21B20D64AC800840D66 /* PayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B21A20D64AC800840D66 /* PayTableViewController.swift */; };
+		E698B21E20D64CD200840D66 /* PayButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B21C20D64CD200840D66 /* PayButtonTableViewCell.swift */; };
+		E698B21F20D64CD200840D66 /* PayButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E698B21D20D64CD200840D66 /* PayButtonTableViewCell.xib */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
 		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
 		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
@@ -200,6 +202,8 @@
 		E698B1D220C9342F00840D66 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		E698B1D420C9343B00840D66 /* PasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordViewController.storyboard; sourceTree = "<group>"; };
 		E698B21A20D64AC800840D66 /* PayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayTableViewController.swift; sourceTree = "<group>"; };
+		E698B21C20D64CD200840D66 /* PayButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayButtonTableViewCell.swift; sourceTree = "<group>"; };
+		E698B21D20D64CD200840D66 /* PayButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayButtonTableViewCell.xib; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
@@ -539,8 +543,18 @@
 			isa = PBXGroup;
 			children = (
 				E698B21A20D64AC800840D66 /* PayTableViewController.swift */,
+				E698B22020D64CD800840D66 /* PayButtonTableViewCell */,
 			);
 			path = PayTableViewController;
+			sourceTree = "<group>";
+		};
+		E698B22020D64CD800840D66 /* PayButtonTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E698B21C20D64CD200840D66 /* PayButtonTableViewCell.swift */,
+				E698B21D20D64CD200840D66 /* PayButtonTableViewCell.xib */,
+			);
+			path = PayButtonTableViewCell;
 			sourceTree = "<group>";
 		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
@@ -936,6 +950,7 @@
 				E6C4F5E720ABEF5700F92358 /* icon-userPhoto.png in Resources */,
 				E6C4F5F420AD556500F92358 /* UserDetailTableViewCell.xib in Resources */,
 				E648E52720A87E230058DE85 /* EventDetailTableViewCell.xib in Resources */,
+				E698B21F20D64CD200840D66 /* PayButtonTableViewCell.xib in Resources */,
 				E6ADAD522099E0C400310158 /* LabelCollectionViewCell.xib in Resources */,
 				E6ADAD232091A4D000310158 /* SearchViewController.storyboard in Resources */,
 				E6C4F60220B2BB7D00F92358 /* EditCostViewController.storyboard in Resources */,
@@ -1124,6 +1139,7 @@
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */,
+				E698B21E20D64CD200840D66 /* PayButtonTableViewCell.swift in Sources */,
 				E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */,
 				E6C4F5FD20B2B1C900F92358 /* Cost.swift in Sources */,
 				E6A7325C20B3BAA300CDD5B9 /* PayUtil.swift in Sources */,
