@@ -16,6 +16,8 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let payButtonNib = UINib(nibName: "PayButtonTableViewCell", bundle: nil)
+        self.tableView.register(payButtonNib, forCellReuseIdentifier: "payButton")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,10 +41,22 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(50)
+        switch indexPath.section {
+        case kSectionPayButton:
+            return CGFloat(60)
+        default:
+            return CGFloat(50)
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case kSectionPayButton:
+            //show alert
+            print("ehhehe")
+        default:
+            break
+        }
         print("selected")
     }
 }
