@@ -90,8 +90,6 @@ class ProfileTableViewController: UITableViewController {
         switch indexPath.section {
         case kSectionUserDetail:
             return UITableViewAutomaticDimension
-        case kSectionCost:
-            return 170.0
         default:
             return 50
         }
@@ -123,9 +121,9 @@ class ProfileTableViewController: UITableViewController {
             cell.updateCell(title: "フォロワー", count: (self.viewModel.getFollowersCount()))
             return cell
         case kSectionCost:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostTableViewCell
-            cell.selectionStyle = .none
-            cell.update(cost: self.viewModel.getCost())
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
+            cell.updateCell(title: "イベントのコスト一覧")
+            cell.accessoryType = .disclosureIndicator
             return cell
         case kSectionPrivacyPolicy:
             let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
