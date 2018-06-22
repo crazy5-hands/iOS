@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// This UsersTVC is
+/// This UsersTVC is base TVC to show user list.
 class UsersTableViewController: UITableViewController {
 
     var users: [User] = []
