@@ -9,4 +9,7 @@
 import UIKit
 
 class GroupMemberTableViewController: UserListTableViewController {
+    
+    override func getData() {
+    }
 }
