@@ -9,13 +9,11 @@
 import UIKit
 import Firebase
 
-class GroupMemberTableViewController: UserListTableViewController {
+class GroupMemberTableViewController: UsersTableViewController {
     
     var group: Group?
-    private var tableViewStatus: TableViewStatus?
     
     override func getData() {
-        
         if let group = self.group {
             DispatchQueue.global(qos: .userInitiated).async {
                 let dispatchGroup = DispatchGroup()
@@ -26,6 +24,7 @@ class GroupMemberTableViewController: UserListTableViewController {
                     if let snapshot = snapshot {
                         for document in snapshot.documents {
                             let member = Member(dictionary: document.data())
+                            dispatchGroup.enter()
                             firestore.collection("users").whereField("id", isEqualTo: member.userId).getDocuments(completion: { (snapshot, error) in
                                 if let snapshot = snapshot {
                                     let user = User(dictionary: snapshot.documents[0].data())
@@ -34,32 +33,23 @@ class GroupMemberTableViewController: UserListTableViewController {
                                     }
                                     dispatchGroup.leave()
                                 } else {
-                                    self.tableViewStatus = .error
                                     dispatchGroup.leave()
                                 }
                             })
                         }
+                        
                         dispatchGroup.leave()
                     } else {
-                        self.tableViewStatus = .error
                         dispatchGroup.leave()
                     }
                 }
                 dispatchGroup.notify(queue: .main, execute: {
-                    self.viewModel.updateUsers(users: users)
+                    self.users = users
                     self.tableView.reloadData()
                 })
             }
         } else {
-            self.tableViewStatus = .error
             self.tableView.reloadData()
         }
     }
-}
-
-
-enum TableViewStatus {
-    case loading
-    case error
-    case success
 }
