@@ -26,7 +26,7 @@ struct Member {
         }
     }
     
-    init?(dictionary: [String: Any]) {
+    init(dictionary: [String: Any]) {
         self.id = dictionary["id"] as! String
         self.belongTo = dictionary["belong_to"] as! String
         self.createdAt = dictionary["created_at"] as! NSDate
