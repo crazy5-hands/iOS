@@ -15,6 +15,7 @@ class GroupMemberTableViewController: UsersTableViewController {
     
     override func getData() {
         if let group = self.group {
+            self.refreshControl?.beginRefreshing()
             DispatchQueue.global(qos: .userInitiated).async {
                 let dispatchGroup = DispatchGroup()
                 let firestore = Firestore.firestore()
@@ -44,12 +45,11 @@ class GroupMemberTableViewController: UsersTableViewController {
                     }
                 }
                 dispatchGroup.notify(queue: .main, execute: {
+                    self.refreshControl?.endRefreshing()
                     self.users = users
                     self.tableView.reloadData()
                 })
             }
-        } else {
-            self.tableView.reloadData()
         }
     }
 }
