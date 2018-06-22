@@ -59,6 +59,7 @@
 		E698B1D520C9343B00840D66 /* PasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B1D420C9343B00840D66 /* PasswordViewController.storyboard */; };
 		E698B22220DCE4E000840D66 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22120DCE4E000840D66 /* Group.swift */; };
 		E698B22520DCE75C00840D66 /* GroupMemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22420DCE75C00840D66 /* GroupMemberTableViewController.swift */; };
+		E698B22720DD427700840D66 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22620DD427700840D66 /* Member.swift */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
 		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
 		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
@@ -202,6 +203,7 @@
 		E698B1D420C9343B00840D66 /* PasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordViewController.storyboard; sourceTree = "<group>"; };
 		E698B22120DCE4E000840D66 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		E698B22420DCE75C00840D66 /* GroupMemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberTableViewController.swift; sourceTree = "<group>"; };
+		E698B22620DD427700840D66 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				E6C4F5FC20B2B1C900F92358 /* Cost.swift */,
 				E6A7325920B3B98500CDD5B9 /* Pay.swift */,
 				E698B22120DCE4E000840D66 /* Group.swift */,
+				E698B22620DD427700840D66 /* Member.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1188,6 +1191,7 @@
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
+				E698B22720DD427700840D66 /* Member.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
 				E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */,
 				E69FE32F20BFDB3000A45FC6 /* MyCostTableViewController.swift in Sources */,
