@@ -16,11 +16,20 @@ struct Member {
     var userId: String
     
     var dictiory: [String: Any] {
-        return [
-            "id": self.id,
-            "belong_to": self.belongTo,
-            "created_at": self.createdAt,
-            "user_id": self.userId
-        ]
+        get {
+            return [
+                "id": self.id,
+                "belong_to": self.belongTo,
+                "created_at": self.createdAt,
+                "user_id": self.userId
+            ]
+        }
+    }
+    
+    init?(dictionary: [String: Any]) {
+        self.id = dictionary["id"] as! String
+        self.belongTo = dictionary["belong_to"] as! String
+        self.createdAt = dictionary["created_at"] as! NSDate
+        self.userId = dictionary["user_id"] as! String
     }
 }
