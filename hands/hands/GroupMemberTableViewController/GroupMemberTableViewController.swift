@@ -11,22 +11,31 @@ import Firebase
 
 class GroupMemberTableViewController: UserListTableViewController {
     
-    let group: Group?
-    let tableViewStatus: TableViewStatus = .loading
+    var group: Group?
+    private var tableViewStatus: TableViewStatus?
     
     override func getData() {
         if let group = self.group {
-            let firestore = Firestore.firestore()
-            let groupRef = firestore.collection("groups")
-            groupRef.whereField("id", isEqualTo: group.id).getDocuments { (snapshot, error) in
-                if let snapshot = snapshot {
-                } else {
-                    print(error?.localizedDescription)
-                    self.tableViewStatus = .error
+            DispatchQueue.global(qos: .userInitiated).async {
+                let dispatchGroup = DispatchGroup()
+                let firestore = Firestore.firestore()
+                dispatchGroup.enter()
+                firestore.collection("members").whereField("id", isEqualTo: group.id).getDocuments { (snapshot, error) in
+                    if let snapshot = snapshot {
+                        
+                    } else {
+                        print(error?.localizedDescription)
+                        self.tableViewStatus = .error
+                    }
                 }
+                dispatchGroup.leave()
+                dispatchGroup.notify(queue: .main, execute: {
+                    self.tableView.reloadData()
+                })
             }
         } else {
             self.tableViewStatus = .error
+            
         }
     }
 }
