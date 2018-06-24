@@ -76,6 +76,11 @@ class GroupsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // write here next viewcontroller
+        let group = self.groups[indexPath.row]
+        if group.privated == true {
+            //this is private group. you can't see detail
+        } else {
+            //segue to member
+        }
     }
 }
