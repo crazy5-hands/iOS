@@ -88,6 +88,10 @@ class UserListTableViewModel {
         }
     }
     
+    func updateUsers(users: [User]) {
+        self.users = users
+    }
+    
     func getUserCount() -> Int {
         return self.users.count
     }

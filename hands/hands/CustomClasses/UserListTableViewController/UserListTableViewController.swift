@@ -9,6 +9,11 @@
 import UIKit
 import Firebase
 
+/// Usage
+/// if you want to get particular users data, you have to override getData().
+/// reloadData(): end refresh control and reload tableview
+/// startLoading(): start refresh control
+/// endLoading(): end refresh control
 class UserListTableViewController: UITableViewController {
 
     var viewModel = UserListTableViewModel()
