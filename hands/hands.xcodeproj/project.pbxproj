@@ -414,8 +414,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
-				E698B26520DFDC7900840D66 /* GroupsTableViewController */,
-				E698B22320DCE71400840D66 /* GroupMemberTableViewController */,
+				E698B26820DFE31A00840D66 /* Group */,
 				E698B1D120C9340900840D66 /* PasswordViewController */,
 				E698B1C720C925E900840D66 /* EmailViewController */,
 				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
@@ -567,6 +566,15 @@
 				E698B26620DFDC9400840D66 /* GroupsTableViewController.swift */,
 			);
 			path = GroupsTableViewController;
+			sourceTree = "<group>";
+		};
+		E698B26820DFE31A00840D66 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				E698B22320DCE71400840D66 /* GroupMemberTableViewController */,
+				E698B26520DFDC7900840D66 /* GroupsTableViewController */,
+			);
+			path = Group;
 			sourceTree = "<group>";
 		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
