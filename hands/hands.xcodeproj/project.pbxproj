@@ -60,6 +60,7 @@
 		E698B22220DCE4E000840D66 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22120DCE4E000840D66 /* Group.swift */; };
 		E698B22520DCE75C00840D66 /* GroupMemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22420DCE75C00840D66 /* GroupMemberTableViewController.swift */; };
 		E698B22720DD427700840D66 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22620DD427700840D66 /* Member.swift */; };
+		E698B22A20DD5E3B00840D66 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
 		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
 		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
@@ -204,6 +205,7 @@
 		E698B22120DCE4E000840D66 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		E698B22420DCE75C00840D66 /* GroupMemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberTableViewController.swift; sourceTree = "<group>"; };
 		E698B22620DD427700840D66 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
@@ -548,6 +550,14 @@
 			path = GroupMemberTableViewController;
 			sourceTree = "<group>";
 		};
+		E698B22820DD5E1F00840D66 /* UsersTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */,
+			);
+			path = UsersTableViewController;
+			sourceTree = "<group>";
+		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +746,7 @@
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				E698B22820DD5E1F00840D66 /* UsersTableViewController */,
 				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
 				E69FE32520BFC81500A45FC6 /* CostTableViewController */,
 				E6ADAD54209ACC3100310158 /* TableView */,
@@ -1147,6 +1158,7 @@
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
 				E644385120B43E0B00C89D4F /* FollowListTableViewController.swift in Sources */,
+				E698B22A20DD5E3B00840D66 /* UsersTableViewController.swift in Sources */,
 				E6A7326420B40A7200CDD5B9 /* AllEventTableViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
 				E698B1D320C9342F00840D66 /* PasswordViewController.swift in Sources */,
