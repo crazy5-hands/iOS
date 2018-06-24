@@ -62,6 +62,8 @@
 		E698B22720DD427700840D66 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22620DD427700840D66 /* Member.swift */; };
 		E698B22A20DD5E3B00840D66 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */; };
 		E698B26720DFDC9400840D66 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B26620DFDC9400840D66 /* GroupsTableViewController.swift */; };
+		E698B26B20DFF29800840D66 /* NewGroupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B26A20DFF29800840D66 /* NewGroupViewController.storyboard */; };
+		E698B26D20DFF5DB00840D66 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B26C20DFF5DB00840D66 /* NewGroupViewController.swift */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
 		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
 		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
@@ -208,6 +210,8 @@
 		E698B22620DD427700840D66 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		E698B26620DFDC9400840D66 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
+		E698B26A20DFF29800840D66 /* NewGroupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewGroupViewController.storyboard; sourceTree = "<group>"; };
+		E698B26C20DFF5DB00840D66 /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
@@ -571,10 +575,20 @@
 		E698B26820DFE31A00840D66 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				E698B26920DFF27D00840D66 /* NewGroupViewController */,
 				E698B22320DCE71400840D66 /* GroupMemberTableViewController */,
 				E698B26520DFDC7900840D66 /* GroupsTableViewController */,
 			);
 			path = Group;
+			sourceTree = "<group>";
+		};
+		E698B26920DFF27D00840D66 /* NewGroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B26A20DFF29800840D66 /* NewGroupViewController.storyboard */,
+				E698B26C20DFF5DB00840D66 /* NewGroupViewController.swift */,
+			);
+			path = NewGroupViewController;
 			sourceTree = "<group>";
 		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
@@ -977,6 +991,7 @@
 				E6C4F60220B2BB7D00F92358 /* EditCostViewController.storyboard in Resources */,
 				E6C4F5F920AD76F000F92358 /* FollowCountTableViewCell.xib in Resources */,
 				E6ADAD59209ACCE200310158 /* SquareCollectionViewCell.xib in Resources */,
+				E698B26B20DFF29800840D66 /* NewGroupViewController.storyboard in Resources */,
 				E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6ADAD4D2099D22000310158 /* UserCollectionViewCell.xib in Resources */,
@@ -1204,6 +1219,7 @@
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E644385C20B5A1B600C89D4F /* JoinEventListTableViewController.swift in Sources */,
 				E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */,
+				E698B26D20DFF5DB00840D66 /* NewGroupViewController.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */,
