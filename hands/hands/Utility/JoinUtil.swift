@@ -9,6 +9,11 @@
 import Foundation
 import Firebase
 
+enum JoinError: Error {
+    case success
+    case fail
+}
+
 class JoinUtil {
     func getJoinerIdByEventId(eventId: String, complication:@escaping ([String]) -> Void) {
         let db = Firestore.firestore()
@@ -37,6 +42,17 @@ class JoinUtil {
             }
         }
     }
+    
+//    func updateJoin(join: Join) -> JoinError? {
+//        let db = Firestore.firestore()
+//        db.collection("joins").document(join.id).setData(join.dictionary) { (error) in
+//            if error != nil {
+//                return JoinError.fail
+//            } else {
+//                return JoinError.success
+//            }
+//        }
+//    }
     
     func getJoinsByUserId(userId: String, complition: @escaping ([Join]) -> Void) {
         let db = Firestore.firestore()
