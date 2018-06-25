@@ -418,20 +418,14 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E698B26E20E0961B00840D66 /* Event */,
 				E698B26820DFE31A00840D66 /* Group */,
 				E698B1D120C9340900840D66 /* PasswordViewController */,
 				E698B1C720C925E900840D66 /* EmailViewController */,
 				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
 				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
-				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
-				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
-				E644385420B59C1A00C89D4F /* OwnFollowEventListTableViewController */,
-				E6A7326220B40A4000CDD5B9 /* AllEventTableViewController */,
 				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
 				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
-				E640F600209B414700BC48C6 /* EventListTableViewController */,
-				E6ADAD3D2095C3F200310158 /* EventDetailTableViewController */,
-				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
 				E6ADAD1C2091A48900310158 /* SearchViewController */,
 				E6ADAD172091A45000310158 /* ListViewController */,
@@ -589,6 +583,20 @@
 				E698B26C20DFF5DB00840D66 /* NewGroupViewController.swift */,
 			);
 			path = NewGroupViewController;
+			sourceTree = "<group>";
+		};
+		E698B26E20E0961B00840D66 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				E640F600209B414700BC48C6 /* EventListTableViewController */,
+				E6ADAD3D2095C3F200310158 /* EventDetailTableViewController */,
+				E644385420B59C1A00C89D4F /* OwnFollowEventListTableViewController */,
+				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
+				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
+				E6A7326220B40A4000CDD5B9 /* AllEventTableViewController */,
+				E6ADAD2E2093996200310158 /* NewEventViewController */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
