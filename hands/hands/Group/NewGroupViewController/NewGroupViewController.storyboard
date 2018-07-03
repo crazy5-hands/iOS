@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOB-Qz-eZX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Group View Controller-->
+        <scene sceneID="Ilo-fK-7Q8">
+            <objects>
+                <viewController id="nOB-Qz-eZX" customClass="NewGroupViewController" customModule="hands" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KCP-oI-Jj5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="グループ名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npb-Ud-V3v">
+                                <rect key="frame" x="16" y="109" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="joU-3d-lwB" customClass="DoneButtonTextField" customModule="hands" customModuleProvider="target">
+                                <rect key="frame" x="16" y="140" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameTextField:" destination="Ewi-iQ-IYB" eventType="editingDidEnd" id="Wos-8I-apn"/>
+                                </connections>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdh-Ic-BED">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="cgD-qi-R5w">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pyu-PG-cHb">
+                                            <color key="tintColor" red="0.0" green="0.68187595079999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="mSG-lN-pui">
+                                            <color key="tintColor" red="0.0" green="0.68187595079999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="done:" destination="nOB-Qz-eZX" id="XAJ-f7-hsq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU0-zJ-j1R">
+                                <rect key="frame" x="251" y="416" width="108" height="30"/>
+                                <state key="normal" title="メンバーを追加">
+                                    <color key="titleColor" red="0.0" green="0.68187595079999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8VQ-Rw-8Y9">
+                                <rect key="frame" x="16" y="357" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="プライベート"/>
+                                    <segment title="公開"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.68187595079999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="21B-yC-zn7" customClass="DoneButtonTextView" customModule="hands" customModuleProvider="target">
+                                <rect key="frame" x="16" y="221" width="343" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="zqw-F7-jXC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ひとこと" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C36-CK-oGw">
+                                <rect key="frame" x="16" y="190" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="joU-3d-lwB" firstAttribute="leading" secondItem="317-yK-ck0" secondAttribute="leading" constant="16" id="1vu-bE-jXu"/>
+                            <constraint firstItem="317-yK-ck0" firstAttribute="trailing" secondItem="joU-3d-lwB" secondAttribute="trailing" constant="16" id="7iW-XK-SGM"/>
+                            <constraint firstItem="317-yK-ck0" firstAttribute="trailing" secondItem="21B-yC-zn7" secondAttribute="trailing" constant="16" id="92x-A2-0oO"/>
+                            <constraint firstItem="npb-Ud-V3v" firstAttribute="top" secondItem="Tdh-Ic-BED" secondAttribute="bottom" constant="45" id="BRf-OJ-VLU"/>
+                            <constraint firstItem="317-yK-ck0" firstAttribute="trailing" secondItem="qU0-zJ-j1R" secondAttribute="trailing" constant="16" id="F6n-xG-yEI"/>
+                            <constraint firstItem="21B-yC-zn7" firstAttribute="leading" secondItem="317-yK-ck0" secondAttribute="leading" constant="16" id="Fqo-SU-d5y"/>
+                            <constraint firstItem="21B-yC-zn7" firstAttribute="top" secondItem="C36-CK-oGw" secondAttribute="bottom" constant="10" id="QbO-7Q-7fe"/>
+                            <constraint firstItem="Tdh-Ic-BED" firstAttribute="leading" secondItem="317-yK-ck0" secondAttribute="leading" id="acx-0i-ALB"/>
+                            <constraint firstItem="C36-CK-oGw" firstAttribute="top" secondItem="joU-3d-lwB" secondAttribute="bottom" constant="20" id="gHl-CY-y1R"/>
+                            <constraint firstItem="Tdh-Ic-BED" firstAttribute="top" secondItem="317-yK-ck0" secondAttribute="top" id="gfx-qn-XlR"/>
+                            <constraint firstItem="C36-CK-oGw" firstAttribute="leading" secondItem="317-yK-ck0" secondAttribute="leading" constant="16" id="raN-3x-CBX"/>
+                            <constraint firstItem="Tdh-Ic-BED" firstAttribute="trailing" secondItem="317-yK-ck0" secondAttribute="trailing" id="ruk-V2-ocq"/>
+                            <constraint firstItem="joU-3d-lwB" firstAttribute="leading" secondItem="npb-Ud-V3v" secondAttribute="leading" id="vs3-zM-buS"/>
+                            <constraint firstItem="joU-3d-lwB" firstAttribute="top" secondItem="npb-Ud-V3v" secondAttribute="bottom" constant="10" id="wF2-3c-ha1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="317-yK-ck0"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="joU-3d-lwB" id="L7b-hp-VwU"/>
+                        <outlet property="noteTextView" destination="21B-yC-zn7" id="CUE-ZS-7VM"/>
+                        <outlet property="statusOfPrivate" destination="8VQ-Rw-8Y9" id="Oed-rX-6Xb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pmb-6F-Cy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Ewi-iQ-IYB" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-109.59999999999999" y="146.17691154422789"/>
+        </scene>
+    </scenes>
+</document>

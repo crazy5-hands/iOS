@@ -39,4 +39,9 @@ class UserTableViewCell: UITableViewCell {
             }
         }
     } // end updatecell
+    
+    func updateCell(username: String, status: String) {
+        self.nameLabel.text = username
+        self.followstatusLabel.text = status
+    }
 }

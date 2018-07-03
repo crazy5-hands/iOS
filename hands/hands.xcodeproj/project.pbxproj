@@ -51,6 +51,19 @@
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
 		E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */; };
 		E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */; };
+		E698B1C920C9260300840D66 /* EmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B1C820C9260300840D66 /* EmailViewController.storyboard */; };
+		E698B1CB20C9270F00840D66 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B1CA20C9270F00840D66 /* EmailViewController.swift */; };
+		E698B1CF20C9312700840D66 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B1CD20C9312700840D66 /* TitleTableViewCell.swift */; };
+		E698B1D020C9312700840D66 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E698B1CE20C9312700840D66 /* TitleTableViewCell.xib */; };
+		E698B1D320C9342F00840D66 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B1D220C9342F00840D66 /* PasswordViewController.swift */; };
+		E698B1D520C9343B00840D66 /* PasswordViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B1D420C9343B00840D66 /* PasswordViewController.storyboard */; };
+		E698B22220DCE4E000840D66 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22120DCE4E000840D66 /* Group.swift */; };
+		E698B22520DCE75C00840D66 /* GroupMemberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22420DCE75C00840D66 /* GroupMemberTableViewController.swift */; };
+		E698B22720DD427700840D66 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22620DD427700840D66 /* Member.swift */; };
+		E698B22A20DD5E3B00840D66 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */; };
+		E698B26720DFDC9400840D66 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B26620DFDC9400840D66 /* GroupsTableViewController.swift */; };
+		E698B26B20DFF29800840D66 /* NewGroupViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B26A20DFF29800840D66 /* NewGroupViewController.storyboard */; };
+		E698B26D20DFF5DB00840D66 /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E698B26C20DFF5DB00840D66 /* NewGroupViewController.swift */; };
 		E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */; };
 		E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */; };
 		E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */; };
@@ -186,6 +199,19 @@
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 		E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
+		E698B1C820C9260300840D66 /* EmailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmailViewController.storyboard; sourceTree = "<group>"; };
+		E698B1CA20C9270F00840D66 /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		E698B1CD20C9312700840D66 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		E698B1CE20C9312700840D66 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
+		E698B1D220C9342F00840D66 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		E698B1D420C9343B00840D66 /* PasswordViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasswordViewController.storyboard; sourceTree = "<group>"; };
+		E698B22120DCE4E000840D66 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		E698B22420DCE75C00840D66 /* GroupMemberTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMemberTableViewController.swift; sourceTree = "<group>"; };
+		E698B22620DD427700840D66 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		E698B26620DFDC9400840D66 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
+		E698B26A20DFF29800840D66 /* NewGroupViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewGroupViewController.storyboard; sourceTree = "<group>"; };
+		E698B26C20DFF5DB00840D66 /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		E69FE32320BEBFAD00A45FC6 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		E69FE32620BFC82800A45FC6 /* CostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostTableViewController.swift; sourceTree = "<group>"; };
 		E69FE32920BFCA9D00A45FC6 /* CostListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableViewCell.swift; sourceTree = "<group>"; };
@@ -392,6 +418,9 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E698B26820DFE31A00840D66 /* Group */,
+				E698B1D120C9340900840D66 /* PasswordViewController */,
+				E698B1C720C925E900840D66 /* EmailViewController */,
 				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
 				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
@@ -400,9 +429,7 @@
 				E6A7326220B40A4000CDD5B9 /* AllEventTableViewController */,
 				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
 				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
-				E640F60B209ED66C00BC48C6 /* Utility */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
-				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
 				E6ADAD3D2095C3F200310158 /* EventDetailTableViewController */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
@@ -410,18 +437,19 @@
 				E6ADAD172091A45000310158 /* ListViewController */,
 				E6ADAD1220919C6100310158 /* ProfileTableViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
-				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
 				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
+				E640F60B209ED66C00BC48C6 /* Utility */,
+				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
+				E6674E07207F07380031B4A0 /* Model */,
 				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
 				E6C4F5E620ABEF5600F92358 /* icon-userPhoto.png */,
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
 				E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */,
 				E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */,
-				E6674E07207F07380031B4A0 /* Model */,
 				E6674E10207F3BB70031B4A0 /* Extension.swift */,
 				E640F64F209F28D800BC48C6 /* resize.swift */,
 				E644385020B43E0B00C89D4F /* FollowListTableViewController.swift */,
@@ -478,6 +506,8 @@
 				E640F603209B4F5200BC48C6 /* Join.swift */,
 				E6C4F5FC20B2B1C900F92358 /* Cost.swift */,
 				E6A7325920B3B98500CDD5B9 /* Pay.swift */,
+				E698B22120DCE4E000840D66 /* Group.swift */,
+				E698B22620DD427700840D66 /* Member.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -489,6 +519,76 @@
 				E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */,
 			);
 			path = DeleteTableViewCell;
+			sourceTree = "<group>";
+		};
+		E698B1C720C925E900840D66 /* EmailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B1C820C9260300840D66 /* EmailViewController.storyboard */,
+				E698B1CA20C9270F00840D66 /* EmailViewController.swift */,
+			);
+			path = EmailViewController;
+			sourceTree = "<group>";
+		};
+		E698B1CC20C9310200840D66 /* TitleTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E698B1CD20C9312700840D66 /* TitleTableViewCell.swift */,
+				E698B1CE20C9312700840D66 /* TitleTableViewCell.xib */,
+			);
+			path = TitleTableViewCell;
+			sourceTree = "<group>";
+		};
+		E698B1D120C9340900840D66 /* PasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B1D220C9342F00840D66 /* PasswordViewController.swift */,
+				E698B1D420C9343B00840D66 /* PasswordViewController.storyboard */,
+			);
+			path = PasswordViewController;
+			sourceTree = "<group>";
+		};
+		E698B22320DCE71400840D66 /* GroupMemberTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B22420DCE75C00840D66 /* GroupMemberTableViewController.swift */,
+			);
+			path = GroupMemberTableViewController;
+			sourceTree = "<group>";
+		};
+		E698B22820DD5E1F00840D66 /* UsersTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B22920DD5E3B00840D66 /* UsersTableViewController.swift */,
+			);
+			path = UsersTableViewController;
+			sourceTree = "<group>";
+		};
+		E698B26520DFDC7900840D66 /* GroupsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B26620DFDC9400840D66 /* GroupsTableViewController.swift */,
+			);
+			path = GroupsTableViewController;
+			sourceTree = "<group>";
+		};
+		E698B26820DFE31A00840D66 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				E698B26920DFF27D00840D66 /* NewGroupViewController */,
+				E698B22320DCE71400840D66 /* GroupMemberTableViewController */,
+				E698B26520DFDC7900840D66 /* GroupsTableViewController */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		E698B26920DFF27D00840D66 /* NewGroupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E698B26A20DFF29800840D66 /* NewGroupViewController.storyboard */,
+				E698B26C20DFF5DB00840D66 /* NewGroupViewController.swift */,
+			);
+			path = NewGroupViewController;
 			sourceTree = "<group>";
 		};
 		E69FE32520BFC81500A45FC6 /* CostTableViewController */ = {
@@ -645,6 +745,7 @@
 		E6ADAD54209ACC3100310158 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				E698B1CC20C9310200840D66 /* TitleTableViewCell */,
 				E69FE32820BFCA7E00A45FC6 /* CostListTableViewCell */,
 				E68EF34C20B86F12009933CB /* DeleteTableViewCell */,
 				E6A7325220B2F89E00CDD5B9 /* CostTableViewCell */,
@@ -678,6 +779,8 @@
 		E6C3F0CE20902BCB00D8BF05 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
+				E698B22820DD5E1F00840D66 /* UsersTableViewController */,
+				E6ADAD5C209AFE3600310158 /* UserListTableViewController */,
 				E69FE32520BFC81500A45FC6 /* CostTableViewController */,
 				E6ADAD54209ACC3100310158 /* TableView */,
 				E6ADAD53209ACC0400310158 /* CollectionView */,
@@ -888,15 +991,19 @@
 				E6C4F60220B2BB7D00F92358 /* EditCostViewController.storyboard in Resources */,
 				E6C4F5F920AD76F000F92358 /* FollowCountTableViewCell.xib in Resources */,
 				E6ADAD59209ACCE200310158 /* SquareCollectionViewCell.xib in Resources */,
+				E698B26B20DFF29800840D66 /* NewGroupViewController.storyboard in Resources */,
 				E6ADAD4620960A4800310158 /* UserTableViewCell.xib in Resources */,
 				E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */,
 				E6ADAD4D2099D22000310158 /* UserCollectionViewCell.xib in Resources */,
 				E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */,
 				E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */,
+				E698B1D520C9343B00840D66 /* PasswordViewController.storyboard in Resources */,
 				E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */,
 				E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */,
 				E6ADAD192091A46800310158 /* ListViewController.storyboard in Resources */,
 				E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */,
+				E698B1D020C9312700840D66 /* TitleTableViewCell.xib in Resources */,
+				E698B1C920C9260300840D66 /* EmailViewController.storyboard in Resources */,
 				E6A7325620B2F8D900CDD5B9 /* CostTableViewCell.xib in Resources */,
 				E649CFA01FF3BE99005DC4BA /* Assets.xcassets in Resources */,
 				E6ADAD3C20945AB200310158 /* EventTableViewCell.xib in Resources */,
@@ -1062,6 +1169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E698B1CF20C9312700840D66 /* TitleTableViewCell.swift in Sources */,
 				E6C4F5FB20B2B0B800F92358 /* CostUtil.swift in Sources */,
 				E6C4F5E920AC9F8900F92358 /* MaterialButton.swift in Sources */,
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
@@ -1073,6 +1181,7 @@
 				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */,
+				E698B22520DCE75C00840D66 /* GroupMemberTableViewController.swift in Sources */,
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */,
 				E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */,
@@ -1083,10 +1192,13 @@
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
 				E644385120B43E0B00C89D4F /* FollowListTableViewController.swift in Sources */,
+				E698B22A20DD5E3B00840D66 /* UsersTableViewController.swift in Sources */,
 				E6A7326420B40A7200CDD5B9 /* AllEventTableViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
+				E698B1D320C9342F00840D66 /* PasswordViewController.swift in Sources */,
 				E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */,
 				E6C4F60420B2DF7800F92358 /* EditCostViewModel.swift in Sources */,
+				E698B22220DCE4E000840D66 /* Group.swift in Sources */,
 				E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
 				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
@@ -1096,6 +1208,7 @@
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
 				E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */,
 				E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */,
+				E698B1CB20C9270F00840D66 /* EmailViewController.swift in Sources */,
 				E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */,
 				E640F60A209C82E900BC48C6 /* NewEventViewModel.swift in Sources */,
 				E6A7325E20B3E91B00CDD5B9 /* ProfileTableViewController.swift in Sources */,
@@ -1106,6 +1219,7 @@
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E644385C20B5A1B600C89D4F /* JoinEventListTableViewController.swift in Sources */,
 				E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */,
+				E698B26D20DFF5DB00840D66 /* NewGroupViewController.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */,
@@ -1117,6 +1231,7 @@
 				E644385320B446A000C89D4F /* FollowerListTableViewController.swift in Sources */,
 				E6C4F5EF20AD311A00F92358 /* UserDetailTableViewModel.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
+				E698B26720DFDC9400840D66 /* GroupsTableViewController.swift in Sources */,
 				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
 				E6C4F60020B2BB3100F92358 /* EditCostViewController.swift in Sources */,
 				E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */,
@@ -1124,6 +1239,7 @@
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
+				E698B22720DD427700840D66 /* Member.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
 				E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */,
 				E69FE32F20BFDB3000A45FC6 /* MyCostTableViewController.swift in Sources */,

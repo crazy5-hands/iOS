@@ -18,7 +18,9 @@ class ProfileTableViewController: UITableViewController {
     private let kSectionFollower = 4
     private let kSectionCost = 5
     private let kSectionPrivacyPolicy = 6
-    private let kSectionLogout = 7
+    private let kSectionUpdateEmail = 7
+    private let kSectionUpdatePassword = 8
+    private let kSectionLogout = 9
     private var viewModel = ProfileViewModel()
     private var indicatorView: UIActivityIndicatorView!
     
@@ -28,10 +30,12 @@ class ProfileTableViewController: UITableViewController {
         let followNib = UINib(nibName: "FollowCountTableViewCell", bundle: nil)
         let costNib = UINib(nibName: "CostTableViewCell", bundle: nil)
         let deleteNib = UINib(nibName: "DeleteTableViewCell", bundle: nil)
+        let titleNib = UINib(nibName: "TitleTableViewCell", bundle: nil)
         self.tableView.register(userDetailNib, forCellReuseIdentifier: "userDetail")
         self.tableView.register(followNib, forCellReuseIdentifier: "follow")
         self.tableView.register(costNib, forCellReuseIdentifier: "cost")
         self.tableView.register(deleteNib, forCellReuseIdentifier: "delete")
+        self.tableView.register(titleNib, forCellReuseIdentifier: "title")
         self.indicatorView = UIActivityIndicatorView()
         self.indicatorView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         self.indicatorView.center = self.view.center
@@ -75,7 +79,7 @@ class ProfileTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 10
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,22 +90,8 @@ class ProfileTableViewController: UITableViewController {
         switch indexPath.section {
         case kSectionUserDetail:
             return UITableViewAutomaticDimension
-        case kSectionOwn:
-            return 50.0
-        case kSectionJoin:
-            return 50.0
-        case kSectionFollow:
-            return 50.0
-        case kSectionFollower:
-            return 50.0
-        case kSectionCost:
-            return 170.0
-        case kSectionPrivacyPolicy:
-            return 50
-        case kSectionLogout:
-            return 50
         default:
-            return 0
+            return 50
         }
     }
     
@@ -131,14 +121,24 @@ class ProfileTableViewController: UITableViewController {
             cell.updateCell(title: "フォロワー", count: (self.viewModel.getFollowersCount()))
             return cell
         case kSectionCost:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cost") as! CostTableViewCell
-            cell.selectionStyle = .none
-            cell.update(cost: self.viewModel.getCost())
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
+            cell.updateCell(title: "イベントのコスト一覧")
+            cell.accessoryType = .disclosureIndicator
             return cell
         case kSectionPrivacyPolicy:
-            let cell = UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
             cell.selectionStyle = .none
-            cell.textLabel?.text = "プライバシーポリシー"
+            cell.updateCell(title: "プライバシーポリシー")
+            return cell
+        case kSectionUpdateEmail:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
+            cell.selectionStyle = .none
+            cell.updateCell(title: "メールアドレスの再設定")
+            return cell
+        case kSectionUpdatePassword:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title") as! TitleTableViewCell
+            cell.selectionStyle = .none
+            cell.updateCell(title: "パスワードの再設定")
             return cell
         case kSectionLogout:
             let cell = tableView.dequeueReusableCell(withIdentifier: "delete") as! DeleteTableViewCell
@@ -175,16 +175,30 @@ class ProfileTableViewController: UITableViewController {
             let next = MyCostTableViewController()
             self.navigationController?.pushViewController(next, animated: true)
         case kSectionPrivacyPolicy:
-            let next = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil).instantiateInitialViewController() as! PrivacyPolicyViewController
-            next.showNextButton = false
+            let url = URL(string: "https://crazy5-hands.github.io/hands.github.io/")
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            }
+        case kSectionUpdateEmail:
+            let next = UIStoryboard(name: "EmailViewController", bundle: nil).instantiateInitialViewController() as! EmailViewController
+            self.present(next, animated: true, completion: nil)
+        case kSectionUpdatePassword:
+            let next = UIStoryboard(name: "PasswordViewController", bundle: nil).instantiateInitialViewController() as! PasswordViewController
             self.present(next, animated: true, completion: nil)
         case kSectionLogout:
             let alert = UIAlertController(title: "ログアウト", message: "本当にログアウトしますか", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             let logoutAction = UIAlertAction(title: "ログアウト", style: .destructive) { (alert) in
                 self.indicatorView.startAnimating()
-                try? Auth.auth().signOut()
-                self.indicatorView.stopAnimating()
+                if Auth.auth().currentUser != nil {
+                    do {
+                        try Auth.auth().signOut()
+                        self.indicatorView.stopAnimating()
+                    }
+                    catch {
+                        self.showAlert(error.localizedDescription)
+                    }
+                }
                 if Auth.auth().currentUser == nil {
                     let next = UIStoryboard(name: "LoginViewController", bundle: nil).instantiateInitialViewController()
                     self.present(next!, animated: false, completion: nil)

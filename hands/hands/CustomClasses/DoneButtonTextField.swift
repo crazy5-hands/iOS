@@ -29,6 +29,10 @@ class DoneButtonTextField: UITextField{
         let closeButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.closeButtonTapped))
         tools.items = [spacer, closeButton]
         self.inputAccessoryView = tools
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor(red: 0.79, green: 0.79, blue: 0.79, alpha: 1).cgColor
+        self.layer.cornerRadius = 8.0
+        self.layer.masksToBounds = true
     }
     
     @objc private func closeButtonTapped(){
