@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j7l-g2-xJa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j7l-g2-xJa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-5L-9TP">
-                                <rect key="frame" x="16" y="82" width="343" height="441"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNm-5L-9TP">
+                                <rect key="frame" x="15" y="84" width="345" height="438"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ett-1g-fPv">
@@ -74,8 +73,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="psL-vX-j0Y" firstAttribute="centerX" secondItem="vC6-a1-lDW" secondAttribute="centerX" id="4hO-zl-YaV"/>
+                            <constraint firstItem="Ez6-cg-EZ5" firstAttribute="trailing" secondItem="bNm-5L-9TP" secondAttribute="trailing" constant="15" id="8b5-5T-gRf"/>
+                            <constraint firstItem="bNm-5L-9TP" firstAttribute="top" secondItem="ett-1g-fPv" secondAttribute="bottom" constant="20" id="D8C-R1-NVz"/>
                             <constraint firstItem="lfv-Yq-TAZ" firstAttribute="top" secondItem="psL-vX-j0Y" secondAttribute="bottom" constant="30" id="T5E-SI-Pwz"/>
                             <constraint firstItem="ett-1g-fPv" firstAttribute="top" secondItem="Ez6-cg-EZ5" secondAttribute="top" id="Ugq-PS-G39"/>
+                            <constraint firstItem="bNm-5L-9TP" firstAttribute="leading" secondItem="Ez6-cg-EZ5" secondAttribute="leading" constant="15" id="Wsr-QG-ZrH"/>
+                            <constraint firstItem="psL-vX-j0Y" firstAttribute="top" secondItem="bNm-5L-9TP" secondAttribute="bottom" constant="20" id="gBf-5x-Fub"/>
                             <constraint firstItem="lfv-Yq-TAZ" firstAttribute="centerX" secondItem="vC6-a1-lDW" secondAttribute="centerX" id="joI-a3-pgk"/>
                             <constraint firstItem="ett-1g-fPv" firstAttribute="leading" secondItem="Ez6-cg-EZ5" secondAttribute="leading" id="l4X-KG-sUY"/>
                             <constraint firstItem="ett-1g-fPv" firstAttribute="trailing" secondItem="Ez6-cg-EZ5" secondAttribute="trailing" id="m1h-ea-stn"/>
