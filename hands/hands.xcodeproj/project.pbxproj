@@ -40,6 +40,7 @@
 		E649CFAE1FF3BE99005DC4BA /* handsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFAD1FF3BE99005DC4BA /* handsTests.swift */; };
 		E649CFB91FF3BE99005DC4BA /* handsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFB81FF3BE99005DC4BA /* handsUITests.swift */; };
 		E65E2D2720F363DA00EB134B /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E2D2620F363DA00EB134B /* APIRouter.swift */; };
+		E65E2D2A20F374A600EB134B /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E2D2920F374A600EB134B /* JSON.swift */; };
 		E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */; };
 		E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */; };
 		E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */; };
@@ -189,6 +190,7 @@
 		E649CFB81FF3BE99005DC4BA /* handsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handsUITests.swift; sourceTree = "<group>"; };
 		E649CFBA1FF3BE99005DC4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E65E2D2620F363DA00EB134B /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		E65E2D2920F374A600EB134B /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditUserInfoViewController.storyboard; sourceTree = "<group>"; };
 		E6674E00207D294C0031B4A0 /* FirebaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E65E2D2820F3748200EB134B /* Extensions */,
 				E65E2D2520F3638A00EB134B /* router */,
 				E698B26820DFE31A00840D66 /* Group */,
 				E698B1D120C9340900840D66 /* PasswordViewController */,
@@ -494,6 +497,14 @@
 				E65E2D2620F363DA00EB134B /* APIRouter.swift */,
 			);
 			path = router;
+			sourceTree = "<group>";
+		};
+		E65E2D2820F3748200EB134B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E65E2D2920F374A600EB134B /* JSON.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E6674DFB207D25320031B4A0 /* EditUserInfoViewController */ = {
@@ -1216,6 +1227,7 @@
 				E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */,
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
 				E6C3F0D02091777300D8BF05 /* MainTabBarController.swift in Sources */,
+				E65E2D2A20F374A600EB134B /* JSON.swift in Sources */,
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
 				E65E2D2720F363DA00EB134B /* APIRouter.swift in Sources */,
 				E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */,

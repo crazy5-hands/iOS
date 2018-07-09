@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Event {
+struct Event: Codable {
     
     var id: String
     var author_id: String
@@ -24,6 +24,9 @@ struct Event {
             "body": self.body,
             "created_at": self.created_at
         ]
+    }
+    init(from decoder: Decoder) throws {
+        
     }
     
     init?(dictionary: [String: Any]) {

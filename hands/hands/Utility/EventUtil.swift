@@ -19,8 +19,12 @@ class EventUtil {
             var events: [Event] = []
             if let snapshot = snapshot {
                 if snapshot.documents.isEmpty != true {
+                    let decoder = JSONDecoder()
                     for document in snapshot.documents {
-                        events.append(Event(dictionary: document.data())!)
+                        print(document.data())
+                        let event = try! decoder.decode(Event.self, withJSONObject: document.data())
+//                        let event = try! decoder.decode(Event.self, from: document.data())
+                        events.append(event)
                     }
                 }
                 complition(events)
