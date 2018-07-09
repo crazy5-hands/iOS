@@ -36,7 +36,7 @@ enum APIRouter {
     /// collectionを返す。
     ///
     /// - Returns: collectionReferenceを返す
-    func firebase() -> CollectionReference {
+    func collectionRef() -> CollectionReference {
         let firestore = Firestore.firestore()
         return firestore.collection(self.collection)
     }
