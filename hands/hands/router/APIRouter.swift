@@ -16,6 +16,8 @@ enum APIRouter {
     case joins
     case users
     
+    
+    /// collectionの先をString型で返す。
     private var collection: String {
         switch self {
         case .costs:
@@ -31,6 +33,9 @@ enum APIRouter {
         }
     }
     
+    /// collectionを返す。
+    ///
+    /// - Returns: collectionReferenceを返す
     func firebase() -> CollectionReference {
         let firestore = Firestore.firestore()
         return firestore.collection(self.collection)
