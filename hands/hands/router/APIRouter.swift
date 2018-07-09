@@ -10,11 +10,12 @@ import Foundation
 import Firebase
 
 enum APIRouter {
-    case costs
-    case events
-    case follows
-    case joins
-    case users
+    
+    case costs // お金情報
+    case events // イベント
+    case follows // フォロー、フォロワー
+    case joins // イベントへの参加
+    case users // ユーザー
     
     
     /// collectionの先をString型で返す。
