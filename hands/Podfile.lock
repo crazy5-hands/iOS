@@ -23,14 +23,14 @@ PODS:
   - FirebaseAnalytics (4.0.4):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
   - FirebaseAuth (4.3.0):
     - FirebaseAnalytics (~> 4.0)
-    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseCore (4.0.9):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - nanopb (~> 0.3)
   - FirebaseDatabase (4.1.1):
     - FirebaseAnalytics (~> 4.0)
@@ -53,13 +53,13 @@ PODS:
   - GoogleToolboxForMac/DebugUtils (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/Defines (2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+  - "GoogleToolboxForMac/NSData+zlib (2.1.3)":
     - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3)":
     - GoogleToolboxForMac/DebugUtils (= 2.1.3)
     - GoogleToolboxForMac/Defines (= 2.1.3)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.3)"
   - gRPC (1.6.5):
     - gRPC-Core (= 1.6.5)
     - gRPC-RxLibrary (= 1.6.5)
@@ -100,6 +100,31 @@ DEPENDENCIES:
   - RxCocoa (= 3.6.1)
   - RxSwift (= 3.6.1)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BoringSSL
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseDatabase
+    - FirebaseFirestore
+    - FirebaseInstanceID
+    - FirebaseStorage
+    - FirebaseUI
+    - GoogleToolboxForMac
+    - gRPC
+    - gRPC-Core
+    - gRPC-ProtoRPC
+    - gRPC-RxLibrary
+    - GTMSessionFetcher
+    - leveldb-library
+    - LineSDK
+    - nanopb
+    - Protobuf
+    - RxCocoa
+    - RxSwift
+
 SPEC CHECKSUMS:
   BoringSSL: 19083b821ef3ae0f758fae15482e183003b1e265
   Firebase: 3e92884a63e8f76d107c43a67d2ab9071e1eda10
@@ -124,6 +149,6 @@ SPEC CHECKSUMS:
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
 
-PODFILE CHECKSUM: 5b3a11d56194adb7a3275f65b8713cbef886e44b
+PODFILE CHECKSUM: e78746c725231618a693482ef5abf1a367021c2d
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3

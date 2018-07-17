@@ -9,6 +9,7 @@
 import XCTest
 @testable import hands
 
+
 class handsTests: XCTestCase {
     
     override func setUp() {
@@ -33,4 +34,7 @@ class handsTests: XCTestCase {
         }
     }
     
+    func testAPIRouter() {
+        let textAPI
+    }
 }
