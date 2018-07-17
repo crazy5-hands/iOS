@@ -7,8 +7,8 @@
 //
 
 import XCTest
+import Firebase
 @testable import hands
-
 
 class handsTests: XCTestCase {
     
@@ -35,6 +35,9 @@ class handsTests: XCTestCase {
     }
     
     func testAPIRouter() {
-        let textAPI
+        let testAPI = APIRouter.costs
+        let expected = Firestore.firestore().collection("costs")
+        let actual = testAPI.collectionRef()
+        XCTAssertEqual(actual, expected)
     }
 }
