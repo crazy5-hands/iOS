@@ -34,10 +34,12 @@ class handsTests: XCTestCase {
         }
     }
     
-    func testAPIRouter() {
-        let testAPI = APIRouter.costs
-        let expected = Firestore.firestore().collection("costs")
-        let actual = testAPI.collectionRef()
-        XCTAssertEqual(actual, expected)
+    func testCAPIRouterCost() {
+        // in this case, try to get costs
+        let api = APIRouter.costs
+        let ref = api.collectionRef()
+        ref.getDocuments { (snapshot, error) in
+            XCTAssertThrowsError(error)
+        }
     }
 }
