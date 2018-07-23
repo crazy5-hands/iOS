@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Firebase
 @testable import hands
 
 class handsTests: XCTestCase {
@@ -33,4 +34,12 @@ class handsTests: XCTestCase {
         }
     }
     
+    func testCAPIRouterCost() {
+        // in this case, try to get costs
+        let api = APIRouter.costs
+        let ref = api.collectionRef()
+        ref.getDocuments { (snapshot, error) in
+            XCTAssertThrowsError(error)
+        }
+    }
 }
