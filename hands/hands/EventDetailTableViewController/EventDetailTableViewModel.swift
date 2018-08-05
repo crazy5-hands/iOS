@@ -8,19 +8,29 @@
 
 import Foundation
 import Firebase
+import RxSwift
 
 class EventDetailTableViewModel {
     
-    private var event: Event
     private var joiners: [User] = []
     private var author: User?
     private let db = Firestore.firestore()
     private let uid = Auth.auth().currentUser?.uid
-    private var cost: Cost?
     
-    init() {
-        self.event = Event(id: "", author_id: "", title: "", body: "", created_at: NSDate())
+    var event: Event
+    var joins: Observable<[Join]>
+    var cost: Observable<Cost>
+    
+    init(event: Event) {
+        self.event = event
+//        self.event = Event(id: "", author_id: "", title: "", body: "", created_at: NSDate())
         self.author = User(id: "", username: "", note: "", photo: "")
+        
+        self.joins = APIRouter.joins.collectionRef().whereField("event_id", isEqualTo: self.event.id).addSnapshotListener({ (snapshot, error) in
+            if let snapshot = snapshot {
+                
+            }
+        }) as! Observable<[Join]>
     }
     
     func getData(event: Event, complition: @escaping (Bool) -> Void){
@@ -110,5 +120,54 @@ class EventDetailTableViewModel {
                     complition(false)
             }
         })
+    }
+}
+
+extension EventDetailTableViewModel {
+    
+    //Eventとそれに付随する全てのデータの削除をする。
+    private func delete() {
+        let group = DispatchGroup()
+        let eventRouter = APIRouter.events
+        let joinRouter = APIRouter.joins
+        let costRouter = APIRouter.costs
+        
+        //イベントの削除
+        group.enter()
+        eventRouter.collectionRef().document("").delete { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                group.leave()
+            }
+        }
+        //Joinの削除
+        joinRouter.collectionRef().whereField("event_id", isEqualTo: self.event.id).getDocuments { (snapshot, error) in
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    group.enter()
+                    document.reference.delete(completion: { (error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }
+                        group.leave()
+                    })
+                }
+            }
+        }
+        //Costの削除
+        costRouter.collectionRef().whereField("event_id", isEqualTo: self.event.id).getDocuments { (snapshot, error) in
+            if let snapshot = snapshot {
+                for document in snapshot.documents {
+                    group.enter()
+                    document.reference.delete(completion: { (error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }
+                        group.leave()
+                    })
+                }
+            }
+        }
     }
 }
