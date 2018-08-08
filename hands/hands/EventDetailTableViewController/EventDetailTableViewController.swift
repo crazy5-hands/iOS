@@ -17,11 +17,12 @@ class EventDetailTableViewController: UITableViewController {
     private let kSectionJoin = 2
     private let kSectionCost = 3
     private let kSectionDelete = 4
-    private let viewModel = EventDetailTableViewModel()
+    private var viewModel: EventDetailTableViewModel!
     private var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel = EventDetailTableViewModel(event: self.event!)
         self.tableView.estimatedRowHeight = 305
         self.tableView.rowHeight = UITableViewAutomaticDimension
         let eventNib = UINib(nibName: "EventDetailTableViewCell", bundle: nil)
