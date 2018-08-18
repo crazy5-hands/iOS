@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class EventListTableViewController: UITableViewController {
     
     var events: [Event] = []
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,24 @@ class EventListTableViewController: UITableViewController {
         self.tableView.addSubview(refresh)
         self.refreshControl = refresh
         self.loadData()
+        self.setUpTableViewItems()
+    }
+    
+    private func setUpTableViewItems() {
+        let eventListTableViewModel = EventListTableViewModel([.own])
+        
+        //ViewModelのEventの配列をtableViewにbinding
+        eventListTableViewModel.events.bind(to: self.tableView.rx.items) { tableView, row, element in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventTableViewCell
+            cell.updateCell(eventKey: element.id,
+                            title: element.title,
+                            body: element.body,
+                            createAt: element.created_at)
+            return cell
+        }.disposed(by: disposeBag)
+        
+        self.tableView.rx.modelSelected(T.Type)
+            .sub
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,21 +88,6 @@ class EventListTableViewController: UITableViewController {
     
     func endLoading() {
         self.refreshControl?.endRefreshing()
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.events.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "event", for: indexPath) as! EventTableViewCell
-        let event = self.events[indexPath.row]
-        cell.updateCell(eventKey: event.id, title: event.title, body: event.body, createAt: event.created_at)
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

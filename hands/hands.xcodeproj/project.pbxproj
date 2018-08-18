@@ -50,6 +50,7 @@
 		E67536972023FBA800CA2E6A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536962023FBA800CA2E6A /* Bolts.framework */; };
 		E67536992023FBB800CA2E6A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */; };
 		E675369B2023FBC400CA2E6A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */; };
+		E688C5EF2128182F001251CA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E688C5EE2128182F001251CA /* Protocols.swift */; };
 		E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */; };
 		E68EF35020B86F35009933CB /* DeleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */; };
 		E698B1C920C9260300840D66 /* EmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E698B1C820C9260300840D66 /* EmailViewController.storyboard */; };
@@ -199,6 +200,7 @@
 		E67536962023FBA800CA2E6A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		E67536982023FBB800CA2E6A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		E675369A2023FBC400CA2E6A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		E688C5EE2128182F001251CA /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		E68EF34D20B86F35009933CB /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 		E68EF34E20B86F35009933CB /* DeleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteTableViewCell.xib; sourceTree = "<group>"; };
 		E698B1C820C9260300840D66 /* EmailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EmailViewController.storyboard; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E688C5ED21281811001251CA /* Services */,
 				E65E2D2520F3638A00EB134B /* router */,
 				E698B26820DFE31A00840D66 /* Group */,
 				E698B1D120C9340900840D66 /* PasswordViewController */,
@@ -521,6 +524,14 @@
 				E698B22620DD427700840D66 /* Member.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E688C5ED21281811001251CA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E688C5EE2128182F001251CA /* Protocols.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E68EF34C20B86F12009933CB /* DeleteTableViewCell */ = {
@@ -1246,6 +1257,7 @@
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
+				E688C5EF2128182F001251CA /* Protocols.swift in Sources */,
 				E698B22720DD427700840D66 /* Member.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
 				E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */,
