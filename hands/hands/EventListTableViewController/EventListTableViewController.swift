@@ -13,7 +13,9 @@ import RxSwift
 class EventListTableViewController: UITableViewController {
     
     var events: [Event] = []
+    private let viewModel = EventListTableViewModel([.own])
     private let disposeBag = DisposeBag()
+    private let dataSource = EventListTableViewDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +36,10 @@ class EventListTableViewController: UITableViewController {
     }
     
     private func setUpTableViewItems() {
-        let eventListTableViewModel = EventListTableViewModel([.own])
+        
         
         //ViewModelのEventの配列をtableViewにbinding
-        eventListTableViewModel.events.bind(to: self.tableView.rx.items) { tableView, row, element in
+        viewModel.events.bind(to: self.tableView.rx.items) { tableView, row, element in
             let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventTableViewCell
             cell.updateCell(eventKey: element.id,
                             title: element.title,
@@ -45,9 +47,7 @@ class EventListTableViewController: UITableViewController {
                             createAt: element.created_at)
             return cell
         }.disposed(by: disposeBag)
-        
-        self.tableView.rx.modelSelected(T.Type)
-            .sub
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,3 +97,46 @@ class EventListTableViewController: UITableViewController {
         self.navigationController?.pushViewController(eventDetailTVC, animated: true)
     }
 }
+
+
+
+class EventListTableViewDataSource:NSObject, UITableViewDataSource, RxTableViewDataSourceType, SectionedViewDataSourceType {
+    func tableView(_ tableView: UITableView, observedEvent: Event) {
+        self.items = [observedEvent]
+    }
+    
+    
+    typealias Element = [Event]
+    var items: Element = []
+
+    //MARK: UITableViewDataSource
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventTableViewCell
+        let event = self.items[indexPath.row]
+        cell.updateCell(eventKey: event.id, title: event.title, body: event.body, createAt: event.created_at)
+        return cell
+    }
+    
+    // MARK: RxTableViewDataSourceType
+    
+    func tableView(_ tableView: UITableView, observedEvent: Event) {
+        
+    }
+    
+    // MARK: SectionedViewDataSourceType
+    
+    func model(at indexPath: IndexPath) throws -> Any {
+        return self.items[indexPath.row]
+    }
+}
+
+extension EventListTableViewDataSource: UITableViewDelegate {}

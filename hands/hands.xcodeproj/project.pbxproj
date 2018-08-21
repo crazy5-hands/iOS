@@ -39,6 +39,16 @@
 		E649CFA31FF3BE99005DC4BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E649CFA11FF3BE99005DC4BA /* LaunchScreen.storyboard */; };
 		E649CFAE1FF3BE99005DC4BA /* handsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFAD1FF3BE99005DC4BA /* handsTests.swift */; };
 		E649CFB91FF3BE99005DC4BA /* handsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E649CFB81FF3BE99005DC4BA /* handsUITests.swift */; };
+		E65CE201212BEFB9005764BE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE200212BEFB9005764BE /* RootViewController.swift */; };
+		E65CE206212BF1D6005764BE /* SplashWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE205212BF1D6005764BE /* SplashWireframe.swift */; };
+		E65CE20A212BF20C005764BE /* WireframeInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE209212BF20C005764BE /* WireframeInterface.swift */; };
+		E65CE20C212BF231005764BE /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE20B212BF231005764BE /* PresenterInterface.swift */; };
+		E65CE20E212BF26C005764BE /* InteractorOutputInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE20D212BF26C005764BE /* InteractorOutputInterface.swift */; };
+		E65CE210212BF2B0005764BE /* DateManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE20F212BF2B0005764BE /* DateManagerInterface.swift */; };
+		E65CE212212BF2D2005764BE /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE211212BF2D2005764BE /* ViewInterface.swift */; };
+		E65CE214212BF30C005764BE /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE213212BF30C005764BE /* InteractorInterface.swift */; };
+		E65CE216212BF34F005764BE /* APIDateManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE215212BF34F005764BE /* APIDateManagerInterface.swift */; };
+		E65CE218212BF363005764BE /* LocalDateManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65CE217212BF363005764BE /* LocalDateManagerInterface.swift */; };
 		E65E2D2720F363DA00EB134B /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65E2D2620F363DA00EB134B /* APIRouter.swift */; };
 		E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */; };
 		E6674DFF207D25820031B4A0 /* EditUserInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */; };
@@ -189,6 +199,16 @@
 		E649CFB41FF3BE99005DC4BA /* handsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = handsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E649CFB81FF3BE99005DC4BA /* handsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = handsUITests.swift; sourceTree = "<group>"; };
 		E649CFBA1FF3BE99005DC4BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E65CE200212BEFB9005764BE /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E65CE205212BF1D6005764BE /* SplashWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashWireframe.swift; sourceTree = "<group>"; };
+		E65CE209212BF20C005764BE /* WireframeInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeInterface.swift; sourceTree = "<group>"; };
+		E65CE20B212BF231005764BE /* PresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
+		E65CE20D212BF26C005764BE /* InteractorOutputInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorOutputInterface.swift; sourceTree = "<group>"; };
+		E65CE20F212BF2B0005764BE /* DateManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManagerInterface.swift; sourceTree = "<group>"; };
+		E65CE211212BF2D2005764BE /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
+		E65CE213212BF30C005764BE /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
+		E65CE215212BF34F005764BE /* APIDateManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDateManagerInterface.swift; sourceTree = "<group>"; };
+		E65CE217212BF363005764BE /* LocalDateManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDateManagerInterface.swift; sourceTree = "<group>"; };
 		E65E2D2620F363DA00EB134B /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditUserInfoViewController.storyboard; sourceTree = "<group>"; };
@@ -422,6 +442,9 @@
 		E649CF971FF3BE99005DC4BA /* hands */ = {
 			isa = PBXGroup;
 			children = (
+				E65CE207212BF1EC005764BE /* Commons */,
+				E65CE202212BF195005764BE /* Modules */,
+				E65CE1FF212BEF84005764BE /* Application */,
 				E688C5ED21281811001251CA /* Services */,
 				E65E2D2520F3638A00EB134B /* router */,
 				E698B26820DFE31A00840D66 /* Group */,
@@ -450,7 +473,6 @@
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E6674E07207F07380031B4A0 /* Model */,
-				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
 				E6C4F5E620ABEF5600F92358 /* icon-userPhoto.png */,
 				E649CFA41FF3BE99005DC4BA /* Info.plist */,
@@ -489,6 +511,54 @@
 			);
 			name = StoryBoard;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		E65CE1FF212BEF84005764BE /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E649CF981FF3BE99005DC4BA /* AppDelegate.swift */,
+				E65CE200212BEFB9005764BE /* RootViewController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E65CE202212BF195005764BE /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E65CE203212BF19D005764BE /* Splash */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E65CE203212BF19D005764BE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				E65CE205212BF1D6005764BE /* SplashWireframe.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		E65CE207212BF1EC005764BE /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				E65CE208212BF1F6005764BE /* Viper */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		E65CE208212BF1F6005764BE /* Viper */ = {
+			isa = PBXGroup;
+			children = (
+				E65CE209212BF20C005764BE /* WireframeInterface.swift */,
+				E65CE20B212BF231005764BE /* PresenterInterface.swift */,
+				E65CE20D212BF26C005764BE /* InteractorOutputInterface.swift */,
+				E65CE20F212BF2B0005764BE /* DateManagerInterface.swift */,
+				E65CE211212BF2D2005764BE /* ViewInterface.swift */,
+				E65CE213212BF30C005764BE /* InteractorInterface.swift */,
+				E65CE215212BF34F005764BE /* APIDateManagerInterface.swift */,
+				E65CE217212BF363005764BE /* LocalDateManagerInterface.swift */,
+			);
+			path = Viper;
 			sourceTree = "<group>";
 		};
 		E65E2D2520F3638A00EB134B /* router */ = {
@@ -1191,6 +1261,7 @@
 				E6C4F5E920AC9F8900F92358 /* MaterialButton.swift in Sources */,
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
+				E65CE206212BF1D6005764BE /* SplashWireframe.swift in Sources */,
 				E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */,
 				E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */,
 				E6C4F5FD20B2B1C900F92358 /* Cost.swift in Sources */,
@@ -1210,12 +1281,15 @@
 				E648E52920A88E610058DE85 /* JoinUtil.swift in Sources */,
 				E644385120B43E0B00C89D4F /* FollowListTableViewController.swift in Sources */,
 				E698B22A20DD5E3B00840D66 /* UsersTableViewController.swift in Sources */,
+				E65CE218212BF363005764BE /* LocalDateManagerInterface.swift in Sources */,
 				E6A7326420B40A7200CDD5B9 /* AllEventTableViewController.swift in Sources */,
 				E6674E0F207F0C510031B4A0 /* StorageModel.swift in Sources */,
+				E65CE210212BF2B0005764BE /* DateManagerInterface.swift in Sources */,
 				E698B1D320C9342F00840D66 /* PasswordViewController.swift in Sources */,
 				E648E52020A863CE0058DE85 /* EventDetailTableViewController.swift in Sources */,
 				E6C4F60420B2DF7800F92358 /* EditCostViewModel.swift in Sources */,
 				E698B22220DCE4E000840D66 /* Group.swift in Sources */,
+				E65CE20E212BF26C005764BE /* InteractorOutputInterface.swift in Sources */,
 				E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
 				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
@@ -1234,6 +1308,7 @@
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
 				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
 				E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */,
+				E65CE214212BF30C005764BE /* InteractorInterface.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E644385C20B5A1B600C89D4F /* JoinEventListTableViewController.swift in Sources */,
 				E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */,
@@ -1249,6 +1324,7 @@
 				E644385320B446A000C89D4F /* FollowerListTableViewController.swift in Sources */,
 				E6C4F5EF20AD311A00F92358 /* UserDetailTableViewModel.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
+				E65CE20A212BF20C005764BE /* WireframeInterface.swift in Sources */,
 				E698B26720DFDC9400840D66 /* GroupsTableViewController.swift in Sources */,
 				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
 				E6C4F60020B2BB3100F92358 /* EditCostViewController.swift in Sources */,
@@ -1256,12 +1332,16 @@
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
+				E65CE212212BF2D2005764BE /* ViewInterface.swift in Sources */,
+				E65CE201212BEFB9005764BE /* RootViewController.swift in Sources */,
 				E6ADAD4C2099D22000310158 /* UserCollectionViewCell.swift in Sources */,
+				E65CE20C212BF231005764BE /* PresenterInterface.swift in Sources */,
 				E688C5EF2128182F001251CA /* Protocols.swift in Sources */,
 				E698B22720DD427700840D66 /* Member.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
 				E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */,
 				E69FE32F20BFDB3000A45FC6 /* MyCostTableViewController.swift in Sources */,
+				E65CE216212BF34F005764BE /* APIDateManagerInterface.swift in Sources */,
 				E640F65620A0BF5300BC48C6 /* FollowUtil.swift in Sources */,
 				E644385620B59C3300C89D4F /* OwnFollowEventListTableViewController.swift in Sources */,
 				E6ADAD58209ACCE200310158 /* SquareCollectionViewCell.swift in Sources */,
