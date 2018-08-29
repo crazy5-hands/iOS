@@ -12,6 +12,7 @@ enum Storyboard: String {
     
     //Main
     case mainTabBarController = "MainTabBarController"
+    case splashViewController = "SplashViewController"
     
     //login
     case loginViewController = "LoginViewController"
