@@ -129,6 +129,7 @@
 		E6C4F60020B2BB3100F92358 /* EditCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F5FF20B2BB3100F92358 /* EditCostViewController.swift */; };
 		E6C4F60220B2BB7D00F92358 /* EditCostViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C4F60120B2BB7D00F92358 /* EditCostViewController.storyboard */; };
 		E6C4F60420B2DF7800F92358 /* EditCostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4F60320B2DF7800F92358 /* EditCostViewModel.swift */; };
+		E6D901532136F476001734ED /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D901522136F476001734ED /* Storyboard.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
@@ -289,6 +290,7 @@
 		E6C4F5FF20B2BB3100F92358 /* EditCostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCostViewController.swift; sourceTree = "<group>"; };
 		E6C4F60120B2BB7D00F92358 /* EditCostViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditCostViewController.storyboard; sourceTree = "<group>"; };
 		E6C4F60320B2DF7800F92358 /* EditCostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCostViewModel.swift; sourceTree = "<group>"; };
+		E6D901522136F476001734ED /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 		E65CE207212BF1EC005764BE /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				E6D901512136F467001734ED /* Enum */,
 				E65CE208212BF1F6005764BE /* Viper */,
 			);
 			path = Commons;
@@ -926,6 +929,14 @@
 			path = EditCostViewController;
 			sourceTree = "<group>";
 		};
+		E6D901512136F467001734ED /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				E6D901522136F476001734ED /* Storyboard.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -1276,6 +1287,7 @@
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */,
 				E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */,
+				E6D901532136F476001734ED /* Storyboard.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6F02E4220BD30AB00554188 /* PrivacyPolicyViewController.swift in Sources */,
 				E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */,
