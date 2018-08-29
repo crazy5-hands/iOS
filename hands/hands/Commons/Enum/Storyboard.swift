@@ -11,13 +11,13 @@ import Foundation
 enum Storyboard: String {
     
     //Main
-    case MainTabBarController = "MainTabBarController"
+    case mainTabBarController = "MainTabBarController"
     
     //login
-    case LoginViewController = "LoginViewController"
-    case PasswordViewController = "PasswordViewÇontroller"
-    case EmailViewController = "EmailViewController"
-    case MyCostTableViewController = "MyCostTableViewController"
+    case loginViewController = "LoginViewController"
+    case passwordViewController = "PasswordViewÇontroller"
+    case emailViewController = "EmailViewController"
+    case myCostTableViewController = "MyCostTableViewController"
     
     //Info
     case ProfileViewController = "ProfileViewController"
@@ -26,23 +26,23 @@ enum Storyboard: String {
     case EditUserInfoViewController = "EditUserInfoViewController"
     
     //Events
-    case NewEventViewController = "NewEventViewController"
-    case EventDetailViewController = "EventDetailViewController"
-    case AllEventTableViewController = "AllEventTableViewController"
-    case JoinEventListTableViewController = "JoinEventListTableViewController"
-    case OwnEventListTableViewController = "OwnEventListTableViewController"
-    case OwnFollowEventListTableViewController = "OwnFollowEventListTableViewController"
+    case newEventViewController = "NewEventViewController"
+    case eventDetailViewController = "EventDetailViewController"
+    case allEventTableViewController = "AllEventTableViewController"
+    case joinEventListTableViewController = "JoinEventListTableViewController"
+    case ownEventListTableViewController = "OwnEventListTableViewController"
+    case ownFollowEventListTableViewController = "OwnFollowEventListTableViewController"
     
     
     //Cosy
-    case EditCostViewController = "EditCostViewController"
+    case editCostViewController = "EditCostViewController"
     
     //Notification
-    case NotificationViewController = "NotificationViewController"
+    case notificationViewController = "NotificationViewController"
     
     //else..
-    case SearchViewController = "SearchViewController"
-    case ListViewController = "ListViewController"
+    case searchViewController = "SearchViewController"
+    case listViewController = "ListViewController"
     
     //Storyboardより画面を呼び出す時に利用する。
     // ex) return Stortboard.PrivacyPolicyViewController.name

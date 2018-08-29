@@ -37,6 +37,9 @@ extension StoryboardLoadable where Self: UIViewController {
         }
     }
     
+    //ex)
+    // let passwordViewController = PasswordViewController.fromStoryboard()
+    // その他のインスタンスを随時初期化していく。
     static func fromStoryboard() -> Self {
         return self.fromStoryboard(withStoryboardID: storyboardID)
     }
