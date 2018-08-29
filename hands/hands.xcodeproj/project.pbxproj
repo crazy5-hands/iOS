@@ -458,8 +458,6 @@
 				E688C5ED21281811001251CA /* Services */,
 				E65E2D2520F3638A00EB134B /* router */,
 				E698B26820DFE31A00840D66 /* Group */,
-				E698B1D120C9340900840D66 /* PasswordViewController */,
-				E698B1C720C925E900840D66 /* EmailViewController */,
 				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
 				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
@@ -477,7 +475,6 @@
 				E6ADAD1220919C6100310158 /* ProfileTableViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
 				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
-				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E640F60B209ED66C00BC48C6 /* Utility */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
@@ -535,6 +532,7 @@
 		E65CE202212BF195005764BE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E6D9015C21370D8C001734ED /* login */,
 				E65CE203212BF19D005764BE /* Splash */,
 			);
 			path = Modules;
@@ -960,6 +958,16 @@
 				E6D9015A21370D21001734ED /* SplashViewController.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E6D9015C21370D8C001734ED /* login */ = {
+			isa = PBXGroup;
+			children = (
+				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
+				E698B1C720C925E900840D66 /* EmailViewController */,
+				E698B1D120C9340900840D66 /* PasswordViewController */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {

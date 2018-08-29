@@ -18,7 +18,6 @@ enum Storyboard: String {
     case loginViewController = "LoginViewController"
     case passwordViewController = "PasswordViewÇontroller"
     case emailViewController = "EmailViewController"
-    case myCostTableViewController = "MyCostTableViewController"
     
     //Info
     case ProfileViewController = "ProfileViewController"
@@ -37,6 +36,7 @@ enum Storyboard: String {
     
     //Cosy
     case editCostViewController = "EditCostViewController"
+    case myCostTableViewController = "MyCostTableViewController"
     
     //Notification
     case notificationViewController = "NotificationViewController"
