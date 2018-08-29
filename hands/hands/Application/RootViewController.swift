@@ -40,4 +40,8 @@ final class RootViewController: UIViewController {
         
         new.view.frame = self.view.bounds
     }
+    
+    func showMainScreen() {
+        
+    }
 }
