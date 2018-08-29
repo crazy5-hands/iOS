@@ -62,3 +62,10 @@ class PasswordViewController: TextFieldViewController {
         return userDefault.string(forKey: "password")
     }
 }
+
+extension PasswordViewController: StoryboardLoadable {
+    
+    static var storyboardName: String {
+        return Storyboard.passwordViewController.name
+    }
+}
