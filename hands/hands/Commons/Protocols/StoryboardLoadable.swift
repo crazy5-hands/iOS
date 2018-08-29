@@ -17,6 +17,7 @@ protocol StoryboardLoadable: class {
     static func fromStoryboard() -> Self
 }
 
+//親クラスがUIViewControllerの時に適用する
 extension StoryboardLoadable where Self: UIViewController {
     
     static var storyboardName: String {
