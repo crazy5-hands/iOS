@@ -133,6 +133,7 @@
 		E6D901562136F8A0001734ED /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D901552136F8A0001734ED /* StoryboardLoadable.swift */; };
 		E6D9015921370C54001734ED /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9015821370C54001734ED /* SplashViewController.swift */; };
 		E6D9015B21370D21001734ED /* SplashViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9015A21370D21001734ED /* SplashViewController.storyboard */; };
+		E6D901632137D87E001734ED /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D901622137D87E001734ED /* CustomNavigationController.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
@@ -297,6 +298,7 @@
 		E6D901552136F8A0001734ED /* StoryboardLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		E6D9015821370C54001734ED /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E6D9015A21370D21001734ED /* SplashViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashViewController.storyboard; sourceTree = "<group>"; };
+		E6D901622137D87E001734ED /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 		E65CE207212BF1EC005764BE /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				E6D901612137D86A001734ED /* Views */,
 				E6D901542136F885001734ED /* Protocols */,
 				E6D901512136F467001734ED /* Enum */,
 				E65CE208212BF1F6005764BE /* Viper */,
@@ -986,6 +989,14 @@
 			path = Interface;
 			sourceTree = "<group>";
 		};
+		E6D901612137D86A001734ED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E6D901622137D87E001734ED /* CustomNavigationController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -1326,6 +1337,7 @@
 				E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */,
 				E649CF991FF3BE99005DC4BA /* AppDelegate.swift in Sources */,
 				E65CE206212BF1D6005764BE /* SplashWireframe.swift in Sources */,
+				E6D901632137D87E001734ED /* CustomNavigationController.swift in Sources */,
 				E6ADAD4520960A4800310158 /* UserTableViewCell.swift in Sources */,
 				E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */,
 				E6C4F5FD20B2B1C900F92358 /* Cost.swift in Sources */,

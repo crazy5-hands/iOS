@@ -42,6 +42,5 @@ final class RootViewController: UIViewController {
     }
     
     func showMainScreen() {
-        
     }
 }
