@@ -971,7 +971,6 @@
 			isa = PBXGroup;
 			children = (
 				E6D90164213B675B001734ED /* Login */,
-				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
 				E698B1C720C925E900840D66 /* EmailViewController */,
 				E698B1D120C9340900840D66 /* PasswordViewController */,
 			);
@@ -1005,6 +1004,7 @@
 		E6D90164213B675B001734ED /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E6E58024207C9E5E00BB7EDB /* View */,
 				E6D90166213B6774001734ED /* Wireframe */,
 				E6D90165213B676C001734ED /* Interface */,
 			);
@@ -1035,13 +1035,13 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		E6E58024207C9E5E00BB7EDB /* LoginViewController */ = {
+		E6E58024207C9E5E00BB7EDB /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */,
 				E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */,
 			);
-			name = LoginViewController;
+			name = View;
 			path = Login;
 			sourceTree = "<group>";
 		};
