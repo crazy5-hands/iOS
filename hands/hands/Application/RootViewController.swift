@@ -34,6 +34,7 @@ final class RootViewController: UIViewController {
         return self.childViewControllers.last
     }
     
+    //loginされていない時に、ログイン画面を表示する
     func showLoginScreen() {
         let wireframe = LoginWireframe()
         let new = wireframe.configureModule()
@@ -41,6 +42,8 @@ final class RootViewController: UIViewController {
         new.view.frame = self.view.bounds
     }
     
+    /// メインの画面を表示
+    /// Tabbarを表示？
     func showMainScreen() {
     }
 }

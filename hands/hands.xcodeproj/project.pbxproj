@@ -134,6 +134,8 @@
 		E6D9015921370C54001734ED /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9015821370C54001734ED /* SplashViewController.swift */; };
 		E6D9015B21370D21001734ED /* SplashViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9015A21370D21001734ED /* SplashViewController.storyboard */; };
 		E6D901632137D87E001734ED /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D901622137D87E001734ED /* CustomNavigationController.swift */; };
+		E6D90169213B6795001734ED /* LoginWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D90168213B6795001734ED /* LoginWireframe.swift */; };
+		E6D9016B213BBC57001734ED /* LoginInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9016A213BBC57001734ED /* LoginInterfaces.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
@@ -299,6 +301,8 @@
 		E6D9015821370C54001734ED /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E6D9015A21370D21001734ED /* SplashViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashViewController.storyboard; sourceTree = "<group>"; };
 		E6D901622137D87E001734ED /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		E6D90168213B6795001734ED /* LoginWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWireframe.swift; sourceTree = "<group>"; };
+		E6D9016A213BBC57001734ED /* LoginInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInterfaces.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -966,6 +970,7 @@
 		E6D9015C21370D8C001734ED /* login */ = {
 			isa = PBXGroup;
 			children = (
+				E6D90164213B675B001734ED /* Login */,
 				E6E58024207C9E5E00BB7EDB /* LoginViewController */,
 				E698B1C720C925E900840D66 /* EmailViewController */,
 				E698B1D120C9340900840D66 /* PasswordViewController */,
@@ -995,6 +1000,32 @@
 				E6D901622137D87E001734ED /* CustomNavigationController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E6D90164213B675B001734ED /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E6D90166213B6774001734ED /* Wireframe */,
+				E6D90165213B676C001734ED /* Interface */,
+			);
+			name = Login;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		E6D90165213B676C001734ED /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9016A213BBC57001734ED /* LoginInterfaces.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		E6D90166213B6774001734ED /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				E6D90168213B6795001734ED /* LoginWireframe.swift */,
+			);
+			path = Wireframe;
 			sourceTree = "<group>";
 		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
@@ -1408,6 +1439,7 @@
 				E698B26720DFDC9400840D66 /* GroupsTableViewController.swift in Sources */,
 				E648E52620A87E230058DE85 /* EventDetailTableViewCell.swift in Sources */,
 				E6C4F60020B2BB3100F92358 /* EditCostViewController.swift in Sources */,
+				E6D9016B213BBC57001734ED /* LoginInterfaces.swift in Sources */,
 				E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
@@ -1419,6 +1451,7 @@
 				E688C5EF2128182F001251CA /* Protocols.swift in Sources */,
 				E698B22720DD427700840D66 /* Member.swift in Sources */,
 				E6277884208ED3F9008F11BC /* TextFieldViewController.swift in Sources */,
+				E6D90169213B6795001734ED /* LoginWireframe.swift in Sources */,
 				E6ADAD342094285300310158 /* DoneButtonTextField.swift in Sources */,
 				E69FE32F20BFDB3000A45FC6 /* MyCostTableViewController.swift in Sources */,
 				E65CE216212BF34F005764BE /* APIDateManagerInterface.swift in Sources */,
