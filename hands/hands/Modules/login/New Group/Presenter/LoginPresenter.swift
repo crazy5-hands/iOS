@@ -39,13 +39,20 @@ final class LoginPresenter: LoginPresenterInterface {
                 self.interactor.signIn(email: email, password: password) { (signInResult) in
                     switch signInResult {
                     case .success:
-                        self.wireframe.showEditUserInfoScreenAsRoot()
-                    default: break
+                        self.segue()
+                    case .failure(_):
+                        break
                     }
                     result = signInResult
                 }
             case .signUp:
                 self.interactor.signUp(email: email, password: password) { (signUpResult) in
+                    switch signUpResult {
+                    case .success:
+                        self.segue()
+                    case .failure(_):
+                        break
+                    }
                     result = signUpResult
                 }
             default: break
