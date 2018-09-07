@@ -16,6 +16,7 @@ class LoginViewController: TextFieldViewController {
     @IBOutlet private weak var changeStatusSegmentedControl: UISegmentedControl!
     
     private var handle: AuthStateDidChangeListenerHandle?
+    var presenter: LoginPresenterInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,89 +34,44 @@ class LoginViewController: TextFieldViewController {
         self.setUpNotificationForTextField()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     @IBAction func submit(_ sender: Any) {
         //show processing
         let processingView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         processingView.center = self.view.center
         self.view.addSubview(processingView)
         processingView.startAnimating()
-        guard let email = self.emailTextField.text else { return }
-        guard let password = self.passwordTextField.text else { return }
-
-        if self.changeStatusSegmentedControl.selectedSegmentIndex == 0 {
-            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                //remove processing
-                processingView.stopAnimating()
-                self.view.willRemoveSubview(processingView)
-                
-                if let error = error {
-                    print(error.localizedDescription)
-                    switch error.localizedDescription {
-                    case "The password is invalid or the user does not have a password.":
-                        self.showAlert("パスワードが違います。もう一度確認してください。")
-                    case "The email address is badly formatted.":
-                        self.showAlert("メールアドレスの形式が違います。")
-                    default:
-                        self.showAlert("メールアドレスかパスワードが違います。")
-                    }
-                }else {
-                    self.savePassword(password)
-                    self.segueToPrivacyPolicy()
-                }
-            }
-        }else {
-            //create new user
-            Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
-                //remove processing
-                processingView.stopAnimating()
-                self.view.willRemoveSubview(processingView)
-                if let error = error {
-                    if error.localizedDescription == "The email address is already in use by another account." {
-                        self.showAlert("このメールアドレスのアカウントはすでに存在しています。")
-                    }
-                }else {
-                    self.savePassword(password)
-                    self.segueToPrivacyPolicy()
-                }
-            })
+        
+        var status: LoginStatus
+        switch self.changeStatusSegmentedControl.selectedSegmentIndex {
+        case 0:
+            status = .signIn
+        case 1:
+            status = .signUp
+        default:
+            break
         }
+        self.presenter?.loginButtonTapped(email: self.emailTextField.text,
+                                          password: self.passwordTextField.text,
+                                          login: status)
     }
     
     @IBAction func sendPasswordResetWithEmail(_ sender: Any) {
-        guard let email = self.emailTextField.text else { return }
-        if email == "" {
-            self.showAlert("メールアドレスを入力してください。")
-        } else {
-            self.showDialog("パスワードの再設定", "\(email)にパスワード再設定用のメールを送りますか？") {
-                Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
-                    if let error = error {
-                        self.showAlert(error.localizedDescription)
-                    } else {
-                        self.showDialog("送信しました。", "\(email)", complition: nil)
-                    }
-                })
-            }
-        }
-    }
-    
-    private func savePassword(_ password: String) {
-        let userDefault = UserDefaults.standard
-        userDefault.set(password, forKey: "password")
+        self.presenter?.resetPassword(self.emailTextField.text)
     }
 }
 
-extension LoginViewController {
-    
-    fileprivate func segueToPrivacyPolicy() {
-        let storyboard = UIStoryboard(name: "PrivacyPolicyViewController", bundle: nil)
-        let initalViewController = storyboard.instantiateInitialViewController()
-        self.present(initalViewController!, animated: true, completion: nil)
+extension LoginViewController: LoginViewInterface {
+    func showAlert(title: String, message: String) {
+        self.showAlert(title: title, message: message)
     }
-    
-    //segue to editUserInfoViewController
-    fileprivate func segueToEditUserInfo() {
-        let storyboard = UIStoryboard(name: "EditUserInfoViewController", bundle: nil)
-        let initalViewController = storyboard.instantiateInitialViewController()
-        self.present(initalViewController!, animated: true, completion: nil)
+}
+
+extension LoginViewController: StoryboardLoadable {
+    static var storyboardName: String {
+        return Storyboard.loginViewController.name
     }
 }

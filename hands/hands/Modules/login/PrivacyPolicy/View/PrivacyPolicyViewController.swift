@@ -102,3 +102,9 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
         self.present(inital!, animated: true, completion: nil)
     }
 }
+
+extension PrivacyPolicyViewController: StoryboardLoadable {
+    static var storyboardName: String {
+        return Storyboard.PrivacyPolicyViewController.name
+    }
+}

@@ -136,12 +136,22 @@
 		E6D901632137D87E001734ED /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D901622137D87E001734ED /* CustomNavigationController.swift */; };
 		E6D90169213B6795001734ED /* LoginWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D90168213B6795001734ED /* LoginWireframe.swift */; };
 		E6D9016B213BBC57001734ED /* LoginInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9016A213BBC57001734ED /* LoginInterfaces.swift */; };
+		E6D90171213BC19C001734ED /* PrivacyPolicyInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D90170213BC19C001734ED /* PrivacyPolicyInterfaces.swift */; };
+		E6D90176213D7A38001734ED /* UserRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D90175213D7A38001734ED /* UserRegistration.swift */; };
+		E6D90178213D7B11001734ED /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D90177213D7B11001734ED /* Step.swift */; };
+		E6D90180213D7F20001734ED /* PasswordWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9017F213D7F20001734ED /* PasswordWireframe.swift */; };
+		E6D90182213D7F34001734ED /* PasswordInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D90181213D7F34001734ED /* PasswordInterfaces.swift */; };
+		E6D9018621415F9C001734ED /* FirebaseInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9018521415F9C001734ED /* FirebaseInterface.swift */; };
+		E6D901892141697A001734ED /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D901882141697A001734ED /* LoginPresenter.swift */; };
+		E6D9018B21417F9C001734ED /* PrivacyPolicyWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D9018A21417F9C001734ED /* PrivacyPolicyWireframe.swift */; };
 		E6E58007207BF3AA00BB7EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */; };
 		E6E58026207C9E7700BB7EDB /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */; };
 		E6E58028207C9F9E00BB7EDB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */; };
 		E6F02E4220BD30AB00554188 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */; };
 		E6F02E4420BD30C800554188 /* PrivacyPolicyViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */; };
 		E6F02E4620BD375100554188 /* PrivacyPolicyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */; };
+		E6FF801A2141845B00ED6623 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80192141845B00ED6623 /* LoginInteractor.swift */; };
+		E6FF801C21418AC500ED6623 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF801B21418AC500ED6623 /* RequestResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -303,12 +313,22 @@
 		E6D901622137D87E001734ED /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		E6D90168213B6795001734ED /* LoginWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWireframe.swift; sourceTree = "<group>"; };
 		E6D9016A213BBC57001734ED /* LoginInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInterfaces.swift; sourceTree = "<group>"; };
+		E6D90170213BC19C001734ED /* PrivacyPolicyInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyInterfaces.swift; sourceTree = "<group>"; };
+		E6D90175213D7A38001734ED /* UserRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistration.swift; sourceTree = "<group>"; };
+		E6D90177213D7B11001734ED /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		E6D9017F213D7F20001734ED /* PasswordWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordWireframe.swift; sourceTree = "<group>"; };
+		E6D90181213D7F34001734ED /* PasswordInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInterfaces.swift; sourceTree = "<group>"; };
+		E6D9018521415F9C001734ED /* FirebaseInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseInterface.swift; sourceTree = "<group>"; };
+		E6D901882141697A001734ED /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		E6D9018A21417F9C001734ED /* PrivacyPolicyWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyWireframe.swift; sourceTree = "<group>"; };
 		E6E58006207BF3A900BB7EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E6E58025207C9E7700BB7EDB /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		E6E58027207C9F9E00BB7EDB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivacyPolicyViewController.storyboard; sourceTree = "<group>"; };
 		E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewModel.swift; sourceTree = "<group>"; };
+		E6FF80192141845B00ED6623 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		E6FF801B21418AC500ED6623 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -465,7 +485,6 @@
 				E65E2D2520F3638A00EB134B /* router */,
 				E698B26820DFE31A00840D66 /* Group */,
 				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
-				E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
 				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
 				E644385420B59C1A00C89D4F /* OwnFollowEventListTableViewController */,
@@ -538,6 +557,7 @@
 		E65CE202212BF195005764BE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E6D90174213D7A17001734ED /* UserRegistration */,
 				E6D9015C21370D8C001734ED /* login */,
 				E65CE203212BF19D005764BE /* Splash */,
 			);
@@ -557,6 +577,7 @@
 		E65CE207212BF1EC005764BE /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				E6D9018321415F80001734ED /* Firebase */,
 				E6D901612137D86A001734ED /* Views */,
 				E6D901542136F885001734ED /* Protocols */,
 				E6D901512136F467001734ED /* Enum */,
@@ -946,6 +967,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D901522136F476001734ED /* Storyboard.swift */,
+				E6FF801B21418AC500ED6623 /* RequestResult.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -954,6 +976,7 @@
 			isa = PBXGroup;
 			children = (
 				E6D901552136F8A0001734ED /* StoryboardLoadable.swift */,
+				E6D90177213D7B11001734ED /* Step.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -972,6 +995,7 @@
 			children = (
 				E6D90164213B675B001734ED /* Login */,
 				E698B1C720C925E900840D66 /* EmailViewController */,
+				E6D9016C213BC143001734ED /* PrivacyPolicy */,
 				E698B1D120C9340900840D66 /* PasswordViewController */,
 			);
 			path = login;
@@ -1004,6 +1028,8 @@
 		E6D90164213B675B001734ED /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF80182141843100ED6623 /* Interactor */,
+				E6D9018721416969001734ED /* Presenter */,
 				E6E58024207C9E5E00BB7EDB /* View */,
 				E6D90166213B6774001734ED /* Wireframe */,
 				E6D90165213B676C001734ED /* Interface */,
@@ -1028,6 +1054,114 @@
 			path = Wireframe;
 			sourceTree = "<group>";
 		};
+		E6D9016C213BC143001734ED /* PrivacyPolicy */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9016F213BC172001734ED /* Interface */,
+				E6D9016E213BC16B001734ED /* Wireframe */,
+				E6F02E4020BD2FE800554188 /* View */,
+			);
+			path = PrivacyPolicy;
+			sourceTree = "<group>";
+		};
+		E6D9016E213BC16B001734ED /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9018A21417F9C001734ED /* PrivacyPolicyWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		E6D9016F213BC172001734ED /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E6D90170213BC19C001734ED /* PrivacyPolicyInterfaces.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		E6D90174213D7A17001734ED /* UserRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9017C213D7E8F001734ED /* Password */,
+				E6D9017B213D7E8D001734ED /* PrivatePolicy */,
+				E6D9017A213D7E8A001734ED /* Email */,
+				E6D90179213D7E7D001734ED /* EditUserInfo */,
+				E6D90175213D7A38001734ED /* UserRegistration.swift */,
+			);
+			path = UserRegistration;
+			sourceTree = "<group>";
+		};
+		E6D90179213D7E7D001734ED /* EditUserInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EditUserInfo;
+			sourceTree = "<group>";
+		};
+		E6D9017A213D7E8A001734ED /* Email */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Email;
+			sourceTree = "<group>";
+		};
+		E6D9017B213D7E8D001734ED /* PrivatePolicy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PrivatePolicy;
+			sourceTree = "<group>";
+		};
+		E6D9017C213D7E8F001734ED /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9017E213D7EF8001734ED /* Wireframe */,
+				E6D9017D213D7EE7001734ED /* Interfaces */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		E6D9017D213D7EE7001734ED /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				E6D90181213D7F34001734ED /* PasswordInterfaces.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		E6D9017E213D7EF8001734ED /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9017F213D7F20001734ED /* PasswordWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		E6D9018321415F80001734ED /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9018421415F89001734ED /* Interface */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		E6D9018421415F89001734ED /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E6D9018521415F9C001734ED /* FirebaseInterface.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		E6D9018721416969001734ED /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E6D901882141697A001734ED /* LoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		E6E58005207BF24000BB7EDB /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -1045,14 +1179,22 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		E6F02E4020BD2FE800554188 /* PrivacyPolicyViewController */ = {
+		E6F02E4020BD2FE800554188 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E6F02E4120BD30AB00554188 /* PrivacyPolicyViewController.swift */,
 				E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */,
 				E6F02E4320BD30C800554188 /* PrivacyPolicyViewController.storyboard */,
 			);
-			path = PrivacyPolicyViewController;
+			path = View;
+			sourceTree = "<group>";
+		};
+		E6FF80182141843100ED6623 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E6FF80192141845B00ED6623 /* LoginInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1380,9 +1522,12 @@
 				E6ADAD2B209380EA00310158 /* User.swift in Sources */,
 				E640F65420A0877A00BC48C6 /* UserUtil.swift in Sources */,
 				E6A7325A20B3B98500CDD5B9 /* Pay.swift in Sources */,
+				E6D9018621415F9C001734ED /* FirebaseInterface.swift in Sources */,
 				E6D901532136F476001734ED /* Storyboard.swift in Sources */,
+				E6D90182213D7F34001734ED /* PasswordInterfaces.swift in Sources */,
 				E6674DFD207D25640031B4A0 /* EditUserInfoViewController.swift in Sources */,
 				E6F02E4220BD30AB00554188 /* PrivacyPolicyViewController.swift in Sources */,
+				E6FF801A2141845B00ED6623 /* LoginInteractor.swift in Sources */,
 				E6C4F5F320AD556500F92358 /* UserDetailTableViewCell.swift in Sources */,
 				E6F02E4620BD375100554188 /* PrivacyPolicyViewModel.swift in Sources */,
 				E6ADAD302093998200310158 /* NewEventViewController.swift in Sources */,
@@ -1408,6 +1553,7 @@
 				E6ADAD2D209386AB00310158 /* Event.swift in Sources */,
 				E65E2D2720F363DA00EB134B /* APIRouter.swift in Sources */,
 				E6C4F5F820AD76F000F92358 /* FollowCountTableViewCell.swift in Sources */,
+				E6D90171213BC19C001734ED /* PrivacyPolicyInterfaces.swift in Sources */,
 				E69FE32420BEBFAD00A45FC6 /* AppUtil.swift in Sources */,
 				E698B1CB20C9270F00840D66 /* EmailViewController.swift in Sources */,
 				E648E52220A864830058DE85 /* EventDetailTableViewModel.swift in Sources */,
@@ -1416,7 +1562,10 @@
 				E6C4F5ED20AD30DA00F92358 /* UserDetailTableViewController.swift in Sources */,
 				E6ADAD252091A4DC00310158 /* SearchViewController.swift in Sources */,
 				E6ADAD482099C96600310158 /* ProfileViewModel.swift in Sources */,
+				E6D901892141697A001734ED /* LoginPresenter.swift in Sources */,
 				E6ADAD512099E0C400310158 /* LabelCollectionViewCell.swift in Sources */,
+				E6FF801C21418AC500ED6623 /* RequestResult.swift in Sources */,
+				E6D90178213D7B11001734ED /* Step.swift in Sources */,
 				E65CE214212BF30C005764BE /* InteractorInterface.swift in Sources */,
 				E6ADAD362094522F00310158 /* DoneButtonTextView.swift in Sources */,
 				E644385C20B5A1B600C89D4F /* JoinEventListTableViewController.swift in Sources */,
@@ -1429,7 +1578,9 @@
 				E6D901562136F8A0001734ED /* StoryboardLoadable.swift in Sources */,
 				E644385920B5A09400C89D4F /* OwnEventListTableViewController.swift in Sources */,
 				E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */,
+				E6D90176213D7A38001734ED /* UserRegistration.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
+				E6D90180213D7F20001734ED /* PasswordWireframe.swift in Sources */,
 				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E644385320B446A000C89D4F /* FollowerListTableViewController.swift in Sources */,
@@ -1442,6 +1593,7 @@
 				E6D9016B213BBC57001734ED /* LoginInterfaces.swift in Sources */,
 				E69FE32B20BFCA9D00A45FC6 /* CostListTableViewCell.swift in Sources */,
 				E6ADAD5B209AFA9C00310158 /* Follow.swift in Sources */,
+				E6D9018B21417F9C001734ED /* PrivacyPolicyWireframe.swift in Sources */,
 				E640F60D209ED68000BC48C6 /* PhotoUtil.swift in Sources */,
 				E6674E11207F3BB70031B4A0 /* Extension.swift in Sources */,
 				E65CE212212BF2D2005764BE /* ViewInterface.swift in Sources */,

@@ -8,21 +8,38 @@
 
 import UIKit
 
+enum LoginStatus: Int {
+    case signIn
+    case signUp
+    case signOut
+}
+
+/// Router 「画面遷移」と「依存関係」の担当
 protocol LoginWireframeInterface: WireframeInterface {
-    
-    /// Loginの画面を表示
+    func goToNextStep(_ output: User?)
+    func back()
     func configureModule() -> UIViewController
-    
-    /// Loginに成功
-    /// プライバシーポリシーに同意していない場合、
-    /// または、プライバシーポリシーが更新された場合に表示
     func showPrivatePoilicyScreenAsRoot()
-    
-    /// Loginに成功
-    /// ユーザー名、ひとことの設定をしていない場合に遷移
     func showEditUserInfoScreenAsRoot()
-    
-    /// Loginに成功
-    /// メインの画面に遷移
     func showMainScreenAsRoot()
+}
+
+
+/// 画面の更新、Presenterへの通知の担当
+protocol LoginViewInterface: ViewInterface {
+    func showAlert(title: String, message: String)
+}
+
+protocol LoginPresenterInterface: PresenterInterface {
+    func loginButtonTapped(email: String?, password: String?, login status: LoginStatus)
+    func savePassword(_ password: String?)
+    func resetPassword(_ email: String?)
+}
+
+/// データに関わるロジックの担当 Presenterから依頼されたデータを返す
+protocol LoginInteractorInterface: InteractorInterface {
+    func signIn(email: String, password: String, complition: @escaping ((RequestResult) -> Void))
+    func signUp(email: String, password: String, complition: @escaping ((RequestResult) -> Void))
+    func savePassword(_ password: String)
+    func sendEmailToResetPassword(reset email: String)
 }
