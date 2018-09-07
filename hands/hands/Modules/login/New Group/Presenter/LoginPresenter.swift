@@ -19,6 +19,11 @@ final class LoginPresenter: LoginPresenterInterface {
     private let interactor: LoginInteractorInterface
     private let wireframe: LoginWireframeInterface
     
+    private enum NextView {
+        case editUserInfo
+        case privacyPolicy
+    }
+    
     init(view: LoginViewInterface, interactor: LoginInteractorInterface, wireframe: LoginWireframeInterface) {
         self.view = view
         self.interactor = interactor
@@ -32,6 +37,11 @@ final class LoginPresenter: LoginPresenterInterface {
             switch status {
             case .signIn:
                 self.interactor.signIn(email: email, password: password) { (signInResult) in
+                    switch signInResult {
+                    case .success:
+                        self.wireframe.showEditUserInfoScreenAsRoot()
+                    default: break
+                    }
                     result = signInResult
                 }
             case .signUp:
@@ -51,6 +61,7 @@ final class LoginPresenter: LoginPresenterInterface {
     func savePassword(_ password: String?) {
         if let password = password {
             self.interactor.savePassword(password)
+            
         } else {
             self.view?.showAlert(title: "エラー", message: "パスワードを入力してください。")
         }
@@ -64,9 +75,18 @@ final class LoginPresenter: LoginPresenterInterface {
         }
     }
     
-    // privates
-    
-    private func segueToPrivacyPolicy() {
+    private func segue() {
+        var next = NextView.editUserInfo
+        let agreeToPrivacyPolicy = UserDefaults.standard.bool(forKey: "privacyPolicy")
+        if agreeToPrivacyPolicy == false {
+            next = .privacyPolicy
+        }
+        switch next {
+        case .privacyPolicy:
+            self.wireframe.showPrivatePoilicyScreenAsRoot()
+        case .editUserInfo:
+            self.wireframe.showEditUserInfoScreenAsRoot()
+        }
     }
 }
 
