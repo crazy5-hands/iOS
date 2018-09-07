@@ -21,7 +21,6 @@ protocol LoginWireframeInterface: WireframeInterface {
     func configureModule() -> UIViewController
     func showPrivatePoilicyScreenAsRoot()
     func showEditUserInfoScreenAsRoot()
-    func showMainScreenAsRoot()
 }
 
 

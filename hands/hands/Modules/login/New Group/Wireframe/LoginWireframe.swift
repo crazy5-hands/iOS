@@ -38,10 +38,5 @@ final class LoginWireframe: LoginWireframeInterface {
     func showPrivatePoilicyScreenAsRoot() {}
     
     func showEditUserInfoScreenAsRoot() {}
-    
-    func showMainScreenAsRoot() {
-        let root = AppDelegate.shared.rootViewController
-        root.showMainScreen()
-    }
 }
 
