@@ -22,6 +22,7 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     private var agreed = false
     private let activityIndicator = UIActivityIndicatorView()
     var showNextButton = true
+    var presenter: PrivacyPolicyPresenterInterface!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,7 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.presenter.dismissView()
     }
     
     @IBAction func checkedAgree(_ sender: Any) {
@@ -91,15 +92,7 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func next(_ sender: Any) {
-        //segue to next
-        let userDefaults = UserDefaults.standard
-        userDefaults.setValue(self.agreed, forKey: self.keyForPrivacyPolicy)
-        self.segueToEditUserInfo()
-    }
-    
-    private func segueToEditUserInfo() {
-        let inital = UIStoryboard(name: "EditUserInfoViewController", bundle: nil).instantiateInitialViewController()
-        self.present(inital!, animated: true, completion: nil)
+        self.presenter.showNextView(agree: self.agreed)
     }
 }
 

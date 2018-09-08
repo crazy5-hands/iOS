@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 
 final class PrivacyPolicyWireframe: PrivacyPolicyWireframeInterface {
-    
+        
     func configureModule() -> UIViewController {
         let viewController = UIViewController()
         return viewController
     }
     
-    func showMainScreenAsRoot() {
-        
+    func showMainScreenAsRoot() {}
+    
+    func showEditUserInfo() {
+//        let viewController = EditUserInfoViewController.fromStoryboard()
     }
 }

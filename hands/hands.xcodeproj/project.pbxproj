@@ -152,6 +152,8 @@
 		E6F02E4620BD375100554188 /* PrivacyPolicyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */; };
 		E6FF801A2141845B00ED6623 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80192141845B00ED6623 /* LoginInteractor.swift */; };
 		E6FF801C21418AC500ED6623 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF801B21418AC500ED6623 /* RequestResult.swift */; };
+		E6FF801F2142E6F200ED6623 /* PrivacyPolicyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF801E2142E6F200ED6623 /* PrivacyPolicyPresenter.swift */; };
+		E6FF80222142E83300ED6623 /* PrivacyPolicyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +331,8 @@
 		E6F02E4520BD375100554188 /* PrivacyPolicyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewModel.swift; sourceTree = "<group>"; };
 		E6FF80192141845B00ED6623 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		E6FF801B21418AC500ED6623 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
+		E6FF801E2142E6F200ED6623 /* PrivacyPolicyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyPresenter.swift; sourceTree = "<group>"; };
+		E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyInteractor.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1058,6 +1062,8 @@
 			isa = PBXGroup;
 			children = (
 				E6D9016F213BC172001734ED /* Interface */,
+				E6FF80202142E82100ED6623 /* Interactor */,
+				E6FF801D2142E68A00ED6623 /* Presenter */,
 				E6D9016E213BC16B001734ED /* Wireframe */,
 				E6F02E4020BD2FE800554188 /* View */,
 			);
@@ -1193,6 +1199,22 @@
 			isa = PBXGroup;
 			children = (
 				E6FF80192141845B00ED6623 /* LoginInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E6FF801D2142E68A00ED6623 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E6FF801E2142E6F200ED6623 /* PrivacyPolicyPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E6FF80202142E82100ED6623 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1572,6 +1594,7 @@
 				E6D9015921370C54001734ED /* SplashViewController.swift in Sources */,
 				E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */,
 				E698B26D20DFF5DB00840D66 /* NewGroupViewController.swift in Sources */,
+				E6FF801F2142E6F200ED6623 /* PrivacyPolicyPresenter.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */,
@@ -1580,6 +1603,7 @@
 				E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */,
 				E6D90176213D7A38001734ED /* UserRegistration.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
+				E6FF80222142E83300ED6623 /* PrivacyPolicyInteractor.swift in Sources */,
 				E6D90180213D7F20001734ED /* PasswordWireframe.swift in Sources */,
 				E640F650209F28D800BC48C6 /* resize.swift in Sources */,
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,

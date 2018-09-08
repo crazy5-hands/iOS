@@ -11,6 +11,17 @@ import UIKit
 protocol PrivacyPolicyWireframeInterface: WireframeInterface {
     func configureModule() -> UIViewController
     func showMainScreenAsRoot()
+    func showEditUserInfo()
 }
 
+protocol PrivacyPolicyViewInterface: ViewInterface {
+}
 
+protocol PrivacyPolicyPresenterInterface: PresenterInterface {
+    func showNextView(agree: Bool)
+}
+
+protocol PrivacyPolicyInteractorInterface: InteractorInterface {
+    func getAgreement() -> Bool
+    func saveAgreement(_ value: Bool)
+}
