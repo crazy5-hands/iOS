@@ -45,7 +45,7 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
         let userDefaults = UserDefaults.standard
         // check version
 //        let version: String = Bundle.main.appStoreReceiptUR
-        let isAgree = userDefaults.bool(forKey: self.keyForPrivacyPolicy)
+        self.nextButton.isSelected = userDefaults.bool(forKey: self.keyForPrivacyPolicy)
         if isAgree == true {
             self.acceptPrivacyPolicyButton.setImage(#imageLiteral(resourceName: "checkboxChecked"), for: .normal)
             self.nextButton.isEnabled = true
@@ -75,24 +75,21 @@ class PrivacyPolicyViewController: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        self.presenter.dismissView()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func checkedAgree(_ sender: Any) {
-        if self.agreed == false {
-            self.agreed = true
-            self.acceptPrivacyPolicyButton.setImage(#imageLiteral(resourceName: "checkboxChecked"), for: .normal)
-            self.nextButton.isEnabled = true
-        } else {
-            self.agreed = false
+        if self.nextButton.isEnabled {
             self.acceptPrivacyPolicyButton.setImage(#imageLiteral(resourceName: "checkboxEmpty"), for: .normal)
             self.nextButton.isEnabled = false
+        } else {
+            self.acceptPrivacyPolicyButton.setImage(#imageLiteral(resourceName: "checkboxChecked"), for: .normal)
+            self.nextButton.isEnabled = true
         }
-        
     }
     
     @IBAction func next(_ sender: Any) {
-        self.presenter.showNextView(agree: self.agreed)
+        self.presenter.showNextView(agree: self.nextButton.isEnabled)
     }
 }
 

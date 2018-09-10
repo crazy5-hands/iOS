@@ -503,7 +503,6 @@
 				E6ADAD172091A45000310158 /* ListViewController */,
 				E6ADAD1220919C6100310158 /* ProfileTableViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
-				E6674DFB207D25320031B4A0 /* EditUserInfoViewController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
 				E640F60B209ED66C00BC48C6 /* Utility */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
@@ -613,14 +612,14 @@
 			path = router;
 			sourceTree = "<group>";
 		};
-		E6674DFB207D25320031B4A0 /* EditUserInfoViewController */ = {
+		E6674DFB207D25320031B4A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E6674DFC207D25640031B4A0 /* EditUserInfoViewController.swift */,
 				E6674DFE207D25820031B4A0 /* EditUserInfoViewController.storyboard */,
 				E6674E04207E67160031B4A0 /* EditUserInfoViewModel.swift */,
 			);
-			path = EditUserInfoViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E6674E07207F07380031B4A0 /* Model */ = {
@@ -1101,6 +1100,11 @@
 		E6D90179213D7E7D001734ED /* EditUserInfo */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF80262146B34A00ED6623 /* Interfaces */,
+				E6FF80252146B33500ED6623 /* Presenter */,
+				E6FF80242146B32D00ED6623 /* Interactor */,
+				E6FF80232146B32500ED6623 /* Wireframe */,
+				E6674DFB207D25320031B4A0 /* View */,
 			);
 			path = EditUserInfo;
 			sourceTree = "<group>";
@@ -1217,6 +1221,34 @@
 				E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E6FF80232146B32500ED6623 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		E6FF80242146B32D00ED6623 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E6FF80252146B33500ED6623 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E6FF80262146B34A00ED6623 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
