@@ -158,6 +158,7 @@
 		E6FF802A2146B57A00ED6623 /* EditUserInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */; };
 		E6FF802C214FD39800ED6623 /* EditUserInfoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */; };
 		E6FF802E214FE57200ED6623 /* EditUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */; };
+		E6FF8037214FF4E100ED6623 /* EventDetailInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -341,6 +342,7 @@
 		E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoInteractor.swift; sourceTree = "<group>"; };
 		E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoWireframe.swift; sourceTree = "<group>"; };
 		E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoPresenter.swift; sourceTree = "<group>"; };
+		E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInterfaces.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -568,6 +570,7 @@
 		E65CE202212BF195005764BE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF802F214FF46100ED6623 /* Event */,
 				E6D90174213D7A17001734ED /* UserRegistration */,
 				E6D9015C21370D8C001734ED /* login */,
 				E65CE203212BF19D005764BE /* Splash */,
@@ -1247,6 +1250,62 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
+		E6FF802F214FF46100ED6623 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				E6FF8031214FF49200ED6623 /* Detail */,
+				E6FF8030214FF47100ED6623 /* list */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		E6FF8030214FF47100ED6623 /* list */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		E6FF8031214FF49200ED6623 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E6FF8035214FF4B900ED6623 /* Interfaces */,
+				E6FF8034214FF4B400ED6623 /* Presenter */,
+				E6FF8033214FF4AB00ED6623 /* Wireframe */,
+				E6FF8032214FF49B00ED6623 /* Interactor */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		E6FF8032214FF49B00ED6623 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		E6FF8033214FF4AB00ED6623 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		E6FF8034214FF4B400ED6623 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E6FF8035214FF4B900ED6623 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1598,6 +1657,7 @@
 				E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
 				E6FF802A2146B57A00ED6623 /* EditUserInfoInteractor.swift in Sources */,
+				E6FF8037214FF4E100ED6623 /* EventDetailInterfaces.swift in Sources */,
 				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
 				E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */,
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,
