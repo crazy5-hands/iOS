@@ -154,6 +154,8 @@
 		E6FF801C21418AC500ED6623 /* RequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF801B21418AC500ED6623 /* RequestResult.swift */; };
 		E6FF801F2142E6F200ED6623 /* PrivacyPolicyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF801E2142E6F200ED6623 /* PrivacyPolicyPresenter.swift */; };
 		E6FF80222142E83300ED6623 /* PrivacyPolicyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */; };
+		E6FF80282146B41E00ED6623 /* EditUserInfoInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80272146B41E00ED6623 /* EditUserInfoInterfaces.swift */; };
+		E6FF802A2146B57A00ED6623 /* EditUserInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +335,8 @@
 		E6FF801B21418AC500ED6623 /* RequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestResult.swift; sourceTree = "<group>"; };
 		E6FF801E2142E6F200ED6623 /* PrivacyPolicyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyPresenter.swift; sourceTree = "<group>"; };
 		E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyInteractor.swift; sourceTree = "<group>"; };
+		E6FF80272146B41E00ED6623 /* EditUserInfoInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoInterfaces.swift; sourceTree = "<group>"; };
+		E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoInteractor.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1233,6 +1237,7 @@
 		E6FF80242146B32D00ED6623 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1247,6 +1252,7 @@
 		E6FF80262146B34A00ED6623 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF80272146B41E00ED6623 /* EditUserInfoInterfaces.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -1569,6 +1575,7 @@
 				E640F65820A188EB00BC48C6 /* EventUtil.swift in Sources */,
 				E6C4F5FD20B2B1C900F92358 /* Cost.swift in Sources */,
 				E6A7325C20B3BAA300CDD5B9 /* PayUtil.swift in Sources */,
+				E6FF80282146B41E00ED6623 /* EditUserInfoInterfaces.swift in Sources */,
 				E6ADAD1B2091A47300310158 /* ListViewController.swift in Sources */,
 				E6674E05207E67160031B4A0 /* EditUserInfoViewModel.swift in Sources */,
 				E640F602209B416200BC48C6 /* EventListTableViewController.swift in Sources */,
@@ -1600,6 +1607,7 @@
 				E65CE20E212BF26C005764BE /* InteractorOutputInterface.swift in Sources */,
 				E640F65220A048C500BC48C6 /* UserListTableViewModel.swift in Sources */,
 				E6ADAD3B20945AB200310158 /* EventTableViewCell.swift in Sources */,
+				E6FF802A2146B57A00ED6623 /* EditUserInfoInteractor.swift in Sources */,
 				E640F604209B4F5200BC48C6 /* Join.swift in Sources */,
 				E6A7325520B2F8D900CDD5B9 /* CostTableViewCell.swift in Sources */,
 				E6ADAD5E209AFE6C00310158 /* UserListTableViewController.swift in Sources */,

@@ -9,9 +9,11 @@
 import Foundation
 import Firebase
 
-class UserUtil {
+public struct UserUtil {
     
-    func getUser(id: String, completion: @escaping (User?) -> Void) {
+    private init(){}
+    
+    static func getUser(id: String, completion: @escaping (User?) -> Void) {
         let collectionRef = Firestore.firestore().collection("users")
         collectionRef.whereField("id", isEqualTo: id).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
@@ -31,7 +33,7 @@ class UserUtil {
     /// すべてのユーザーを返す
     ///
     /// - Returns: ただし、データが一つしかない場合は取得に失敗している
-    func getAllUsers(complition: ([User]) -> Void) {
+    static func getAllUsers(complition: ([User]) -> Void) {
         var users: [User] = []
         let semaphore = DispatchSemaphore(value: 0)
         let collectionRef = Firestore.firestore().collection("users")
@@ -49,13 +51,13 @@ class UserUtil {
         complition(users)
     }
     
-    func putUser(id: String, user: User, complition: @escaping (Bool) -> Void) {
+    static func putUser(id: String, user: User, complition: ((Bool) -> Void)?) {
         let collectionRef = Firestore.firestore().collection("users")
         collectionRef.document(id).setData(user.dictionary) { (error) in
             if error != nil {
-                complition(false)
+                complition!(false)
             }else {
-                complition(true)
+                complition!(true)
             }
         }
     }
