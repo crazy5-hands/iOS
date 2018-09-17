@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final class EditUserInfoWireframe: EditUSerInfoWireframeInterface {
+final class EditUserInfoWireframe: EditUserInfoWireframeInterface {
 
     func configureModule() -> UIViewController {
         let target = EditUserInfoViewController.fromStoryboard()

@@ -6,18 +6,26 @@
 //  Copyright © 2018年 KoYamaura. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
-protocol EditUSerInfoViewInterface: ViewInterface {
+protocol EditUserInfoViewInterface: ViewInterface {
+    func showLoading()
 }
 
-protocol EditUSerInfoWireframeInterface: WireframeInterface {
+protocol EditUserInfoWireframeInterface: WireframeInterface {
     func configureModule() -> UIViewController
     func segueToMain()
 }
 
 protocol EditUserInfoPresenterInterface: PresenterInterface {
+    typealias Input = (
+        displayName: Driver<String>,
+        note: Driver<String>
+    )
+    var canSubmit: Driver<Bool> { get }
+    func bind(input: Input)
     func updateUser(displyName: String, note: String)
     func setUser()
 }

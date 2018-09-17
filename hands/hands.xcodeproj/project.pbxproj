@@ -157,6 +157,7 @@
 		E6FF80282146B41E00ED6623 /* EditUserInfoInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80272146B41E00ED6623 /* EditUserInfoInterfaces.swift */; };
 		E6FF802A2146B57A00ED6623 /* EditUserInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */; };
 		E6FF802C214FD39800ED6623 /* EditUserInfoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */; };
+		E6FF802E214FE57200ED6623 /* EditUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -339,6 +340,7 @@
 		E6FF80272146B41E00ED6623 /* EditUserInfoInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoInterfaces.swift; sourceTree = "<group>"; };
 		E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoInteractor.swift; sourceTree = "<group>"; };
 		E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoWireframe.swift; sourceTree = "<group>"; };
+		E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoPresenter.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1232,6 +1234,7 @@
 		E6FF80252146B33500ED6623 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1630,6 +1633,7 @@
 				E644385920B5A09400C89D4F /* OwnEventListTableViewController.swift in Sources */,
 				E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */,
 				E6D90176213D7A38001734ED /* UserRegistration.swift in Sources */,
+				E6FF802E214FE57200ED6623 /* EditUserInfoPresenter.swift in Sources */,
 				E640F606209B81CF00BC48C6 /* EventListTableViewModel.swift in Sources */,
 				E6FF80222142E83300ED6623 /* PrivacyPolicyInteractor.swift in Sources */,
 				E6D90180213D7F20001734ED /* PasswordWireframe.swift in Sources */,

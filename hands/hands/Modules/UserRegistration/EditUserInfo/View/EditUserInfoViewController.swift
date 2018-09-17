@@ -23,6 +23,7 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
     private let photoSize = CGSize(width: 100, height: 100)
     private var photoURL: URL?
     var isFromProfile: Bool = false
+    private let presenter: EditUserInfoPresenterInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,6 +163,6 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
 extension EditUserInfoViewController: StoryboardLoadable {
 
     static var storyboardName: String {
-        return Storyboard.EditUserInfoViewController.name
+        return Storyboard.editUserInfoViewController.name
     }
 }
