@@ -1093,8 +1093,6 @@
 			isa = PBXGroup;
 			children = (
 				E6D9017C213D7E8F001734ED /* Password */,
-				E6D9017B213D7E8D001734ED /* PrivatePolicy */,
-				E6D9017A213D7E8A001734ED /* Email */,
 				E6D90179213D7E7D001734ED /* EditUserInfo */,
 				E6D90175213D7A38001734ED /* UserRegistration.swift */,
 			);
@@ -1111,20 +1109,6 @@
 				E6674DFB207D25320031B4A0 /* View */,
 			);
 			path = EditUserInfo;
-			sourceTree = "<group>";
-		};
-		E6D9017A213D7E8A001734ED /* Email */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Email;
-			sourceTree = "<group>";
-		};
-		E6D9017B213D7E8D001734ED /* PrivatePolicy */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PrivatePolicy;
 			sourceTree = "<group>";
 		};
 		E6D9017C213D7E8F001734ED /* Password */ = {
