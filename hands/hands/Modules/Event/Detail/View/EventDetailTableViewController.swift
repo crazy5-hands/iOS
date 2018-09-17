@@ -248,3 +248,10 @@ class EventDetailTableViewController: UITableViewController {
         }
     }
 }
+
+extension EventDetailTableViewController: StoryboardLoadable {
+
+    static var storyboardName: String {
+        return Storyboard.eventDetailViewController.name
+    }
+}

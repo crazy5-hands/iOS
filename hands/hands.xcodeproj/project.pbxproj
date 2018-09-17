@@ -159,6 +159,7 @@
 		E6FF802C214FD39800ED6623 /* EditUserInfoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */; };
 		E6FF802E214FE57200ED6623 /* EditUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */; };
 		E6FF8037214FF4E100ED6623 /* EventDetailInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */; };
+		E6FF8039214FF5C700ED6623 /* EventDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF8038214FF5C700ED6623 /* EventDetailWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +344,7 @@
 		E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoWireframe.swift; sourceTree = "<group>"; };
 		E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoPresenter.swift; sourceTree = "<group>"; };
 		E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInterfaces.swift; sourceTree = "<group>"; };
+		E6FF8038214FF5C700ED6623 /* EventDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailWireframe.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -506,7 +508,6 @@
 				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
 				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
-				E6ADAD3D2095C3F200310158 /* EventDetailTableViewController */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
 				E6ADAD1D2091A49F00310158 /* NotificationViewController */,
 				E6ADAD1C2091A48900310158 /* SearchViewController */,
@@ -842,13 +843,13 @@
 			path = EventTableViewCell;
 			sourceTree = "<group>";
 		};
-		E6ADAD3D2095C3F200310158 /* EventDetailTableViewController */ = {
+		E6ADAD3D2095C3F200310158 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E648E51F20A863CE0058DE85 /* EventDetailTableViewController.swift */,
 				E648E52120A864830058DE85 /* EventDetailTableViewModel.swift */,
 			);
-			path = EventDetailTableViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E6ADAD4220960A0400310158 /* UserTableViewCell */ = {
@@ -1273,6 +1274,7 @@
 				E6FF8034214FF4B400ED6623 /* Presenter */,
 				E6FF8033214FF4AB00ED6623 /* Wireframe */,
 				E6FF8032214FF49B00ED6623 /* Interactor */,
+				E6ADAD3D2095C3F200310158 /* View */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1287,6 +1289,7 @@
 		E6FF8033214FF4AB00ED6623 /* Wireframe */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF8038214FF5C700ED6623 /* EventDetailWireframe.swift */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -1687,6 +1690,7 @@
 				E6FF802C214FD39800ED6623 /* EditUserInfoWireframe.swift in Sources */,
 				E6FF801F2142E6F200ED6623 /* PrivacyPolicyPresenter.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
+				E6FF8039214FF5C700ED6623 /* EventDetailWireframe.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */,
 				E6D901562136F8A0001734ED /* StoryboardLoadable.swift in Sources */,
