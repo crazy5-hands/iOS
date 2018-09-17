@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
 protocol EditUSerInfoViewInterface: ViewInterface {
 }
 
 protocol EditUSerInfoWireframeInterface: WireframeInterface {
+    func configureModule() -> UIViewController
     func segueToMain()
 }
 

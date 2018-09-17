@@ -158,3 +158,10 @@ class EditUserInfoViewController: UIViewController, UIImagePickerControllerDeleg
         return true
     }
 }
+
+extension EditUserInfoViewController: StoryboardLoadable {
+
+    static var storyboardName: String {
+        return Storyboard.EditUserInfoViewController.name
+    }
+}

@@ -156,6 +156,7 @@
 		E6FF80222142E83300ED6623 /* PrivacyPolicyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */; };
 		E6FF80282146B41E00ED6623 /* EditUserInfoInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80272146B41E00ED6623 /* EditUserInfoInterfaces.swift */; };
 		E6FF802A2146B57A00ED6623 /* EditUserInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */; };
+		E6FF802C214FD39800ED6623 /* EditUserInfoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,6 +338,7 @@
 		E6FF80212142E83300ED6623 /* PrivacyPolicyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyInteractor.swift; sourceTree = "<group>"; };
 		E6FF80272146B41E00ED6623 /* EditUserInfoInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoInterfaces.swift; sourceTree = "<group>"; };
 		E6FF80292146B57A00ED6623 /* EditUserInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoInteractor.swift; sourceTree = "<group>"; };
+		E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoWireframe.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1214,6 +1216,7 @@
 		E6FF80232146B32500ED6623 /* Wireframe */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF802B214FD39800ED6623 /* EditUserInfoWireframe.swift */,
 			);
 			path = Wireframe;
 			sourceTree = "<group>";
@@ -1618,6 +1621,7 @@
 				E6D9015921370C54001734ED /* SplashViewController.swift in Sources */,
 				E68EF34F20B86F35009933CB /* DeleteTableViewCell.swift in Sources */,
 				E698B26D20DFF5DB00840D66 /* NewGroupViewController.swift in Sources */,
+				E6FF802C214FD39800ED6623 /* EditUserInfoWireframe.swift in Sources */,
 				E6FF801F2142E6F200ED6623 /* PrivacyPolicyPresenter.swift in Sources */,
 				E6674E0D207F07620031B4A0 /* UserModel.swift in Sources */,
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,

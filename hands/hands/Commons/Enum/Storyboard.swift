@@ -20,10 +20,10 @@ enum Storyboard: String {
     case emailViewController = "EmailViewController"
     
     //Info
-    case ProfileViewController = "ProfileViewController"
-    case PrivacyPolicyViewController = "PrivacyPolicyViewController"
-    case UserDetailTableViewController = "UserDetailTableViewController"
-    case EditUserInfoViewController = "EditUserInfoViewController"
+    case profileViewController = "ProfileViewController"
+    case privacyPolicyViewController = "PrivacyPolicyViewController"
+    case userDetailTableViewController = "UserDetailTableViewController"
+    case editUserInfoViewController = "EditUserInfoViewController"
     
     //Events
     case newEventViewController = "NewEventViewController"
