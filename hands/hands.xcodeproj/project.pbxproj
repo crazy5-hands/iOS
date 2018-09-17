@@ -160,6 +160,8 @@
 		E6FF802E214FE57200ED6623 /* EditUserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */; };
 		E6FF8037214FF4E100ED6623 /* EventDetailInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */; };
 		E6FF8039214FF5C700ED6623 /* EventDetailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF8038214FF5C700ED6623 /* EventDetailWireframe.swift */; };
+		E6FF803B214FF78600ED6623 /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF803A214FF78600ED6623 /* EventDetailInteractor.swift */; };
+		E6FF803D214FF79A00ED6623 /* EventDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6FF803C214FF79A00ED6623 /* EventDetailPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -345,6 +347,8 @@
 		E6FF802D214FE57200ED6623 /* EditUserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoPresenter.swift; sourceTree = "<group>"; };
 		E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInterfaces.swift; sourceTree = "<group>"; };
 		E6FF8038214FF5C700ED6623 /* EventDetailWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailWireframe.swift; sourceTree = "<group>"; };
+		E6FF803A214FF78600ED6623 /* EventDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractor.swift; sourceTree = "<group>"; };
+		E6FF803C214FF79A00ED6623 /* EventDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailPresenter.swift; sourceTree = "<group>"; };
 		FC29090366883EA81E8F9E0B /* Pods-handsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-handsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-handsTests/Pods-handsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1282,6 +1286,7 @@
 		E6FF8032214FF49B00ED6623 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF803A214FF78600ED6623 /* EventDetailInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1297,6 +1302,7 @@
 		E6FF8034214FF4B400ED6623 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF803C214FF79A00ED6623 /* EventDetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1694,6 +1700,7 @@
 				E6ADAD1F2091A4B500310158 /* NotificationViewController.swift in Sources */,
 				E69FE32720BFC82800A45FC6 /* CostTableViewController.swift in Sources */,
 				E6D901562136F8A0001734ED /* StoryboardLoadable.swift in Sources */,
+				E6FF803B214FF78600ED6623 /* EventDetailInteractor.swift in Sources */,
 				E644385920B5A09400C89D4F /* OwnEventListTableViewController.swift in Sources */,
 				E6A7325820B3064E00CDD5B9 /* cardView.swift in Sources */,
 				E6D90176213D7A38001734ED /* UserRegistration.swift in Sources */,
@@ -1705,6 +1712,7 @@
 				E6674E01207D294C0031B4A0 /* FirebaseViewController.swift in Sources */,
 				E644385320B446A000C89D4F /* FollowerListTableViewController.swift in Sources */,
 				E6C4F5EF20AD311A00F92358 /* UserDetailTableViewModel.swift in Sources */,
+				E6FF803D214FF79A00ED6623 /* EventDetailPresenter.swift in Sources */,
 				E640F608209C438500BC48C6 /* DateUtils.swift in Sources */,
 				E65CE20A212BF20C005764BE /* WireframeInterface.swift in Sources */,
 				E698B26720DFDC9400840D66 /* GroupsTableViewController.swift in Sources */,

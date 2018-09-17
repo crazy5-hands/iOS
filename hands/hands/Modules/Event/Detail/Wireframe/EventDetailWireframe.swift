@@ -12,6 +12,7 @@ import UIKit
 final class EventDetailWireframe: EventDetailWireframeInterface {
 
     func configureModule(event: Event) -> UIViewController {
-        return UIViewController()
+        let eventDetail = EventDetailTableViewController.fromStoryboard()
+        return eventDetail
     }
 }

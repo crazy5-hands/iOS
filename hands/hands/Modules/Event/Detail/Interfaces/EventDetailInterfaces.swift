@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-protocol EventDetailViewInterface: ViewInterface {
-}
+protocol EventDetailViewInterface: ViewInterface {}
 protocol EventDetailPresenterInterface: PresenterInterface {}
 protocol EventDetailWireframeInterface: WireframeInterface {}
 protocol EventDetailInteractorInterface: InteractorInterface {}
