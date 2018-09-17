@@ -19,9 +19,11 @@ class EventDetailTableViewController: UITableViewController {
     private let kSectionDelete = 4
     private let viewModel = EventDetailTableViewModel()
     private var activityIndicator: UIActivityIndicatorView!
+    var presenter: EventDetailPresenterInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.presenter?.viewDidLoad()
         self.tableView.estimatedRowHeight = 305
         self.tableView.rowHeight = UITableViewAutomaticDimension
         let eventNib = UINib(nibName: "EventDetailTableViewCell", bundle: nil)
@@ -248,6 +250,8 @@ class EventDetailTableViewController: UITableViewController {
         }
     }
 }
+
+extension EventDetailTableViewController: EventDetailViewInterface {}
 
 extension EventDetailTableViewController: StoryboardLoadable {
 
