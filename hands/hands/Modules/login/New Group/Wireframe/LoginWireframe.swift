@@ -36,7 +36,7 @@ final class LoginWireframe: LoginWireframeInterface {
     }
     
     func showPrivatePoilicyScreenAsRoot() {
-        let wireframe = AppDelegate.shared.root
+//        ここでPrivacyPolicyに遷移
     }
     
     func showEditUserInfoScreenAsRoot() {}

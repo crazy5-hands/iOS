@@ -11,12 +11,12 @@ import Foundation
 final class PrivacypolicyPresenter: PrivacyPolicyPresenterInterface {
     
     private weak var view: PrivacyPolicyViewInterface?
-    private var interactor: PrivacyPolicyInteractorInterface
-    private var wireframe: PrivacyPolicyWireframeInterface
+    private var interactor: PrivacyPolicyInteractorInterface?
+    private var wireframe: PrivacyPolicyWireframeInterface?
     
     func showNextView(agree: Bool) {
-        self.interactor.saveAgreement(agree)
-        self.wireframe.showEditUserInfo()
+        self.interactor?.saveAgreement(agree)s
+        self.wireframe?.showEditUserInfo()
     }
     
     func dismissView() {

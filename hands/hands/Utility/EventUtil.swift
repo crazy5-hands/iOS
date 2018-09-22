@@ -12,9 +12,9 @@ import Firebase
 class EventUtil {
     
     //APIの種類を設定
-    let router = APIRouter.events
+    static let router = APIRouter.events
     
-    func getOwnEvents(authorId: String, complition: @escaping ([Event]) -> Void) {
+    static func getOwnEvents(authorId: String, complition: @escaping ([Event]) -> Void) {
         self.router.collectionRef().whereField("author_id", isEqualTo: authorId).getDocuments { (snapshot, error) in
             var events: [Event] = []
             if let snapshot = snapshot {
@@ -31,7 +31,7 @@ class EventUtil {
         }
     }
     
-    func getEventById(id: String, complition: @escaping (Event?) -> Void) {
+    static func getEventById(id: String, complition: @escaping (Event?) -> Void) {
         var event: Event? = nil
         self.router.collectionRef().whereField("id", isEqualTo: id).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
@@ -45,7 +45,7 @@ class EventUtil {
         }
     }
     
-    func getEventByEventId(eventId: String, complition: @escaping (Event?) -> Void) {
+    static func getEventByEventId(eventId: String, complition: @escaping (Event?) -> Void) {
         self.router.collectionRef().whereField("id", isEqualTo: eventId).getDocuments { (snapshot, error) in
             var event: Event? = nil
             if let snapshot = snapshot {
@@ -57,7 +57,7 @@ class EventUtil {
         }
     }
     
-    func getEventsAll(complition: @escaping ([Event]) -> Void) {
+    static func getEventsAll(complition: @escaping ([Event]) -> Void) {
         self.router.collectionRef().getDocuments { (snapshot, error) in
             var events: [Event] = []
             if let snapshot = snapshot {
@@ -69,7 +69,7 @@ class EventUtil {
         }
     }
     
-    func updateEvent(target: Event, complition: @escaping (Bool) -> Void) {
+    static func updateEvent(target: Event, complition: @escaping (Bool) -> Void) {
         self.router.collectionRef().document(target.id).setData(target.dictionary) { (error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -80,7 +80,7 @@ class EventUtil {
         }
     }
     
-    func delete(target: Event, complition: @escaping (Bool) -> Void) {
+    static func delete(target: Event, complition: @escaping (Bool) -> Void) {
         self.router.collectionRef().document(target.id).delete { (error) in
             if error != nil {
                 complition(false)

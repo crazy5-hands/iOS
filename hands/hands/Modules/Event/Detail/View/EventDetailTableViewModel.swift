@@ -31,7 +31,7 @@ class EventDetailTableViewModel {
         JoinUtil().getJoinerIdByEventId(eventId: event.id, complication: { (joinerIds) in
             for joinerId in joinerIds {
                 group.enter()
-                UserUtil().getUser(id: joinerId, completion: { (joiner) in
+                UserUtil.getUser(id: joinerId, completion: { (joiner) in
                     if let joiner = joiner {
                         self.joiners.append(joiner)
                     }
@@ -42,7 +42,7 @@ class EventDetailTableViewModel {
         })
         
         group.enter()
-        UserUtil().getUser(id: event.author_id, completion: { (user) in
+        UserUtil.getUser(id: event.author_id, completion: { (user) in
             if let user = user {
                 self.author = user
             }
