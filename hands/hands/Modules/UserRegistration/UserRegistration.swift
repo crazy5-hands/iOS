@@ -15,7 +15,7 @@ struct UserRegistrationFlow {
         
     }
     
-    private static func enterPrivacyPolicy(_ navigationController: UINavigationController) -> StepT<Void, > {
+    private static func enterPrivacyPolicy(_ navigationController: UINavigationController) -> StepT<Void> {
         
     }
     

@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 class JoinUtil {
-    func getJoinerIdByEventId(eventId: String, complication:@escaping ([String]) -> Void) {
+    static func getJoinerIdByEventId(eventId: String, complication:@escaping ([String]) -> Void) {
         let db = Firestore.firestore()
         db.collection("joins").whereField("event_id", isEqualTo: eventId).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
@@ -27,7 +27,7 @@ class JoinUtil {
         }
     }
     
-    func createNewJoin(join: Join, complition: @escaping (Bool) -> Void) {
+    static func createNewJoin(join: Join, complition: @escaping (Bool) -> Void) {
         let db = Firestore.firestore()
         db.collection("joins").addDocument(data: join.dictionary) { (error) in
             if error == nil {
@@ -38,7 +38,7 @@ class JoinUtil {
         }
     }
     
-    func getJoinsByUserId(userId: String, complition: @escaping ([Join]) -> Void) {
+    static func getJoinsByUserId(userId: String, complition: @escaping ([Join]) -> Void) {
         let db = Firestore.firestore()
         db.collection("joins").whereField("user_id", isEqualTo: userId).getDocuments { (snapshot, error) in
             var joins: [Join] = []

@@ -11,19 +11,29 @@ import Firebase
 
 final class EventDetailInteractor: EventDetailInteractorInterface {
 
-    private var event: Event?
+    private var event: Event
+    var presenter: EventDetailPresenterInterface?
 
     init(event: Event) {
         self.event = event
     }
 
-    func getData<T>(data: T, dataType: APIRouter) -> Observable<T> {
+
+    func getUser(event: User, dataType: APIRouter) -> Observable<Event> {
         return Observable.create({ (observer) in
-            if let event = self.event {
-                EventUtil.getEventById(id: event.id, complition: { (event) in
-                    
-                })
-            }
+            EventUtil.getEventById(id: event.id, complition: { (event) in
+                if let event = event {
+                    observer.onNext(event)
+                }
+                observer.onCompleted()
+            })
+            return Disposables.create()
+        })
+    }
+
+    func getJoin() -> Observable<Join> {
+        return Observable.create({ (observer) in
+            return Disposables.create()
         })
     }
 }
