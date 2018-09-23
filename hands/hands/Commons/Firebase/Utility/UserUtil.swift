@@ -16,7 +16,7 @@ private enum UserKey: String {
     case note = "note"
     case photo = "photo"
 
-    var name: String {
+    var keyValue: String {
         return self.rawValue
     }
 }
@@ -31,7 +31,7 @@ public class UserUtil: UserUtilityInterface {
     /// - Returns: ObservableなUser
     static func getUser(user id: String) -> Observable<User> {
         return Observable.create({ observer in
-            let keyID = UserKey.id.name
+            let keyID = UserKey.id.keyValue
             self.collectionRef.whereField(keyID, isEqualTo: id).getDocuments(completion: { (snapshot, error) in
                 guard let snapshot = snapshot else {
                     observer.onError(error!)
@@ -69,7 +69,7 @@ public class UserUtil: UserUtilityInterface {
     }
 
     static func getUser(user id: String, completion: @escaping (User?) -> Void) {
-        let keyID = UserKey.id.name
+        let keyID = UserKey.id.keyValue
         self.collectionRef.whereField(keyID, isEqualTo: id).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
                 if snapshot.documents.isEmpty == true {
@@ -84,8 +84,17 @@ public class UserUtil: UserUtilityInterface {
         }
     }
 
-    static func delete() {
+    /// Userデータの削除
+    /// 返り値なし throwにしてもいいかも
+    /// - Parameter user: 消したいUser
+    static func delete(user: User) {
+        self.collectionRef.document(user.id).delete { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
+    
     /// すべてのユーザーを返す
     ///
     /// - Returns: ただし、データが一つしかない場合は取得に失敗している

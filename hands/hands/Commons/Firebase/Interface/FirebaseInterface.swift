@@ -15,7 +15,7 @@ protocol FirebaseUtilityInterface {
 protocol PhotoUtilityInterface: FirebaseUtilityInterface {}
 protocol UserUtilityInterface: FirebaseUtilityInterface {
     static func getUser(user id: String, completion: @escaping (User?) -> Void)
-    static func delete()
+    static func delete(user: User)
 }
 protocol FollowUtilityInterface: FirebaseUtilityInterface {
     func update(target: Follow, complition: @escaping (Bool) -> Void)
