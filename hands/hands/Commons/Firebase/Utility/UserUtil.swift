@@ -21,7 +21,7 @@ private enum UserKey: String {
     }
 }
 
-public struct UserUtil: UserUtilityInterface {
+public class UserUtil: UserUtilityInterface {
 
     static private let collectionRef = Firestore.firestore().collection("users")
 
