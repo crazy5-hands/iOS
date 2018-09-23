@@ -502,7 +502,6 @@
 				E65CE202212BF195005764BE /* Modules */,
 				E65CE1FF212BEF84005764BE /* Application */,
 				E688C5ED21281811001251CA /* Services */,
-				E65E2D2520F3638A00EB134B /* router */,
 				E698B26820DFE31A00840D66 /* Group */,
 				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
@@ -519,7 +518,6 @@
 				E6ADAD1220919C6100310158 /* ProfileTableViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
-				E640F60B209ED66C00BC48C6 /* Utility */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E6674E07207F07380031B4A0 /* Model */,
@@ -1151,7 +1149,9 @@
 		E6D9018321415F80001734ED /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				E65E2D2520F3638A00EB134B /* router */,
 				E6D9018421415F89001734ED /* Interface */,
+				E640F60B209ED66C00BC48C6 /* Utility */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class PhotoUtil {
+class PhotoUtil: PhotoUtilityInterface {
     
     func getPhoto(path: String) -> UIImage? {
         var image: UIImage? = nil
