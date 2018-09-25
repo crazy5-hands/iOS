@@ -80,6 +80,8 @@ class FollowUtil {
         }
     }
 
+    /// ⚠️注意
+    /// いずれgetFollower(followID: String)に置き換える
     func getFollowers(follow_id: String, complition: @escaping ([Follow]) -> Void) {
         var followers: [Follow] = []
         let db = Firestore.firestore().collection("follows")
@@ -94,7 +96,8 @@ class FollowUtil {
     }
     
     
-    
+    /// ⚠️注意
+    /// いずれgetFollow(userID: String)に置き換える
     func getFollows(user_id: String, complition: @escaping ([Follow]) -> Void) {
         var follows: [Follow] = []
         let db = Firestore.firestore().collection("follows")
