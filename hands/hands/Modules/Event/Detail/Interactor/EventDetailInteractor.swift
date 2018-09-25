@@ -19,7 +19,7 @@ final class EventDetailInteractor: EventDetailInteractorInterface {
     }
 
 
-    func getUser(event: User, dataType: APIRouter) -> Observable<Event> {
+    func getEvent(event: User, dataType: APIRouter) -> Observable<Event> {
         return Observable.create({ (observer) in
             EventUtil.getEventById(id: event.id, complition: { (event) in
                 if let event = event {

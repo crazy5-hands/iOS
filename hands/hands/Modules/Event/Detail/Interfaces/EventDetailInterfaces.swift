@@ -8,8 +8,11 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 protocol EventDetailViewInterface: ViewInterface {}
 protocol EventDetailPresenterInterface: PresenterInterface {}
 protocol EventDetailWireframeInterface: WireframeInterface {}
-protocol EventDetailInteractorInterface: InteractorInterface {}
+protocol EventDetailInteractorInterface: InteractorInterface {
+    func getUser() -> Observable<User>
+}

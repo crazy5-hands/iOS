@@ -19,4 +19,8 @@ final class EventDetailPresenter: EventDetailPresenterInterface {
         self.interactor = interactor
         self.wireframe = wireframe
     }
+
+    func bind() {
+        self.interactor
+    }
 }

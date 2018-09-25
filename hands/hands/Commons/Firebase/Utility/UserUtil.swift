@@ -29,7 +29,7 @@ public class UserUtil: UserUtilityInterface {
     /// まだ検証していません😭
     /// - Parameter id: UserID
     /// - Returns: ObservableなUser
-    static func getUser(user id: String) -> Observable<User> {
+    static func getUser(id: String) -> Observable<User> {
         return Observable.create({ observer in
             let keyID = UserKey.id.keyValue
             self.collectionRef.whereField(keyID, isEqualTo: id).getDocuments(completion: { (snapshot, error) in
@@ -68,7 +68,7 @@ public class UserUtil: UserUtilityInterface {
         })
     }
 
-    static func getUser(user id: String, completion: @escaping (User?) -> Void) {
+    static func getUser(id: String, completion: @escaping (User?) -> Void) {
         let keyID = UserKey.id.keyValue
         self.collectionRef.whereField(keyID, isEqualTo: id).getDocuments { (snapshot, error) in
             if let snapshot = snapshot {
@@ -94,7 +94,7 @@ public class UserUtil: UserUtilityInterface {
             }
         }
     }
-    
+
     /// すべてのユーザーを返す
     ///
     /// - Returns: ただし、データが一つしかない場合は取得に失敗している
