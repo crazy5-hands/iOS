@@ -23,7 +23,7 @@ private enum FollowKey: String {
 
 class FollowUtil {
 
-    static let collectionRef = APIRouter.follows.collectionRef()
+    static private let collectionRef = APIRouter.follows.collectionRef()
 
     static func update(target: Follow, comlition: @escaping (Bool) -> Void) {
         self.collectionRef.document(target.id).setData(target.dictionary) { (error) in
