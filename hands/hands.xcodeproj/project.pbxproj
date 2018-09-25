@@ -501,14 +501,10 @@
 				E65CE207212BF1EC005764BE /* Commons */,
 				E65CE202212BF195005764BE /* Modules */,
 				E65CE1FF212BEF84005764BE /* Application */,
-				E688C5ED21281811001251CA /* Services */,
-				E698B26820DFE31A00840D66 /* Group */,
-				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
 				E644385A20B5A19F00C89D4F /* JoinEventListTableViewController */,
 				E644385720B5A07900C89D4F /* OwnEventListTableViewController */,
 				E644385420B59C1A00C89D4F /* OwnFollowEventListTableViewController */,
 				E6A7326220B40A4000CDD5B9 /* AllEventTableViewController */,
-				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
 				E6C4F5EB20AD307200F92358 /* UserDetailTableViewController */,
 				E640F600209B414700BC48C6 /* EventListTableViewController */,
 				E6ADAD2E2093996200310158 /* NewEventViewController */,
@@ -572,6 +568,8 @@
 		E65CE202212BF195005764BE /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E6FF803E215A7FCD00ED6623 /* Cost */,
+				E698B26820DFE31A00840D66 /* Group */,
 				E6FF802F214FF46100ED6623 /* Event */,
 				E6D90174213D7A17001734ED /* UserRegistration */,
 				E6D9015C21370D8C001734ED /* login */,
@@ -598,6 +596,7 @@
 				E6D901542136F885001734ED /* Protocols */,
 				E6D901512136F467001734ED /* Enum */,
 				E65CE208212BF1F6005764BE /* Viper */,
+				E688C5ED21281811001251CA /* Services */,
 				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 			);
 			path = Commons;
@@ -1313,6 +1312,15 @@
 				E6FF8036214FF4E100ED6623 /* EventDetailInterfaces.swift */,
 			);
 			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		E6FF803E215A7FCD00ED6623 /* Cost */ = {
+			isa = PBXGroup;
+			children = (
+				E6C4F5FE20B2BA0100F92358 /* EditCostViewController */,
+				E69FE32D20BFDB1600A45FC6 /* MyCostTableViewController */,
+			);
+			path = Cost;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
