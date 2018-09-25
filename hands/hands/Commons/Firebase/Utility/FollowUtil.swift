@@ -8,12 +8,25 @@
 
 import Foundation
 import Firebase
+import RxSwift
+
+private enum FollowKey: String {
+    case id = "id"
+    case updateAt = "update_at"
+    case userID = "user_id"
+    case followID = "follow_id"
+
+    var keyValue: String {
+        return self.rawValue
+    }
+}
 
 class FollowUtil {
-    
-    func update(target: Follow, comlition: @escaping (Bool) -> Void) {
-        let db = Firestore.firestore()
-        db.collection("follows").document(target.id).setData(target.dictionary) { (error) in
+
+    static let collectionRef = APIRouter.follows.collectionRef()
+
+    static func update(target: Follow, comlition: @escaping (Bool) -> Void) {
+        self.collectionRef.document(target.id).setData(target.dictionary) { (error) in
             if let error = error {
                 print(error.localizedDescription)
                 comlition(false)
@@ -22,7 +35,51 @@ class FollowUtil {
             }
         }
     }
-    
+
+    /// Followしている人たちの配列を返す
+    /// 検証してません😭
+    /// - Parameter userID: フォローする側のユーザーID
+    /// - Returns: Followの配列
+    static func getFollow(userID: String) -> Observable<[Follow]> {
+        let key = FollowKey.userID.keyValue
+        return Observable.create { observer in
+            self.collectionRef.whereField(key, isEqualTo: userID).getDocuments(completion: { (snapshot, error) in
+                if let snapshot = snapshot {
+                    var follows: [Follow] = []
+                    for document in snapshot.documents {
+                        guard let new = Follow(dictionary: document.data()) else { return }
+                        follows.append(new)
+                    }
+                    observer.onNext(follows)
+                    observer.onCompleted()
+                }
+            })
+            return Disposables.create()
+        }
+    }
+
+    /// フォロワーの人たちの配列を返す
+    /// 検証していません😭
+    /// - Parameter followID: フォロワーのフォロー先のユーザーID
+    /// - Returns: Followの配列
+    static func getFollower(followID: String) -> Observable<[Follow]> {
+        let key = FollowKey.followID.keyValue
+        return Observable.create { observer in
+            self.collectionRef.whereField(key, isEqualTo: followID).getDocuments(completion: { (snapshot, error) in
+                if let snapshot = snapshot {
+                    var follows: [Follow] = []
+                    for document in snapshot.documents {
+                        guard let new = Follow(dictionary: document.data()) else { return }
+                        follows.append(new)
+                    }
+                    observer.onNext(follows)
+                    observer.onCompleted()
+                }
+            })
+            return Disposables.create()
+        }
+    }
+
     func getFollowers(follow_id: String, complition: @escaping ([Follow]) -> Void) {
         var followers: [Follow] = []
         let db = Firestore.firestore().collection("follows")
