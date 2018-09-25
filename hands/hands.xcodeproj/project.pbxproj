@@ -518,7 +518,6 @@
 				E6ADAD1220919C6100310158 /* ProfileTableViewController */,
 				E6ADAD112091999600310158 /* MainTabBarController */,
 				E619E6292014DE0500A30592 /* hands.entitlements */,
-				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 				E649CFDC1FFA64CB005DC4BA /* StoryBoard */,
 				E6674E07207F07380031B4A0 /* Model */,
 				E649CF9F1FF3BE99005DC4BA /* Assets.xcassets */,
@@ -599,6 +598,7 @@
 				E6D901542136F885001734ED /* Protocols */,
 				E6D901512136F467001734ED /* Enum */,
 				E65CE208212BF1F6005764BE /* Viper */,
+				E6C3F0CE20902BCB00D8BF05 /* CustomClasses */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
